@@ -130,3 +130,11 @@ dmypy.json
 
 # Folders
 project/data/
+
+.vscode/
+
+# Other
+.png
+.jpeg
+.gif
+.lyx~
