@@ -29,7 +29,8 @@ import pandas as pd
 def fx_gain_load(fx_pair, year, month):
     """Loads the forex data.
 
-    :param fx_pair: string of the forex pair to be loaded (i.e. 'eur_usd').
+    :param fx_pair: string of the abbreviation of the forex pair to be analized
+     (i.e. 'eur_usd').
     :param year: string of the year to be analized (i.e. '2016').
     :param month: string of the month to be analized (i.e. '01').
     :return: pandas dataframe -- The function returns a pandas dataframe with
