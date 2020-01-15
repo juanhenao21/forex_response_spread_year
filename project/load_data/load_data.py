@@ -36,12 +36,24 @@ def fx_gain_load(fx_pair, year, month):
      the data.
     """
 
-    fx_files_ = sorted(os.listdir('../data/eur_usd_2016_01/'))
+    fx_files_ = sorted(os.listdir(f'../data/eur_usd_{year}_{month}/'))
     fx_files = list(map(lambda each:each.strip('.zip'), fx_files_))
+    fx_pair_upper = fx_pair.upper()
 
-    fx_data = pd.read_csv('../data/eur_usd_2016_01/EUR_USD_Week1.zip')
+    fx_data = pd.read_csv(f'../data/{fx_pair}_{year}_{month}/{fx_pair_upper}_Week1.zip')
+
+    for m_num in range(1,13):
+        for w_num in range(2,6):
+
+            try:
+                fx_data = fx_data.append(pd.read_csv(f'../data/{fx_pair}_{year}_{month}/{fx_pair_upper}_Week{w_num}.zip'))
+            except FileNotFoundError as e:
+                print('No data')
+                print(e)
+                print()
+
     fx_data.index = pd.to_datetime(fx_data['RateDateTime'])
-    print(fx_data.head())
+
     return fx_data
 
 # -----------------------------------------------------------------------------
@@ -58,12 +70,11 @@ def fx_gain_plot(fx_data):
     figure = plt.figure(figsize=(16,9))
     plt.plot(fx_data['RateBid'])
     plt.plot(fx_data['RateAsk'])
-    # plt.plot(fx_data['RateDateTime'], fx_data['RateBid'])
-    # plt.plot(fx_data['RateDateTime'], fx_data['RateAsk'])
     plt.grid(True)
     plt.show()
 
     return None
+
 # -----------------------------------------------------------------------------
 
 

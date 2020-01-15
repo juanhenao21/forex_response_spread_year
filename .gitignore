@@ -129,7 +129,8 @@ dmypy.json
 .pyre/
 
 # Folders
-project/data/
+project/gain_data/
+project/gain_plot/
 
 .vscode/
 
