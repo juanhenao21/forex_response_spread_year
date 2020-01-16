@@ -1,17 +1,18 @@
-'''ITCH data main module.
+'''Gain data main module.
 
-The functions in the module extract and plot of the ITCH data.
+The functions in the module extract and plot the Historic Rate data from GAIN
+Capital in a year.
 
 This script requires the following modules:
     * itertools.product
     * multiprocessing
-    * itch_data_analysis_data_extraction
-    * itch_data_plot_data_extraction
-    * itch_data_tools_data_extraction
+    * gain_data_analysis_data_extraction
+    * gain_data_plot_data_extraction
+    * gain_data_tools_data_extraction
 
 The module contains the following functions:
-    * itch_data_plot_generator - generates all the analysis and plots from the
-      ITCH data.
+    * gain_data_plot_generator - generates all the analysis and plots from the
+      GAIN data.
     * main - the main function of the script.
 
 .. moduleauthor:: Juan Camilo Henao Londono <www.github.com/juanhenao21>
@@ -23,20 +24,19 @@ The module contains the following functions:
 from itertools import product as iprod
 import multiprocessing as mp
 
-import itch_data_analysis_data_extraction
-import itch_data_plot_data_extraction
-import itch_data_tools_data_extraction
+import gain_data_analysis_data_extraction
+import gain_data_plot_data_extraction
+import gain_data_tools_data_extraction
 
 # -----------------------------------------------------------------------------
 
 
-def itch_data_plot_generator(tickers, dates):
-    """Generates all the analysis and plots from the ITCH data.
+def gain_data_plot_generator(fx_pairs, year):
+    """Generates all the analysis and plots from the GAIN data.
 
-    :param tickers: list of the string abbreviation of the stocks to be
-     analized (i.e. ['AAPL', 'MSFT']).
-    :param dates: list of strings with the date of the data to be extracted
-     (i.e. ['2008-01-02', '2008-01-03]).
+    :param fx_pairs: list of the string abbreviation of the forex pairs to be
+     analized (i.e. ['eur_usd', 'gbp_usd']).
+    :param year: string of the year to be analized (i.e. '2016').
     :return: None -- The function saves the data in a file and does not return
      a value.
     """
@@ -45,17 +45,20 @@ def itch_data_plot_generator(tickers, dates):
     with mp.Pool(processes=mp.cpu_count()) as pool:
 
         # Basic functions
-        pool.starmap(itch_data_analysis_data_extraction
-                     .itch_midpoint_second_data,
-                     iprod(tickers, dates))
-        pool.starmap(itch_data_analysis_data_extraction
-                     .itch_trade_signs_second_data,
-                     iprod(tickers, dates))
+        pool.starmap(gain_data_analysis_data_extraction
+                     .gain_fx_year_extract_data,
+                     iprod(fx_pairs, [year]))
 
         # Plot
-        pool.starmap(itch_data_plot_data_extraction
-                     .itch_midpoint_second_plot,
-                     iprod(tickers, [dates]))
+        pool.starmap(gain_data_plot_data_extraction
+                     .gain_fx_quotes_year_plot,
+                     iprod(fx_pairs, [year]))
+        pool.starmap(gain_data_plot_data_extraction
+                     .gain_fx_midpoint_year_plot,
+                     iprod(fx_pairs, [year]))
+        pool.starmap(gain_data_plot_data_extraction
+                     .gain_fx_spread_year_plot,
+                     iprod(fx_pairs, [year]))
 
     return None
 
@@ -71,15 +74,11 @@ def main():
     """
 
     # Tickers and days to analyze
-    tickers = ['AAPL']
-    dates_2008 = ['2008-01-07', '2008-01-08', '2008-01-09', '2008-01-10',
-                  '2008-01-11']
-    dates_2016 = ['2016-03-07', '2016-03-08', '2016-03-09', '2016-03-10',
-                  '2016-03-11']
+    fx_pairs = ['eur_usd']
+    year = '2016'
 
     # Run analysis
-    itch_data_plot_generator(tickers, dates_2008)
-    itch_data_plot_generator(tickers, dates_2016)
+    gain_data_plot_generator(fx_pairs, year)
 
     print('Ay vamos!!')
 

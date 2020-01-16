@@ -1,95 +1,82 @@
-'''Load and test data script
+'''GAIN data analysis module.
 
-The functions in the script load and plot the Historic Rate Data from GAIN
-Capital for january 2016.
+The functions in the module extract the bid and ask from the Historic Rate Data
+from GAIN Capital in a year.
 
-This script requires the following modules
+This script requires the following modules:
     * numpy
     * pandas
-    * 
 
-The script contains the following functions
-    * fx_gain_load - loads the data of the month.
-    * fx_gain_plot - plots the data of the month.
+The module contains the following functions:
+    * fx_gain_year_extract_data - extracts the bid and ask for a year.
 
 ..moduleauthor:: Juan Camilo Henao Londono <www.github.com/juanhenao21>
 '''
 # -----------------------------------------------------------------------------
 # Modules
 
-from matplotlib import pyplot as plt
 import numpy as np
-import os
 import pandas as pd
+
+import gain_data_tools_data_extraction
 
 
 # -----------------------------------------------------------------------------
 
 
-def fx_gain_load(fx_pair, year, month):
-    """Loads the forex data.
+def gain_fx_year_extract_data(fx_pair, year):
+    """Extracts the bid and ask for a year.
 
     :param fx_pair: string of the abbreviation of the forex pair to be analized
      (i.e. 'eur_usd').
     :param year: string of the year to be analized (i.e. '2016').
-    :param month: string of the month to be analized (i.e. '01').
     :return: pandas dataframe -- The function returns a pandas dataframe with
      the data.
     """
 
-    fx_files_ = sorted(os.listdir(f'../data/eur_usd_{year}_{month}/'))
-    fx_files = list(map(lambda each:each.strip('.zip'), fx_files_))
-    fx_pair_upper = fx_pair.upper()
+    function_name = gain_fx_year_extract_data.__name__
+    gain_data_tools_data_extraction \
+        .gain_function_header_print_data(function_name, fx_pair, year, '')
 
-    fx_data = pd.read_csv(f'../data/{fx_pair}_{year}_{month}/{fx_pair_upper}_Week1.zip')
+    fx_data_col = ['lTid', 'cDealable', 'CurrencyPair', 'RateDateTime',
+                   'RateBid', 'RateAsk']
+    fx_data = pd.DataFrame(columns=fx_data_col)
 
     for m_num in range(1,13):
-        for w_num in range(2,6):
+
+        if (m_num < 10):
+            m_num = f'0{m_num}'
+
+        for w_num in range(1,6):
 
             try:
-                fx_data = fx_data.append(pd.read_csv(f'../data/{fx_pair}_{year}_{month}/{fx_pair_upper}_Week{w_num}.zip'))
+                fx_data = fx_data.append(pd.read_csv(
+                    f'../../gain_data/original_data_{year}/{fx_pair}_{year}/'
+                    + f'{fx_pair}_{year}{m_num}_w{w_num}.zip'))
+
             except FileNotFoundError as e:
                 print('No data')
                 print(e)
                 print()
 
-    fx_data.index = pd.to_datetime(fx_data['RateDateTime'])
+    # fx_data.index = pd.to_datetime(fx_data['RateDateTime'])
+
+    # Saving data
+    gain_data_tools_data_extraction \
+        .gain_save_data(function_name, fx_data, fx_pair, year, '')
 
     return fx_data
 
 # -----------------------------------------------------------------------------
 
 
-def fx_gain_plot(fx_data):
-    """Plot the forex data.
+def main():
 
-    :param fx_data: pandas dataframe with the forex data for a forex pair.
-    :return: None -- The function save the plot in a file and does not return
-     a value.
-    """
-
-    figure = plt.figure(figsize=(16,9))
-    plt.plot(fx_data['RateBid'])
-    plt.plot(fx_data['RateAsk'])
-    plt.grid(True)
-    plt.show()
+    pass
 
     return None
 
 # -----------------------------------------------------------------------------
-
-
-def main():
-
-    fx_pair = 'eur_usd'
-    year = '2016'
-    month = '01'
-
-    fx_data = fx_gain_load(fx_pair, year, month)
-    fx_gain_plot(fx_data)
-
-# -----------------------------------------------------------------------------
-
 
 
 if __name__ == "__main__":

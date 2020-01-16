@@ -59,8 +59,8 @@ def gain_save_data(function_name, data, fx_pair, year, month):
             print('Folder exists. The folder was not created')
 
     pickle.dump(data, open(f'../../gain_data/data_extraction_{year}'
-                + f'/{function_name}/{function_name}_{year}{month}{day}'
-                + f'_{ticker_i}.pickle', 'wb'))
+                + f'/{function_name}/{function_name}_{year}_{fx_pair}.pickle',
+                'wb'))
 
     print('Data Saved')
     print()
@@ -126,9 +126,10 @@ def gain_function_header_print_data(function_name, fx_pair, year, month):
     print('GAIN data')
     print(function_name)
 
-    fx_pair_upper = fx_pair[:3] + '/' + fx_pair[4:]
+    fx_pair_upper = fx_pair[:3].upper() + '/' + fx_pair[4:].upper()
     print(f'Processing data for the forex pair {fx_pair_upper} the '
           + f'{year}.{month}')
+    print()
 
     return None
 
@@ -151,9 +152,10 @@ def gain_function_header_print_plot(function_name, fx_pair, year, month):
     print('GAIN data')
     print(function_name)
 
-    fx_pair_upper = fx_pair[:3] + '/' + fx_pair[4:]
+    fx_pair_upper = fx_pair[:3].upper() + '/' + fx_pair[4:].upper()
     print(f'Processing plot for the forex pair {fx_pair_upper} the '
-          + f'{year}.{month}.{day}')
+          + f'{year}.{month}')
+    print()
 
     return None
 

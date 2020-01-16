@@ -1,16 +1,17 @@
-'''ITCH data plot module.
+'''GAIN data plot module.
 
 The functions in the module plot the data obtained in the
-itch_data_analysis_data_extraction module.
+gain_data_analysis_data_extraction module.
 
 This script requires the following modules:
     * matplotlib
     * pickle
-    * itch_data_tools_data_extract
+    * gain_data_tools_data_extract
 
 The module contains the following functions:
-    * itch_midpoint_second_plot - plots the midpoint price in second scale for
-     a day.
+    * gain_fx_quotes_year_plot - plots the forex quotes for a year.
+    * gain_fx_midpoint_year_plot - plots the forex quotes for a year.
+    * gain_fx_spread_year_plot - plots the forex quotes for a year.
     * main - the main function of the script.
 
 .. moduleauthor:: Juan Camilo Henao Londono <www.github.com/juanhenao21>
@@ -22,59 +23,49 @@ The module contains the following functions:
 from matplotlib import pyplot as plt
 import pickle
 
-import itch_data_tools_data_extraction
+import gain_data_tools_data_extraction
 
 # ----------------------------------------------------------------------------
 
 
-def itch_midpoint_second_plot(ticker, dates):
-    """Plots the midpoint price in second scale for a day.
+def gain_fx_quotes_year_plot(fx_pair, year):
+    """Plots the quotes price for a year.
 
-    :param ticker: string of the abbreviation of the stock to be analized
-     (i.e. 'AAPL').
-    :param dates: list of strings with the date of the data to be extracted
-     (i.e. ['2008-01-02', '2008-01-03]).
+    :param fx_pair: string of the abbreviation of the forex pair to be analized
+     (i.e. 'eur_usd').
+    :param year: string of the year to be analized (i.e. '2016').
     :return: None -- The function saves the plot in a file and does not return
      a value.
     """
 
-    year_ = dates[0].split('-')[0]
-
     try:
-        function_name = itch_midpoint_second_plot.__name__
-        itch_data_tools_data_extraction \
-            .itch_function_header_print_plot(function_name, ticker, ticker,
-                                             year_, '', '')
+        function_name = gain_fx_quotes_year_plot.__name__
+        gain_data_tools_data_extraction \
+            .gain_function_header_print_plot(function_name, fx_pair, year, '')
+        fx_pair_upper = fx_pair[:3] + '/' + fx_pair[4:]
 
         figure = plt.figure(figsize=(16, 9))
 
-        for date in dates:
+        # Load data
+        fx_data = pickle.load(open(
+                        f'../../gain_data/data_extraction_{year}/gain_fx_year'
+                        + f'_extract_data/gain_fx_year_extract_data_{year}'
+                        + f'_{fx_pair}.pickle', 'rb'))
 
-            date_sep = date.split('-')
-            year = date_sep[0]
-            month = date_sep[1]
-            day = date_sep[2]
-
-            # Load data
-            time, midpoint = pickle.load(open(
-                            f'../../itch_data/data_extraction_{year}/itch_'
-                            + f'midpoint_second_data/itch_midpoint_second_data'
-                            + f'_{year}{month}{day}_{ticker}.pickle', 'rb'))
-
-            plt.plot(time, midpoint, linewidth=5, label=f'{date}')
-            plt.legend(loc='best', fontsize=25)
-            plt.title(f'ITCH Midpoint price - {ticker}', fontsize=40)
-            plt.xlabel(r'Time $[s]$', fontsize=35)
-            plt.ylabel(r'$m(t)$', fontsize=35)
-            plt.xticks(fontsize=25)
-            plt.yticks(fontsize=25)
-
+        plt.plot(fx_data['Bid'], linewidth=5, label='Bid')
+        plt.plot(fx_data['Ask'], linewidth=5, label='Ask')
+        plt.legend(loc='best', fontsize=25)
+        plt.title(f'GAIN quotes price - {fx_pair_upper}', fontsize=40)
+        plt.xlabel(r'Time $[s]$', fontsize=35)
+        plt.ylabel(r'Quotes $\$$', fontsize=35)
+        plt.xticks(fontsize=25)
+        plt.yticks(fontsize=25)
         plt.grid(True)
         plt.tight_layout()
 
         # Plotting
-        itch_data_tools_data_extraction \
-            .itch_save_plot(function_name, figure, ticker, ticker, year, '')
+        gain_data_tools_data_extraction \
+            .gain_save_plot(function_name, figure, fx_pair, ticker, year, '')
 
         return None
 
@@ -83,6 +74,105 @@ def itch_midpoint_second_plot(ticker, dates):
         print(e)
         print()
         return None
+
+# ----------------------------------------------------------------------------
+
+
+def gain_fx_midpoint_year_plot(fx_pair, year):
+    """Plots the midpoint price for a year.
+
+    :param fx_pair: string of the abbreviation of the forex pair to be analized
+     (i.e. 'eur_usd').
+    :param year: string of the year to be analized (i.e. '2016').
+    :return: None -- The function saves the plot in a file and does not return
+     a value.
+    """
+
+    try:
+        function_name = gain_fx_midpoint_year_plot.__name__
+        gain_data_tools_data_extraction \
+            .gain_function_header_print_plot(function_name, fx_pair, year, '')
+        fx_pair_upper = fx_pair[:3] + '/' + fx_pair[4:]
+
+        figure = plt.figure(figsize=(16, 9))
+
+        # Load data
+        fx_data = pickle.load(open(
+                        f'../../gain_data/data_extraction_{year}/gain_fx_year'
+                        + f'_extract_data/gain_fx_year_extract_data_{year}'
+                        + f'_{fx_pair}.pickle', 'rb'))
+
+        plt.plot((fx_data['Bid'] + fx_data['Ask'] ) / 2, linewidth=5)
+        plt.legend(loc='best', fontsize=25)
+        plt.title(f'GAIN midpoint price - {fx_pair_upper}', fontsize=40)
+        plt.xlabel(r'Time $[s]$', fontsize=35)
+        plt.ylabel(r'$m(t)$', fontsize=35)
+        plt.xticks(fontsize=25)
+        plt.yticks(fontsize=25)
+        plt.grid(True)
+        plt.tight_layout()
+
+        # Plotting
+        gain_data_tools_data_extraction \
+            .gain_save_plot(function_name, figure, fx_pair, ticker, year, '')
+
+        return None
+
+    except FileNotFoundError as e:
+        print('No data')
+        print(e)
+        print()
+        return None
+
+# ----------------------------------------------------------------------------
+
+
+def gain_fx_spread_year_plot(fx_pair, year):
+    """Plots the spread for a year.
+
+    :param fx_pair: string of the abbreviation of the forex pair to be analized
+     (i.e. 'eur_usd').
+    :param year: string of the year to be analized (i.e. '2016').
+    :return: None -- The function saves the plot in a file and does not return
+     a value.
+    """
+
+    try:
+        function_name = gain_fx_spread_year_plot.__name__
+        gain_data_tools_data_extraction \
+            .gain_function_header_print_plot(function_name, fx_pair, year, '')
+        fx_pair_upper = fx_pair[:3] + '/' + fx_pair[4:]
+
+        figure = plt.figure(figsize=(16, 9))
+
+        # Load data
+        fx_data = pickle.load(open(
+                        f'../../gain_data/data_extraction_{year}/gain_fx_year'
+                        + f'_extract_data/gain_fx_year_extract_data_{year}'
+                        + f'_{fx_pair}.pickle', 'rb'))
+
+        plt.plot(fx_data['Bid'] - fx_data['Ask'], linewidth=5)
+        plt.legend(loc='best', fontsize=25)
+        plt.title(f'GAIN spread price - {fx_pair_upper}', fontsize=40)
+        plt.xlabel(r'Time $[s]$', fontsize=35)
+        plt.ylabel(r'$Spread$', fontsize=35)
+        plt.xticks(fontsize=25)
+        plt.yticks(fontsize=25)
+        plt.grid(True)
+        plt.tight_layout()
+
+        # Plotting
+        gain_data_tools_data_extraction \
+            .gain_save_plot(function_name, figure, fx_pair, ticker, year, '')
+
+        return None
+
+    except FileNotFoundError as e:
+        print('No data')
+        print(e)
+        print()
+        return None
+
 
 # -----------------------------------------------------------------------------
 
@@ -96,6 +186,8 @@ def main():
     """
 
     pass
+
+    return None
 
 # -----------------------------------------------------------------------------
 
