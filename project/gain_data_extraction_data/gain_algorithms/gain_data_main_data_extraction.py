@@ -45,9 +45,9 @@ def gain_data_plot_generator(fx_pairs, year):
     with mp.Pool(processes=mp.cpu_count()) as pool:
 
         # Basic functions
-        pool.starmap(gain_data_analysis_data_extraction
-                     .gain_fx_year_extract_data,
-                     iprod(fx_pairs, [year]))
+        # pool.starmap(gain_data_analysis_data_extraction
+        #              .gain_fx_year_extract_data,
+        #              iprod(fx_pairs, [year]))
 
         # Plot
         pool.starmap(gain_data_plot_data_extraction

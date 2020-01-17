@@ -99,8 +99,9 @@ def gain_save_plot(function_name, figure, fx_pair, year, month):
         except FileExistsError:
             print('Folder exists. The folder was not created')
 
-    figure.savefig(f'../../plots/gain_data_extraction_{year}/{function_name}'
-                   + f'/{function_name}_{year}{month}_{ticker_i}i.png')
+    figure.savefig(f'../../gain_plot/gain_data_extraction_{year}'
+                   + f'/{function_name}/{function_name}_{year}{month}'
+                   + f'_{fx_pair}.png')
 
     print('Plot saved')
     print()

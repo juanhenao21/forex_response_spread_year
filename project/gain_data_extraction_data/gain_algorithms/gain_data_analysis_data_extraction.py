@@ -59,7 +59,7 @@ def gain_fx_year_extract_data(fx_pair, year):
                 print(e)
                 print()
 
-    # fx_data.index = pd.to_datetime(fx_data['RateDateTime'])
+    fx_data.index = pd.to_datetime(fx_data['RateDateTime'])
 
     # Saving data
     gain_data_tools_data_extraction \

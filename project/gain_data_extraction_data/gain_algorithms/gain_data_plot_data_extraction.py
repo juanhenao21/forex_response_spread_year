@@ -42,7 +42,7 @@ def gain_fx_quotes_year_plot(fx_pair, year):
         function_name = gain_fx_quotes_year_plot.__name__
         gain_data_tools_data_extraction \
             .gain_function_header_print_plot(function_name, fx_pair, year, '')
-        fx_pair_upper = fx_pair[:3] + '/' + fx_pair[4:]
+        fx_pair_upper = fx_pair[:3].upper() + '/' + fx_pair[4:].upper()
 
         figure = plt.figure(figsize=(16, 9))
 
@@ -52,12 +52,12 @@ def gain_fx_quotes_year_plot(fx_pair, year):
                         + f'_extract_data/gain_fx_year_extract_data_{year}'
                         + f'_{fx_pair}.pickle', 'rb'))
 
-        plt.plot(fx_data['Bid'], linewidth=5, label='Bid')
-        plt.plot(fx_data['Ask'], linewidth=5, label='Ask')
+        plt.plot(fx_data['RateBid'], linewidth=5, label='Bid')
+        plt.plot(fx_data['RateAsk'], linewidth=5, label='Ask')
         plt.legend(loc='best', fontsize=25)
         plt.title(f'GAIN quotes price - {fx_pair_upper}', fontsize=40)
         plt.xlabel(r'Time $[s]$', fontsize=35)
-        plt.ylabel(r'Quotes $\$$', fontsize=35)
+        plt.ylabel(r'Quotes $[\$]$', fontsize=35)
         plt.xticks(fontsize=25)
         plt.yticks(fontsize=25)
         plt.grid(True)
@@ -65,7 +65,10 @@ def gain_fx_quotes_year_plot(fx_pair, year):
 
         # Plotting
         gain_data_tools_data_extraction \
-            .gain_save_plot(function_name, figure, fx_pair, ticker, year, '')
+            .gain_save_plot(function_name, figure, fx_pair, year, '')
+
+        del fx_data
+        del figure
 
         return None
 
@@ -92,7 +95,7 @@ def gain_fx_midpoint_year_plot(fx_pair, year):
         function_name = gain_fx_midpoint_year_plot.__name__
         gain_data_tools_data_extraction \
             .gain_function_header_print_plot(function_name, fx_pair, year, '')
-        fx_pair_upper = fx_pair[:3] + '/' + fx_pair[4:]
+        fx_pair_upper = fx_pair[:3].upper() + '/' + fx_pair[4:].upper()
 
         figure = plt.figure(figsize=(16, 9))
 
@@ -102,11 +105,10 @@ def gain_fx_midpoint_year_plot(fx_pair, year):
                         + f'_extract_data/gain_fx_year_extract_data_{year}'
                         + f'_{fx_pair}.pickle', 'rb'))
 
-        plt.plot((fx_data['Bid'] + fx_data['Ask'] ) / 2, linewidth=5)
-        plt.legend(loc='best', fontsize=25)
+        plt.plot((fx_data['RateBid'] + fx_data['RateAsk'] ) / 2, linewidth=5)
         plt.title(f'GAIN midpoint price - {fx_pair_upper}', fontsize=40)
         plt.xlabel(r'Time $[s]$', fontsize=35)
-        plt.ylabel(r'$m(t)$', fontsize=35)
+        plt.ylabel(r'$m(t) [\$]$', fontsize=35)
         plt.xticks(fontsize=25)
         plt.yticks(fontsize=25)
         plt.grid(True)
@@ -114,7 +116,10 @@ def gain_fx_midpoint_year_plot(fx_pair, year):
 
         # Plotting
         gain_data_tools_data_extraction \
-            .gain_save_plot(function_name, figure, fx_pair, ticker, year, '')
+            .gain_save_plot(function_name, figure, fx_pair, year, '')
+
+        del fx_data
+        del figure
 
         return None
 
@@ -141,7 +146,7 @@ def gain_fx_spread_year_plot(fx_pair, year):
         function_name = gain_fx_spread_year_plot.__name__
         gain_data_tools_data_extraction \
             .gain_function_header_print_plot(function_name, fx_pair, year, '')
-        fx_pair_upper = fx_pair[:3] + '/' + fx_pair[4:]
+        fx_pair_upper = fx_pair[:3].upper() + '/' + fx_pair[4:].upper()
 
         figure = plt.figure(figsize=(16, 9))
 
@@ -151,11 +156,11 @@ def gain_fx_spread_year_plot(fx_pair, year):
                         + f'_extract_data/gain_fx_year_extract_data_{year}'
                         + f'_{fx_pair}.pickle', 'rb'))
 
-        plt.plot(fx_data['Bid'] - fx_data['Ask'], linewidth=5)
-        plt.legend(loc='best', fontsize=25)
+        plt.plot(fx_data['RateAsk'][::100] - fx_data['RateBid'][::100],
+                 linewidth=5)
         plt.title(f'GAIN spread price - {fx_pair_upper}', fontsize=40)
         plt.xlabel(r'Time $[s]$', fontsize=35)
-        plt.ylabel(r'$Spread$', fontsize=35)
+        plt.ylabel(r'Spread $[\$]$', fontsize=35)
         plt.xticks(fontsize=25)
         plt.yticks(fontsize=25)
         plt.grid(True)
@@ -163,7 +168,10 @@ def gain_fx_spread_year_plot(fx_pair, year):
 
         # Plotting
         gain_data_tools_data_extraction \
-            .gain_save_plot(function_name, figure, fx_pair, ticker, year, '')
+            .gain_save_plot(function_name, figure, fx_pair, year, '')
+
+        del fx_data
+        del figure
 
         return None
 
