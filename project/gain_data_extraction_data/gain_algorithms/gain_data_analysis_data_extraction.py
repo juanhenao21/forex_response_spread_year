@@ -13,6 +13,7 @@ The module contains the following functions:
      year
     * gain_fx_trade_signs_year_data_extraction - extracts the midpoint price
      for a year
+    * main - the main function of the script.
 
 ..moduleauthor:: Juan Camilo Henao Londono <www.github.com/juanhenao21>
 '''
