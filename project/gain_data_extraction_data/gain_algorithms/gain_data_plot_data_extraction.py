@@ -49,8 +49,8 @@ def gain_fx_quotes_year_plot(fx_pair, year):
         # Load data
         fx_data = pickle.load(open(
                         f'../../gain_data/data_extraction_{year}/gain_fx_year'
-                        + f'_extract_data/gain_fx_year_extract_data_{year}'
-                        + f'_{fx_pair}.pickle', 'rb'))
+                        + f'_data_extraction/gain_fx_year_data_extraction'
+                        + f'_{year}_{fx_pair}.pickle', 'rb'))
 
         plt.plot(fx_data['RateBid'], linewidth=5, label='Bid')
         plt.plot(fx_data['RateAsk'], linewidth=5, label='Ask')
@@ -102,8 +102,8 @@ def gain_fx_midpoint_year_plot(fx_pair, year):
         # Load data
         fx_data = pickle.load(open(
                         f'../../gain_data/data_extraction_{year}/gain_fx_year'
-                        + f'_extract_data/gain_fx_year_extract_data_{year}'
-                        + f'_{fx_pair}.pickle', 'rb'))
+                        + f'_data_extraction/gain_fx_year_data_extraction'
+                        + f'_{year}_{fx_pair}.pickle', 'rb'))
 
         plt.plot((fx_data['RateBid'] + fx_data['RateAsk'] ) / 2, linewidth=5)
         plt.title(f'GAIN midpoint price - {fx_pair_upper}', fontsize=40)
@@ -153,8 +153,8 @@ def gain_fx_spread_year_plot(fx_pair, year):
         # Load data
         fx_data = pickle.load(open(
                         f'../../gain_data/data_extraction_{year}/gain_fx_year'
-                        + f'_extract_data/gain_fx_year_extract_data_{year}'
-                        + f'_{fx_pair}.pickle', 'rb'))
+                        + f'_data_extraction/gain_fx_year_data_extraction'
+                        + f'_{year}_{fx_pair}.pickle', 'rb'))
 
         plt.plot(fx_data['RateAsk'][::100] - fx_data['RateBid'][::100],
                  linewidth=5)

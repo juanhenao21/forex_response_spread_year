@@ -8,11 +8,11 @@ This script requires the following modules:
     * pandas
 
 The module contains the following functions:
-    * gain_fx_year_extract_data - extracts the bid and ask for a year.
-    * gain_fx_midpoint_year_extract_data - extracts the midpoint price for a
+    * gain_fx_year_data_extraction - extracts the bid and ask for a year.
+    * gain_fx_midpoint_year_data_extraction - extracts the midpoint price for a
      year
-    * gain_fx_trade_signs_year_extract_data - extracts the midpoint price for a
-     year
+    * gain_fx_trade_signs_year_data_extraction - extracts the midpoint price
+     for a year
 
 ..moduleauthor:: Juan Camilo Henao Londono <www.github.com/juanhenao21>
 '''
@@ -28,7 +28,7 @@ import gain_data_tools_data_extraction
 # -----------------------------------------------------------------------------
 
 
-def gain_fx_year_extract_data(fx_pair, year):
+def gain_fx_year_data_extraction(fx_pair, year):
     """Extracts the bid and ask for a year.
 
     :param fx_pair: string of the abbreviation of the forex pair to be analized
@@ -38,7 +38,7 @@ def gain_fx_year_extract_data(fx_pair, year):
      the data.
     """
 
-    function_name = gain_fx_year_extract_data.__name__
+    function_name = gain_fx_year_data_extraction.__name__
     gain_data_tools_data_extraction \
         .gain_function_header_print_data(function_name, fx_pair, year, '')
 
@@ -74,7 +74,7 @@ def gain_fx_year_extract_data(fx_pair, year):
 # -----------------------------------------------------------------------------
 
 
-def gain_fx_midpoint_year_extract_data(fx_pair, year):
+def gain_fx_midpoint_year_data_extraction(fx_pair, year):
     """Extracts the midpoint price for a year.
 
     :param fx_pair: string of the abbreviation of the forex pair to be analized
@@ -83,7 +83,7 @@ def gain_fx_midpoint_year_extract_data(fx_pair, year):
     :return: tuple -- The function returns a tuple with numpy arrays.
     """
 
-    function_name = gain_fx_midpoint_year_extract_data.__name__
+    function_name = gain_fx_midpoint_year_data_extraction.__name__
     gain_data_tools_data_extraction \
         .gain_function_header_print_data(function_name, fx_pair, year, '')
 
@@ -91,8 +91,8 @@ def gain_fx_midpoint_year_extract_data(fx_pair, year):
         # Load data
         fx_data = pickle.load(open(
                         f'../../gain_data/data_extraction_{year}/gain_fx_year'
-                        + f'_extract_data/gain_fx_year_extract_data_{year}'
-                        + f'_{fx_pair}.pickle', 'rb'))
+                        + f'_data_extraction/gain_fx_year_data_extraction'
+                        + f'_{year}_{fx_pair}.pickle', 'rb'))
 
         time = fx_data['RateDateTime'].to_numpy()
         ask = fx_data['RateAsk'].to_numpy()
@@ -115,7 +115,7 @@ def gain_fx_midpoint_year_extract_data(fx_pair, year):
 # -----------------------------------------------------------------------------
 
 
-def gain_fx_trade_signs_year_extract_data(fx_pair, year):
+def gain_fx_trade_signs_year_data_extraction(fx_pair, year):
     """Extracts the trade signs price for a year.
 
     The trade signs are obtained from the midpoint price as
@@ -129,7 +129,7 @@ def gain_fx_trade_signs_year_extract_data(fx_pair, year):
     :return: tuple -- The function returns a tuple with numpy arrays.
     """
 
-    function_name = gain_fx_trade_signs_year_extract_data.__name__
+    function_name = gain_fx_trade_signs_year_data_extraction.__name__
     gain_data_tools_data_extraction \
         .gain_function_header_print_data(function_name, fx_pair, year, '')
 
@@ -137,8 +137,9 @@ def gain_fx_trade_signs_year_extract_data(fx_pair, year):
         # Load data
         time, midpoint = pickle.load(open(
                         f'../../gain_data/data_extraction_{year}/gain_fx'
-                        + f'_midpoint_year_extract_data/gain_fx_midpoint_year'
-                        + f'_extract_data_{year}_{fx_pair}.pickle', 'rb'))
+                        + f'_midpoint_year_data_extraction/gain_fx_midpoint'
+                        + f'_year_data_extraction_{year}_{fx_pair}.pickle',
+                        'rb'))
 
         trade_signs = 0 * midpoint
 
@@ -176,9 +177,7 @@ def main():
     :return: None.
     """
 
-    _, trae = gain_fx_trade_signs_year_extract_data('eur_usd', '2016')
-    print(trae)
-    print(trae[trae == 0])
+    pass
 
     return None
 
