@@ -8,7 +8,11 @@ This script requires the following modules:
     * pandas
 
 The module contains the following functions:
-    * fx_gain_year_extract_data - extracts the bid and ask for a year.
+    * gain_fx_year_extract_data - extracts the bid and ask for a year.
+    * gain_fx_midpoint_year_extract_data - extracts the midpoint price for a
+     year
+    * gain_fx_trade_signs_year_extract_data - extracts the midpoint price for a
+     year
 
 ..moduleauthor:: Juan Camilo Henao Londono <www.github.com/juanhenao21>
 '''
@@ -17,9 +21,9 @@ The module contains the following functions:
 
 import numpy as np
 import pandas as pd
+import pickle
 
 import gain_data_tools_data_extraction
-
 
 # -----------------------------------------------------------------------------
 
@@ -70,9 +74,111 @@ def gain_fx_year_extract_data(fx_pair, year):
 # -----------------------------------------------------------------------------
 
 
-def main():
+def gain_fx_midpoint_year_extract_data(fx_pair, year):
+    """Extracts the midpoint price for a year.
 
-    pass
+    :param fx_pair: string of the abbreviation of the forex pair to be analized
+     (i.e. 'eur_usd').
+    :param year: string of the year to be analized (i.e. '2016').
+    :return: tuple -- The function returns a tuple with numpy arrays.
+    """
+
+    function_name = gain_fx_midpoint_year_extract_data.__name__
+    gain_data_tools_data_extraction \
+        .gain_function_header_print_data(function_name, fx_pair, year, '')
+
+    try:
+        # Load data
+        fx_data = pickle.load(open(
+                        f'../../gain_data/data_extraction_{year}/gain_fx_year'
+                        + f'_extract_data/gain_fx_year_extract_data_{year}'
+                        + f'_{fx_pair}.pickle', 'rb'))
+
+        time = fx_data['RateDateTime'].to_numpy()
+        ask = fx_data['RateAsk'].to_numpy()
+        bid = fx_data['RateBid'].to_numpy()
+
+        midpoint = (ask + bid) / 2
+
+        # Saving data
+        gain_data_tools_data_extraction \
+            .gain_save_data(function_name, (time, midpoint), fx_pair, year, '')
+
+        return (time, midpoint)
+
+    except FileNotFoundError as e:
+        print('No data')
+        print(e)
+        print()
+        return None
+
+# -----------------------------------------------------------------------------
+
+
+def gain_fx_trade_signs_year_extract_data(fx_pair, year):
+    """Extracts the trade signs price for a year.
+
+    The trade signs are obtained from the midpoint price as
+    $\epsilon(t) = sign(m(t) - m(t - 1))$, where +1 indicates the trade was
+    triggered by a market order to buy, and -1 indicates the trade was
+    triggered by a market order to sell.
+
+    :param fx_pair: string of the abbreviation of the forex pair to be analized
+     (i.e. 'eur_usd').
+    :param year: string of the year to be analized (i.e. '2016').
+    :return: tuple -- The function returns a tuple with numpy arrays.
+    """
+
+    function_name = gain_fx_trade_signs_year_extract_data.__name__
+    gain_data_tools_data_extraction \
+        .gain_function_header_print_data(function_name, fx_pair, year, '')
+
+    try:
+        # Load data
+        time, midpoint = pickle.load(open(
+                        f'../../gain_data/data_extraction_{year}/gain_fx'
+                        + f'_midpoint_year_extract_data/gain_fx_midpoint_year'
+                        + f'_extract_data_{year}_{fx_pair}.pickle', 'rb'))
+
+        trade_signs = 0 * midpoint
+
+        for m_idx, m_val in enumerate(midpoint):
+
+            sign = np.sign(m_val - midpoint[m_idx - 1])
+            if (sign):
+                trade_signs[m_idx] = sign
+            else:
+                trade_signs[m_idx] = trade_signs[m_idx - 1]
+
+        assert np.sum(trade_signs == 0) == 0
+
+        # Saving data
+        gain_data_tools_data_extraction \
+            .gain_save_data(function_name, (time, trade_signs), fx_pair, year,
+                            '')
+
+        return (time, trade_signs)
+
+    except FileNotFoundError as e:
+        print('No data')
+        print(e)
+        print()
+        return None
+
+# -----------------------------------------------------------------------------
+
+
+def main():
+    """The main function of the script.
+
+    The main function is used to test the functions in the script.
+
+    :return: None.
+    """
+
+    _, trae = gain_fx_trade_signs_year_extract_data('eur_usd', '2016')
+    print(trae)
+    print(trae[trae == 0])
 
     return None
 
