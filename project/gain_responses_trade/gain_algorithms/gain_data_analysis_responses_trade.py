@@ -28,12 +28,12 @@ __tau__ = 1000
 # -----------------------------------------------------------------------------
 
 
-def gain_fx_self_response_year_responses_second(fx_pair, year):
+def gain_fx_self_response_year_responses_trade(fx_pair, year):
     """Extracts the trade signs price for a year.
 
     The trade signs are obtained from the midpoint price as
-    $\epsilon(t) = sign(m(t) - m(t - 1))$, where +1 indicates the trade was
-    triggered by a market order to buy, and -1 indicates the trade was
+    :math:`\epsilon (t) = sign(m(t) - m(t - 1))`, where +1 indicates the trade
+    was triggered by a market order to buy, and -1 indicates the trade was
     triggered by a market order to sell.
 
     :param fx_pair: string of the abbreviation of the forex pair to be analized
@@ -42,7 +42,7 @@ def gain_fx_self_response_year_responses_second(fx_pair, year):
     :return: tuple -- The function returns a tuple with numpy arrays.
     """
 
-    function_name = gain_fx_self_response_year_responses_second.__name__
+    function_name = gain_fx_self_response_year_responses_trade.__name__
     gain_data_tools_responses_trade \
         .gain_function_header_print_data(function_name, fx_pair, year, '')
 
@@ -115,7 +115,7 @@ def main():
     :return: None.
     """
 
-    gain_fx_self_response_year_responses_second('eur_usd', '2016')
+    pass
 
     return None
 

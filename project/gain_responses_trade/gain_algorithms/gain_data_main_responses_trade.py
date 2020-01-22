@@ -1,14 +1,14 @@
 '''Gain data main module.
 
-The functions in the module extract and plot the Historic Rate data from GAIN
-Capital in a year.
+The functions in the module compute the responses of the Historic Rate data
+from GAIN Capital in a year.
 
 This script requires the following modules:
     * itertools.product
     * multiprocessing
-    * gain_data_analysis_data_extraction
-    * gain_data_plot_data_extraction
-    * gain_data_tools_data_extraction
+    * gain_data_analysis_responses_trade
+    * gain_data_plot_responses_trade
+    * gain_data_tools_responses_trade
 
 The module contains the following functions:
     * gain_data_plot_generator - generates all the analysis and plots from the
@@ -24,9 +24,9 @@ The module contains the following functions:
 from itertools import product as iprod
 import multiprocessing as mp
 
-import gain_data_analysis_data_extraction
-import gain_data_plot_data_extraction
-import gain_data_tools_data_extraction
+import gain_data_analysis_responses_trade
+import gain_data_plot_responses_trade
+import gain_data_tools_responses_trade
 
 # -----------------------------------------------------------------------------
 
@@ -44,20 +44,14 @@ def gain_data_plot_generator(fx_pairs, year):
     # Parallel computing
     with mp.Pool(processes=mp.cpu_count()) as pool:
 
-        # Basic functions
-        # pool.starmap(gain_data_analysis_data_extraction
-        #              .gain_fx_year_extract_data,
-        #              iprod(fx_pairs, [year]))
+        # Especific functions
+        pool.starmap(gain_data_analysis_responses_trade
+                     .gain_fx_self_response_year_responses_trade,
+                     iprod(fx_pairs, [year]))
 
         # Plot
-        pool.starmap(gain_data_plot_data_extraction
-                     .gain_fx_quotes_year_plot,
-                     iprod(fx_pairs, [year]))
-        pool.starmap(gain_data_plot_data_extraction
-                     .gain_fx_midpoint_year_plot,
-                     iprod(fx_pairs, [year]))
-        pool.starmap(gain_data_plot_data_extraction
-                     .gain_fx_spread_year_plot,
+        pool.starmap(gain_data_plot_responses_trade
+                     .gain_fx_self_response_year_avg_responses_trade_plot,
                      iprod(fx_pairs, [year]))
 
     return None

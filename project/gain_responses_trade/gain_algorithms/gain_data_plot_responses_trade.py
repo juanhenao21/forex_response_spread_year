@@ -49,18 +49,18 @@ def gain_fx_self_response_year_avg_responses_trade_plot(fx_pair, year):
         # Load data
         self_response = pickle.load(open(
                         f'../../gain_data/responses_trade_{year}/gain_fx_self'
-                        + f'_response_yearresponses_second/gain_fx_self'
-                        + f'_response_year_responses_second_{year}_{fx_pair}'
+                        + f'_response_year_responses_trade/gain_fx_self'
+                        + f'_response_year_responses_trade_{year}_{fx_pair}'
                         + f'.pickle', 'rb'))
 
         plt.semilogx(self_response, linewidth=5, label=f'{fx_pair_upper}')
         plt.legend(loc='best', fontsize=25)
         plt.title(f'GAIN data self-response', fontsize=40)
-        plt.xlabel(r'$\tau \, [s]$', fontsize=35)
+        plt.xlabel(r'$\tau \, [trades]$', fontsize=35)
         plt.ylabel(r'$R_{ii}(\tau)$', fontsize=35)
         plt.xticks(fontsize=25)
         plt.yticks(fontsize=25)
-        plt.xlim(1,1000)
+        plt.xlim(1, 1000)
         plt.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
         plt.grid(True)
         plt.tight_layout()
@@ -88,7 +88,7 @@ def main():
     :return: None.
     """
 
-    pass
+    gain_fx_self_response_year_avg_responses_trade_plot('eur_usd', '2016')
 
     return None
 
