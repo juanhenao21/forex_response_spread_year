@@ -43,6 +43,7 @@ move in a zigzag fashion, and as a result, price action has only two states:
 "Range" - when prices zigzag sideways, and "Trend" - prices either zigzag
 higher (up trend, or bull trend), or prices zigzag lower (down trend, or bear
 trend)
+(Technical analysis)
 
 # Papers
 
