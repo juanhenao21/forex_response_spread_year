@@ -123,3 +123,46 @@ unless they use stable Pareto distributions. An alternative measure of
 volatility could be the number of price ticks arriving per unit of time
 – useful information for speculators.
 (Volatility measurement)
+
+**Intraday return inefficiency and long memory in the volatilities of forex**
+Market efficiency refers to the speed, precision, and accuracy with which
+markets absorb and reflect all available information, including that related to
+trading volume of single and multiple assets.
+(Market efficiency)
+
+In specific, the weak form efficient market hypothesis postulates that it is
+meaningless to forecast future asset values based on historical prices as all
+that information is reflected in the current asset price. The semi-strong
+efficient market hypothesis states that both, historical and all publicly
+available information, are reflected by current security prices, making it
+impossible to outperform the market portfolio (e.g., an index tracking
+portfolio) using any piece of financial or economic information disclosed.
+Fundamental analysis is consequently worthless. The strong efficient market
+hypothesis states that aside from historical and publicly available
+information, current security prices also reflect any type of information
+market insiders have access to (i.e. private information), thus it is not
+possible for market insiders to realize abnormal returns.
+(Efficient market hypothesis)
+
+despite the important role all three hypotheses play in economic and financial
+market theory their rationale has been put into question when considering the
+behavior of financial markets under the effect of phenomena such as market
+speculation, herd behavior, and the psychological/emotional reaction of
+financial markets to political and macroeconomic innovations. These phenomena
+for instance have been observed to temporarily alter the market equilibrium for
+security pricing, giving room to narrow time lapses (time periods during which
+security markets correct themselves) of market inefficiency. It is in this
+context where an analysis of efficiency becomes worth pursuing.
+(Against Efficient market hypothesis)
+
+We select major currencies from Europe and Japan for our model implementation
+because they are some of the most traded worldwide and belong to some of the
+largest economies that differ in underlying drivers of currency value (through
+demand and supply of the currencies) such as economic structure (e.g.,
+economies with larger financial and banking sectors tend to attract more
+capital), volatility (e.g., economies with stronger currencies and exposed to
+higher volatility: financial and political, tend to attract more currency
+buyers and sellers) and, most importantly, trading profiles (import–export).
+Hence, we would expect those currencies from economies with lower volatility,
+stronger financial sectors, and higher trade surplus to be more efficient.
+(Selection of the currencies)
