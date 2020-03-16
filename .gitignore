@@ -132,6 +132,9 @@ dmypy.json
 project/gain_data/
 project/gain_plot/
 
+project/hist_data/
+project/hist_plot/
+
 .vscode/
 
 # Other
