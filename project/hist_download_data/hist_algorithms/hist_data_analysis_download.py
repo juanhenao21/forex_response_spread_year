@@ -1,7 +1,7 @@
-'''GAIN data analysis module.
+'''Hist data analysis module.
 
-The functions in the module extract the bid and ask from the Historic Rate Data
-from GAIN Capital in a year.
+The functions in the module download tick data quotes from www.histdata.com for
+a year.
 
 This script requires the following modules:
     * numpy
@@ -24,7 +24,7 @@ import numpy as np
 import pandas as pd
 import pickle
 
-import gain_data_tools_data_extraction
+import hist_data_tools_data_extraction
 
 # -----------------------------------------------------------------------------
 
