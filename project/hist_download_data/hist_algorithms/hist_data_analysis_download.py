@@ -4,8 +4,8 @@ The functions in the module download tick data quotes from www.histdata.com for
 a year.
 
 This script requires the following modules:
-    * numpy
-    * pandas
+    * os
+    * selenium
 
 The module contains the following functions:
     * gain_fx_year_data_extraction - extracts the bid and ask for a year.
@@ -20,11 +20,58 @@ The module contains the following functions:
 # -----------------------------------------------------------------------------
 # Modules
 
-import numpy as np
-import pandas as pd
-import pickle
+import os
+from selenium import webdriver
 
-import hist_data_tools_data_extraction
+import hist_data_tools_download
+
+# -----------------------------------------------------------------------------
+
+
+def hist_download_data(fx_pair, year):
+    """Downloads the hist data for a year for a forex pair.
+
+    :param fx_pair: string of the abbreviation of the forex pair to be analized
+     (i.e. 'eur_usd').
+    :param year: string of the year to be analized (i.e. '2016').
+    :return: None -- The function saves the data and does not return a value.
+    """
+
+    fx_pair_sep = fx_pair.split('_')
+    pair = fx_pair_sep[0] + fx_pair_sep[1]
+
+    if (not os.path.isdir(f'../../hist_data/original_data_{year}/{fx_pair}/')):
+
+        try:
+            os.mkdir(f'../../hist_data/original_data_{year}/{fx_pair}/')
+            print('Folder to save data created')
+
+        except FileExistsError:
+            print('Folder exists. The folder was not created')
+
+    for month in range(1, 13):
+
+        url = f'http://www.histdata.com/download-free-forex-historical' \
+            + f'-data/?/ascii/tick-data-quotes/{pair}/{year}/{month}'
+        print(url)
+
+        # To prevent downloading the dialog
+        profile = webdriver.Firefox(executable_path=r'home/tp/jchenaol/Downloads/geckodriver')
+        # Custom location
+        # profile.set_preference('browser.download.folderList', 2)
+        # profile.set_preference('browser.download.manager.showWhenStarting',
+        #                        False)
+        # profile.set_preference('browser.download.dir', '/tmp')
+        # profile.set_preference('browser.helperApps.neverAsk.saveToDisk',
+        #                        'text/csv')
+
+        browser = webdriver.Firefox(profile)
+        browser.get(url)
+
+        browser.find_element_by_id('a_file').click()
+
+    return None
+
 
 # -----------------------------------------------------------------------------
 
@@ -178,7 +225,7 @@ def main():
     :return: None.
     """
 
-    pass
+    hist_download_data('eur_usd', '2016')
 
     return None
 
