@@ -33,7 +33,7 @@ def gain_save_data(function_name, data, fx_pair, year, month):
     """Saves computed data in pickle files.
 
     Saves the data generated in the functions of the
-    gain_data_analysis_data_extraction module in pickle files.
+    gain_data_analysis_extraction module in pickle files.
 
     :param function_name: name of the function that generates the data.
     :param data: data to be saved. The data can be of different types.
