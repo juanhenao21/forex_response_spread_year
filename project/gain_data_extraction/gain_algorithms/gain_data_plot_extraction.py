@@ -1,7 +1,7 @@
 '''GAIN data plot module.
 
 The functions in the module plot the data obtained in the
-gain_data_analysis_data_extraction module.
+gain_data_analysis_extraction module.
 
 This script requires the following modules:
     * matplotlib
@@ -23,7 +23,7 @@ The module contains the following functions:
 from matplotlib import pyplot as plt
 import pickle
 
-import gain_data_tools_data_extraction
+import gain_data_tools_extraction
 
 # ----------------------------------------------------------------------------
 
@@ -31,16 +31,16 @@ import gain_data_tools_data_extraction
 def gain_fx_quotes_year_plot(fx_pair, year):
     """Plots the quotes price for a year.
 
-    :param fx_pair: string of the abbreviation of the forex pair to be analized
+    :param fx_pair: string of the abbreviation of the forex pair to be analyzed
      (i.e. 'eur_usd').
-    :param year: string of the year to be analized (i.e. '2016').
+    :param year: string of the year to be analyzed (i.e. '2016').
     :return: None -- The function saves the plot in a file and does not return
      a value.
     """
 
     try:
         function_name = gain_fx_quotes_year_plot.__name__
-        gain_data_tools_data_extraction \
+        gain_data_tools_extraction \
             .gain_function_header_print_plot(function_name, fx_pair, year, '')
         fx_pair_upper = fx_pair[:3].upper() + '/' + fx_pair[4:].upper()
 
@@ -64,7 +64,7 @@ def gain_fx_quotes_year_plot(fx_pair, year):
         plt.tight_layout()
 
         # Plotting
-        gain_data_tools_data_extraction \
+        gain_data_tools_extraction \
             .gain_save_plot(function_name, figure, fx_pair, year, '')
 
         del fx_data
@@ -84,16 +84,16 @@ def gain_fx_quotes_year_plot(fx_pair, year):
 def gain_fx_midpoint_year_plot(fx_pair, year):
     """Plots the midpoint price for a year.
 
-    :param fx_pair: string of the abbreviation of the forex pair to be analized
+    :param fx_pair: string of the abbreviation of the forex pair to be analyzed
      (i.e. 'eur_usd').
-    :param year: string of the year to be analized (i.e. '2016').
+    :param year: string of the year to be analyzed (i.e. '2016').
     :return: None -- The function saves the plot in a file and does not return
      a value.
     """
 
     try:
         function_name = gain_fx_midpoint_year_plot.__name__
-        gain_data_tools_data_extraction \
+        gain_data_tools_extraction \
             .gain_function_header_print_plot(function_name, fx_pair, year, '')
         fx_pair_upper = fx_pair[:3].upper() + '/' + fx_pair[4:].upper()
 
@@ -115,7 +115,7 @@ def gain_fx_midpoint_year_plot(fx_pair, year):
         plt.tight_layout()
 
         # Plotting
-        gain_data_tools_data_extraction \
+        gain_data_tools_extraction \
             .gain_save_plot(function_name, figure, fx_pair, year, '')
 
         del fx_data
@@ -135,16 +135,16 @@ def gain_fx_midpoint_year_plot(fx_pair, year):
 def gain_fx_spread_year_plot(fx_pair, year):
     """Plots the spread for a year.
 
-    :param fx_pair: string of the abbreviation of the forex pair to be analized
+    :param fx_pair: string of the abbreviation of the forex pair to be analyzed
      (i.e. 'eur_usd').
-    :param year: string of the year to be analized (i.e. '2016').
+    :param year: string of the year to be analyzed (i.e. '2016').
     :return: None -- The function saves the plot in a file and does not return
      a value.
     """
 
     try:
         function_name = gain_fx_spread_year_plot.__name__
-        gain_data_tools_data_extraction \
+        gain_data_tools_extraction \
             .gain_function_header_print_plot(function_name, fx_pair, year, '')
         fx_pair_upper = fx_pair[:3].upper() + '/' + fx_pair[4:].upper()
 
@@ -167,7 +167,7 @@ def gain_fx_spread_year_plot(fx_pair, year):
         plt.tight_layout()
 
         # Plotting
-        gain_data_tools_data_extraction \
+        gain_data_tools_extraction \
             .gain_save_plot(function_name, figure, fx_pair, year, '')
 
         del fx_data

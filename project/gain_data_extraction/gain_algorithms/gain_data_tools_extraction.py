@@ -37,10 +37,10 @@ def gain_save_data(function_name, data, fx_pair, year, month):
 
     :param function_name: name of the function that generates the data.
     :param data: data to be saved. The data can be of different types.
-    :param fx_pair: string of the abbreviation of the forex pair to be analized
+    :param fx_pair: string of the abbreviation of the forex pair to be analyzed
      (i.e. 'eur_usd').
-    :param year: string of the year to be analized (i.e '2016').
-    :param month: string of the month to be analized (i.e '07').
+    :param year: string of the year to be analyzed (i.e '2016').
+    :param month: string of the month to be analyzed (i.e '07').
     :return: None -- The function saves the data in a file and does not return
      a value.
     """
@@ -78,10 +78,10 @@ def gain_save_plot(function_name, figure, fx_pair, year, month):
 
     :param function_name: name of the function that generates the plot.
     :param figure: figure object that is going to be save.
-    :param fx_pair: string of the abbreviation of the forex pair to be analized
+    :param fx_pair: string of the abbreviation of the forex pair to be analyzed
      (i.e. 'eur_usd').
-    :param year: string of the year to be analized (i.e '2016').
-    :param month: string of the month to be analized (i.e '07').
+    :param year: string of the year to be analyzed (i.e '2016').
+    :param month: string of the month to be analyzed (i.e '07').
     :return: None -- The function save the plot in a file and does not return
      a value.
     """
@@ -115,11 +115,11 @@ def gain_function_header_print_data(function_name, fx_pair, year, month):
     """Prints a header of a function that generates data when it is running.
 
     :param function_name: name of the function that generates the data.
-    :param fx_pair: string of the abbreviation of the forex pair to be analized
+    :param fx_pair: string of the abbreviation of the forex pair to be analyzed
      (i.e. 'eur_usd').
-    :param year: string of the year to be analized (i.e '2016').
-    :param month: string of the month to be analized (i.e '07').
-    :param day: string of the day to be analized (i.e '07').
+    :param year: string of the year to be analyzed (i.e '2016').
+    :param month: string of the month to be analyzed (i.e '07').
+    :param day: string of the day to be analyzed (i.e '07').
     :return: None -- The function prints a message and does not return a
      value.
     """
@@ -141,11 +141,11 @@ def gain_function_header_print_plot(function_name, fx_pair, year, month):
     """Prints a header of a function that generates a plot when it is running.
 
     :param function_name: name of the function that generates the plot.
-    :param fx_pair: string of the abbreviation of the forex pair to be analized
+    :param fx_pair: string of the abbreviation of the forex pair to be analyzed
      (i.e. 'eur_usd').
-    :param year: string of the year to be analized (i.e '2016').
-    :param month: string of the month to be analized (i.e '07').
-    :param day: string of the day to be analized (i.e '07').
+    :param year: string of the year to be analyzed (i.e '2016').
+    :param month: string of the month to be analyzed (i.e '07').
+    :param day: string of the day to be analyzed (i.e '07').
     :return: None -- The function prints a message and does not return a
      value.
     """

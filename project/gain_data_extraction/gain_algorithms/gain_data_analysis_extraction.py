@@ -24,7 +24,7 @@ import numpy as np
 import pandas as pd
 import pickle
 
-import gain_data_tools_data_extraction
+import gain_data_tools_extraction
 
 # -----------------------------------------------------------------------------
 
@@ -32,15 +32,15 @@ import gain_data_tools_data_extraction
 def gain_fx_year_data_extraction(fx_pair, year):
     """Extracts the bid and ask for a year.
 
-    :param fx_pair: string of the abbreviation of the forex pair to be analized
+    :param fx_pair: string of the abbreviation of the forex pair to be analyzed
      (i.e. 'eur_usd').
-    :param year: string of the year to be analized (i.e. '2016').
+    :param year: string of the year to be analyzed (i.e. '2016').
     :return: pandas dataframe -- The function returns a pandas dataframe with
      the data.
     """
 
     function_name = gain_fx_year_data_extraction.__name__
-    gain_data_tools_data_extraction \
+    gain_data_tools_extraction \
         .gain_function_header_print_data(function_name, fx_pair, year, '')
 
     fx_data_col = ['lTid', 'cDealable', 'CurrencyPair', 'RateDateTime',
@@ -67,7 +67,7 @@ def gain_fx_year_data_extraction(fx_pair, year):
     fx_data.index = pd.to_datetime(fx_data['RateDateTime'])
 
     # Saving data
-    gain_data_tools_data_extraction \
+    gain_data_tools_extraction \
         .gain_save_data(function_name, fx_data, fx_pair, year, '')
 
     return fx_data
@@ -78,14 +78,14 @@ def gain_fx_year_data_extraction(fx_pair, year):
 def gain_fx_midpoint_year_data_extraction(fx_pair, year):
     """Extracts the midpoint price for a year.
 
-    :param fx_pair: string of the abbreviation of the forex pair to be analized
+    :param fx_pair: string of the abbreviation of the forex pair to be analyzed
      (i.e. 'eur_usd').
-    :param year: string of the year to be analized (i.e. '2016').
+    :param year: string of the year to be analyzed (i.e. '2016').
     :return: tuple -- The function returns a tuple with numpy arrays.
     """
 
     function_name = gain_fx_midpoint_year_data_extraction.__name__
-    gain_data_tools_data_extraction \
+    gain_data_tools_extraction \
         .gain_function_header_print_data(function_name, fx_pair, year, '')
 
     try:
@@ -102,7 +102,7 @@ def gain_fx_midpoint_year_data_extraction(fx_pair, year):
         midpoint = (ask + bid) / 2
 
         # Saving data
-        gain_data_tools_data_extraction \
+        gain_data_tools_extraction \
             .gain_save_data(function_name, (time, midpoint), fx_pair, year, '')
 
         return (time, midpoint)
@@ -124,14 +124,14 @@ def gain_fx_trade_signs_year_data_extraction(fx_pair, year):
     triggered by a market order to buy, and -1 indicates the trade was
     triggered by a market order to sell.
 
-    :param fx_pair: string of the abbreviation of the forex pair to be analized
+    :param fx_pair: string of the abbreviation of the forex pair to be analyzed
      (i.e. 'eur_usd').
-    :param year: string of the year to be analized (i.e. '2016').
+    :param year: string of the year to be analyzed (i.e. '2016').
     :return: tuple -- The function returns a tuple with numpy arrays.
     """
 
     function_name = gain_fx_trade_signs_year_data_extraction.__name__
-    gain_data_tools_data_extraction \
+    gain_data_tools_extraction \
         .gain_function_header_print_data(function_name, fx_pair, year, '')
 
     try:
@@ -155,7 +155,7 @@ def gain_fx_trade_signs_year_data_extraction(fx_pair, year):
         assert np.sum(trade_signs == 0) == 0
 
         # Saving data
-        gain_data_tools_data_extraction \
+        gain_data_tools_extraction \
             .gain_save_data(function_name, (time, trade_signs), fx_pair, year,
                             '')
 
