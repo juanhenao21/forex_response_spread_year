@@ -21,6 +21,7 @@ The module contains the following functions:
 # Modules
 
 import os
+import pyvirtualdisplay
 from selenium import webdriver
 
 import hist_data_tools_download
@@ -49,26 +50,30 @@ def hist_download_data(fx_pair, year):
         except FileExistsError:
             print('Folder exists. The folder was not created')
 
-    for month in range(1, 13):
+    for month in range(1, 2):
 
         url = f'http://www.histdata.com/download-free-forex-historical' \
             + f'-data/?/ascii/tick-data-quotes/{pair}/{year}/{month}'
         print(url)
 
         # To prevent downloading the dialog
-        profile = webdriver.Firefox(executable_path=r'home/tp/jchenaol/Downloads/geckodriver')
+        # profile = webdriver.FirefoxProfile(executable_path=r'/home/tp/jchenaol/bin/geckodriver')
+        profile = webdriver.FirefoxProfile()
         # Custom location
-        # profile.set_preference('browser.download.folderList', 2)
-        # profile.set_preference('browser.download.manager.showWhenStarting',
-        #                        False)
-        # profile.set_preference('browser.download.dir', '/tmp')
-        # profile.set_preference('browser.helperApps.neverAsk.saveToDisk',
-        #                        'text/csv')
+        profile.set_preference('browser.download.folderList', 2)
+        profile.set_preference('browser.download.manager.showWhenStarting',
+                               False)
+        profile.set_preference('browser.download.dir', f'/scratch/jchenaol/forex/project/hist_data/original_data_{year}/{fx_pair}')
+        profile.set_preference('browser.helperApps.neverAsk.saveToDisk',
+                               'application/x-gzip')
 
         browser = webdriver.Firefox(profile)
         browser.get(url)
 
         browser.find_element_by_id('a_file').click()
+
+        # browser.quit()
+
 
     return None
 
@@ -225,7 +230,7 @@ def main():
     :return: None.
     """
 
-    hist_download_data('eur_usd', '2016')
+    hist_download_data('gbp_usd', '2016')
 
     return None
 
