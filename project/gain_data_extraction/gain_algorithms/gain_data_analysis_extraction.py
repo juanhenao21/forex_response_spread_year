@@ -8,11 +8,12 @@ This script requires the following modules:
     * pandas
 
 The module contains the following functions:
+    * gain_copy_data - copies and rename the forex data from repository
     * gain_fx_year_data_extraction - extracts the bid and ask for a year.
     * gain_fx_midpoint_year_data_extraction - extracts the midpoint price for a
-     year
+      year.
     * gain_fx_trade_signs_year_data_extraction - extracts the midpoint price
-     for a year
+      for a year.
     * main - the main function of the script.
 
 ..moduleauthor:: Juan Camilo Henao Londono <www.github.com/juanhenao21>
@@ -21,10 +22,28 @@ The module contains the following functions:
 # Modules
 
 import numpy as np
+import os
 import pandas as pd
+import paramiko
 import pickle
 
 import gain_data_tools_extraction
+
+# -----------------------------------------------------------------------------
+
+
+def gain_copy_data(fx_pair, year):
+    """Copies and rename the forex data from repository.
+
+    :param fx_pair: string of the abbreviation of the forex pair to be analyzed
+     (i.e. 'eur_usd').
+    :param year: string of the year to be analyzed (i.e. '2016').
+    :return: None -- The function copies the data and does not return a value.
+    """
+
+    pass
+
+    return None
 
 # -----------------------------------------------------------------------------
 
@@ -56,8 +75,8 @@ def gain_fx_year_data_extraction(fx_pair, year):
 
             try:
                 fx_data = fx_data.append(pd.read_csv(
-                    f'../../gain_data/original_data_{year}/{fx_pair}_{year}/'
-                    + f'{fx_pair}_{year}{m_num}_w{w_num}.zip'))
+                    f'../../gain_data/original_data_{year}/{fx_pair}/'
+                    + f'gain_{fx_pair}_{year}{m_num}_w{w_num}.zip'))
 
             except FileNotFoundError as e:
                 print('No data')
