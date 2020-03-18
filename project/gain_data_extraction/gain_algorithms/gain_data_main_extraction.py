@@ -41,13 +41,15 @@ def gain_data_plot_generator(fx_pairs, year):
      a value.
     """
 
+    # Data extraction
+    for fx_pair in fx_pairs:
+        gain_data_analysis_extraction \
+            .gain_fx_year_data_extraction(fx_pair, year)
+
     # Parallel computing
     with mp.Pool(processes=mp.cpu_count()) as pool:
 
         # Basic functions
-        pool.starmap(gain_data_analysis_extraction
-                     .gain_fx_year_data_extraction,
-                     iprod(fx_pairs, [year]))
         pool.starmap(gain_data_analysis_extraction
                      .gain_fx_midpoint_year_data_extraction,
                      iprod(fx_pairs, [year]))
@@ -80,10 +82,18 @@ def main():
     """
 
     # Tickers and days to analyze
-    fx_pairs = ['eur_usd']
+    # year, fx_pairs = gain_data_tools_extraction.gain_initial_data()
+    # To be used when run in server
     year = '2016'
+    fx_pairs = ['eur_usd']
+    # fx_pairs = ['eur_usd', 'gbp_usd', 'usd_jpy', 'aud_usd',
+    #             'usd_chf', 'usd_cad', 'nzd_usd']
+
+    # Basic folders
+    gain_data_tools_extraction.gain_start_folders(year)
 
     # Run analysis
+    # Analysis and plot
     gain_data_plot_generator(fx_pairs, year)
 
     print('Ay vamos!!')

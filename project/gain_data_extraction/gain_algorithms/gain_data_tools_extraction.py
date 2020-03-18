@@ -14,6 +14,8 @@ The module contains the following functions:
     * gain_save_plot - saves figures.
     * gain_function_header_print_data - prints info about the function running.
     * gain_function_header_print_plot - prints info about the plot.
+    * gain_start_folders - creates folders to save data and plots.
+    * gain_initial_data - takes the initial values for the analysis.
     * main - the main function of the script.
 
 .. moduleauthor:: Juan Camilo Henao Londono <www.github.com/juanhenao21>
@@ -48,17 +50,17 @@ def gain_save_data(function_name, data, fx_pair, year, month):
     # Saving data
 
     if (not os.path.isdir(
-            f'../../gain_data/data_extraction_{year}/{function_name}/')):
+            f'../../gain_data/extraction_data_{year}/{function_name}/')):
 
         try:
             os.mkdir(
-                f'../../gain_data/data_extraction_{year}/{function_name}/')
+                f'../../gain_data/extraction_data_{year}/{function_name}/')
             print('Folder to save data created')
 
         except FileExistsError:
             print('Folder exists. The folder was not created')
 
-    pickle.dump(data, open(f'../../gain_data/data_extraction_{year}'
+    pickle.dump(data, open(f'../../gain_data/extraction_data_{year}'
                 + f'/{function_name}/{function_name}_{year}_{fx_pair}.pickle',
                 'wb'))
 
@@ -89,17 +91,17 @@ def gain_save_plot(function_name, figure, fx_pair, year, month):
     # Saving plot data
 
     if (not os.path.isdir(
-            f'../../gain_plot/gain_data_extraction_{year}/{function_name}/')):
+            f'../../gain_plot/extraction_plot_{year}/{function_name}/')):
 
         try:
-            os.mkdir(f'../../gain_plot/gain_data_extraction_{year}/'
+            os.mkdir(f'../../gain_plot/extraction_plot_{year}/'
                      + f'{function_name}/')
             print('Folder to save data created')
 
         except FileExistsError:
             print('Folder exists. The folder was not created')
 
-    figure.savefig(f'../../gain_plot/gain_data_extraction_{year}'
+    figure.savefig(f'../../gain_plot/extraction_plot_{year}'
                    + f'/{function_name}/{function_name}_{year}{month}'
                    + f'_{fx_pair}.png')
 
@@ -159,6 +161,73 @@ def gain_function_header_print_plot(function_name, fx_pair, year, month):
     print()
 
     return None
+
+# -----------------------------------------------------------------------------
+
+
+def gain_start_folders(year):
+    """Creates the initial folders to save the data and plots.
+
+    :param year: string of the year to be analyzed (i.e '2016').
+    :return: None -- The function creates folders and does not return a value.
+    """
+
+    try:
+        os.mkdir('../../gain_data/')
+        os.mkdir(f'../../gain_data/extraction_data_{year}')
+        os.mkdir('../../gain_plot/')
+        os.mkdir(f'../../gain_plot/extraction_plot_{year}')
+        print('Folder to save data created')
+
+    except FileExistsError as e:
+        print('Folder exists. The folder was not created')
+        print(e)
+        # raise Exception('Check the folders')
+
+    return None
+
+# -----------------------------------------------------------------------------
+
+
+def gain_initial_data():
+    """Takes the initial values for the analysis
+
+    :return: Tuple -- The function return a tuple with a string with the year
+     to be analyzed and a list with the name of the forex pairs.
+    """
+
+    print()
+    print('####################')
+    print('GAIN data extraction')
+    print('####################')
+    print('AG Guhr')
+    print('Faculty of Physics')
+    print('University of Duisburg-Essen')
+    print('Author: Juan Camilo Henao Londono')
+    print('More information in:')
+    print('  * https://juanhenao21.github.io/')
+    print('  * https://github.com/juanhenao21/forex')
+    print('  * https://forex.readthedocs.io/en/latest/')
+    print()
+
+    print('How many forex pairs do you want to analyze?')
+    n_tick = int(input())
+    pairs = []
+
+    for _ in range(n_tick):
+
+        print(f'Insert the symbol of the forex pair (i.e. eur_usd):')
+        res = input()
+
+        pairs.append(res)
+
+    print()
+
+    print('Please enter the year to be analyzed (i.e. 2008): ')
+    year = input()
+    print()
+
+    return (year, pairs)
 
 # -----------------------------------------------------------------------------
 

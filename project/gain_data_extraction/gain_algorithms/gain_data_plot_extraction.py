@@ -48,7 +48,7 @@ def gain_fx_quotes_year_plot(fx_pair, year):
 
         # Load data
         fx_data = pickle.load(open(
-                        f'../../gain_data/data_extraction_{year}/gain_fx_year'
+                        f'../../gain_data/extraction_data_{year}/gain_fx_year'
                         + f'_data_extraction/gain_fx_year_data_extraction'
                         + f'_{year}_{fx_pair}.pickle', 'rb'))
 
@@ -101,7 +101,7 @@ def gain_fx_midpoint_year_plot(fx_pair, year):
 
         # Load data
         fx_data = pickle.load(open(
-                        f'../../gain_data/data_extraction_{year}/gain_fx_year'
+                        f'../../gain_data/extraction_data_{year}/gain_fx_year'
                         + f'_data_extraction/gain_fx_year_data_extraction'
                         + f'_{year}_{fx_pair}.pickle', 'rb'))
 
@@ -152,7 +152,7 @@ def gain_fx_spread_year_plot(fx_pair, year):
 
         # Load data
         fx_data = pickle.load(open(
-                        f'../../gain_data/data_extraction_{year}/gain_fx_year'
+                        f'../../gain_data/extraction_data_{year}/gain_fx_year'
                         + f'_data_extraction/gain_fx_year_data_extraction'
                         + f'_{year}_{fx_pair}.pickle', 'rb'))
 

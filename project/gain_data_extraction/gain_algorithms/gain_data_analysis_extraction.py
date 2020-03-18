@@ -24,7 +24,7 @@ The module contains the following functions:
 import numpy as np
 import os
 import pandas as pd
-import paramiko
+# import paramiko
 import pickle
 
 import gain_data_tools_extraction
@@ -110,7 +110,7 @@ def gain_fx_midpoint_year_data_extraction(fx_pair, year):
     try:
         # Load data
         fx_data = pickle.load(open(
-                        f'../../gain_data/data_extraction_{year}/gain_fx_year'
+                        f'../../gain_data/extraction_data_{year}/gain_fx_year'
                         + f'_data_extraction/gain_fx_year_data_extraction'
                         + f'_{year}_{fx_pair}.pickle', 'rb'))
 
@@ -156,7 +156,7 @@ def gain_fx_trade_signs_year_data_extraction(fx_pair, year):
     try:
         # Load data
         time, midpoint = pickle.load(open(
-                        f'../../gain_data/data_extraction_{year}/gain_fx'
+                        f'../../gain_data/extraction_data_{year}/gain_fx'
                         + f'_midpoint_year_data_extraction/gain_fx_midpoint'
                         + f'_year_data_extraction_{year}_{fx_pair}.pickle',
                         'rb'))
