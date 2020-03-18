@@ -6,6 +6,8 @@ from HIST Capital in a year.
 This script requires the following modules:
     * numpy
     * pandas
+    * pickle
+    * zipfile
 
 The module contains the following functions:
     * hist_fx_year_data_extraction - extracts the bid and ask for a year.
@@ -49,12 +51,13 @@ def hist_fx_year_data_extraction(fx_pair, year):
     fx_data_col = ['DateTime', 'Bid', 'Ask']
     fx_data_ = pd.DataFrame(columns=fx_data_col)
 
-    for m_num in range(1,13):
+    for m_num in range(1, 13):
 
         if (m_num < 10):
             m_num = f'0{m_num}'
 
         try:
+            # Load data
             zf = zipfile.ZipFile(
                 f'../../hist_data/original_data_{year}/{fx_pair}/hist'
                 + f'_{fx_pair}_{year}{m_num}.zip')
@@ -67,18 +70,24 @@ def hist_fx_year_data_extraction(fx_pair, year):
             print(e)
             print()
 
+    # Split the date and time
     split_data = fx_data_['DateTime'].str.split(' ')
     data = split_data.to_list()
     names = ['Date', 'Time']
     n_df = pd.DataFrame(data, columns=names)
-    fx_data_.drop(columns=['DateTime'])
+    fx_data_ = fx_data_.drop(columns=['DateTime'])
+    # New df with an independent column for time and date
     fx_data = pd.concat([n_df, fx_data_], axis=1, sort=False)
+
+    # Free memory
+    del split_data
+    del data
     del n_df
     del fx_data_
+
+    # Use the date as index
     fx_data.index = pd.to_datetime(fx_data['Date'])
-    fx_data.drop(columns=['Date'])
-    fx_data.drop(columns=['Date'])
-    fx_data.drop(columns=['DateTime'])
+    fx_data = fx_data.drop(columns=['Date'])
 
     # Saving data
     hist_data_tools_extraction \
@@ -105,13 +114,13 @@ def hist_fx_midpoint_year_data_extraction(fx_pair, year):
     try:
         # Load data
         fx_data = pickle.load(open(
-                        f'../../hist_data/data_extraction_{year}/hist_fx_year'
+                        f'../../hist_data/extraction_data_{year}/hist_fx_year'
                         + f'_data_extraction/hist_fx_year_data_extraction'
                         + f'_{year}_{fx_pair}.pickle', 'rb'))
 
-        time = fx_data['RateDateTime'].to_numpy()
-        ask = fx_data['RateAsk'].to_numpy()
-        bid = fx_data['RateBid'].to_numpy()
+        time = fx_data['Time'].to_numpy()
+        ask = fx_data['Ask'].to_numpy()
+        bid = fx_data['Bid'].to_numpy()
 
         midpoint = (ask + bid) / 2
 
@@ -134,8 +143,8 @@ def hist_fx_trade_signs_year_data_extraction(fx_pair, year):
     """Extracts the trade signs price for a year.
 
     The trade signs are obtained from the midpoint price as
-    $\epsilon(t) = sign(m(t) - m(t - 1))$, where +1 indicates the trade was
-    triggered by a market order to buy, and -1 indicates the trade was
+    :math:`\\epsilon(t) = sign(m(t) - m(t - 1))`, where +1 indicates the trade
+    was triggered by a market order to buy, and -1 indicates the trade was
     triggered by a market order to sell.
 
     :param fx_pair: string of the abbreviation of the forex pair to be analyzed
@@ -151,7 +160,7 @@ def hist_fx_trade_signs_year_data_extraction(fx_pair, year):
     try:
         # Load data
         time, midpoint = pickle.load(open(
-                        f'../../hist_data/data_extraction_{year}/hist_fx'
+                        f'../../hist_data/extraction_data_{year}/hist_fx'
                         + f'_midpoint_year_data_extraction/hist_fx_midpoint'
                         + f'_year_data_extraction_{year}_{fx_pair}.pickle',
                         'rb'))
@@ -192,8 +201,7 @@ def main():
     :return: None.
     """
 
-    x = hist_fx_year_data_extraction('eur_usd', '2016')
-    print(x.head())
+    pass
 
     return None
 

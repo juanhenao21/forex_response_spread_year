@@ -1,18 +1,18 @@
 '''Gain data main module.
 
-The functions in the module extract and plot the Historic Rate data from GAIN
+The functions in the module extract and plot the Historic Rate data from HIST
 Capital in a year.
 
 This script requires the following modules:
     * itertools.product
     * multiprocessing
-    * gain_data_analysis_extraction
-    * gain_data_plot_extraction
-    * gain_data_tools_extraction
+    * hist_data_analysis_extraction
+    * hist_data_plot_extraction
+    * hist_data_tools_extraction
 
 The module contains the following functions:
-    * gain_data_plot_generator - generates all the analysis and plots from the
-      GAIN data.
+    * hist_data_plot_generator - generates all the analysis and plots from the
+      HIST data.
     * main - the main function of the script.
 
 .. moduleauthor:: Juan Camilo Henao Londono <www.github.com/juanhenao21>
@@ -24,15 +24,15 @@ The module contains the following functions:
 from itertools import product as iprod
 import multiprocessing as mp
 
-import gain_data_analysis_extraction
-import gain_data_plot_extraction
-import gain_data_tools_extraction
+import hist_data_analysis_extraction
+import hist_data_plot_extraction
+import hist_data_tools_extraction
 
 # -----------------------------------------------------------------------------
 
 
-def gain_data_plot_generator(fx_pairs, year):
-    """Generates all the analysis and plots from the GAIN data.
+def hist_data_plot_generator(fx_pairs, year):
+    """Generates all the analysis and plots from the HIST data.
 
     :param fx_pairs: list of the string abbreviation of the forex pairs to be
      analyzed (i.e. ['eur_usd', 'gbp_usd']).
@@ -41,29 +41,31 @@ def gain_data_plot_generator(fx_pairs, year):
      a value.
     """
 
+    # Data extraction
+    for fx_pair in fx_pairs:
+        hist_data_analysis_extraction \
+            .hist_fx_year_data_extraction(fx_pair, year)
+
     # Parallel computing
     with mp.Pool(processes=mp.cpu_count()) as pool:
 
         # Basic functions
-        pool.starmap(gain_data_analysis_extraction
-                     .gain_fx_year_data_extraction,
+        pool.starmap(hist_data_analysis_extraction
+                     .hist_fx_midpoint_year_data_extraction,
                      iprod(fx_pairs, [year]))
-        pool.starmap(gain_data_analysis_extraction
-                     .gain_fx_midpoint_year_data_extraction,
-                     iprod(fx_pairs, [year]))
-        pool.starmap(gain_data_analysis_extraction
-                     .gain_fx_trade_signs_year_data_extraction,
+        pool.starmap(hist_data_analysis_extraction
+                     .hist_fx_trade_signs_year_data_extraction,
                      iprod(fx_pairs, [year]))
 
         # Plot
-        pool.starmap(gain_data_plot_extraction
-                     .gain_fx_quotes_year_plot,
+        pool.starmap(hist_data_plot_extraction
+                     .hist_fx_quotes_year_plot,
                      iprod(fx_pairs, [year]))
-        pool.starmap(gain_data_plot_extraction
-                     .gain_fx_midpoint_year_plot,
+        pool.starmap(hist_data_plot_extraction
+                     .hist_fx_midpoint_year_plot,
                      iprod(fx_pairs, [year]))
-        pool.starmap(gain_data_plot_extraction
-                     .gain_fx_spread_year_plot,
+        pool.starmap(hist_data_plot_extraction
+                     .hist_fx_spread_year_plot,
                      iprod(fx_pairs, [year]))
 
     return None
@@ -80,11 +82,19 @@ def main():
     """
 
     # Tickers and days to analyze
-    fx_pairs = ['eur_usd']
+    # year, fx_pairs = hist_data_tools_extraction.hist_initial_data()
+    # To be used when run in server
     year = '2016'
+    fx_pairs = ['eur_usd']
+    # fx_pairs = ['eur_usd', 'gbp_usd', 'usd_jpy', 'aud_usd',
+    #             'usd_chf', 'usd_cad', 'nzd_usd']
+
+    # Basic folders
+    hist_data_tools_extraction.hist_start_folders(year)
 
     # Run analysis
-    gain_data_plot_generator(fx_pairs, year)
+    # Analysis and plot
+    hist_data_plot_generator(fx_pairs, year)
 
     print('Ay vamos!!')
 
