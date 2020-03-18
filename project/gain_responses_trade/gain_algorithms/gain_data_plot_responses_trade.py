@@ -30,9 +30,9 @@ import gain_data_tools_responses_trade
 def gain_fx_self_response_year_avg_responses_trade_plot(fx_pair, year):
     """Plots the self-response average for a year.
 
-    :param fx_pair: string of the abbreviation of the forex pair to be analized
+    :param fx_pair: string of the abbreviation of the forex pair to be analyzed
      (i.e. 'eur_usd').
-    :param year: string of the year to be analized (i.e. '2016').
+    :param year: string of the year to be analyzed (i.e. '2016').
     :return: None -- The function saves the plot in a file and does not return
      a value.
     """
@@ -88,7 +88,7 @@ def main():
     :return: None.
     """
 
-    gain_fx_self_response_year_avg_responses_trade_plot('eur_usd', '2016')
+    pass
 
     return None
 

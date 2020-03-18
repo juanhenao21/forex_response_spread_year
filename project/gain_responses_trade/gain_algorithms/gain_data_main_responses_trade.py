@@ -68,10 +68,18 @@ def main():
     """
 
     # Tickers and days to analyze
-    fx_pairs = ['eur_usd']
+    # year, fx_pairs = gain_data_tools_responses_trade.gain_initial_data()
+    # To be used when run in server
     year = '2016'
+    fx_pairs = ['eur_usd']
+    # fx_pairs = ['eur_usd', 'gbp_usd', 'usd_jpy', 'aud_usd',
+    #             'usd_chf', 'usd_cad', 'nzd_usd']
+
+    # Basic folders
+    gain_data_tools_responses_trade.gain_start_folders(year)
 
     # Run analysis
+    # Analysis and plot
     gain_data_plot_generator(fx_pairs, year)
 
     print('Ay vamos!!')

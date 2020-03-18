@@ -6,6 +6,7 @@ from the Historic Rate Data from GAIN Capital data in a year.
 This script requires the following modules:
     * numpy
     * pandas
+    * pickle
 
 The module contains the following functions:
     * gain_fx_self_response_year_responses_trade - extracts the midpoint price
@@ -29,12 +30,10 @@ __tau__ = 1000
 
 
 def gain_fx_self_response_year_responses_trade(fx_pair, year):
-    """Extracts the trade signs price for a year.
+    """Computes the self-response of a year.
 
-    The trade signs are obtained from the midpoint price as
-    :math:`\epsilon (t) = sign(m(t) - m(t - 1))`, where +1 indicates the trade
-    was triggered by a market order to buy, and -1 indicates the trade was
-    triggered by a market order to sell.
+    Using the midpoint price and the trade signs of a ticker computes the
+    self-response during different time lags (:math:`\\tau`) for a year.
 
     :param fx_pair: string of the abbreviation of the forex pair to be analized
      (i.e. 'eur_usd').
@@ -49,12 +48,12 @@ def gain_fx_self_response_year_responses_trade(fx_pair, year):
     try:
         # Load data
         _, midpoint = pickle.load(open(
-                        f'../../gain_data/data_extraction_{year}/gain_fx'
+                        f'../../gain_data/extraction_data_{year}/gain_fx'
                         + f'_midpoint_year_data_extraction/gain_fx_midpoint'
                         + f'_year_data_extraction_{year}_{fx_pair}.pickle',
                         'rb'))
         _, trade_signs = pickle.load(open(
-                        f'../../gain_data/data_extraction_{year}/gain_fx'
+                        f'../../gain_data/extraction_data_{year}/gain_fx'
                         + f'_trade_signs_year_data_extraction/gain_fx_trade'
                         + f'_signs_year_data_extraction_{year}_{fx_pair}'
                         + f'.pickle', 'rb'))
