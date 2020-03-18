@@ -1,18 +1,18 @@
 '''Gain data main module.
 
 The functions in the module compute the responses of the Historic Rate data
-from GAIN Capital in a year.
+from HIST Capital in a year.
 
 This script requires the following modules:
     * itertools.product
     * multiprocessing
-    * gain_data_analysis_responses_trade
-    * gain_data_plot_responses_trade
-    * gain_data_tools_responses_trade
+    * hist_data_analysis_responses_trade
+    * hist_data_plot_responses_trade
+    * hist_data_tools_responses_trade
 
 The module contains the following functions:
-    * gain_data_plot_generator - generates all the analysis and plots from the
-      GAIN data.
+    * hist_data_plot_generator - generates all the analysis and plots from the
+      HIST data.
     * main - the main function of the script.
 
 .. moduleauthor:: Juan Camilo Henao Londono <www.github.com/juanhenao21>
@@ -24,19 +24,19 @@ The module contains the following functions:
 from itertools import product as iprod
 import multiprocessing as mp
 
-import gain_data_analysis_responses_trade
-import gain_data_plot_responses_trade
-import gain_data_tools_responses_trade
+import hist_data_analysis_responses_trade
+import hist_data_plot_responses_trade
+import hist_data_tools_responses_trade
 
 # -----------------------------------------------------------------------------
 
 
-def gain_data_plot_generator(fx_pairs, year):
-    """Generates all the analysis and plots from the GAIN data.
+def hist_data_plot_generator(fx_pairs, year):
+    """Generates all the analysis and plots from the HIST data.
 
     :param fx_pairs: list of the string abbreviation of the forex pairs to be
-     analized (i.e. ['eur_usd', 'gbp_usd']).
-    :param year: string of the year to be analized (i.e. '2016').
+     analyzed (i.e. ['eur_usd', 'gbp_usd']).
+    :param year: string of the year to be analyzed (i.e. '2016').
     :return: None -- The function saves the data in a file and does not return
      a value.
     """
@@ -44,14 +44,14 @@ def gain_data_plot_generator(fx_pairs, year):
     # Parallel computing
     with mp.Pool(processes=mp.cpu_count()) as pool:
 
-        # Especific functions
-        pool.starmap(gain_data_analysis_responses_trade
-                     .gain_fx_self_response_year_responses_trade,
-                     iprod(fx_pairs, [year]))
+        # Specific functions
+        # pool.starmap(hist_data_analysis_responses_trade
+        #              .hist_fx_self_response_year_responses_trade,
+        #              iprod(fx_pairs, [year]))
 
         # Plot
-        pool.starmap(gain_data_plot_responses_trade
-                     .gain_fx_self_response_year_avg_responses_trade_plot,
+        pool.starmap(hist_data_plot_responses_trade
+                     .hist_fx_self_response_year_avg_responses_trade_plot,
                      iprod(fx_pairs, [year]))
 
     return None
@@ -68,11 +68,19 @@ def main():
     """
 
     # Tickers and days to analyze
-    fx_pairs = ['eur_usd']
+    # year, fx_pairs = hist_data_tools_responses_trade.hist_initial_data()
+    # To be used when run in server
     year = '2016'
+    fx_pairs = ['eur_usd']
+    # fx_pairs = ['eur_usd', 'gbp_usd', 'usd_jpy', 'aud_usd',
+    #             'usd_chf', 'usd_cad', 'nzd_usd']
+
+    # Basic folders
+    hist_data_tools_responses_trade.hist_start_folders(year)
 
     # Run analysis
-    gain_data_plot_generator(fx_pairs, year)
+    # Analysis and plot
+    hist_data_plot_generator(fx_pairs, year)
 
     print('Ay vamos!!')
 

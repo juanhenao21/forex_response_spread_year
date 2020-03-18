@@ -1,14 +1,15 @@
-'''GAIN data analysis module.
+'''HIST data analysis module.
 
 The functions in the module compute the response function in trade time scale
-from the Historic Rate Data from GAIN Capital data in a year.
+from the Historic Rate Data from HIST Capital data in a year.
 
 This script requires the following modules:
     * numpy
     * pandas
+    * pickle
 
 The module contains the following functions:
-    * gain_fx_self_response_year_responses_trade - extracts the midpoint price
+    * hist_fx_self_response_year_responses_trade - extracts the midpoint price
      for a year
     * main - the main function of the script.
 
@@ -21,41 +22,39 @@ import numpy as np
 import pandas as pd
 import pickle
 
-import gain_data_tools_responses_trade
+import hist_data_tools_responses_trade
 
 __tau__ = 1000
 
 # -----------------------------------------------------------------------------
 
 
-def gain_fx_self_response_year_responses_trade(fx_pair, year):
-    """Extracts the trade signs price for a year.
+def hist_fx_self_response_year_responses_trade(fx_pair, year):
+    """Computes the self-response of a year.
 
-    The trade signs are obtained from the midpoint price as
-    :math:`\epsilon (t) = sign(m(t) - m(t - 1))`, where +1 indicates the trade
-    was triggered by a market order to buy, and -1 indicates the trade was
-    triggered by a market order to sell.
+    Using the midpoint price and the trade signs of a ticker computes the
+    self-response during different time lags (:math:`\\tau`) for a year.
 
-    :param fx_pair: string of the abbreviation of the forex pair to be analized
+    :param fx_pair: string of the abbreviation of the forex pair to be analyzed
      (i.e. 'eur_usd').
-    :param year: string of the year to be analized (i.e. '2016').
+    :param year: string of the year to be analyzed (i.e. '2016').
     :return: tuple -- The function returns a tuple with numpy arrays.
     """
 
-    function_name = gain_fx_self_response_year_responses_trade.__name__
-    gain_data_tools_responses_trade \
-        .gain_function_header_print_data(function_name, fx_pair, year, '')
+    function_name = hist_fx_self_response_year_responses_trade.__name__
+    hist_data_tools_responses_trade \
+        .hist_function_header_print_data(function_name, fx_pair, year, '')
 
     try:
         # Load data
         _, midpoint = pickle.load(open(
-                        f'../../gain_data/data_extraction_{year}/gain_fx'
-                        + f'_midpoint_year_data_extraction/gain_fx_midpoint'
+                        f'../../hist_data/extraction_data_{year}/hist_fx'
+                        + f'_midpoint_year_data_extraction/hist_fx_midpoint'
                         + f'_year_data_extraction_{year}_{fx_pair}.pickle',
                         'rb'))
         _, trade_signs = pickle.load(open(
-                        f'../../gain_data/data_extraction_{year}/gain_fx'
-                        + f'_trade_signs_year_data_extraction/gain_fx_trade'
+                        f'../../hist_data/extraction_data_{year}/hist_fx'
+                        + f'_trade_signs_year_data_extraction/hist_fx_trade'
                         + f'_signs_year_data_extraction_{year}_{fx_pair}'
                         + f'.pickle', 'rb'))
 
@@ -92,8 +91,8 @@ def gain_fx_self_response_year_responses_trade(fx_pair, year):
         self_response = self_response_tau / num
 
         # Saving data
-        gain_data_tools_responses_trade \
-            .gain_save_data(function_name, self_response, fx_pair, year,
+        hist_data_tools_responses_trade \
+            .hist_save_data(function_name, self_response, fx_pair, year,
                             '')
 
         return self_response
