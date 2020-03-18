@@ -45,9 +45,9 @@ def hist_data_plot_generator(fx_pairs, year):
     with mp.Pool(processes=mp.cpu_count()) as pool:
 
         # Specific functions
-        # pool.starmap(hist_data_analysis_responses_trade
-        #              .hist_fx_self_response_year_responses_trade,
-        #              iprod(fx_pairs, [year]))
+        pool.starmap(hist_data_analysis_responses_trade
+                     .hist_fx_self_response_year_responses_trade,
+                     iprod(fx_pairs, [year]))
 
         # Plot
         pool.starmap(hist_data_plot_responses_trade
