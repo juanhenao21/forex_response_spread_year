@@ -41,21 +41,20 @@ def hist_data_plot_generator(fx_pairs, year):
      a value.
     """
 
-    # Data extraction
+
     for fx_pair in fx_pairs:
+
+        # Data extraction
         hist_data_analysis_extraction \
             .hist_fx_year_data_extraction(fx_pair, year)
+        # Basic functions
+        hist_data_analysis_extraction \
+            .hist_fx_midpoint_year_data_extractiond(fx_pairs, [year])
+        hist_data_analysis_extraction \
+            .hist_fx_trade_signs_year_data_extraction(fx_pairs, [year])
 
     # Parallel computing
     with mp.Pool(processes=mp.cpu_count()) as pool:
-
-        # Basic functions
-        pool.starmap(hist_data_analysis_extraction
-                     .hist_fx_midpoint_year_data_extraction,
-                     iprod(fx_pairs, [year]))
-        pool.starmap(hist_data_analysis_extraction
-                     .hist_fx_trade_signs_year_data_extraction,
-                     iprod(fx_pairs, [year]))
 
         # Plot
         pool.starmap(hist_data_plot_extraction
