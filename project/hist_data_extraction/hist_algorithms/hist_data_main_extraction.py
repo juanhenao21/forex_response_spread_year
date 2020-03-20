@@ -1,4 +1,4 @@
-'''Gain data main module.
+'''HIST data main module.
 
 The functions in the module extract and plot the Historic Rate data from HIST
 Capital in a year.
@@ -85,9 +85,8 @@ def main():
     # year, fx_pairs = hist_data_tools_extraction.hist_initial_data()
     # To be used when run in server
     year = '2016'
-    fx_pairs = ['eur_usd']
-    # fx_pairs = ['eur_usd', 'gbp_usd', 'usd_jpy', 'aud_usd',
-    #             'usd_chf', 'usd_cad', 'nzd_usd']
+    fx_pairs = ['eur_usd', 'gbp_usd', 'usd_jpy', 'aud_usd',
+                'usd_chf', 'usd_cad', 'nzd_usd']
 
     # Basic folders
     hist_data_tools_extraction.hist_start_folders(year)
