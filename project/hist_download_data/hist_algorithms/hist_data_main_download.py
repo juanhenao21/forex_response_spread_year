@@ -1,18 +1,18 @@
-'''Gain data main module.
+'''HIST data main module.
 
-The functions in the module extract and plot the Historic Rate data from GAIN
+The functions in the module extract and plot the Historic Rate data from HIST
 Capital in a year.
 
 This script requires the following modules:
+    * histdata
     * itertools.product
     * multiprocessing
-    * gain_data_analysis_data_extraction
-    * gain_data_plot_data_extraction
-    * gain_data_tools_data_extraction
+    * os
+    * hist_data_tools_download
 
 The module contains the following functions:
-    * gain_data_plot_generator - generates all the analysis and plots from the
-      GAIN data.
+    * hist_download_data - downloads the HIST data.
+    * hist_download_all_data - downloads all the HIST data.
     * main - the main function of the script.
 
 .. moduleauthor:: Juan Camilo Henao Londono <www.github.com/juanhenao21>
@@ -21,54 +21,65 @@ The module contains the following functions:
 # -----------------------------------------------------------------------------
 # Modules
 
+from histdata import download_hist_data as dl
+from histdata.api import Platform as P, TimeFrame as TF
 from itertools import product as iprod
 import multiprocessing as mp
+import os
 
-import gain_data_analysis_data_extraction
-import gain_data_plot_data_extraction
-import gain_data_tools_data_extraction
+import hist_data_tools_download
 
 # -----------------------------------------------------------------------------
 
 
-def gain_data_plot_generator(fx_pairs, year):
-    """Generates all the analysis and plots from the GAIN data.
+def hist_download_data(fx_pair, year):
+    """Downloads the HIST data.
 
-    :param fx_pairs: list of the string abbreviation of the forex pairs to be
-     analized (i.e. ['eur_usd', 'gbp_usd']).
-    :param year: string of the year to be analized (i.e. '2016').
+    :param fx_pair: string abbreviation of the forex pairs to be analyzed
+     (i.e. 'eur_usd').
+    :param year: string of the year to be analyzed (i.e. '2016').
     :return: None -- The function saves the data in a file and does not return
      a value.
     """
 
-    # Parallel computing
-    with mp.Pool(processes=mp.cpu_count()) as pool:
+    function_name = hist_download_data.__name__
+    hist_data_tools_download.hist_function_header_print_data(
+        function_name, fx_pair, year, '')
 
-        # Basic functions
-        pool.starmap(gain_data_analysis_data_extraction
-                     .gain_fx_year_data_extraction,
-                     iprod(fx_pairs, [year]))
-        pool.starmap(gain_data_analysis_data_extraction
-                     .gain_fx_midpoint_year_data_extraction,
-                     iprod(fx_pairs, [year]))
-        pool.starmap(gain_data_analysis_data_extraction
-                     .gain_fx_trade_signs_year_data_extraction,
-                     iprod(fx_pairs, [year]))
+    pair_split = fx_pair.split('_')
+    p = pair_split[0] + pair_split[1]
+    p_cap = pair_split[0].upper() + pair_split[1].upper()
 
-        # Plot
-        pool.starmap(gain_data_plot_data_extraction
-                     .gain_fx_quotes_year_plot,
-                     iprod(fx_pairs, [year]))
-        pool.starmap(gain_data_plot_data_extraction
-                     .gain_fx_midpoint_year_plot,
-                     iprod(fx_pairs, [year]))
-        pool.starmap(gain_data_plot_data_extraction
-                     .gain_fx_spread_year_plot,
-                     iprod(fx_pairs, [year]))
+    os.chdir(f'../../hist_data/original_data_2016/{fx_pair}/')
+
+    for m in range(1, 13):
+
+        dl(year=f'{year}', month=f'{m}', pair=f'{p}', platform=P.GENERIC_ASCII, time_frame=TF.TICK_DATA)
+        if (m < 10): m = f'0{m}'
+        os.rename(f'DAT_ASCII_{p_cap}_T_{year}{m}.zip', f'hist_{fx_pair}_{year}{m}.zip')
 
     return None
 
 # -----------------------------------------------------------------------------
+
+
+def hist_download_all_data(fx_pairs, year):
+    """Downloads all the HIST data.
+
+    :param fx_pairs: list of the string abbreviation of the forex pairs to be
+     analyzed (i.e. ['eur_usd', 'gbp_usd']).
+    :param year: string of the year to be analyzed (i.e. '2016').
+    :return: None -- The function saves the data in a file and does not return
+     a value.
+    """
+
+    with mp.Pool(processes=mp.cpu_count()) as pool:
+
+        pool.starmap(hist_download_data, iprod(fx_pairs, [year]))
+
+    return None
+# -----------------------------------------------------------------------------
+
 
 
 def main():
@@ -80,11 +91,17 @@ def main():
     """
 
     # Tickers and days to analyze
-    fx_pairs = ['eur_usd']
+    hist_data_tools_download.hist_initial_data()
     year = '2016'
+    fx_pairs = ['eur_usd', 'gbp_usd', 'usd_jpy', 'aud_usd',
+                'usd_chf', 'usd_cad', 'nzd_usd']
+
+    # Basic folders
+    hist_data_tools_download.hist_start_folders(fx_pairs, year)
 
     # Run analysis
-    gain_data_plot_generator(fx_pairs, year)
+    # Download data
+    hist_download_all_data(fx_pairs, year)
 
     print('Ay vamos!!')
 
