@@ -45,18 +45,24 @@ def hist_data_plot_generator(fx_pairs, year):
     for fx_pair in fx_pairs:
 
         # Data extraction
-        hist_data_analysis_extraction \
+        x = hist_data_analysis_extraction \
             .hist_fx_year_data_extraction(fx_pair, year)
         # Basic functions
-        hist_data_analysis_extraction \
+        y, z = hist_data_analysis_extraction \
             .hist_fx_midpoint_year_data_extraction(fx_pair, year)
-        hist_data_analysis_extraction \
+        w, v = hist_data_analysis_extraction \
             .hist_fx_trade_signs_year_data_extraction(fx_pair, year)
 
+        del v
+        del w
+        del x
+        del y
+        del z
+
         # Plot
-        hist_data_plot_extraction.hist_fx_quotes_year_plot(fx_pairs, year)
-        hist_data_plot_extraction.hist_fx_midpoint_year_plot(fx_pairs, year)
-        hist_data_plot_extraction.hist_fx_spread_year_plot(fx_pairs, year)
+        hist_data_plot_extraction.hist_fx_quotes_year_plot(fx_pair, year)
+        hist_data_plot_extraction.hist_fx_midpoint_year_plot(fx_pair, year)
+        hist_data_plot_extraction.hist_fx_spread_year_plot(fx_pair, year)
 
     return None
 
