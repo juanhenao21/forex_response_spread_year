@@ -50,7 +50,7 @@ def hist_function_header_print_data(function_name, fx_pair, year, month):
 # -----------------------------------------------------------------------------
 
 
-def hist_start_folders(fx_pairs, year):
+def hist_start_folders(fx_pairs, years):
     """Creates the initial folders to save the data and plots.
 
     :param fx_pairs: list of the string abbreviation of the forex pairs to be
@@ -59,16 +59,26 @@ def hist_start_folders(fx_pairs, year):
     :return: None -- The function creates folders and does not return a value.
     """
 
-    for fx_pair in fx_pairs:
-
+    for year in years:
         try:
-            os.mkdir(f'../../hist_data/original_data_{year}/{fx_pair}')
+            os.mkdir(f'../../hist_data/original_data_{year}')
             print('Folder to save data created')
 
         except FileExistsError as e:
             print('Folder exists. The folder was not created')
             print(e)
             # raise Exception('Check the folders')
+
+        for fx_pair in fx_pairs:
+
+            try:
+                os.mkdir(f'../../hist_data/original_data_{year}/{fx_pair}')
+                print('Folder to save data created')
+
+            except FileExistsError as e:
+                print('Folder exists. The folder was not created')
+                print(e)
+                # raise Exception('Check the folders')
 
     return None
 
