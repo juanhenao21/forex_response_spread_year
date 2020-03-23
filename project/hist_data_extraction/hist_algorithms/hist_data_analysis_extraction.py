@@ -51,7 +51,7 @@ def hist_fx_year_data_extraction(fx_pair, year):
     fx_data_col = ['DateTime', 'Bid', 'Ask']
     fx_data_ = pd.DataFrame(columns=fx_data_col)
 
-    for m_num in range(1, 13):
+    for m_num in range(1, 2):
 
         if (m_num < 10):
             m_num = f'0{m_num}'
@@ -78,12 +78,6 @@ def hist_fx_year_data_extraction(fx_pair, year):
     fx_data_ = fx_data_.drop(columns=['DateTime'])
     # New df with an independent column for time and date
     fx_data = pd.concat([n_df, fx_data_], axis=1, sort=False)
-
-    # Free memory
-    del split_data
-    del data
-    del n_df
-    del fx_data_
 
     # Use the date as index
     fx_data.index = pd.to_datetime(fx_data['Date'])
@@ -201,7 +195,9 @@ def main():
     :return: None.
     """
 
-    pass
+    # fx = hist_fx_year_data_extraction('eur_usd', '2019')
+    fx = pickle.load(open('../../hist_data/extraction_data_2019/eur_usd/hist_fx_year_data_extraction/hist_fx_year_data_extraction_2019_eur_usd.pickle', 'rb'))
+    print(fx.head())
 
     return None
 

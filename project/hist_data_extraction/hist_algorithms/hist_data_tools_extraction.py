@@ -50,17 +50,17 @@ def hist_save_data(function_name, data, fx_pair, year, month):
     # Saving data
 
     if (not os.path.isdir(
-            f'../../hist_data/extraction_data_{year}/{function_name}/')):
+            f'../../hist_data/extraction_data_{year}/{fx_pair}/{function_name}/')):
 
         try:
             os.mkdir(
-                f'../../hist_data/extraction_data_{year}/{function_name}/')
+                f'../../hist_data/extraction_data_{year}/{fx_pair}/{function_name}/')
             print('Folder to save data created')
 
         except FileExistsError:
             print('Folder exists. The folder was not created')
 
-    pickle.dump(data, open(f'../../hist_data/extraction_data_{year}'
+    pickle.dump(data, open(f'../../hist_data/extraction_data_{year}/{fx_pair}/'
                 + f'/{function_name}/{function_name}_{year}_{fx_pair}.pickle',
                 'wb'))
 
