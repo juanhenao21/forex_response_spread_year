@@ -91,21 +91,23 @@ def hist_fx_year_data_extraction(fx_pair, year):
 
     # Saving data
     if (not os.path.isdir(
-            f'../../hist_data/extraction_data_{year}/{function_name}/{fx_pair}/')):
+            f'../../hist_data/extraction_data_{year}/{function_name}/'
+            + f'{fx_pair}/')):
 
         try:
             os.mkdir(
-                f'../../hist_data/extraction_data_{year}/{function_name}/{fx_pair}/')
+                f'../../hist_data/extraction_data_{year}/{function_name}/'
+                + f'{fx_pair}/')
             print('Folder to save data created')
 
         except FileExistsError:
             print('Folder exists. The folder was not created')
 
-
     for w_idx, week in enumerate(weeks):
 
         if (w_idx):
-            w_df = fx_data[(fx_data['Date'] < week) & (fx_data['Date'] >= weeks[w_idx - 1])]
+            w_df = fx_data[(fx_data['Date'] < week)
+                           & (fx_data['Date'] >= weeks[w_idx - 1])]
         else:
             w_df = fx_data[fx_data['Date'] < weeks[0]]
 
@@ -114,14 +116,16 @@ def hist_fx_year_data_extraction(fx_pair, year):
             w_idx = f'0{w_idx + 1}'
         else:
             w_idx += 1
-        pickle.dump(w_df, open(f'../../hist_data/extraction_data_{year}/{function_name}/{fx_pair}/'
-            + f'{function_name}_{fx_pair}_w{w_idx}.pickle', 'wb'))
+        pickle.dump(w_df, open(f'../../hist_data/extraction_data_{year}/'
+                    + f'{function_name}/{fx_pair}/{function_name}_{fx_pair}'
+                    + f'_w{w_idx}.pickle', 'wb'))
 
     # Last days of the year
     w_df = fx_data[fx_data['Date'] >= weeks[-1]]
     # Saving data
-    pickle.dump(w_df, open(f'../../hist_data/extraction_data_{year}/{function_name}/{fx_pair}/'
-        + f'{function_name}_{fx_pair}_w{w_idx + 1}.pickle', 'wb'))
+    pickle.dump(w_df, open(f'../../hist_data/extraction_data_{year}/'
+                + f'{function_name}/{fx_pair}/{function_name}_{fx_pair}'
+                + f'_w{w_idx + 1}.pickle', 'wb'))
 
     del w_df
     del fx_data
@@ -234,9 +238,7 @@ def main():
     :return: None.
     """
 
-    year = '2019'
-    fx = hist_fx_year_data_extraction('eur_usd', '2019')
-    # fx = pickle.load(open('../../hist_data/extraction_data_2019/eur_usd/hist_fx_year_data_extraction/hist_fx_year_data_extraction_2019_eur_usd.pickle', 'rb'))
+    pass
 
     return None
 
