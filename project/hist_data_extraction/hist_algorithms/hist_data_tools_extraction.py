@@ -7,6 +7,7 @@ in the modules that use them.
 This script requires the following modules:
     * matplotlib
     * os
+    * pandas
     * pickle
 
 The module contains the following functions:
@@ -16,6 +17,7 @@ The module contains the following functions:
     * hist_function_header_print_plot - prints info about the plot.
     * hist_start_folders - creates folders to save data and plots.
     * hist_initial_data - takes the initial values for the analysis.
+    * taq_weeks - generates a list with the dates of every sunday in a year.
     * main - the main function of the script.
 
 .. moduleauthor:: Juan Camilo Henao Londono <www.github.com/juanhenao21>
@@ -26,6 +28,7 @@ The module contains the following functions:
 
 from matplotlib import pyplot as plt
 import os
+import pandas as pd
 import pickle
 
 # -----------------------------------------------------------------------------
@@ -50,18 +53,18 @@ def hist_save_data(function_name, data, fx_pair, year, month):
     # Saving data
 
     if (not os.path.isdir(
-            f'../../hist_data/extraction_data_{year}/{fx_pair}/{function_name}/')):
+            f'../../hist_data/extraction_data_{year}/{function_name}/{fx_pair}/')):
 
         try:
             os.mkdir(
-                f'../../hist_data/extraction_data_{year}/{fx_pair}/{function_name}/')
+                f'../../hist_data/extraction_data_{year}/{function_name}/{fx_pair}/')
             print('Folder to save data created')
 
         except FileExistsError:
             print('Folder exists. The folder was not created')
 
-    pickle.dump(data, open(f'../../hist_data/extraction_data_{year}/{fx_pair}/'
-                + f'/{function_name}/{function_name}_{year}_{fx_pair}.pickle',
+    pickle.dump(data, open(f'../../hist_data/extraction_data_{year}/'
+                + f'/{function_name}/{fx_pair}/{function_name}_{year}_{fx_pair}.pickle',
                 'wb'))
 
     print('Data Saved')
@@ -226,6 +229,26 @@ def hist_initial_data():
     print()
 
     return (year, pairs)
+
+# -----------------------------------------------------------------------------
+
+
+def taq_weeks(year):
+    """Generates a list with the dates of every sunday in a year.
+
+    :param year: string of the year to be analyzed (i.e '2016').
+    :return: list.
+    """
+
+    init_date = f'01/01/{year}'
+    last_date = f'12/31/{year}'
+
+    # Get the date of every Sunday
+    dt = pd.date_range(start=init_date, end=last_date, freq='W')
+    dt_df = dt.to_frame(index=False)
+    date_list = dt_df[0].astype(str).tolist()
+
+    return date_list
 
 # -----------------------------------------------------------------------------
 
