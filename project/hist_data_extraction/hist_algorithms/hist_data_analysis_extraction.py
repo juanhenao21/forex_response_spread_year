@@ -5,6 +5,7 @@ from HIST Capital in a year.
 
 This script requires the following modules:
     * numpy
+    * os
     * pandas
     * pickle
     * zipfile
@@ -23,6 +24,7 @@ The module contains the following functions:
 # Modules
 
 import numpy as np
+import os
 import pandas as pd
 import pickle
 import zipfile
@@ -33,7 +35,7 @@ import hist_data_tools_extraction
 
 
 def hist_fx_year_data_extraction(fx_pair, year):
-    """Extracts the bid and ask for a year.
+    """Extracts the bid and ask for a week.
 
     :param fx_pair: string of the abbreviation of the forex pair to be analyzed
      (i.e. 'eur_usd').
@@ -51,7 +53,7 @@ def hist_fx_year_data_extraction(fx_pair, year):
     fx_data_col = ['DateTime', 'Bid', 'Ask']
     fx_data_ = pd.DataFrame(columns=fx_data_col)
 
-    for m_num in range(1, 2):
+    for m_num in range(1, 13):
 
         if (m_num < 10):
             m_num = f'0{m_num}'
@@ -78,16 +80,53 @@ def hist_fx_year_data_extraction(fx_pair, year):
     fx_data_ = fx_data_.drop(columns=['DateTime'])
     # New df with an independent column for time and date
     fx_data = pd.concat([n_df, fx_data_], axis=1, sort=False)
+    fx_data['Date'] = pd.to_datetime(fx_data['Date'])
 
-    # Use the date as index
-    fx_data.index = pd.to_datetime(fx_data['Date'])
-    fx_data = fx_data.drop(columns=['Date'])
+    del fx_data_
+    del split_data
+    del data
+    del n_df
+
+    weeks = hist_data_tools_extraction.taq_weeks(year)
 
     # Saving data
-    hist_data_tools_extraction \
-        .hist_save_data(function_name, fx_data, fx_pair, year, '')
+    if (not os.path.isdir(
+            f'../../hist_data/extraction_data_{year}/{function_name}/{fx_pair}/')):
 
-    return fx_data
+        try:
+            os.mkdir(
+                f'../../hist_data/extraction_data_{year}/{function_name}/{fx_pair}/')
+            print('Folder to save data created')
+
+        except FileExistsError:
+            print('Folder exists. The folder was not created')
+
+
+    for w_idx, week in enumerate(weeks):
+
+        if (w_idx):
+            w_df = fx_data[(fx_data['Date'] < week) & (fx_data['Date'] >= weeks[w_idx - 1])]
+        else:
+            w_df = fx_data[fx_data['Date'] < weeks[0]]
+
+        # Saving data
+        if (w_idx + 1 < 10):
+            w_idx = f'0{w_idx + 1}'
+        else:
+            w_idx += 1
+        pickle.dump(w_df, open(f'../../hist_data/extraction_data_{year}/{function_name}/{fx_pair}/'
+            + f'{function_name}_{fx_pair}_w{w_idx}.pickle', 'wb'))
+
+    # Last days of the year
+    w_df = fx_data[fx_data['Date'] >= weeks[-1]]
+    # Saving data
+    pickle.dump(w_df, open(f'../../hist_data/extraction_data_{year}/{function_name}/{fx_pair}/'
+        + f'{function_name}_{fx_pair}_w{w_idx + 1}.pickle', 'wb'))
+
+    del w_df
+    del fx_data
+
+    return None
 
 # -----------------------------------------------------------------------------
 
@@ -195,9 +234,9 @@ def main():
     :return: None.
     """
 
-    # fx = hist_fx_year_data_extraction('eur_usd', '2019')
-    fx = pickle.load(open('../../hist_data/extraction_data_2019/eur_usd/hist_fx_year_data_extraction/hist_fx_year_data_extraction_2019_eur_usd.pickle', 'rb'))
-    print(fx.head())
+    year = '2019'
+    fx = hist_fx_year_data_extraction('eur_usd', '2019')
+    # fx = pickle.load(open('../../hist_data/extraction_data_2019/eur_usd/hist_fx_year_data_extraction/hist_fx_year_data_extraction_2019_eur_usd.pickle', 'rb'))
 
     return None
 
