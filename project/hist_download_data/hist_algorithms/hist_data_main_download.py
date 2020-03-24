@@ -102,7 +102,6 @@ def main():
     fx_pairs = ['eur_usd', 'gbp_usd', 'usd_jpy', 'aud_usd',
                 'usd_chf', 'usd_cad', 'nzd_usd']
 
-
     # Basic folders
     hist_data_tools_download.hist_start_folders(fx_pairs, years)
 
