@@ -17,7 +17,8 @@ The module contains the following functions:
     * hist_function_header_print_plot - prints info about the plot.
     * hist_start_folders - creates folders to save data and plots.
     * hist_initial_data - takes the initial values for the analysis.
-    * taq_weeks - generates a list with the dates of every sunday in a year.
+    * hist_sundays - generates a list with the dates of every sunday in a year.
+    * hist_weeks - generates a list with the number of weeks in a year.
     * main - the main function of the script.
 
 .. moduleauthor:: Juan Camilo Henao Londono <www.github.com/juanhenao21>
@@ -34,7 +35,7 @@ import pickle
 # -----------------------------------------------------------------------------
 
 
-def hist_save_data(function_name, data, fx_pair, year, month):
+def hist_save_data(data, fx_pair, year, week):
     """Saves computed data in pickle files.
 
     Saves the data generated in the functions of the
@@ -45,7 +46,7 @@ def hist_save_data(function_name, data, fx_pair, year, month):
     :param fx_pair: string of the abbreviation of the forex pair to be analyzed
      (i.e. 'eur_usd').
     :param year: string of the year to be analyzed (i.e '2016').
-    :param month: string of the month to be analyzed (i.e '07').
+    :param week: string of the week to be analyzed (i.e '07').
     :return: None -- The function saves the data in a file and does not return
      a value.
     """
@@ -53,12 +54,12 @@ def hist_save_data(function_name, data, fx_pair, year, month):
     # Saving data
 
     if (not os.path.isdir(
-            f'../../hist_data/extraction_data_{year}/{function_name}/'
+            f'../../hist_data/extraction_data_{year}/hist_fx_data_extraction/'
             + f'{fx_pair}/')):
 
         try:
             os.mkdir(
-                f'../../hist_data/extraction_data_{year}/{function_name}/'
+                f'../../hist_data/extraction_data_{year}/hist_fx_data_extraction/'
                 + f'{fx_pair}/')
             print('Folder to save data created')
 
@@ -66,8 +67,8 @@ def hist_save_data(function_name, data, fx_pair, year, month):
             print('Folder exists. The folder was not created')
 
     pickle.dump(data, open(f'../../hist_data/extraction_data_{year}/'
-                + f'/{function_name}/{fx_pair}/{function_name}_{year}'
-                + f'_{fx_pair}.pickle', 'wb'))
+                + f'/hist_fx_data_extraction/{fx_pair}/hist_fx_data_extraction'
+                + f'_{fx_pair}_w{week}.pickle', 'wb'))
 
     print('Data Saved')
     print()
@@ -118,7 +119,7 @@ def hist_save_plot(function_name, figure, fx_pair, year, month):
 # -----------------------------------------------------------------------------
 
 
-def hist_function_header_print_data(function_name, fx_pair, year, month):
+def hist_function_header_print_data(function_name, fx_pair, year, week):
     """Prints a header of a function that generates data when it is running.
 
     :param function_name: name of the function that generates the data.
@@ -135,8 +136,8 @@ def hist_function_header_print_data(function_name, fx_pair, year, month):
     print(function_name)
 
     fx_pair_upper = fx_pair[:3].upper() + '/' + fx_pair[4:].upper()
-    print(f'Processing data for the forex pair {fx_pair_upper} the '
-          + f'{year}.{month}')
+    print(f'Processing data for the forex pair {fx_pair_upper} in the week '
+          + f'{week} of {year}')
     print()
 
     return None
@@ -170,22 +171,24 @@ def hist_function_header_print_plot(function_name, fx_pair, year, month):
 # -----------------------------------------------------------------------------
 
 
-def hist_start_folders(year):
+def hist_start_folders(years):
     """Creates the initial folders to save the data and plots.
 
     :param year: string of the year to be analyzed (i.e '2016').
     :return: None -- The function creates folders and does not return a value.
     """
 
-    try:
-        os.mkdir(f'../../hist_data/extraction_data_{year}')
-        os.mkdir(f'../../hist_plot/extraction_plot_{year}')
-        print('Folder to save data created')
+    for year in years:
 
-    except FileExistsError as e:
-        print('Folder exists. The folder was not created')
-        print(e)
-        # raise Exception('Check the folders')
+        try:
+            os.mkdir(f'../../hist_data/extraction_data_{year}')
+            os.mkdir(f'../../hist_plot/extraction_plot_{year}')
+            print('Folder to save data created')
+
+        except FileExistsError as e:
+            print('Folder exists. The folder was not created')
+            print(e)
+            # raise Exception('Check the folders')
 
     return None
 
@@ -235,7 +238,7 @@ def hist_initial_data():
 # -----------------------------------------------------------------------------
 
 
-def taq_weeks(year):
+def hist_sundays(year):
     """Generates a list with the dates of every sunday in a year.
 
     :param year: string of the year to be analyzed (i.e '2016').
@@ -251,6 +254,25 @@ def taq_weeks(year):
     date_list = dt_df[0].astype(str).tolist()
 
     return date_list
+
+# -----------------------------------------------------------------------------
+
+
+def hist_weeks():
+    """Generates a list with the dates of every sunday in a year.
+
+    :param year: string of the year to be analyzed (i.e '2016').
+    :return: list.
+    """
+
+    week_num = []
+
+    for val in range(1, 54):
+        if (val < 10):
+            val = f'0{val}'
+        week_num.append(f'{val}')
+
+    return week_num
 
 # -----------------------------------------------------------------------------
 

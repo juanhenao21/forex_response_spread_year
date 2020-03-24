@@ -31,7 +31,7 @@ import hist_data_tools_extraction
 # -----------------------------------------------------------------------------
 
 
-def hist_data_plot_generator(fx_pairs, year):
+def hist_data_plot_generator(fx_pairs, years, weeks):
     """Generates all the analysis and plots from the HIST data.
 
     :param fx_pairs: list of the string abbreviation of the forex pairs to be
@@ -43,26 +43,29 @@ def hist_data_plot_generator(fx_pairs, year):
 
 
     for fx_pair in fx_pairs:
+        for year in years:
 
-        # Data extraction
-        x = hist_data_analysis_extraction \
-            .hist_fx_year_data_extraction(fx_pair, year)
+            # Data extraction
+            hist_data_analysis_extraction \
+                .hist_fx_data_extraction(fx_pair, year)
+
+    # Parallel computing
+    with mp.Pool(processes=mp.cpu_count()) as pool:
+
         # Basic functions
-        y, z = hist_data_analysis_extraction \
-            .hist_fx_midpoint_year_data_extraction(fx_pair, year)
-        w, v = hist_data_analysis_extraction \
-            .hist_fx_trade_signs_year_data_extraction(fx_pair, year)
+        pool.starmap(hist_data_analysis_extraction \
+                     .hist_fx_midpoint_trade_data,
+                     iprod(fx_pairs, years, weeks))
+        pool.starmap(hist_data_analysis_extraction \
+                     .hist_fx_trade_signs_trade_data,
+                     iprod(fx_pairs, years, weeks))
 
-        del v
-        del w
-        del x
-        del y
-        del z
-
-        # Plot
-        hist_data_plot_extraction.hist_fx_quotes_year_plot(fx_pair, year)
-        hist_data_plot_extraction.hist_fx_midpoint_year_plot(fx_pair, year)
-        hist_data_plot_extraction.hist_fx_spread_year_plot(fx_pair, year)
+    # for fx_pair in fx_pairs:
+    #     for year in years:
+    #         # Plot
+    #         hist_data_plot_extraction.hist_fx_quotes_year_plot(fx_pair, year)
+    #         hist_data_plot_extraction.hist_fx_midpoint_year_plot(fx_pair, year)
+    #         hist_data_plot_extraction.hist_fx_spread_year_plot(fx_pair, year)
 
     return None
 
@@ -80,16 +83,17 @@ def main():
     # Tickers and days to analyze
     # year, fx_pairs = hist_data_tools_extraction.hist_initial_data()
     # To be used when run in server
-    year = '2016'
+    years = ['2008', '2014', '2019']
+    weeks = hist_data_tools_extraction.hist_weeks()
     fx_pairs = ['eur_usd', 'gbp_usd', 'usd_jpy', 'aud_usd',
                 'usd_chf', 'usd_cad', 'nzd_usd']
 
     # Basic folders
-    hist_data_tools_extraction.hist_start_folders(year)
+    hist_data_tools_extraction.hist_start_folders(years)
 
     # Run analysis
     # Analysis and plot
-    hist_data_plot_generator(fx_pairs, year)
+    hist_data_plot_generator(fx_pairs, years, weeks)
 
     print('Ay vamos!!')
 

@@ -11,10 +11,10 @@ This script requires the following modules:
     * zipfile
 
 The module contains the following functions:
-    * hist_fx_year_data_extraction - extracts the bid and ask for a year.
-    * hist_fx_midpoint_year_data_extraction - extracts the midpoint price for a
-     year
-    * hist_fx_trade_signs_year_data_extraction - extracts the midpoint price
+    * hist_fx_data_extraction - extracts the bid and ask for a year.
+    * hist_fx_midpoint_trade_data - extracts the midpoint price for
+      a year
+    * hist_fx_trade_signs_trade_data - extracts the midpoint price
      for a year
     * main - the main function of the script.
 
@@ -34,17 +34,17 @@ import hist_data_tools_extraction
 # -----------------------------------------------------------------------------
 
 
-def hist_fx_year_data_extraction(fx_pair, year):
+def hist_fx_data_extraction(fx_pair, year):
     """Extracts the bid and ask for a week.
 
     :param fx_pair: string of the abbreviation of the forex pair to be analyzed
      (i.e. 'eur_usd').
     :param year: string of the year to be analyzed (i.e. '2016').
-    :return: pandas dataframe -- The function returns a pandas dataframe with
-     the data.
+    :return: None -- The function saves the data in a file and does not return
+     a value.
     """
 
-    function_name = hist_fx_year_data_extraction.__name__
+    function_name = hist_fx_data_extraction.__name__
     hist_data_tools_extraction \
         .hist_function_header_print_data(function_name, fx_pair, year, '')
 
@@ -87,9 +87,20 @@ def hist_fx_year_data_extraction(fx_pair, year):
     del data
     del n_df
 
-    weeks = hist_data_tools_extraction.taq_weeks(year)
+    weeks = hist_data_tools_extraction.hist_sundays(year)
 
     # Saving data
+    if (not os.path.isdir(
+            f'../../hist_data/extraction_data_{year}/{function_name}/')):
+
+        try:
+            os.mkdir(
+                f'../../hist_data/extraction_data_{year}/{function_name}/')
+            print('Folder to save data created')
+
+        except FileExistsError:
+            print('Folder exists. The folder was not created')
+
     if (not os.path.isdir(
             f'../../hist_data/extraction_data_{year}/{function_name}/'
             + f'{fx_pair}/')):
@@ -135,37 +146,39 @@ def hist_fx_year_data_extraction(fx_pair, year):
 # -----------------------------------------------------------------------------
 
 
-def hist_fx_midpoint_year_data_extraction(fx_pair, year):
+def hist_fx_midpoint_trade_data(fx_pair, year, week):
     """Extracts the midpoint price for a year.
 
     :param fx_pair: string of the abbreviation of the forex pair to be analyzed
      (i.e. 'eur_usd').
-    :param year: string of the year to be analyzed (i.e. '2016').
-    :return: tuple -- The function returns a tuple with numpy arrays.
+    :param year: string of the year to be analyzed (i.e. '2019').
+    :param week: string of the week to be analyzed (i.e. '01').
+    :return: None -- The function saves the data in a file and does not return
+     a value.
     """
 
-    function_name = hist_fx_midpoint_year_data_extraction.__name__
+    function_name = hist_fx_midpoint_trade_data.__name__
     hist_data_tools_extraction \
-        .hist_function_header_print_data(function_name, fx_pair, year, '')
+        .hist_function_header_print_data(function_name, fx_pair, year, week)
 
     try:
         # Load data
         fx_data = pickle.load(open(
-                        f'../../hist_data/extraction_data_{year}/hist_fx_year'
-                        + f'_data_extraction/hist_fx_year_data_extraction'
-                        + f'_{year}_{fx_pair}.pickle', 'rb'))
+                        f'../../hist_data/extraction_data_{year}/hist_fx_data'
+                        + f'_extraction/{fx_pair}/hist_fx_data_extraction'
+                        + f'_{fx_pair}_w{week}.pickle', 'rb'))
 
-        time = fx_data['Time'].to_numpy()
         ask = fx_data['Ask'].to_numpy()
         bid = fx_data['Bid'].to_numpy()
 
-        midpoint = (ask + bid) / 2
+        fx_data['Midpoint'] = (fx_data['Ask'] + fx_data['Bid']) / 2
 
         # Saving data
-        hist_data_tools_extraction \
-            .hist_save_data(function_name, (time, midpoint), fx_pair, year, '')
+        hist_data_tools_extraction.hist_save_data(fx_data, fx_pair, year, week)
 
-        return (time, midpoint)
+        del fx_data
+
+        return None
 
     except FileNotFoundError as e:
         print('No data')
@@ -176,7 +189,7 @@ def hist_fx_midpoint_year_data_extraction(fx_pair, year):
 # -----------------------------------------------------------------------------
 
 
-def hist_fx_trade_signs_year_data_extraction(fx_pair, year):
+def hist_fx_trade_signs_trade_data(fx_pair, year, week):
     """Extracts the trade signs price for a year.
 
     The trade signs are obtained from the midpoint price as
@@ -187,26 +200,26 @@ def hist_fx_trade_signs_year_data_extraction(fx_pair, year):
     :param fx_pair: string of the abbreviation of the forex pair to be analyzed
      (i.e. 'eur_usd').
     :param year: string of the year to be analyzed (i.e. '2016').
-    :return: tuple -- The function returns a tuple with numpy arrays.
+    :return: None -- The function saves the data in a file and does not return
+     a value.
     """
 
-    function_name = hist_fx_trade_signs_year_data_extraction.__name__
+    function_name = hist_fx_trade_signs_trade_data.__name__
     hist_data_tools_extraction \
-        .hist_function_header_print_data(function_name, fx_pair, year, '')
+        .hist_function_header_print_data(function_name, fx_pair, year, week)
 
     try:
         # Load data
-        time, midpoint = pickle.load(open(
-                        f'../../hist_data/extraction_data_{year}/hist_fx'
-                        + f'_midpoint_year_data_extraction/hist_fx_midpoint'
-                        + f'_year_data_extraction_{year}_{fx_pair}.pickle',
-                        'rb'))
+        fx_data = pickle.load(open(
+                        f'../../hist_data/extraction_data_{year}/hist_fx_data'
+                        + f'_extraction/{fx_pair}/hist_fx_data_extraction'
+                        + f'_{fx_pair}_w{week}.pickle', 'rb'))
 
-        trade_signs = 0 * midpoint
+        trade_signs = 0 * fx_data['Midpoint']
 
-        for m_idx, m_val in enumerate(midpoint):
+        for m_idx, m_val in enumerate(fx_data['Midpoint']):
 
-            sign = np.sign(m_val - midpoint[m_idx - 1])
+            sign = np.sign(m_val - fx_data['Midpoint'].iloc[m_idx - 1])
             if (sign):
                 trade_signs[m_idx] = sign
             else:
@@ -214,12 +227,15 @@ def hist_fx_trade_signs_year_data_extraction(fx_pair, year):
 
         assert np.sum(trade_signs == 0) == 0
 
-        # Saving data
-        hist_data_tools_extraction \
-            .hist_save_data(function_name, (time, trade_signs), fx_pair, year,
-                            '')
+        fx_data['Signs'] = trade_signs
+        print(fx_data.head())
 
-        return (time, trade_signs)
+        # Saving data
+        hist_data_tools_extraction.hist_save_data(fx_data, fx_pair, year, week)
+
+        del fx_data
+
+        return None
 
     except FileNotFoundError as e:
         print('No data')
@@ -238,7 +254,10 @@ def main():
     :return: None.
     """
 
-    pass
+    fx_pair = 'eur_usd'
+    year = '2019'
+    week = '01'
+    hist_fx_trade_signs_trade_data(fx_pair, year, week)
 
     return None
 
