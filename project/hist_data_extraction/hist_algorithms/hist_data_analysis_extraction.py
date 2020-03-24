@@ -228,7 +228,6 @@ def hist_fx_trade_signs_trade_data(fx_pair, year, week):
         assert np.sum(trade_signs == 0) == 0
 
         fx_data['Signs'] = trade_signs
-        print(fx_data.head())
 
         # Saving data
         hist_data_tools_extraction.hist_save_data(fx_data, fx_pair, year, week)
@@ -254,10 +253,7 @@ def main():
     :return: None.
     """
 
-    fx_pair = 'eur_usd'
-    year = '2019'
-    week = '01'
-    hist_fx_trade_signs_trade_data(fx_pair, year, week)
+    pass
 
     return None
 
