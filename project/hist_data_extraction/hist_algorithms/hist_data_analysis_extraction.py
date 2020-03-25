@@ -50,7 +50,7 @@ def hist_fx_data_extraction(fx_pair, year):
 
     pair = fx_pair.split('_')
     cap_pair = pair[0].upper() + pair[1].upper()
-    fx_data_col = ['DateTime', 'Bid', 'Ask']
+    fx_data_col = ['DateTime', 'Ask', 'Bid']
     fx_data_ = pd.DataFrame(columns=fx_data_col)
 
     for m_num in range(1, 13):
@@ -168,9 +168,6 @@ def hist_fx_midpoint_trade_data(fx_pair, year, week):
                         + f'_extraction/{fx_pair}/hist_fx_data_extraction'
                         + f'_{fx_pair}_w{week}.pickle', 'rb'))
 
-        ask = fx_data['Ask'].to_numpy()
-        bid = fx_data['Bid'].to_numpy()
-
         fx_data['Midpoint'] = (fx_data['Ask'] + fx_data['Bid']) / 2
 
         # Saving data
@@ -215,11 +212,13 @@ def hist_fx_trade_signs_trade_data(fx_pair, year, week):
                         + f'_extraction/{fx_pair}/hist_fx_data_extraction'
                         + f'_{fx_pair}_w{week}.pickle', 'rb'))
 
-        trade_signs = 0 * fx_data['Midpoint']
+        midpoint = fx_data['Midpoint'].to_numpy()
+        trade_signs = 0 * midpoint
 
         for m_idx, m_val in enumerate(fx_data['Midpoint']):
 
-            sign = np.sign(m_val - fx_data['Midpoint'].iloc[m_idx - 1])
+            sign = np.sign(m_val - midpoint[m_idx - 1])
+
             if (sign):
                 trade_signs[m_idx] = sign
             else:
