@@ -59,8 +59,8 @@ def hist_save_data(data, fx_pair, year, week):
 
         try:
             os.mkdir(
-                f'../../hist_data/extraction_data_{year}/hist_fx_data_extraction/'
-                + f'{fx_pair}/')
+                f'../../hist_data/extraction_data_{year}/hist_fx_data'
+                + f'_extraction/{fx_pair}/')
             print('Folder to save data created')
 
         except FileExistsError:
