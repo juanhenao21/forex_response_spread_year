@@ -41,31 +41,35 @@ def hist_data_plot_generator(fx_pairs, years, weeks):
      a value.
     """
 
-
     for fx_pair in fx_pairs:
         for year in years:
-
             # Data extraction
             hist_data_analysis_extraction \
                 .hist_fx_data_extraction(fx_pair, year)
 
     # Parallel computing
     with mp.Pool(processes=mp.cpu_count()) as pool:
-
         # Basic functions
-        pool.starmap(hist_data_analysis_extraction \
+        pool.starmap(hist_data_analysis_extraction
                      .hist_fx_midpoint_trade_data,
                      iprod(fx_pairs, years, weeks))
-        pool.starmap(hist_data_analysis_extraction \
+
+    # Parallel computing
+    with mp.Pool(processes=mp.cpu_count()) as pool:
+        # Basic functions
+        pool.starmap(hist_data_analysis_extraction
                      .hist_fx_trade_signs_trade_data,
                      iprod(fx_pairs, years, weeks))
 
-    # for fx_pair in fx_pairs:
-    #     for year in years:
-    #         # Plot
-    #         hist_data_plot_extraction.hist_fx_quotes_year_plot(fx_pair, year)
-    #         hist_data_plot_extraction.hist_fx_midpoint_year_plot(fx_pair, year)
-    #         hist_data_plot_extraction.hist_fx_spread_year_plot(fx_pair, year)
+    for fx_pair in fx_pairs:
+        for year in years:
+            # Plot
+            hist_data_plot_extraction.hist_fx_quotes_year_plot(fx_pair, year,
+                                                               weeks)
+            hist_data_plot_extraction.hist_fx_midpoint_year_plot(fx_pair, year,
+                                                                 weeks)
+            hist_data_plot_extraction.hist_fx_spread_year_plot(fx_pair, year,
+                                                               weeks)
 
     return None
 
