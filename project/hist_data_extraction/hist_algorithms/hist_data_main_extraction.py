@@ -36,7 +36,10 @@ def hist_data_plot_generator(fx_pairs, years, weeks):
 
     :param fx_pairs: list of the string abbreviation of the forex pairs to be
      analyzed (i.e. ['eur_usd', 'gbp_usd']).
-    :param year: string of the year to be analyzed (i.e. '2016').
+    :param years: list of the string of the year to be analyzed
+     (i.e. ['2016', '2017']).
+    :param weeks: list of the string of the weeks to be analyzed
+     (i.e. ['01', '02']).
     :return: None -- The function saves the data in a file and does not return
      a value.
     """
