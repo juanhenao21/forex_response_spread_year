@@ -4,13 +4,18 @@ The functions in the module compute the response function in trade time scale
 from the Historic Rate Data from HIST Capital data in a year.
 
 This script requires the following modules:
+    * itertools
+    * multiprocessing
     * numpy
+    * os
     * pandas
     * pickle
 
 The module contains the following functions:
+    * hist_fx_self_response_week_responses_trade - extracts the midpoint price
+     for a week.
     * hist_fx_self_response_year_responses_trade - extracts the midpoint price
-     for a year
+     for a year.
     * main - the main function of the script.
 
 ..moduleauthor:: Juan Camilo Henao Londono <www.github.com/juanhenao21>
@@ -18,7 +23,10 @@ The module contains the following functions:
 # -----------------------------------------------------------------------------
 # Modules
 
+from itertools import product as iprod
+import multiprocessing as mp
 import numpy as np
+import os
 import pandas as pd
 import pickle
 
@@ -29,7 +37,7 @@ __tau__ = 1000
 # -----------------------------------------------------------------------------
 
 
-def hist_fx_self_response_year_responses_trade(fx_pair, year):
+def hist_fx_self_response_week_responses_trade_data(fx_pair, year, week):
     """Computes the self-response of a year.
 
     Using the midpoint price and the trade signs of a ticker computes the
@@ -41,22 +49,15 @@ def hist_fx_self_response_year_responses_trade(fx_pair, year):
     :return: tuple -- The function returns a tuple with numpy arrays.
     """
 
-    function_name = hist_fx_self_response_year_responses_trade.__name__
-    hist_data_tools_responses_trade \
-        .hist_function_header_print_data(function_name, fx_pair, year, '')
-
     try:
         # Load data
-        _, midpoint = pickle.load(open(
+        fx_data = pickle.load(open(
                         f'../../hist_data/extraction_data_{year}/hist_fx'
-                        + f'_midpoint_year_data_extraction/hist_fx_midpoint'
-                        + f'_year_data_extraction_{year}_{fx_pair}.pickle',
-                        'rb'))
-        _, trade_signs = pickle.load(open(
-                        f'../../hist_data/extraction_data_{year}/hist_fx'
-                        + f'_trade_signs_year_data_extraction/hist_fx_trade'
-                        + f'_signs_year_data_extraction_{year}_{fx_pair}'
-                        + f'.pickle', 'rb'))
+                        + f'_data_extraction/{fx_pair}/hist_fx_data_extraction'
+                        + f'_{fx_pair}_w{week}.pickle', 'rb'))
+
+        midpoint = fx_data['Midpoint'].to_numpy()
+        trade_signs = fx_data['Signs'].to_numpy()
 
         # Relate the return of the previous second with the current trade sign
         midpoint = midpoint[:-1]
@@ -88,20 +89,83 @@ def hist_fx_self_response_year_responses_trade(fx_pair, year):
                 product = log_return_sec * trade_sign_tau
                 self_response_tau[tau_idx] = np.sum(product)
 
-        self_response = self_response_tau / num
+        del fx_data
 
-        # Saving data
-        hist_data_tools_responses_trade \
-            .hist_save_data(function_name, self_response, fx_pair, year,
-                            '')
-
-        return self_response
+        return (self_response_tau, num)
 
     except FileNotFoundError as e:
         print('No data')
         print(e)
         print()
-        return None
+        zeros = np.zeros(__tau__)
+        return (zeros, zeros)
+
+# ----------------------------------------------------------------------------
+
+
+def hist_fx_self_response_year_responses_trade_data(fx_pair, year):
+    """Computes the self-response of a year.
+
+    Using the hist_self_response_year_responses_trade_data function computes
+    the self-response function for a year.
+
+    :param ticker: string of the abbreviation of stock to be analyzed
+     (i.e. 'AAPL').
+    :param year: string of the year to be analyzed (i.e '2016').
+    :return: tuple -- The function returns a tuple with numpy arrays.
+    """
+
+    function_name = hist_fx_self_response_year_responses_trade_data.__name__
+    hist_data_tools_responses_trade \
+        .hist_function_header_print_data(function_name, fx_pair, year, '')
+
+    weeks = hist_data_tools_responses_trade.hist_weeks()
+
+    self_values = []
+    args_prod = iprod([fx_pair], [year], weeks)
+
+    # Parallel computation of the self-responses. Every result is appended to
+    # a list
+    with mp.Pool(processes=mp.cpu_count()) as pool:
+        self_values.append(pool.starmap(
+            hist_fx_self_response_week_responses_trade_data, args_prod))
+
+    # To obtain the total self-response, I sum over all the self-response
+    # values and all the amount of trades (averaging values)
+    self_v_final = np.sum(self_values[0], axis=0)
+
+    self_response_val = self_v_final[0] / self_v_final[1]
+    self_response_avg = self_v_final[1]
+
+    # Saving data
+    if (not os.path.isdir(
+            f'../../hist_data/responses_trade_{year}/{function_name}/')):
+
+        try:
+            os.mkdir(
+                f'../../hist_data/responses_trade_{year}/{function_name}/')
+            print('Folder to save data created')
+
+        except FileExistsError:
+            print('Folder exists. The folder was not created')
+
+    if (not os.path.isdir(
+            f'../../hist_data/responses_trade_{year}/{function_name}/'
+            + f'{fx_pair}/')):
+
+        try:
+            os.mkdir(
+                f'../../hist_data/responses_trade_{year}/{function_name}/'
+                + f'{fx_pair}/')
+            print('Folder to save data created')
+
+        except FileExistsError:
+            print('Folder exists. The folder was not created')
+
+    hist_data_tools_responses_trade \
+        .hist_save_data(self_response_val, fx_pair, year)
+
+    return (self_response_val, self_response_avg)
 
 # -----------------------------------------------------------------------------
 
