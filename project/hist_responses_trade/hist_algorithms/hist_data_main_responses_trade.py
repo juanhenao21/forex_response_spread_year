@@ -1,4 +1,4 @@
-'''Gain data main module.
+'''HIST data main module.
 
 The functions in the module compute the responses of the Historic Rate data
 from HIST Capital in a year.
@@ -31,28 +31,32 @@ import hist_data_tools_responses_trade
 # -----------------------------------------------------------------------------
 
 
-def hist_data_plot_generator(fx_pairs, year):
+def hist_data_plot_generator(fx_pairs, years):
     """Generates all the analysis and plots from the HIST data.
 
     :param fx_pairs: list of the string abbreviation of the forex pairs to be
      analyzed (i.e. ['eur_usd', 'gbp_usd']).
-    :param year: string of the year to be analyzed (i.e. '2016').
+    :param years: list of the string of the year to be analyzed
+     (i.e. ['2016', '2017']).
+    :param weeks: list of the string of the weeks to be analyzed
+     (i.e. ['01', '02']).
     :return: None -- The function saves the data in a file and does not return
      a value.
     """
 
+    # Specific functions
+    for fx_pair in fx_pairs:
+        for year in years:
+            # Self-response
+            hist_data_analysis_responses_trade \
+                .hist_fx_self_response_year_responses_trade_data(fx_pair, year)
+
     # Parallel computing
     with mp.Pool(processes=mp.cpu_count()) as pool:
-
-        # Specific functions
-        pool.starmap(hist_data_analysis_responses_trade
-                     .hist_fx_self_response_year_responses_trade,
-                     iprod(fx_pairs, [year]))
-
         # Plot
         pool.starmap(hist_data_plot_responses_trade
                      .hist_fx_self_response_year_avg_responses_trade_plot,
-                     iprod(fx_pairs, [year]))
+                     iprod(fx_pairs, years))
 
     return None
 
@@ -70,16 +74,16 @@ def main():
     # Tickers and days to analyze
     # year, fx_pairs = hist_data_tools_responses_trade.hist_initial_data()
     # To be used when run in server
-    year = '2016'
+    years = ['2008', '2014', '2019']
     fx_pairs = ['eur_usd', 'gbp_usd', 'usd_jpy', 'aud_usd',
                 'usd_chf', 'usd_cad', 'nzd_usd']
 
     # Basic folders
-    hist_data_tools_responses_trade.hist_start_folders(year)
+    hist_data_tools_responses_trade.hist_start_folders(years)
 
     # Run analysis
     # Analysis and plot
-    hist_data_plot_generator(fx_pairs, year)
+    hist_data_plot_generator(fx_pairs, years)
 
     print('Ay vamos!!')
 
