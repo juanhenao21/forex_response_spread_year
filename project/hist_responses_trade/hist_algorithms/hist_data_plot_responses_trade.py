@@ -4,6 +4,7 @@ The functions in the module plot the data obtained in the
 hist_data_analysis_responses_trade module.
 
 This script requires the following modules:
+    * gc
     * matplotlib
     * pickle
     * hist_data_tools_data_extract
@@ -19,6 +20,7 @@ The module contains the following functions:
 # ----------------------------------------------------------------------------
 # Modules
 
+import gc
 from matplotlib import pyplot as plt
 import pickle
 
@@ -30,9 +32,9 @@ import hist_data_tools_responses_trade
 def hist_fx_self_response_year_avg_responses_trade_plot(fx_pair, year):
     """Plots the self-response average for a year.
 
-    :param fx_pair: string of the abbreviation of the forex pair to be analized
+    :param fx_pair: string of the abbreviation of the forex pair to be analyzed
      (i.e. 'eur_usd').
-    :param year: string of the year to be analized (i.e. '2016').
+    :param year: string of the year to be analyzed (i.e. '2016').
     :return: None -- The function saves the plot in a file and does not return
      a value.
     """
@@ -49,9 +51,9 @@ def hist_fx_self_response_year_avg_responses_trade_plot(fx_pair, year):
         # Load data
         self_response = pickle.load(open(
                         f'../../hist_data/responses_trade_{year}/hist_fx_self'
-                        + f'_response_year_responses_trade/hist_fx_self'
-                        + f'_response_year_responses_trade_{year}_{fx_pair}'
-                        + f'.pickle', 'rb'))
+                        + f'_response_year_responses_trade_data/{fx_pair}/hist'
+                        + f'_fx_self_response_year_responses_trade_data'
+                        + f'_{fx_pair}_{year}.pickle', 'rb'))
 
         plt.semilogx(self_response, linewidth=5, label=f'{fx_pair_upper}')
         plt.legend(loc='best', fontsize=25)
@@ -68,6 +70,11 @@ def hist_fx_self_response_year_avg_responses_trade_plot(fx_pair, year):
         # Plotting
         hist_data_tools_responses_trade \
             .hist_save_plot(function_name, figure, fx_pair, year, '')
+
+        plt.close()
+        del self_response
+        del figure
+        gc.collect()
 
         return None
 
