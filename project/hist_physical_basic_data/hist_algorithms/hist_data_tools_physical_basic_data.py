@@ -17,7 +17,6 @@ The module contains the following functions:
     * hist_function_header_print_plot - prints info about the plot.
     * hist_start_folders - creates folders to save data and plots.
     * hist_initial_data - takes the initial values for the analysis.
-    * hist_sundays - generates a list with the dates of every sunday in a year.
     * hist_weeks - generates a list with the number of weeks in a year.
     * main - the main function of the script.
 
@@ -54,21 +53,21 @@ def hist_save_data(data, fx_pair, year, week):
     # Saving data
 
     if (not os.path.isdir(
-            f'../../hist_data/extraction_data_{year}/hist_fx_data_extraction/'
-            + f'{fx_pair}/')):
+            f'../../hist_data/physical_basic_data_{year}/hist_fx_physical'
+            + f'_basic_data/{fx_pair}/')):
 
         try:
             os.mkdir(
-                f'../../hist_data/extraction_data_{year}/hist_fx_data'
-                + f'_extraction/{fx_pair}/')
+                f'../../hist_data/physical_basic_data_{year}/hist_fx_physical'
+                + f'_basic_data/{fx_pair}/')
             print('Folder to save data created')
 
         except FileExistsError:
             print('Folder exists. The folder was not created')
 
-    pickle.dump(data, open(f'../../hist_data/extraction_data_{year}/'
-                + f'/hist_fx_data_extraction/{fx_pair}/hist_fx_data_extraction'
-                + f'_{fx_pair}_w{week}.pickle', 'wb'))
+    pickle.dump(data, open(f'../../hist_data/physical_basic_data_{year}/'
+                + f'/hist_fx_physical_basic_data/{fx_pair}/hist_fx_physical'
+                + f'_basic_data_{fx_pair}_w{week}.pickle', 'wb'))
 
     print('Data Saved')
     print()
@@ -97,17 +96,17 @@ def hist_save_plot(function_name, figure, fx_pair, year, month):
     # Saving plot data
 
     if (not os.path.isdir(
-            f'../../hist_plot/extraction_plot_{year}/{function_name}/')):
+            f'../../hist_plot/physical_basic_plot_{year}/{function_name}/')):
 
         try:
-            os.mkdir(f'../../hist_plot/extraction_plot_{year}/'
+            os.mkdir(f'../../hist_plot/physical_basic_plot_{year}/'
                      + f'{function_name}/')
             print('Folder to save data created')
 
         except FileExistsError:
             print('Folder exists. The folder was not created')
 
-    figure.savefig(f'../../hist_plot/extraction_plot_{year}'
+    figure.savefig(f'../../hist_plot/physical_basic_plot_{year}'
                    + f'/{function_name}/{function_name}_{year}{month}'
                    + f'_{fx_pair}.png')
 
@@ -181,8 +180,8 @@ def hist_start_folders(years):
     for year in years:
 
         try:
-            os.mkdir(f'../../hist_data/extraction_data_{year}')
-            os.mkdir(f'../../hist_plot/extraction_plot_{year}')
+            os.mkdir(f'../../hist_data/physical_basic_data_{year}')
+            os.mkdir(f'../../hist_plot/physical_basic_plot_{year}')
             print('Folder to save data created')
 
         except FileExistsError as e:
@@ -203,9 +202,9 @@ def hist_initial_data():
     """
 
     print()
-    print('####################')
-    print('HIST data extraction')
-    print('####################')
+    print('########################')
+    print('HIST Physical Basic Data')
+    print('########################')
     print('AG Guhr')
     print('Faculty of Physics')
     print('University of Duisburg-Essen')
@@ -234,26 +233,6 @@ def hist_initial_data():
     print()
 
     return (year, pairs)
-
-# -----------------------------------------------------------------------------
-
-
-def hist_sundays(year):
-    """Generates a list with the dates of every sunday in a year.
-
-    :param year: string of the year to be analyzed (i.e '2016').
-    :return: list.
-    """
-
-    init_date = f'01/01/{year}'
-    last_date = f'12/31/{year}'
-
-    # Get the date of every Sunday
-    dt = pd.date_range(start=init_date, end=last_date, freq='W')
-    dt_df = dt.to_frame(index=False)
-    date_list = dt_df[0].astype(str).tolist()
-
-    return date_list
 
 # -----------------------------------------------------------------------------
 
