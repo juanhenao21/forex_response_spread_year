@@ -4,6 +4,7 @@ The functions in the module obtain the midpoint price and the trade signs in
 physical time scale for HIST Capital in a year.
 
 This script requires the following modules:
+    * datetime
     * numpy
     * os
     * pandas
@@ -22,6 +23,7 @@ The module contains the following functions:
 # -----------------------------------------------------------------------------
 # Modules
 
+import datetime as dt
 import numpy as np
 import os
 import pandas as pd
@@ -55,17 +57,36 @@ def hist_fx_midpoint_physical_data(fx_pair, year, week):
                         + f'_extraction/{fx_pair}/hist_fx_data_extraction'
                         + f'_{fx_pair}_w{week}.pickle', 'rb'))
 
+
         # Combine Date and Time columns
+        # Change the format to datetime object
         fx_data['Time'] = pd.to_datetime(fx_data['Time'],
                                          format='%H%M%S%f').dt.time
+
         fx_data.insert(0, 'DateTime', pd.to_datetime(
             fx_data['Date'].dt.strftime('%Y-%m-%d')
             + ' ' + fx_data['Time'].astype(str), format='%Y%m%d %H:%M:%S.%f'))
         fx_data = fx_data.drop(columns=['Date', 'Time'])
-        print(fx_data.head())
-        print(fx_data.tail())
 
-        print(pd.Interval(fx_data['DateTime'].iloc[0], fx_data['DateTime'].iloc[-1]))
+        # DataFrame physical time
+        physical_col = list(fx_data)
+        physical_data = pd.DataFrame(columns=physical_col)
+        # Days in the week
+        dates = sorted(set(fx_data['DateTime'].dt.date))
+        date = dates[0]
+
+        t_init = dt.datetime(date.year, date.month, date.day,17,0,0,0)
+
+        t_secs = range(1, 86400 * (len(dates) - 1))
+        # dates_seconds = list(0 * t_secs)
+        dates_seconds = list(map(lambda x: t_init + dt.timedelta(seconds=x), t_secs))
+        # for sec_idx, sec_val in range(1, t_secs + 1):
+        #     t_del = dt.timedelta(seconds=d_idx)
+
+        print(fx_data['DateTime'].iloc[0])
+        print(dates_seconds[0])
+
+        print(fx_data['DateTime'].iloc[0] > dates_seconds[0])
 
         # Saving data
         hist_data_tools_physical_basic_data.hist_save_data(fx_data, fx_pair,
