@@ -9,13 +9,9 @@ This script requires the following modules:
     * os
     * pandas
     * pickle
-    * zipfile
 
 The module contains the following functions:
-    * hist_fx_midpoint_physical_data - extracts the midpoint price for
-      a year
-    * hist_fx_trade_signs_physical_data - extracts the midpoint price
-     for a year
+    * hist_fx_physical_data - extracts the midpoint price for a year
     * main - the main function of the script.
 
 ..moduleauthor:: Juan Camilo Henao Londono <www.github.com/juanhenao21>
@@ -28,14 +24,13 @@ import numpy as np
 import os
 import pandas as pd
 import pickle
-import zipfile
 
 import hist_data_tools_physical_basic_data
 
 # -----------------------------------------------------------------------------
 
 
-def hist_fx_midpoint_physical_data(fx_pair, year, week):
+def hist_fx_physical_data(fx_pair, year, week):
     """Extracts the midpoint price for a year.
 
     :param fx_pair: string of the abbreviation of the forex pair to be analyzed
@@ -46,7 +41,7 @@ def hist_fx_midpoint_physical_data(fx_pair, year, week):
      a value.
     """
 
-    function_name = hist_fx_midpoint_physical_data.__name__
+    function_name = hist_fx_physical_data.__name__
     hist_data_tools_physical_basic_data \
         .hist_function_header_print_data(function_name, fx_pair, year, week)
 
@@ -56,7 +51,6 @@ def hist_fx_midpoint_physical_data(fx_pair, year, week):
                         f'../../hist_data/extraction_data_{year}/hist_fx_data'
                         + f'_extraction/{fx_pair}/hist_fx_data_extraction'
                         + f'_{fx_pair}_w{week}.pickle', 'rb'))
-
 
         # Combine Date and Time columns
         # Change the format to datetime object
@@ -69,88 +63,58 @@ def hist_fx_midpoint_physical_data(fx_pair, year, week):
         fx_data = fx_data.drop(columns=['Date', 'Time'])
 
         # DataFrame physical time
-        physical_col = list(fx_data)
+        physical_col = ['DateTime', 'Midpoint', 'Signs']
         physical_data = pd.DataFrame(columns=physical_col)
         # Days in the week
         dates = sorted(set(fx_data['DateTime'].dt.date))
         date = dates[0]
 
-        t_init = dt.datetime(date.year, date.month, date.day,17,0,0,0)
+        # First day of the week to be analyzed
+        t_init = dt.datetime(date.year, date.month, date.day, 17, 10, 0, 0)
 
-        t_secs = range(1, 86400 * (len(dates) - 1))
-        # dates_seconds = list(0 * t_secs)
-        dates_seconds = list(map(lambda x: t_init + dt.timedelta(seconds=x), t_secs))
-        # for sec_idx, sec_val in range(1, t_secs + 1):
-        #     t_del = dt.timedelta(seconds=d_idx)
+        # The total number of seconds in the week. The time starts 10 min after
+        # the opening of the market and ends 10 min before it closes
+        t_secs = range(0, 86400 * (len(dates) - 1) - 1200 + 2)
+        # Create DateTime object with all the seconds in all the days of the
+        # week
+        dates_seconds = list(map(lambda x: t_init + dt.timedelta(seconds=x),
+                                 t_secs))
+        physical_data['DateTime'] = dates_seconds[:-1]
 
-        print(fx_data['DateTime'].iloc[0])
-        print(dates_seconds[0])
+        # Initial numpy arrays
+        midpoint = np.zeros(len(dates_seconds[:-1]))
+        trade_signs = np.zeros(len(dates_seconds[:-1]))
 
-        print(fx_data['DateTime'].iloc[0] > dates_seconds[0])
-
-        # Saving data
-        hist_data_tools_physical_basic_data.hist_save_data(fx_data, fx_pair,
-                                                           year, week)
-
-        del fx_data
-
-        return None
-
-    except FileNotFoundError as e:
-        print('No data')
-        print(e)
-        print()
-        return None
-
-# -----------------------------------------------------------------------------
-
-
-def hist_fx_trade_signs_trade_data(fx_pair, year, week):
-    """Extracts the trade signs price for a year.
-
-    The trade signs are obtained from the midpoint price as
-    :math:`\\epsilon(t) = sign(m(t) - m(t - 1))`, where +1 indicates the trade
-    was triggered by a market order to buy, and -1 indicates the trade was
-    triggered by a market order to sell.
-
-    :param fx_pair: string of the abbreviation of the forex pair to be analyzed
-     (i.e. 'eur_usd').
-    :param year: string of the year to be analyzed (i.e. '2016').
-    :return: None -- The function saves the data in a file and does not return
-     a value.
-    """
-
-    function_name = hist_fx_trade_signs_trade_data.__name__
-    hist_data_tools_physical_basic_data \
-        .hist_function_header_print_data(function_name, fx_pair, year, week)
-
-    try:
-        # Load data
-        fx_data = pickle.load(open(
-                        f'../../hist_data/extraction_data_{year}/hist_fx_data'
-                        + f'_extraction/{fx_pair}/hist_fx_data_extraction'
-                        + f'_{fx_pair}_w{week}.pickle', 'rb'))
-
-        midpoint = fx_data['Midpoint'].to_numpy()
-        trade_signs = 0 * midpoint
-
-        for m_idx, m_val in enumerate(fx_data['Midpoint']):
-
-            sign = np.sign(m_val - midpoint[m_idx - 1])
-
-            if (sign):
-                trade_signs[m_idx] = sign
+        # Trade data to numpy array
+        datetime_fx_data = fx_data['DateTime']
+        midpoint_fx_data = fx_data['Midpoint'].to_numpy()
+        trade_signs_fx_data = fx_data['Signs'].to_numpy()
+        # Select the last midpoint price of every second. If there is no
+        # midpoint price in a second, takes the value of the previous second
+        for t_idx, t_val in enumerate(dates_seconds[:-1]):
+            condition = (datetime_fx_data >= t_val) \
+                         & (datetime_fx_data < dates_seconds[t_idx + 1])
+            trades_same_t_exp = trade_signs_fx_data[condition]
+            sign_exp = int(np.sign(np.sum(trades_same_t_exp)))
+            trade_signs[t_idx] = sign_exp
+            if (np.sum(condition)):
+                midpoint[t_idx] = midpoint_fx_data[condition][-1]
             else:
-                trade_signs[m_idx] = trade_signs[m_idx - 1]
+                midpoint[t_idx] = midpoint[t_idx - 1]
 
-        assert np.sum(trade_signs == 0) == 0
+        # assert not np.sum(midpoint == 0)
 
-        fx_data['Signs'] = trade_signs
+        physical_data['Midpoint'] = midpoint[:-1]
+        physical_data['Signs'] = trade_signs[1:]
+
+        print(physical_data)
 
         # Saving data
-        hist_data_tools_physical_basic_data.hist_save_data(fx_data, fx_pair, year, week)
+        hist_data_tools_physical_basic_data \
+            .hist_save_data(physical_data, fx_pair, year, week)
 
         del fx_data
+        del physical_data
 
         return None
 
@@ -171,7 +135,7 @@ def main():
     :return: None.
     """
 
-    hist_fx_midpoint_physical_data('eur_usd', '2019', '01')
+    hist_fx_physical_data('eur_usd', '2019', '01')
 
     return None
 
