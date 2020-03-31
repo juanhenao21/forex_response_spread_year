@@ -1,7 +1,7 @@
 '''HIST data plot module.
 
 The functions in the module plot the data obtained in the
-hist_data_analysis_responses_trade module.
+hist_data_analysis_responses_physical module.
 
 This script requires the following modules:
     * gc
@@ -10,7 +10,7 @@ This script requires the following modules:
     * hist_data_tools_data_extract
 
 The module contains the following functions:
-    * hist_fx_self_response_year_avg_responses_trade_plot - plots the self-
+    * hist_fx_self_response_year_avg_responses_physical_plot - plots the self-
      response average for a year.
     * main - the main function of the script.
 
@@ -24,12 +24,12 @@ import gc
 from matplotlib import pyplot as plt
 import pickle
 
-import hist_data_tools_responses_trade
+import hist_data_tools_responses_physical
 
 # ----------------------------------------------------------------------------
 
 
-def hist_fx_self_response_year_avg_responses_trade_plot(fx_pair, year):
+def hist_fx_self_response_year_avg_responses_physical_plot(fx_pair, year):
     """Plots the self-response average for a year.
 
     :param fx_pair: string of the abbreviation of the forex pair to be analyzed
@@ -40,9 +40,9 @@ def hist_fx_self_response_year_avg_responses_trade_plot(fx_pair, year):
     """
 
     try:
-        function_name = hist_fx_self_response_year_avg_responses_trade_plot \
+        function_name = hist_fx_self_response_year_avg_responses_physical_plot \
             .__name__
-        hist_data_tools_responses_trade \
+        hist_data_tools_responses_physical \
             .hist_function_header_print_plot(function_name, fx_pair, year, '')
         fx_pair_upper = fx_pair[:3].upper() + '/' + fx_pair[4:].upper()
 
@@ -50,9 +50,9 @@ def hist_fx_self_response_year_avg_responses_trade_plot(fx_pair, year):
 
         # Load data
         self_response = pickle.load(open(
-                        f'../../hist_data/responses_trade_{year}/hist_fx_self'
-                        + f'_response_year_responses_trade_data/{fx_pair}/hist'
-                        + f'_fx_self_response_year_responses_trade_data'
+                        f'../../hist_data/responses_physical_{year}/hist_fx_self'
+                        + f'_response_year_responses_physical_data/{fx_pair}/hist'
+                        + f'_fx_self_response_year_responses_physical_data'
                         + f'_{fx_pair}_{year}.pickle', 'rb'))
 
         plt.semilogx(self_response, linewidth=5, label=f'{fx_pair_upper}')
@@ -68,7 +68,7 @@ def hist_fx_self_response_year_avg_responses_trade_plot(fx_pair, year):
         plt.tight_layout()
 
         # Plotting
-        hist_data_tools_responses_trade \
+        hist_data_tools_responses_physical \
             .hist_save_plot(function_name, figure, fx_pair, year, '')
 
         plt.close()

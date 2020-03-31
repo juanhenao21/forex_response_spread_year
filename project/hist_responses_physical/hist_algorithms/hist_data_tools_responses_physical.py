@@ -50,22 +50,23 @@ def hist_save_data(data, fx_pair, year):
     # Saving data
 
     if (not os.path.isdir(
-            f'../../hist_data/responses_trade_{year}/hist_fx_self_response'
-            + f'_year_responses_trade_data/{fx_pair}/')):
+            f'../../hist_data/responses_physical_{year}/hist_fx_self_response'
+            + f'_year_responses_physical_data/{fx_pair}/')):
 
         try:
             os.mkdir(
-                f'../../hist_data/responses_trade_{year}/hist_fx_self_response'
-                + f'_year_responses_trade_data/{fx_pair}/')
+                f'../../hist_data/responses_physical_{year}/hist_fx_self'
+                + f'_response_year_responses_physical_data/{fx_pair}/')
             print('Folder to save data created')
 
         except FileExistsError:
             print('Folder exists. The folder was not created')
 
-    pickle.dump(data, open(f'../../hist_data/responses_trade_{year}'
-                + f'/hist_fx_self_response_year_responses_trade_data/{fx_pair}'
-                + f'/hist_fx_self_response_year_responses_trade_data_{fx_pair}'
-                + f'_{year}.pickle', 'wb'))
+    pickle.dump(data, open(
+        f'../../hist_data/responses_physical_{year}/hist_fx_self_response_year'
+                + f'_responses_physical_data/{fx_pair}/hist_fx_self_response'
+                + f'_year_responses_physical_data_{fx_pair}_{year}.pickle',
+                'wb'))
 
     print('Data Saved')
     print()
@@ -94,17 +95,17 @@ def hist_save_plot(function_name, figure, fx_pair, year, month):
     # Saving plot data
 
     if (not os.path.isdir(
-            f'../../hist_plot/responses_trade_{year}/{function_name}/')):
+            f'../../hist_plot/responses_physical_{year}/{function_name}/')):
 
         try:
-            os.mkdir(f'../../hist_plot/responses_trade_{year}/'
+            os.mkdir(f'../../hist_plot/responses_physical_{year}/'
                      + f'{function_name}/')
             print('Folder to save data created')
 
         except FileExistsError:
             print('Folder exists. The folder was not created')
 
-    figure.savefig(f'../../hist_plot/responses_trade_{year}'
+    figure.savefig(f'../../hist_plot/responses_physical_{year}'
                    + f'/{function_name}/{function_name}_{year}{month}'
                    + f'_{fx_pair}.png')
 
@@ -178,8 +179,8 @@ def hist_start_folders(years):
     for year in years:
 
         try:
-            os.mkdir(f'../../hist_data/responses_trade_{year}')
-            os.mkdir(f'../../hist_plot/responses_trade_{year}')
+            os.mkdir(f'../../hist_data/responses_physical_{year}')
+            os.mkdir(f'../../hist_plot/responses_physical_{year}')
             print('Folder to save data created')
 
         except FileExistsError as e:

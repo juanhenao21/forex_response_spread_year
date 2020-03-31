@@ -6,9 +6,9 @@ from HIST Capital in a year.
 This script requires the following modules:
     * itertools.product
     * multiprocessing
-    * hist_data_analysis_responses_trade
-    * hist_data_plot_responses_trade
-    * hist_data_tools_responses_trade
+    * hist_data_analysis_responses_physical
+    * hist_data_plot_responses_physical
+    * hist_data_tools_responses_physical
 
 The module contains the following functions:
     * hist_data_plot_generator - generates all the analysis and plots from the
@@ -24,9 +24,9 @@ The module contains the following functions:
 from itertools import product as iprod
 import multiprocessing as mp
 
-import hist_data_analysis_responses_trade
-import hist_data_plot_responses_trade
-import hist_data_tools_responses_trade
+import hist_data_analysis_responses_physical
+import hist_data_plot_responses_physical
+import hist_data_tools_responses_physical
 
 # -----------------------------------------------------------------------------
 
@@ -48,14 +48,14 @@ def hist_data_plot_generator(fx_pairs, years):
     for fx_pair in fx_pairs:
         for year in years:
             # Self-response
-            hist_data_analysis_responses_trade \
-                .hist_fx_self_response_year_responses_trade_data(fx_pair, year)
+            hist_data_analysis_responses_physical \
+                .hist_fx_self_response_year_responses_physical_data(fx_pair, year)
 
     # Parallel computing
     with mp.Pool(processes=mp.cpu_count()) as pool:
         # Plot
-        pool.starmap(hist_data_plot_responses_trade
-                     .hist_fx_self_response_year_avg_responses_trade_plot,
+        pool.starmap(hist_data_plot_responses_physical
+                     .hist_fx_self_response_year_avg_responses_physical_plot,
                      iprod(fx_pairs, years))
 
     return None
@@ -72,14 +72,14 @@ def main():
     """
 
     # Tickers and days to analyze
-    # year, fx_pairs = hist_data_tools_responses_trade.hist_initial_data()
+    # year, fx_pairs = hist_data_tools_responses_physical.hist_initial_data()
     # To be used when run in server
     years = ['2008', '2014', '2019']
     fx_pairs = ['eur_usd', 'gbp_usd', 'usd_jpy', 'aud_usd',
                 'usd_chf', 'usd_cad', 'nzd_usd']
 
     # Basic folders
-    hist_data_tools_responses_trade.hist_start_folders(years)
+    hist_data_tools_responses_physical.hist_start_folders(years)
 
     # Run analysis
     # Analysis and plot
