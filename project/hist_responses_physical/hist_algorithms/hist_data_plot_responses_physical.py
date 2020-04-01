@@ -10,8 +10,8 @@ This script requires the following modules:
     * hist_data_tools_data_extract
 
 The module contains the following functions:
-    * hist_fx_self_response_year_avg_responses_physical_plot - plots the self-
-     response average for a year.
+    * hist_fx_self_response_year_avg_responses_physical_plot - plots the
+      self-response average for a year.
     * main - the main function of the script.
 
 .. moduleauthor:: Juan Camilo Henao Londono <www.github.com/juanhenao21>

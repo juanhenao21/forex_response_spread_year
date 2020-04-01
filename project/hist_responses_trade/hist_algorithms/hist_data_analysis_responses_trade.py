@@ -13,9 +13,9 @@ This script requires the following modules:
 
 The module contains the following functions:
     * hist_fx_self_response_week_responses_trade - extracts the midpoint price
-     for a week.
+      for a week.
     * hist_fx_self_response_year_responses_trade - extracts the midpoint price
-     for a year.
+      for a year.
     * main - the main function of the script.
 
 ..moduleauthor:: Juan Camilo Henao Londono <www.github.com/juanhenao21>
