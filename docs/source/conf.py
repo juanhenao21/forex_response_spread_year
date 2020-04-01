@@ -14,6 +14,7 @@
 #
 import os
 import sys
+
 sys.path.insert(0, os.path.abspath('../../project/hist_download_data/hist_algorithms/'))
 sys.path.insert(0, os.path.abspath('../../project/hist_data_extraction/hist_algorithms/'))
 sys.path.insert(0, os.path.abspath('../../project/hist_responses_trade/hist_algorithms/'))
