@@ -181,6 +181,8 @@ def hist_start_folders(years):
 
         try:
             os.mkdir(f'../../hist_data/physical_basic_data_{year}')
+            os.mkdir(f'../../hist_data/physical_basic_data_{year}/hist'
+                     + f'_physical_basic_data')
             os.mkdir(f'../../hist_plot/physical_basic_plot_{year}')
             print('Folder to save data created')
 
