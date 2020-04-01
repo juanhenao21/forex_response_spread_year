@@ -15,15 +15,15 @@ project.
    :maxdepth: 2
    :caption: Contents:
 
-    01_hist_download_data
+   01_hist_download_data
 
-    02_hist_data_extraction
+   02_hist_data_extraction
 
-    03_hist_responses_trade
+   03_hist_responses_trade
 
-    04_hist_physical_basic_data
+   04_hist_physical_basic_data
 
-    05_hist_responses_physical
+   05_hist_responses_physical
 
 Indices and tables
 ==================
