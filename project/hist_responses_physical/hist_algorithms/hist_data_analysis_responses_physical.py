@@ -53,8 +53,8 @@ def hist_fx_self_response_week_responses_physical_data(fx_pair, year, week):
         # Load data
         fx_data = pickle.load(open(
                         f'../../hist_data/physical_basic_data_{year}/hist_fx'
-                        + f'_physical_data/{fx_pair}/hist_fx_physical_data'
-                        + f'_{fx_pair}_w{week}.pickle', 'rb'))
+                        + f'_physical_basic_data/{fx_pair}/hist_fx_physical'
+                        + f'_basic_data_{fx_pair}_w{week}.pickle', 'rb'))
 
         midpoint = fx_data['Midpoint'].to_numpy()
         trade_signs = fx_data['Signs'].to_numpy()
