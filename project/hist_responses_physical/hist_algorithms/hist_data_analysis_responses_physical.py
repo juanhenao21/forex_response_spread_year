@@ -60,10 +60,10 @@ def hist_fx_self_response_week_responses_physical_data(fx_pair, year, week):
         trade_signs = fx_data['Signs'].to_numpy()
 
         # Relate the return of the previous second with the current trade sign
-        # midpoint = midpoint[:-1]
-        # trade_signs = trade_signs[1:]
+        midpoint = midpoint[:-1]
+        trade_signs = trade_signs[1:]
 
-        # assert len(midpoint) == len(trade_signs)
+        assert len(midpoint) == len(trade_signs)
 
         # Array of the average of each tau
         self_response_tau = np.zeros(__tau__)
