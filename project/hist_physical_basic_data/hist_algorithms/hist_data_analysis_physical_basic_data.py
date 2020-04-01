@@ -104,9 +104,6 @@ def hist_fx_physical_data(fx_pair, year, week):
 
         # assert not np.sum(midpoint == 0)
 
-        physical_data['Midpoint'] = midpoint[:-1]
-        physical_data['Signs'] = trade_signs[1:]
-
         print(physical_data)
 
         # Saving data
