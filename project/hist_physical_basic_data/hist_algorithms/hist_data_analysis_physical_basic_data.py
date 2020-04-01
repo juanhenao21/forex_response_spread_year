@@ -104,6 +104,15 @@ def hist_fx_physical_data(fx_pair, year, week):
 
         # assert not np.sum(midpoint == 0)
 
+        # At the beggining some values in the midpoint could be 0. To fix it
+        # find the zero values and replace with the first value different to
+        # zero
+        zero_val_pos = np.where(midpoint == 0)[0]
+        no_zero_val_pos = np.where(midpoint != 0)[0][0]
+
+        for z_pos in zero_val_pos:
+            midpoint[z_pos] = midpoint[no_zero_val_pos]
+
         physical_data['Midpoint'] = midpoint
         physical_data['Signs'] = trade_signs
 
