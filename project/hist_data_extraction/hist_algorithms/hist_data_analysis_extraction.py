@@ -4,6 +4,7 @@ The functions in the module extract the bid and ask from the Historic Rate Data
 from HIST Capital in a year.
 
 This script requires the following modules:
+    * datetime
     * numpy
     * os
     * pandas
@@ -23,6 +24,7 @@ The module contains the following functions:
 # -----------------------------------------------------------------------------
 # Modules
 
+import datetime as dt
 import numpy as np
 import os
 import pandas as pd
@@ -51,9 +53,10 @@ def hist_fx_data_extraction(fx_pair, year):
     pair = fx_pair.split('_')
     cap_pair = pair[0].upper() + pair[1].upper()
     fx_data_col = ['DateTime', 'Ask', 'Bid']
-    fx_data_ = pd.DataFrame(columns=fx_data_col)
+    fx_data_type = {'DateTime': str, 'Ask': float, 'Bid': float}
+    fx_data = pd.DataFrame(columns=fx_data_col)
 
-    for m_num in range(1, 13):
+    for m_num in range(1, 2):
 
         if (m_num < 10):
             m_num = f'0{m_num}'
@@ -63,31 +66,29 @@ def hist_fx_data_extraction(fx_pair, year):
             zf = zipfile.ZipFile(
                 f'../../hist_data/original_data_{year}/{fx_pair}/hist'
                 + f'_{fx_pair}_{year}{m_num}.zip')
-            fx_data_ = fx_data_.append(pd.read_csv(zf.open(
+            fx_data = fx_data.append(pd.read_csv(zf.open(
                 f'DAT_ASCII_{cap_pair}_T_{year}{m_num}.csv'),
-                usecols=(0, 1, 2), names=fx_data_col), ignore_index=True)
+                usecols=(0, 1, 2), names=fx_data_col, dtype=fx_data_type),
+                ignore_index=True)
 
         except FileNotFoundError as e:
             print('No data')
             print(e)
             print()
 
-    # Split the date and time
-    split_data = fx_data_['DateTime'].str.split(' ')
-    data = split_data.to_list()
-    names = ['Date', 'Time']
-    n_df = pd.DataFrame(data, columns=names)
-    fx_data_ = fx_data_.drop(columns=['DateTime'])
-    # New df with an independent column for time and date
-    fx_data = pd.concat([n_df, fx_data_], axis=1, sort=False)
-    fx_data['Date'] = pd.to_datetime(fx_data['Date'])
+    fx_data['DateTime'] = pd.to_datetime(fx_data['DateTime'],
+                                         format='%Y%m%d %H%M%S%f')
+    print(fx_data.head())
+    print(fx_data.tail())
 
-    del fx_data_
-    del split_data
-    del data
-    del n_df
-
-    weeks = hist_data_tools_extraction.hist_sundays(year)
+    # Ya sirve el código. Falta organizar que el primer día filtre a partir de
+    # las 17:10 y el último antes de las 16h50
+    weeks_str = hist_data_tools_extraction.hist_sundays(year)
+    weeks = [dt.datetime.strptime(x, '%Y-%m-%d %H%M%S') for x in weeks_str]
+    weeks_times = 0
+    for week in weeks:
+        weeks_times.append(week.replace(hour=17, minute=10, second=0))
+        weeks_times.append(week.replace(hour=16, minute=50, second=0))
 
     # Saving data
     if (not os.path.isdir(
@@ -114,13 +115,25 @@ def hist_fx_data_extraction(fx_pair, year):
         except FileExistsError:
             print('Folder exists. The folder was not created')
 
-    for w_idx, week in enumerate(weeks):
+    # First and last day of the week
+    # first_day = fx_data['DateTime'].iloc[0]
+    # last_day = fx_data['DateTime'].iloc[-1]
+    # print(first_day)
+    # print(last_day)
+    # t_ini = dt.datetime(first_day.year, first_day.month, first_day.day, 17, 10, 0, 0)
+    # t_fin = dt.datetime(last_day.year, last_day.month, last_day.day, 16, 50, 0, 0)
+
+    # condition = (fx_data['DateTime'] >= t_ini) & (fx_data['DateTime'] <= t_fin)
+    # fx_data = fx_data[condition]
+    # print(fx_data.head())
+    # print(fx_data.tail())
+    for w_idx, week in enumerate(weeks_times[:6]):
 
         if (w_idx):
-            w_df = fx_data[(fx_data['Date'] < week)
-                           & (fx_data['Date'] >= weeks[w_idx - 1])]
+            w_df = fx_data[(fx_data['DateTime'] < week)
+                           & (fx_data['DateTime'].dt.date >= weeks[w_idx - 1].date())]
         else:
-            w_df = fx_data[fx_data['Date'] < weeks[0]]
+            w_df = fx_data[fx_data['DateTime'].dt.date < weeks[0].date()]
 
         # Saving data
         if (w_idx + 1 < 10):
@@ -130,9 +143,13 @@ def hist_fx_data_extraction(fx_pair, year):
         pickle.dump(w_df, open(f'../../hist_data/extraction_data_{year}/'
                     + f'{function_name}/{fx_pair}/{function_name}_{fx_pair}'
                     + f'_w{w_idx}.pickle', 'wb'))
+        print(w_idx)
+        print(w_df.head())
+        print(w_df.tail())
+        print()
 
     # Last days of the year
-    w_df = fx_data[fx_data['Date'] >= weeks[-1]]
+    w_df = fx_data[fx_data['DateTime'].dt.date >= weeks[-1].date()]
     # Saving data
     pickle.dump(w_df, open(f'../../hist_data/extraction_data_{year}/'
                 + f'{function_name}/{fx_pair}/{function_name}_{fx_pair}'
@@ -252,7 +269,7 @@ def main():
     :return: None.
     """
 
-    pass
+    hist_fx_data_extraction('eur_usd', '2019')
 
     return None
 
