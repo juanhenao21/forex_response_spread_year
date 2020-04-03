@@ -45,7 +45,7 @@ def hist_fx_self_response_week_responses_physical_data(fx_pair, year, week):
 
     :param fx_pair: string of the abbreviation of the forex pair to be analyzed
      (i.e. 'eur_usd').
-    :param year: string of the year to be analyzed (i.e. '2016').
+    :param week: string of the week to be analyzed (i.e. '16').
     :return: tuple -- The function returns a tuple with numpy arrays.
     """
 

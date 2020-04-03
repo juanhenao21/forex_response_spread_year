@@ -116,7 +116,7 @@ def hist_save_plot(function_name, figure, fx_pair, year, month):
 # -----------------------------------------------------------------------------
 
 
-def hist_function_header_print_data(function_name, fx_pair, year, month):
+def hist_function_header_print_data(function_name, fx_pair, year, week):
     """Prints a header of a function that generates data when it is running.
 
     :param function_name: name of the function that generates the data.
@@ -133,8 +133,8 @@ def hist_function_header_print_data(function_name, fx_pair, year, month):
     print(function_name)
 
     fx_pair_upper = fx_pair[:3].upper() + '/' + fx_pair[4:].upper()
-    print(f'Processing data for the forex pair {fx_pair_upper} the '
-          + f'{year}.{month}')
+    print(f'Processing data for the forex pair {fx_pair_upper} in the week '
+          + f'{week} of {year}')
     print()
 
     return None
