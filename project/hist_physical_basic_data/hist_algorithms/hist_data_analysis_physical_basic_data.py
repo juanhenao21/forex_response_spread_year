@@ -52,16 +52,6 @@ def hist_fx_physical_data(fx_pair, year, week):
                         + f'_extraction/{fx_pair}/hist_fx_data_extraction'
                         + f'_{fx_pair}_w{week}.pickle', 'rb'))
 
-        # Combine Date and Time columns
-        # Change the format to datetime object
-        fx_data['Time'] = pd.to_datetime(fx_data['Time'],
-                                         format='%H%M%S%f').dt.time
-
-        fx_data.insert(0, 'DateTime', pd.to_datetime(
-            fx_data['Date'].dt.strftime('%Y-%m-%d')
-            + ' ' + fx_data['Time'].astype(str), format='%Y%m%d %H:%M:%S.%f'))
-        fx_data = fx_data.drop(columns=['Date', 'Time'])
-
         # DataFrame physical time
         physical_col = ['DateTime', 'Midpoint', 'Signs']
         physical_data = pd.DataFrame(columns=physical_col)
