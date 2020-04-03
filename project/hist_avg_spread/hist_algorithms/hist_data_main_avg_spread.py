@@ -1,18 +1,15 @@
-'''TAQ data main module.
+'''HIST data main module.
 
-The functions in the module run the complete analysis of the TAQ data.
+The functions in the module run the complete analysis of the HIST data.
 
 This script requires the following modules:
     * itertools.product
     * multiprocessing
-    * pandas
-    * pickle
-    * taq_data_analysis_avg_spread
-    * taq_data_plot_avg_spread
-    * taq_data_tools_avg_spread
+    * hist_data_analysis_avg_spread
+    * hist_data_tools_avg_spread
 
 The module contains the following functions:
-    * taq_data_generator - generates all the analysis of the TAQ data.
+    * hist_data_generator - generates all the analysis of the HIST data.
     * main - the main function of the script.
 
 .. moduleauthor:: Juan Camilo Henao Londono <www.github.com/juanhenao21>
@@ -23,28 +20,28 @@ The module contains the following functions:
 
 from itertools import product as iprod
 import multiprocessing as mp
-import pandas as pd
 
-import taq_data_analysis_avg_spread
-# import taq_data_plot_avg_spread
-import taq_data_tools_avg_spread
+import hist_data_analysis_avg_spread
+import hist_data_tools_avg_spread
 
 # -----------------------------------------------------------------------------
 
 
-def taq_data_generator(tickers, year):
-    """Generates all the analysis of the TAQ data.
+def hist_data_generator(fx_pairs, years):
+    """Generates all the analysis of the HIST data.
 
-    :param tickers: list of the string abbreviation of the stocks to be
-     analyzed (i.e. ['AAPL', 'MSFT']).
-    :param year: string of the year to be analyzed (i.e '2016').
+    :param fx_pairs: list of the string abbreviation of the forex pairs to be
+     analyzed (i.e. ['eur_usd', 'gbp_usd']).
+    :param years: list of the string of the years to be analyzed
+     (i.e ['2016', '2019']).
     :return: None -- The function saves the data in a file and does not return
      a value.
     """
 
-    # Statistics of the quotes and trades
-    taq_data_analysis_avg_spread \
-        .taq_quotes_trades_year_avg_spread_data(tickers, year)
+    for year in years:
+        # Statistics of the quotes and trades
+        hist_data_analysis_avg_spread \
+            .hist_quotes_trades_year_avg_spread_data(fx_pairs, year)
 
     return None
 
@@ -59,19 +56,27 @@ def main():
     :return: None.
     """
 
-    # Tickers and days to analyze
-    # year = taq_data_tools_avg_spread.taq_initial_data()
-    # To be used when run in server
-    year = '2008'
-    tickers = taq_data_tools_avg_spread.taq_get_tickers_data(year)
-    tickers.sort()
-
-    # Basic folders
-    taq_data_tools_avg_spread.taq_start_folders(year)
+    # Fx pairs and days to analyze
+    # Spread impact analysis
+    years = ['2008', '2014', '2019']
+    fx_pairs = ['eur_usd', 'eur_chf', 'eur_gbp', 'eur_jpy', 'eur_aud',
+                'usd_cad', 'usd_chf', 'usd_jpy', 'usd_mxn', 'gbp_chf',
+                'gbp_jpy', 'gbp_usd', 'aud_jpy', 'aud_usd', 'chf_jpy',
+                'nzd_jpy', 'nzd_usd', 'xau_usd', 'eur_cad', 'aud_cad',
+                'cad_jpy', 'eur_nzd', 'grx_eur', 'nzd_cad', 'sgd_jpy',
+                'usd_hkd', 'usd_nok', 'usd_try', 'xau_aud', 'aud_chf',
+                'aux_aud', 'eur_huf', 'eur_pln', 'frx_eur', 'hkx_hkd',
+                'nzd_chf', 'spx_usd', 'usd_huf', 'usd_pln', 'usd_zar',
+                'xau_chf', 'zar_jpy', 'bco_usd', 'etx_eur', 'eur_czk',
+                'eur_sek', 'gbp_aud', 'gbp_nzd', 'jpx_jpy', 'udx_usd',
+                'usd_czk', 'usd_sek', 'wti_usd', 'xau_eur', 'aud_nzd',
+                'cad_chf', 'eur_dkk', 'eur_nok', 'eur_try', 'gbp_cad',
+                'nsx_usd', 'ukx_gbp', 'usd_dkk', 'usd_sgd', 'xag_usd',
+                'xau_gbp']
 
     # Run analysis
     # Analysis and plot
-    taq_data_generator(tickers, year)
+    hist_data_generator(fx_pairs, years)
 
     print('Ay vamos!!')
 
