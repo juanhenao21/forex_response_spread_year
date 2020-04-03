@@ -71,12 +71,28 @@ def main():
     :return: None.
     """
 
-    # Tickers and days to analyze
     # year, fx_pairs = hist_data_tools_responses_trade.hist_initial_data()
-    # To be used when run in server
+    # Tickers and days to analyze
+    # Response function analysis
+    # years = ['2008', '2014', '2019']
+    # fx_pairs = ['eur_usd', 'gbp_usd', 'usd_jpy', 'aud_usd',
+    #             'usd_chf', 'usd_cad', 'nzd_usd']
+    # Spread impact analysis
     years = ['2008', '2014', '2019']
-    fx_pairs = ['eur_usd', 'gbp_usd', 'usd_jpy', 'aud_usd',
-                'usd_chf', 'usd_cad', 'nzd_usd']
+    fx_pairs = ['eur_usd', 'eur_chf', 'eur_gbp', 'eur_jpy', 'eur_aud',
+                'usd_cad', 'usd_chf', 'usd_jpy', 'usd_mxn', 'gbp_chf',
+                'gbp_jpy', 'gbp_usd', 'aud_jpy', 'aud_usd', 'chf_jpy',
+                'nzd_jpy', 'nzd_usd', 'xau_usd', 'eur_cad', 'aud_cad',
+                'cad_jpy', 'eur_nzd', 'grx_eur', 'nzd_cad', 'sgd_jpy',
+                'usd_hkd', 'usd_nok', 'usd_try', 'xau_aud', 'aud_chf',
+                'aux_aud', 'eur_huf', 'eur_pln', 'frx_eur', 'hkx_hkd',
+                'nzd_chf', 'spx_usd', 'usd_huf', 'usd_pln', 'usd_zar',
+                'xau_chf', 'zar_jpy', 'bco_usd', 'etx_eur', 'eur_czk',
+                'eur_sek', 'gbp_aud', 'gbp_nzd', 'jpx_jpy', 'udx_usd',
+                'usd_czk', 'usd_sek', 'wti_usd', 'xau_eur', 'aud_nzd',
+                'cad_chf', 'eur_dkk', 'eur_nok', 'eur_try', 'gbp_cad',
+                'nsx_usd', 'ukx_gbp', 'usd_dkk', 'usd_sgd', 'xag_usd',
+                'xau_gbp']
 
     # Basic folders
     hist_data_tools_responses_trade.hist_start_folders(years)
