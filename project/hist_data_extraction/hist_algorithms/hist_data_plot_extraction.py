@@ -55,9 +55,9 @@ def hist_fx_quotes_year_plot(fx_pair, year, weeks):
                             + f'_data_extraction/{fx_pair}/hist_fx_data'
                             + f'_extraction_{fx_pair}_w{week}.pickle', 'rb'))
 
-            plt.plot(fx_data['Date'], fx_data['Bid'], 'g', linewidth=5,
+            plt.plot(fx_data['DateTime'], fx_data['Bid'], 'g', linewidth=5,
                      label='Bid')
-            plt.plot(fx_data['Date'], fx_data['Ask'], 'b', linewidth=5,
+            plt.plot(fx_data['DateTime'], fx_data['Ask'], 'b', linewidth=5,
                      label='Ask')
 
         # plt.legend(loc='best', fontsize=25)
@@ -114,7 +114,7 @@ def hist_fx_midpoint_year_plot(fx_pair, year, weeks):
                             + f'_data_extraction/{fx_pair}/hist_fx_data'
                             + f'_extraction_{fx_pair}_w{week}.pickle', 'rb'))
 
-            plt.plot(fx_data['Date'], (fx_data['Bid'] + fx_data['Ask']) / 2,
+            plt.plot(fx_data['DateTime'], (fx_data['Bid'] + fx_data['Ask']) / 2,
                      'g', linewidth=5)
 
         plt.title(f'HIST midpoint price - {fx_pair_upper}', fontsize=40)
@@ -170,7 +170,7 @@ def hist_fx_spread_year_plot(fx_pair, year, weeks):
                             + f'_data_extraction/{fx_pair}/hist_fx_data'
                             + f'_extraction_{fx_pair}_w{week}.pickle', 'rb'))
 
-            plt.plot(fx_data['Date'], fx_data['Ask'] - fx_data['Bid'], 'g',
+            plt.plot(fx_data['DateTime'], fx_data['Ask'] - fx_data['Bid'], 'g',
                      linewidth=5)
 
         plt.title(f'HIST spread price - {fx_pair_upper}', fontsize=40)
