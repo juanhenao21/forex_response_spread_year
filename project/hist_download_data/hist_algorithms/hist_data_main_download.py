@@ -42,28 +42,33 @@ def hist_download_data(fx_pair, year):
      a value.
     """
 
-    function_name = hist_download_data.__name__
-    hist_data_tools_download.hist_function_header_print_data(
-        function_name, fx_pair, year, '')
+    try:
+        function_name = hist_download_data.__name__
+        hist_data_tools_download.hist_function_header_print_data(
+            function_name, fx_pair, year, '')
 
-    pair_split = fx_pair.split('_')
-    p = pair_split[0] + pair_split[1]
-    p_cap = pair_split[0].upper() + pair_split[1].upper()
+        pair_split = fx_pair.split('_')
+        p = pair_split[0] + pair_split[1]
+        p_cap = pair_split[0].upper() + pair_split[1].upper()
 
-    # Absolute path file
-    abs_path = os.path.abspath(__file__).split('/')
-    # Take the path from the start to the project folder
-    root_path = '/'.join(abs_path[:abs_path.index('project') + 1])
-    os.chdir(root_path + f'/hist_data/original_data_{year}/{fx_pair}/')
+        # Absolute path file
+        abs_path = os.path.abspath(__file__).split('/')
+        # Take the path from the start to the project folder
+        root_path = '/'.join(abs_path[:abs_path.index('project') + 1])
+        os.chdir(root_path + f'/hist_data/original_data_{year}/{fx_pair}/')
 
-    for m in range(1, 13):
+        for m in range(1, 13):
 
-        dl(year=f'{year}', month=f'{m}', pair=f'{p}', platform=P.GENERIC_ASCII,
-           time_frame=TF.TICK_DATA)
-        if (m < 10):
-            m = f'0{m}'
-        os.rename(f'DAT_ASCII_{p_cap}_T_{year}{m}.zip',
-                  f'hist_{fx_pair}_{year}{m}.zip')
+            dl(year=f'{year}', month=f'{m}', pair=f'{p}',
+               platform=P.GENERIC_ASCII, time_frame=TF.TICK_DATA)
+            if (m < 10):
+                m = f'0{m}'
+            os.rename(f'DAT_ASCII_{p_cap}_T_{year}{m}.zip',
+                    f'hist_{fx_pair}_{year}{m}.zip')
+
+    except AssertionError as e:
+        print('No data')
+        print(e)
 
     return None
 
@@ -85,6 +90,7 @@ def hist_download_all_data(fx_pairs, years):
         pool.starmap(hist_download_data, iprod(fx_pairs, years))
 
     return None
+
 # -----------------------------------------------------------------------------
 
 
