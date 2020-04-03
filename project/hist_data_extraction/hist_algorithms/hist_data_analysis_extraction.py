@@ -56,7 +56,7 @@ def hist_fx_data_extraction(fx_pair, year):
     fx_data_type = {'DateTime': str, 'Ask': float, 'Bid': float}
     fx_data = pd.DataFrame(columns=fx_data_col)
 
-    for m_num in range(1, 2):
+    for m_num in range(1, 13):
 
         if (m_num < 10):
             m_num = f'0{m_num}'
@@ -78,17 +78,9 @@ def hist_fx_data_extraction(fx_pair, year):
 
     fx_data['DateTime'] = pd.to_datetime(fx_data['DateTime'],
                                          format='%Y%m%d %H%M%S%f')
-    print(fx_data.head())
-    print(fx_data.tail())
 
-    # Ya sirve el código. Falta organizar que el primer día filtre a partir de
-    # las 17:10 y el último antes de las 16h50
     weeks_str = hist_data_tools_extraction.hist_sundays(year)
-    weeks = [dt.datetime.strptime(x, '%Y-%m-%d %H%M%S') for x in weeks_str]
-    weeks_times = 0
-    for week in weeks:
-        weeks_times.append(week.replace(hour=17, minute=10, second=0))
-        weeks_times.append(week.replace(hour=16, minute=50, second=0))
+    weeks = [dt.datetime.strptime(x, '%Y-%m-%d') for x in weeks_str]
 
     # Saving data
     if (not os.path.isdir(
@@ -115,25 +107,23 @@ def hist_fx_data_extraction(fx_pair, year):
         except FileExistsError:
             print('Folder exists. The folder was not created')
 
-    # First and last day of the week
-    # first_day = fx_data['DateTime'].iloc[0]
-    # last_day = fx_data['DateTime'].iloc[-1]
-    # print(first_day)
-    # print(last_day)
-    # t_ini = dt.datetime(first_day.year, first_day.month, first_day.day, 17, 10, 0, 0)
-    # t_fin = dt.datetime(last_day.year, last_day.month, last_day.day, 16, 50, 0, 0)
-
-    # condition = (fx_data['DateTime'] >= t_ini) & (fx_data['DateTime'] <= t_fin)
-    # fx_data = fx_data[condition]
-    # print(fx_data.head())
-    # print(fx_data.tail())
-    for w_idx, week in enumerate(weeks_times[:6]):
+    for w_idx, week in enumerate(weeks):
 
         if (w_idx):
-            w_df = fx_data[(fx_data['DateTime'] < week)
-                           & (fx_data['DateTime'].dt.date >= weeks[w_idx - 1].date())]
+            week_ini = weeks[w_idx - 1].replace(hour=17, minute=10, second=0)
+            # Five days from Sunday 17h10 to Friday 16h50
+            t_secs = 432000 - 1200 + 1
+            week_fin = week_ini + dt.timedelta(seconds=t_secs)
+            w_df = fx_data[(fx_data['DateTime'] < week_fin)
+                           & (fx_data['DateTime'] >= week_ini)]
         else:
-            w_df = fx_data[fx_data['DateTime'].dt.date < weeks[0].date()]
+            # First week of the year
+            week_ini = fx_data['DateTime'].iloc[0].replace(
+                hour=17, minute=10, second=0, microsecond=0)
+            week_fin = weeks[0].replace(
+                day=weeks[0].day - 2, hour=16, minute=51, second=0)
+            w_df = fx_data[(fx_data['DateTime'] < week_fin)
+                           & (fx_data['DateTime'] >= week_ini)]
 
         # Saving data
         if (w_idx + 1 < 10):
@@ -143,13 +133,13 @@ def hist_fx_data_extraction(fx_pair, year):
         pickle.dump(w_df, open(f'../../hist_data/extraction_data_{year}/'
                     + f'{function_name}/{fx_pair}/{function_name}_{fx_pair}'
                     + f'_w{w_idx}.pickle', 'wb'))
-        print(w_idx)
-        print(w_df.head())
-        print(w_df.tail())
-        print()
 
     # Last days of the year
-    w_df = fx_data[fx_data['DateTime'].dt.date >= weeks[-1].date()]
+    week_ini = weeks[-1].replace(hour=17, minute=10, second=0)
+    week_fin = fx_data['DateTime'].iloc[-1].replace(
+        hour=16, minute=51, second=0, microsecond=0)
+    w_df = fx_data[(fx_data['DateTime'] < week_fin)
+                   & (fx_data['DateTime'] >= week_ini)]
     # Saving data
     pickle.dump(w_df, open(f'../../hist_data/extraction_data_{year}/'
                 + f'{function_name}/{fx_pair}/{function_name}_{fx_pair}'
@@ -232,7 +222,7 @@ def hist_fx_trade_signs_trade_data(fx_pair, year, week):
         midpoint = fx_data['Midpoint'].to_numpy()
         trade_signs = 0 * midpoint
 
-        for m_idx, m_val in enumerate(fx_data['Midpoint']):
+        for m_idx, m_val in enumerate(midpoint):
 
             sign = np.sign(m_val - midpoint[m_idx - 1])
 
