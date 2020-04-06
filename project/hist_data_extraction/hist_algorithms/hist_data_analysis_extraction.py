@@ -76,10 +76,13 @@ def hist_fx_data_extraction(fx_pair, year):
             print(e)
             print()
 
+    # Convert 'DateTime' column to datetime type
     fx_data['DateTime'] = pd.to_datetime(fx_data['DateTime'],
                                          format='%Y%m%d %H%M%S%f')
 
+    # Obtain the dates of every Sunday in the year
     weeks_str = hist_data_tools_extraction.hist_sundays(year)
+    # Convert the Sundays dates in datetime type
     weeks = [dt.datetime.strptime(x, '%Y-%m-%d') for x in weeks_str]
 
     # Saving data
