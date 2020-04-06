@@ -35,7 +35,7 @@ import hist_data_tools_avg_spread
 # ----------------------------------------------------------------------------
 
 
-def hist_quotes_trades_day_avg_spread_data(fx_pair, week):
+def hist_quotes_trades_day_avg_spread_data(fx_pair, year, week):
     """Obtain the quotes and trades statistics for a week.
 
     Using the quotes files, obtain the statistics of the average spread, number
@@ -43,15 +43,10 @@ def hist_quotes_trades_day_avg_spread_data(fx_pair, week):
 
     :param fx_pair: string of the abbreviation of the forex pair to be analyzed
      (i.e. 'eur_usd').
+    :param year: string of the year to be analyzed (i.e '2016').
     :param week: string of the week to be analyzed (i.e. '16').
     :return: tuple -- The function returns a tuple with float values.
     """
-
-    date_sep = date.split('-')
-
-    year = date_sep[0]
-    month = date_sep[1]
-    day = date_sep[2]
 
     try:
         # Load data
@@ -104,7 +99,7 @@ def hist_quotes_trades_year_avg_spread_data(fx_pairs, year):
             .hist_function_header_print_data(function_name, fx_pair, year, '')
 
         stat = []
-        args_prod = iprod([fx_pair], weeks)
+        args_prod = iprod([fx_pair], [year], weeks)
 
         # Parallel computation of the statistics. Every result is appended to
         # a list
