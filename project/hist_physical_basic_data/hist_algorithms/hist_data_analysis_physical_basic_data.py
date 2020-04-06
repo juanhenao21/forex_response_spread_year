@@ -76,32 +76,36 @@ def hist_fx_physical_data(fx_pair, year, week):
         trade_signs = np.zeros(len(dates_seconds[:-1]))
 
         # Trade data to numpy array
-        datetime_fx_data = fx_data['DateTime']
+        datetime_fx_data = list(sorted(set(
+            map(lambda x: x.replace(microsecond=0), fx_data['DateTime']))))
         midpoint_fx_data = fx_data['Midpoint'].to_numpy()
         trade_signs_fx_data = fx_data['Signs'].to_numpy()
         # Select the last midpoint price of every second. If there is no
         # midpoint price in a second, takes the value of the previous second
-        for t_idx, t_val in enumerate(dates_seconds[:-1]):
-            condition = (datetime_fx_data >= t_val) \
-                         & (datetime_fx_data < dates_seconds[t_idx + 1])
+        for t_val in datetime_fx_data:
+            condition = (fx_data['DateTime'] >= t_val) \
+                & (fx_data['DateTime'] < t_val + dt.timedelta(seconds=1))
             trades_same_t_exp = trade_signs_fx_data[condition]
             sign_exp = int(np.sign(np.sum(trades_same_t_exp)))
-            trade_signs[t_idx] = sign_exp
-            if (np.sum(condition)):
-                midpoint[t_idx] = midpoint_fx_data[condition][-1]
-            else:
-                midpoint[t_idx] = midpoint[t_idx - 1]
+            pos = np.where(t_val == physical_data['DateTime'])
+            trade_signs[pos] = sign_exp
+            midpoint[pos] = midpoint_fx_data[condition][-1]
 
-        # assert not np.sum(midpoint == 0)
-
-        # At the beggining some values in the midpoint could be 0. To fix it
-        # find the zero values and replace with the first value different to
+        # Some values in the midpoint array are 0. To fix it find the zero
+        # values positions and replace with the first value different to
         # zero
-        zero_val_pos = np.where(midpoint == 0)[0]
-        no_zero_val_pos = np.where(midpoint != 0)[0][0]
+        no_zero_pos = np.where(midpoint != 0)[0]
 
-        for z_pos in zero_val_pos:
-            midpoint[z_pos] = midpoint[no_zero_val_pos]
+        for z_idx, z_pos in enumerate(no_zero_pos):
+            if (not z_idx):
+                midpoint[:z_pos] = midpoint[z_pos]
+                midpoint[z_pos:no_zero_pos[z_idx + 1]] = midpoint[z_pos]
+            if (z_pos ==no_zero_pos[-1]):
+                midpoint[z_pos:] = midpoint[z_pos]
+            else:
+                midpoint[z_pos:no_zero_pos[z_idx + 1]] = midpoint[z_pos]
+
+        assert not np.sum(midpoint == 0)
 
         physical_data['Midpoint'] = midpoint
         physical_data['Signs'] = trade_signs
@@ -132,7 +136,7 @@ def main():
     :return: None.
     """
 
-    hist_fx_physical_data('eur_usd', '2019', '01')
+    hist_fx_physical_data('eur_usd', '2019', '02')
 
     return None
 
