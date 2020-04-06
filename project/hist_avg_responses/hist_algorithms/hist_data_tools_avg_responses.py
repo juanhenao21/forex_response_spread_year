@@ -1,4 +1,4 @@
-''' TAQ data tools module.
+''' HIST data tools module.
 
 The functions in the module do small repetitive tasks, that are used along the
 whole implementation. These tools improve the way the tasks are standardized
@@ -12,13 +12,12 @@ This script requires the following modules:
     * pickle
 
 The module contains the following functions:
-    * taq_save_data - saves computed data.
-    * taq_save_plot - saves figures.
-    * taq_function_header_print_data - prints info about the function running.
-    * taq_function_header_print_plot - prints info about the plot.
-    * taq_start_folders - creates folders to save data and plots.
-    * taq_initial_data - takes the initial values for the analysis.
-    * taq_business_days - creates a list of week days for a year.
+    * hist_save_data - saves computed data.
+    * hist_save_plot - saves figures.
+    * hist_function_header_print_data - prints info about the function running.
+    * hist_function_header_print_plot - prints info about the plot.
+    * hist_start_folders - creates folders to save data and plots.
+    * hist_initial_data - takes the initial values for the analysis.
     * main - the main function of the script.
 
 .. moduleauthor:: Juan Camilo Henao Londono <www.github.com/juanhenao21>
@@ -36,51 +35,38 @@ import pickle
 # -----------------------------------------------------------------------------
 
 
-def taq_save_data(function_name, data, ticker_i, ticker_j, year, month, day):
+def hist_save_data(function_name, data, fx_pair, year, week):
     """ Saves computed data in pickle files.
 
     Saves the data generated in the functions of the
-    taq_data_analysis_avg_responses_physical module in pickle files.
+    hist_data_analysis_avg_responses_physical module in pickle files.
 
     :param function_name: name of the function that generates the data.
     :param data: data to be saved. The data can be of different types.
-    :param ticker_i: string of the abbreviation of the stock to be analyzed
-     (i.e. 'AAPL').
-    :param ticker_j: string of the abbreviation of the stock to be analyzed
-     (i.e. 'AAPL').
+    :param fx_pair: string of the abbreviation of the forex pair to be analyzed
+     (i.e. 'eur_usd').
     :param year: string of the year to be analyzed (i.e '2016').
-    :param month: string of the month to be analyzed (i.e '07').
-    :param day: string of the day to be analyzed (i.e '07').
+    :param week: string of the week to be analyzed (i.e '07').
     :return: None -- The function saves the data in a file and does not return
      a value.
     """
 
     # Saving data
 
-    if (not os.path.isdir(f'../../taq_data/avg_responses_physical_data_{year}/'
+    if (not os.path.isdir(f'../../hist_data/avg_responses_data_{year}/'
                           + f'{function_name}/')):
 
         try:
-            os.mkdir(f'../../taq_data/avg_responses_physical_data_{year}/'
+            os.mkdir(f'../../hist_data/avg_responses_data_{year}/'
                      + f'{function_name}/')
             print('Folder to save data created')
 
         except FileExistsError:
             print('Folder exists. The folder was not created')
 
-    # Cross-response data
-    if (ticker_i != ticker_j):
-
-        pickle.dump(data, open(f'../../taq_data/avg_responses_physical_data'
-                    + f'_{year}/{function_name}/{function_name}_{year}{month}'
-                    + f'{day}_{ticker_i}i_{ticker_j}j.pickle', 'wb'))
-
-    # Self-response data
-    else:
-
-        pickle.dump(data, open(f'../../taq_data/avg_responses_physical_data'
-                    + f'_{year}/{function_name}/{function_name}_{year}{month}'
-                    + f'{day}_{ticker_i}.pickle', 'wb'))
+    pickle.dump(data, open(f'../../hist_data/avg_responses_data_{year}/'
+                + f'{function_name}/{function_name}_{year}{week}_{fx_pair}'
+                + f'.pickle', 'wb'))
 
     print('Data Saved')
     print()
@@ -90,50 +76,35 @@ def taq_save_data(function_name, data, ticker_i, ticker_j, year, month, day):
 # -----------------------------------------------------------------------------
 
 
-def taq_save_plot(function_name, figure, ticker_i, ticker_j, year, month):
+def hist_save_plot(function_name, figure, fx_pair, year):
     """Saves plot in png files.
 
     Saves the plot generated in the functions of the
-    taq_data_plot_avg_responses_physical module in png files.
+    hist_data_plot_avg_responses_physical module in png files.
 
     :param function_name: name of the function that generates the plot.
     :param figure: figure object that is going to be save.
-    :param ticker_i: string of the abbreviation of the stock to be analyzed
-     (i.e. 'AAPL').
-    :param ticker_j: string of the abbreviation of the stock to be analyzed
-     (i.e. 'AAPL').
+    :param fx_pair: string of the abbreviation of the forex pair to be analyzed
     :param year: string of the year to be analyzed (i.e '2016').
-    :param month: string of the month to be analyzed (i.e '07').
     :return: None -- The function save the plot in a file and does not return
      a value.
     """
 
     # Saving plot data
 
-    if (not os.path.isdir(f'../../taq_plot/avg_responses_physical_plot_{year}'
+    if (not os.path.isdir(f'../../hist_plot/avg_responses_physical_plot_{year}'
                           + f'/{function_name}/')):
 
         try:
-            os.mkdir(f'../../taq_plot/avg_responses_physical_plot_{year}/'
+            os.mkdir(f'../../hist_plot/avg_responses_physical_plot_{year}/'
                      + f'{function_name}/')
             print('Folder to save data created')
 
         except FileExistsError:
             print('Folder exists. The folder was not created')
 
-    # Cross-response data
-    if (ticker_i != ticker_j):
-
-        figure.savefig(f'../../taq_plot/avg_responses_physical_plot_{year}/'
-                       + f'{function_name}/{function_name}_{year}{month}'
-                       + f'_{ticker_i}i_{ticker_j}j.png')
-
-    # Self-response
-    else:
-
-        figure.savefig(f'../../taq_plot/avg_responses_physical_plot_{year}/'
-                       + f'{function_name}/{function_name}_{year}{month}'
-                       + f'_{ticker_i}.png')
+    figure.savefig(f'../../hist_plot/avg_responses_plot_{year}/{function_name}'
+                    + f'/{function_name}_{year}_{fx_pair}.png')
 
     print('Plot saved')
     print()
@@ -143,40 +114,32 @@ def taq_save_plot(function_name, figure, ticker_i, ticker_j, year, month):
 # -----------------------------------------------------------------------------
 
 
-def taq_function_header_print_data(function_name, ticker_i, ticker_j, year,
-                                   month, day):
+def hist_function_header_print_data(function_name, fx_pair, year, week):
     """Prints a header of a function that generates data when it is running.
 
     :param function_name: name of the function that generates the data.
-    :param ticker_i: string of the abbreviation of the stock to be analyzed
-     (i.e. 'AAPL').
-    :param ticker_j: string of the abbreviation of the stock to be analyzed
-     (i.e. 'AAPL').
+    :param fx_pair: string of the abbreviation of the forex pair to be analyzed
+     (i.e. 'eur_usd').
     :param year: string of the year to be analyzed (i.e '2016').
-    :param month: string of the month to be analyzed (i.e '07').
-    :param day: string of the day to be analyzed (i.e '07').
+    :param week: string of the week to be analyzed (i.e '07').
     :return: None -- The function prints a message and does not return a
      value.
     """
 
-    print('TAQ data')
+    print('HIST data')
     print(function_name)
 
-    # Cross-response data
-    if (ticker_i != ticker_j):
-        print(f'Processing data for the stock i {ticker_i} and stock j '
-              + f'{ticker_j} the {year}.{month}.{day}')
-    # Self-response data
-    else:
-        print(f'Processing data for the stock {ticker_i} the '
-              + f'{year}.{month}.{day}')
+    fx_pair_upper = fx_pair[:3].upper() + '/' + fx_pair[4:].upper()
+    print(f'Processing data for the forex pair {fx_pair_upper} in the week '
+          + f'{week} of {year}')
+    print()
 
     return None
 
 # -----------------------------------------------------------------------------
 
 
-def taq_function_header_print_plot(function_name, ticker_i, ticker_j, year,
+def hist_function_header_print_plot(function_name, ticker_i, ticker_j, year,
                                    month, day):
     """Prints a header of a function that generates a plot when it is running.
 
@@ -192,24 +155,20 @@ def taq_function_header_print_plot(function_name, ticker_i, ticker_j, year,
      value.
     """
 
-    print('TAQ data')
+    print('HIST data')
     print(function_name)
 
-    # Cross-response data
-    if (ticker_i != ticker_j):
-        print(f'Processing plot for the stock i {ticker_i} and stock j '
-              + f'{ticker_j} the {year}.{month}.{day}')
-    # Self-response data
-    else:
-        print(f'Processing plot for the stock {ticker_i} the '
-              + f'{year}.{month}.{day}')
+    fx_pair_upper = fx_pair[:3].upper() + '/' + fx_pair[4:].upper()
+    print(f'Processing plot for the forex pair {fx_pair_upper} the '
+          + f'{year}.{month}')
+    print()
 
     return None
 
 # -----------------------------------------------------------------------------
 
 
-def taq_start_folders(year):
+def hist_start_folders(year):
     """Creates the initial folders to save the data and plots.
 
     :param year: string of the year to be analyzed (i.e '2016').
@@ -217,8 +176,8 @@ def taq_start_folders(year):
     """
 
     try:
-        os.mkdir(f'../../taq_plot/avg_responses_physical_plot_{year}')
-        os.mkdir(f'../../taq_data/avg_responses_physical_data_{year}')
+        os.mkdir(f'../../hist_data/avg_responses_data_{year}')
+        os.mkdir(f'../../hist_plot/avg_responses_plot_{year}')
 
         print('Folder to save data created')
         print()
@@ -233,7 +192,7 @@ def taq_start_folders(year):
 # -----------------------------------------------------------------------------
 
 
-def taq_initial_data():
+def hist_initial_data():
     """Takes the initial values for the analysis
 
     :return: None -- The function prints the message and does not return a
@@ -241,9 +200,9 @@ def taq_initial_data():
     """
 
     print()
-    print('#################################################')
-    print('Average Response Functions Physical Time Analysis')
-    print('#################################################')
+    print('##################################')
+    print('Average Response Function Analysis')
+    print('##################################')
     print('AG Guhr')
     print('Faculty of Physics')
     print('University of Duisburg-Essen')
@@ -259,7 +218,7 @@ def taq_initial_data():
 # -----------------------------------------------------------------------------
 
 
-def taq_bussiness_days(year):
+def hist_bussiness_days(year):
     """Generates a list with the dates of the bussiness days in a year
 
     :param year: string of the year to be analyzed (i.e '2008').
