@@ -60,7 +60,7 @@ def hist_quotes_trades_day_avg_spread_data(fx_pair, week):
                         + f'_data_extraction/{fx_pair}/hist_fx_data_extraction'
                         + f'_{fx_pair}_w{week}.pickle', 'rb'))
 
-        spread = (fx_data['Ask'] - fx_data['Bid'])
+        spread = fx_data['Spread']
 
         num_quotes = len(spread)
         avg_spread = np.mean(spread)
