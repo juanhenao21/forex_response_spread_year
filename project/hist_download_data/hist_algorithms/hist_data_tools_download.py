@@ -61,7 +61,9 @@ def hist_start_folders(fx_pairs, years):
 
     for year in years:
         try:
+            os.mkdir(f'../../hist_data')
             os.mkdir(f'../../hist_data/original_data_{year}')
+            os.mkdir(f'../../hist_plot')
             print('Folder to save data created')
 
         except FileExistsError as e:
