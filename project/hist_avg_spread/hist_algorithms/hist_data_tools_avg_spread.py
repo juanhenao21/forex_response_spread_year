@@ -32,17 +32,11 @@ import pickle
 # -----------------------------------------------------------------------------
 
 
-def hist_function_header_print_data(function_name, fx_pair, year, month):
+def hist_function_header_print_data(function_name, fx_pair, year, week):
     """Prints a header of a function that generates data when it is running.
 
     :param function_name: name of the function that generates the data.
-    :param ticker_i: string of the abbreviation of the stock to be analyzed
-     (i.e. 'AAPL').
-    :param ticker_j: string of the abbreviation of the stock to be analyzed
-     (i.e. 'AAPL').
     :param year: string of the year to be analyzed (i.e '2016').
-    :param month: string of the month to be analyzed (i.e '07').
-    :param day: string of the day to be analyzed (i.e '07').
     :return: None -- The function prints a message and does not return a
      value.
     """
@@ -93,7 +87,6 @@ def hist_initial_data():
 def hist_weeks():
     """Generates a list with the number of weeks in a year.
 
-    :param year: string of the year to be analyzed (i.e '2016').
     :return: list.
     """
 
