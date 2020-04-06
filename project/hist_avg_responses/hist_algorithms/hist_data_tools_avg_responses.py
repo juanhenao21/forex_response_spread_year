@@ -92,11 +92,11 @@ def hist_save_plot(function_name, figure, fx_pair, year):
 
     # Saving plot data
 
-    if (not os.path.isdir(f'../../hist_plot/avg_responses_physical_plot_{year}'
+    if (not os.path.isdir(f'../../hist_plot/avg_responses_plot_{year}'
                           + f'/{function_name}/')):
 
         try:
-            os.mkdir(f'../../hist_plot/avg_responses_physical_plot_{year}/'
+            os.mkdir(f'../../hist_plot/avg_responses_plot_{year}/'
                      + f'{function_name}/')
             print('Folder to save data created')
 
@@ -139,18 +139,13 @@ def hist_function_header_print_data(function_name, fx_pair, year, week):
 # -----------------------------------------------------------------------------
 
 
-def hist_function_header_print_plot(function_name, ticker_i, ticker_j, year,
-                                   month, day):
+def hist_function_header_print_plot(function_name, fx_pair, year):
     """Prints a header of a function that generates a plot when it is running.
 
     :param function_name: name of the function that generates the plot.
-    :param ticker_i: string of the abbreviation of the stock to be analyzed
-     (i.e. 'AAPL').
-    :param ticker_j: string of the abbreviation of the stock to be analyzed
-     (i.e. 'AAPL').
+    :param fx_pair: string of the abbreviation of the forex pair to be analyzed
+     (i.e. 'eur_usd').
     :param year: string of the year to be analyzed (i.e '2016').
-    :param month: string of the month to be analyzed (i.e '07').
-    :param day: string of the day to be analyzed (i.e '07').
     :return: None -- The function prints a message and does not return a
      value.
     """
@@ -159,8 +154,7 @@ def hist_function_header_print_plot(function_name, ticker_i, ticker_j, year,
     print(function_name)
 
     fx_pair_upper = fx_pair[:3].upper() + '/' + fx_pair[4:].upper()
-    print(f'Processing plot for the forex pair {fx_pair_upper} the '
-          + f'{year}.{month}')
+    print(f'Processing plot for the forex pair {fx_pair_upper} the {year}')
     print()
 
     return None
@@ -209,31 +203,11 @@ def hist_initial_data():
     print('Author: Juan Camilo Henao Londono')
     print('More information in:')
     print('  * https://juanhenao21.github.io/')
-    print('  * https://github.com/juanhenao21/spread_impact_analysis')
-    print('  * https://spread-impact-analysis.readthedocs.io/en/latest/')
+    print('  * https://github.com/juanhenao21/forex')
+    print('  * https://forex.readthedocs.io/en/latest/')
     print()
 
     return None
-
-# -----------------------------------------------------------------------------
-
-
-def hist_bussiness_days(year):
-    """Generates a list with the dates of the bussiness days in a year
-
-    :param year: string of the year to be analyzed (i.e '2008').
-    :return: list.
-    """
-
-    init_date = f'01/01/{year}'
-    last_date = f'12/31/{year}'
-
-    # Use only the bussiness days
-    dt = pd.date_range(start=init_date, end=last_date, freq='B')
-    dt_df = dt.to_frame(index=False)
-    date_list = dt_df[0].astype(str).tolist()
-
-    return date_list
 
 # -----------------------------------------------------------------------------
 

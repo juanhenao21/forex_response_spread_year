@@ -52,8 +52,8 @@ def hist_fx_midpoint_year_plot(fx_pair, year, weeks):
             # Load data
             fx_data = pickle.load(open(
                 f'../../hist_data/physical_basic_data_{year}/hist_fx_physical'
-                + f'_data/{fx_pair}/hist_fx_physical_data_{fx_pair}_w{week}'
-                + f'.pickle', 'rb'))
+                + f'_basic_data/{fx_pair}/hist_fx_physical_basic_data'
+                + f'_{fx_pair}_w{week}.pickle', 'rb'))
 
             plt.plot(fx_data['Date'], fx_data['Midpoint'], 'g', linewidth=5)
 

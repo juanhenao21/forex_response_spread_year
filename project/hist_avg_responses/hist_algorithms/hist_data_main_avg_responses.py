@@ -1,7 +1,7 @@
-'''TAQ data main module.
+'''HIST data main module.
 
 The functions in the module run the complete extraction, analysis and plot of
-the TAQ data.
+the HIST data.
 
 This script requires the following modules:
     * itertools.product
@@ -9,13 +9,13 @@ This script requires the following modules:
     * os
     * pandas
     * pickle
-    * taq_data_analysis_avg_responses_physical
-    * taq_data_plot_avg_responses_physical
-    * taq_data_tools_avg_responses_physical
+    * hist_data_analysis_avg_responses
+    * hist_data_plot_avg_responses
+    * hist_data_tools_avg_responses
 
 The module contains the following functions:
-    * taq_data_plot_generator - generates all the analysis and plots from the
-      TAQ data.
+    * hist_data_plot_generator - generates all the analysis and plots from the
+      HIST data.
     * main - the main function of the script.
 
 .. moduleauthor:: Juan Camilo Henao Londono <www.github.com/juanhenao21>
@@ -30,15 +30,15 @@ import os
 import pandas as pd
 import pickle
 
-import taq_data_analysis_avg_responses_physical
-import taq_data_plot_avg_responses_physical
-import taq_data_tools_avg_responses_physical
+import hist_data_analysis_avg_responses
+import hist_data_plot_avg_responses
+import hist_data_tools_avg_responses
 
 # -----------------------------------------------------------------------------
 
 
-def taq_data_plot_generator(year):
-    """Generates all the analysis and plots from the TAQ data.
+def hist_data_plot_generator(year):
+    """Generates all the analysis and plots from the HIST data.
 
     :param div: integer of the number of divisions in the tickers (i.e. 5).
     :param year: string of the year to be analyzed (i.e '2016').
@@ -46,8 +46,8 @@ def taq_data_plot_generator(year):
      a value.
     """
 
-    tickers = taq_data_analysis_avg_responses_physical \
-        .taq_tickers_spread_data(year)
+    fx_pairs = hist_data_analysis_avg_responses \
+        .hist_fx_pair_spread_data(year)
 
     for t_idx, ticker in enumerate(tickers):
         print(f'GROUP {t_idx + 1}')
@@ -56,11 +56,17 @@ def taq_data_plot_generator(year):
         print(f'Number of tickers group {t_idx + 1}: {len(ticker)}')
         print()
 
-    taq_data_analysis_avg_responses_physical \
-        .taq_self_response_year_avg_responses_physical_data(tickers, year)
+    hist_data_analysis_avg_responses \
+        .hist_fx_self_response_year_avg_responses_trade_data(fx_pairs, year)
 
-    taq_data_plot_avg_responses_physical \
-        .taq_self_response_year_avg_responses_physical_plot(year)
+    hist_data_analysis_avg_responses \
+        .hist_fx_self_response_year_avg_responses_physical_data(fx_pairs, year)
+
+    hist_data_plot_avg_responses \
+        .hist_fx_self_response_year_avg_responses_trade_plot(year)
+
+    hist_data_plot_avg_responses \
+        .hist_fx_self_response_year_avg_responses_physical_plot(year)
 
     return None
 
@@ -76,14 +82,13 @@ def main():
     """
 
     year = '2008'
-    div = 5
 
     # Basic folders
-    taq_data_tools_avg_responses_physical.taq_start_folders(year)
+    hist_data_tools_avg_responses.hist_start_folders(year)
 
     # Run analysis
     # Analysis and plot
-    taq_data_plot_generator(year)
+    hist_data_plot_generator(year)
 
     print('Ay vamos!!')
 
