@@ -179,6 +179,7 @@ def hist_fx_midpoint_trade_data(fx_pair, year, week):
                         + f'_{fx_pair}_w{week}.pickle', 'rb'))
 
         fx_data['Midpoint'] = (fx_data['Ask'] + fx_data['Bid']) / 2
+        fx_data['Spread'] = fx_data['Ask'] - fx_data['Bid']
 
         # Saving data
         hist_data_tools_extraction.hist_save_data(fx_data, fx_pair, year, week)
