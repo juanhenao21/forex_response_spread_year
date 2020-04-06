@@ -37,12 +37,10 @@ def hist_save_data(data, fx_pair, year):
     Saves the data generated in the functions of the
     hist_data_analysis_responses_trade module in pickle files.
 
-    :param function_name: name of the function that generates the data.
     :param data: data to be saved. The data can be of different types.
     :param fx_pair: string of the abbreviation of the forex pair to be analyzed
      (i.e. 'eur_usd').
     :param year: string of the year to be analyzed (i.e '2016').
-    :param month: string of the month to be analyzed (i.e '07').
     :return: None -- The function saves the data in a file and does not return
      a value.
     """
@@ -124,8 +122,7 @@ def hist_function_header_print_data(function_name, fx_pair, year, week):
     :param fx_pair: string of the abbreviation of the forex pair to be analyzed
      (i.e. 'eur_usd').
     :param year: string of the year to be analyzed (i.e '2016').
-    :param month: string of the month to be analyzed (i.e '07').
-    :param day: string of the day to be analyzed (i.e '07').
+    :param week: string of the week to be analyzed (i.e '07').
     :return: None -- The function prints a message and does not return a
      value.
     """
