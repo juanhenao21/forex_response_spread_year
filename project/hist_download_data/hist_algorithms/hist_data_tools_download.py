@@ -58,12 +58,19 @@ def hist_start_folders(fx_pairs, years):
     :param year: string of the year to be analyzed (i.e '2016').
     :return: None -- The function creates folders and does not return a value.
     """
+    try:
+        os.mkdir(f'../../hist_data')
+        os.mkdir(f'../../hist_plot')
+        print('Folder to save data created')
+
+    except FileExistsError as e:
+        print('Folder exists. The folder was not created')
+        print(e)
+        # raise Exception('Check the folders')
 
     for year in years:
         try:
-            os.mkdir(f'../../hist_data')
             os.mkdir(f'../../hist_data/original_data_{year}')
-            os.mkdir(f'../../hist_plot')
             print('Folder to save data created')
 
         except FileExistsError as e:
