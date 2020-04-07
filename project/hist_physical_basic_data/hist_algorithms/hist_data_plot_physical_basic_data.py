@@ -55,7 +55,7 @@ def hist_fx_midpoint_year_plot(fx_pair, year, weeks):
                 + f'_basic_data/{fx_pair}/hist_fx_physical_basic_data'
                 + f'_{fx_pair}_w{week}.pickle', 'rb'))
 
-            plt.plot(fx_data['Date'], fx_data['Midpoint'], 'g', linewidth=5)
+            plt.plot(fx_data['DateTime'], fx_data['Midpoint'], 'g', linewidth=5)
 
         plt.title(f'HIST midpoint price - {fx_pair_upper}', fontsize=40)
         plt.xlabel(r'Time $[s]$', fontsize=35)
