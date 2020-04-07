@@ -202,3 +202,16 @@ Funding currencies are currencies which can be borrowed at low interest rates
 (CHF, JPY).
 Commodity currencies are currencies of countries whose economic output strongly
 depends on the price of one or more commodities (NOK, AUD, CAD, NZD).
+
+**The Returns to Currency Speculation in Emerging Markets**
+Bid-ask spreads are two to four times larger in emerging markets than in
+developed countries.
+(Spread)
+
+The bid-ask spreads for both the spot and forward market are much larger for
+emerging markets than for developed economies. For developed countries, the
+median bid-ask spread in the spot market was between 0.039 and 0.051 percent
+depending on the sample period chosen, while the median spreads for one-week
+and one-month forwards were in the range of 0.042-0.053 percent and 0.045-0.057
+percent, respectively. We found the spreads to be between two and four times
+larger for emerging market currencies than for developed country currencies.
