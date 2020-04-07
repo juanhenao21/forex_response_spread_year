@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2016/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: main.aux
+The style file: plain.bst
+Database file #1: bib.bib
+Warning--can't use both author and editor fields in market_making
+You've used 10 entries,
+            2118 wiz_defined-function locations,
+            568 strings with 5957 characters,
+and the built_in function-call counts, 3241 in all, are:
+= -- 304
+> -- 163
+< -- 1
++ -- 64
+- -- 54
+* -- 249
+:= -- 559
+add.period$ -- 29
+call.type$ -- 10
+change.case$ -- 56
+chr.to.int$ -- 0
+cite$ -- 11
+duplicate$ -- 113
+empty$ -- 248
+format.name$ -- 54
+if$ -- 663
+int.to.chr$ -- 0
+int.to.str$ -- 10
+missing$ -- 10
+newline$ -- 52
+num.names$ -- 20
+pop$ -- 51
+preamble$ -- 1
+purify$ -- 47
+quote$ -- 0
+skip$ -- 82
+stack$ -- 0
+substring$ -- 182
+swap$ -- 18
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 38
+warning$ -- 1
+while$ -- 29
+width$ -- 12
+write$ -- 109
+(There was 1 warning)
