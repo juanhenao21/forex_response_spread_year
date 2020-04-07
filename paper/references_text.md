@@ -166,3 +166,39 @@ buyers and sellers) and, most importantly, trading profiles (import–export).
 Hence, we would expect those currencies from economies with lower volatility,
 stronger financial sectors, and higher trade surplus to be more efficient.
 (Selection of the currencies)
+
+**Economic and political effects on currency clustering dynamics**
+Similar to other financial markets, exchange rates between different currencies
+are determined by the laws of supply and demand in the forex market.
+Additionally, market participants (financial institutions, traders, and
+investors) consider macroeconomic factors such as interest rates and inflation
+to assess the value of a currency. Central banks may participate in the forex
+market as well, when pursuing their fiscal and monetary policy goals. The
+degree of central bank interventions (CBIs) in the market determines the regime
+in which a currency trades.
+Some central banks peg their currency to another currency, using their assets
+in the market to accomplish a fixed exchange rate. If a central bank does not
+intervene, its currency is considered free-floating, meaning that the exchange
+rate is mostly determined by market forces. Some central banks allow their
+currency to float freely within a certain range, in a so-called managed float
+regime.
+(Central bank control)
+
+The appreciation of one currency implies the depreciation of the currency
+against which it is traded.
+(Fx characteristic)
+
+Qualitatively, we can distinguish between hard and soft currencies; hard
+currencies are considered a store of value due to their stability even in
+adverse global economic conditions, and soft currencies are more volatile, for
+example due to deteriorating economic conditions in respective countries.
+(Qualitatively description of currencies)
+
+We can distinguish between reserve currencies, funding currencies, and
+commodity currencies.
+Reserve currencies are currencies which central banks typically hold as foreign
+exchange reserves, for which they prefer hard currencies (USD, EUR, GBP).
+Funding currencies are currencies which can be borrowed at low interest rates
+(CHF, JPY).
+Commodity currencies are currencies of countries whose economic output strongly
+depends on the price of one or more commodities (NOK, AUD, CAD, NZD).
