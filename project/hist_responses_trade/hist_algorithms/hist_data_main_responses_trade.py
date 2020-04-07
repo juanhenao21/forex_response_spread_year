@@ -74,7 +74,7 @@ def main():
     # Forex pairs and weeks to analyze
     # Response function analysis
     # The other years will be analyzed with the spread data
-    years = ['2008']
+    years = ['2008', '2014']
     fx_pairs = ['eur_usd', 'gbp_usd', 'usd_jpy', 'aud_usd',
                 'usd_chf', 'usd_cad', 'nzd_usd']
 
@@ -86,7 +86,7 @@ def main():
     hist_data_plot_generator(fx_pairs, years)
 
     # Spread impact analysis
-    years = ['2008', '2014', '2019']
+    years = ['2011', '2015', '2019']
     fx_pairs = ['eur_usd', 'eur_chf', 'eur_gbp', 'eur_jpy', 'eur_aud',
                 'usd_cad', 'usd_chf', 'usd_jpy', 'usd_mxn', 'gbp_chf',
                 'gbp_jpy', 'gbp_usd', 'aud_jpy', 'aud_usd', 'chf_jpy',
