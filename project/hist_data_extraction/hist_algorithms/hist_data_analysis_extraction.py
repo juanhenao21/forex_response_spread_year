@@ -289,7 +289,7 @@ def main():
     :return: None.
     """
 
-    hist_fx_data_extraction('eur_usd', '2011')
+    pass
 
     return None
 
