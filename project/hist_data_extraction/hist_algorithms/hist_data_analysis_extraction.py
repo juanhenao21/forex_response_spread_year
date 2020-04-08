@@ -112,30 +112,54 @@ def hist_fx_data_extraction(fx_pair, year):
 
     for w_idx, week in enumerate(weeks):
 
-        if (w_idx):
-            week_ini = weeks[w_idx - 1].replace(hour=17, minute=10, second=0)
-            # Five days from Sunday 17h10 to Friday 16h50
-            t_secs = 432000 - 1200 + 1
-            week_fin = week_ini + dt.timedelta(seconds=t_secs)
-            w_df = fx_data[(fx_data['DateTime'] < week_fin)
-                           & (fx_data['DateTime'] >= week_ini)]
-        else:
-            # First week of the year
-            week_ini = fx_data['DateTime'].iloc[0].replace(
-                hour=17, minute=10, second=0, microsecond=0)
-            week_fin = weeks[0].replace(
-                day=weeks[0].day - 2, hour=16, minute=51, second=0)
-            w_df = fx_data[(fx_data['DateTime'] < week_fin)
-                           & (fx_data['DateTime'] >= week_ini)]
+        # Year that not starts with a Saturday or Sunday
+        if (weeks[0].day != 1 and weeks[0].day != 2):
+            if (w_idx):
+                week_ini = weeks[w_idx - 1].replace(hour=17, minute=10, second=0)
+                # Five days from Sunday 17h10 to Friday 16h50
+                t_secs = 432000 - 1200 + 1
+                week_fin = week_ini + dt.timedelta(seconds=t_secs)
+                w_df = fx_data[(fx_data['DateTime'] < week_fin)
+                            & (fx_data['DateTime'] >= week_ini)]
 
-        # Saving data
-        if (w_idx + 1 < 10):
-            w_idx = f'0{w_idx + 1}'
+            else:
+                # First week of the year
+                week_ini = fx_data['DateTime'].iloc[0].replace(
+                    hour=17, minute=10, second=0, microsecond=0)
+                week_fin = week.replace(
+                    day=week.day - 2, hour=16, minute=51, second=0)
+                w_df = fx_data[(fx_data['DateTime'] < week_fin)
+                            & (fx_data['DateTime'] >= week_ini)]
+
+            # Saving data
+            if (w_idx + 1 < 10):
+                w_idx = f'0{w_idx + 1}'
+            else:
+                w_idx += 1
+            pickle.dump(w_df, open(f'../../hist_data/extraction_data_{year}/'
+                        + f'{function_name}/{fx_pair}/{function_name}_{fx_pair}'
+                        + f'_w{w_idx}.pickle', 'wb'))
+
+        # Year that starts with a Saturday or Sunday
         else:
-            w_idx += 1
-        pickle.dump(w_df, open(f'../../hist_data/extraction_data_{year}/'
-                    + f'{function_name}/{fx_pair}/{function_name}_{fx_pair}'
-                    + f'_w{w_idx}.pickle', 'wb'))
+
+            if (w_idx):
+
+
+                week_ini = weeks[w_idx - 1].replace(hour=17, minute=10, second=0)
+                # Five days from Sunday 17h10 to Friday 16h50
+                t_secs = 432000 - 1200 + 1
+                week_fin = week_ini + dt.timedelta(seconds=t_secs)
+                w_df = fx_data[(fx_data['DateTime'] < week_fin)
+                            & (fx_data['DateTime'] >= week_ini)]
+
+                # Saving data
+                if (w_idx < 10):
+                    w_idx = f'0{w_idx}'
+
+                pickle.dump(w_df, open(f'../../hist_data/extraction_data_{year}/'
+                            + f'{function_name}/{fx_pair}/{function_name}_{fx_pair}'
+                            + f'_w{w_idx}.pickle', 'wb'))
 
     # Last days of the year
     week_ini = weeks[-1].replace(hour=17, minute=10, second=0)
@@ -265,7 +289,7 @@ def main():
     :return: None.
     """
 
-    pass
+    hist_fx_data_extraction('eur_usd', '2011')
 
     return None
 
