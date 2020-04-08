@@ -215,3 +215,30 @@ depending on the sample period chosen, while the median spreads for one-week
 and one-month forwards were in the range of 0.042-0.053 percent and 0.045-0.057
 percent, respectively. We found the spreads to be between two and four times
 larger for emerging market currencies than for developed country currencies.
+(Spread values)
+
+**Patterns in high-frequency FX data**
+Throughout the paper we consider a simpler definition of the price given by
+$$x_{i} = (bid_{i} + ask_{i} ) / 2$$
+(Midpoint price definition)
+
+In financial markets, the flow of time is discontinuous: over weekends trading
+comes to a standstill or, inversely, at news announcements there are spurts of
+market activity.
+(Flow of time)
+
+We use a tick-by-tick database composed of 13 currency pairs spanning five
+years, from December 1, 2002 to December 1, 2007. The following currency pairs
+are considered with the total number of ticks given in parenthesis: AUD-JPY
+(15’286’858), AUD-USD (7’037’203), CHF-JPY (17’081’987), GBP-CHF (27’141’146),
+GBP-JPY (26’423’199), GBP-USD (13’918’523), EUR-AUD (19’111’129), EUR-GBP
+(13’847’688), EUR-CHF (9’912’921), EUR-JPY (22’594’396), EUR-USD (13’093’081),
+USD-CHF (13’812’055), USD- JPY (13’507’173). The difference in the number of
+ticks is due to varying liquidity and the fact that some exchange rates are
+synthetically generated from two data streams, i.e., market makers quote prices
+based on two feeds creating cross-rates. As an example, GBP-JPY is derived from
+GBP-USD and USD-JPY. This, however, does not mean that the GBP-JPY data is
+artificial as it is also real published market data. The approximately 26.5
+million ticks in the GBP-JPY cross-rate are derived from the ticks in GBP-USD
+(13.9 million) and USD-JPY (13.5 million).
+(Data description)
