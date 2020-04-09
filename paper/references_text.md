@@ -242,3 +242,59 @@ artificial as it is also real published market data. The approximately 26.5
 million ticks in the GBP-JPY cross-rate are derived from the ticks in GBP-USD
 (13.9 million) and USD-JPY (13.5 million).
 (Data description)
+**Information Flows in Foreign Exchange Markets**
+The foreign exchange (FX) market is the largest financial market in the world,
+with a daily trading volume of about five trillion U.S. dollars (USDs; Bank for
+International Settlements (BIS, 2013)). Also, the FX market is largely
+organized as an over-the-counter (OTC) market, meaning that there is no
+centralized exchange and that market participants can have only partial
+knowledge about the trades of other market participants and available liquidity
+in different market segments. Hence, despite its size and sophistication, the
+FX market is fairly opaque and decentralized because of its market structure
+when compared to, for example, the major equity markets.
+(Introduction to foreign exchange markets)
+
+In centralized, exchange-based markets, there is a single price at any point in
+time—the market price. In decentralized markets, by default, there is no
+visible common price. The FX market is the largest market of this kind.
+(Centralized and decentralized markets)
+
+**Teaching the Bid-Ask Spread and Triangular Arbitrage**
+The FX market is a decentralized or over-the-counter (OTC) market without
+common trading floor. The FX market is open 24 hours a day. There are several
+financial centers with different time zones in the world. When the trading of
+one currency is closed at one financial center, it continues on the other
+financial center with the different time zone. International banks serve as
+dealers who make a market by standing ready to buy or sell foreign currencies
+for their own accounts. The bid price represents the price a bank dealer is
+willing to buy for a currency and the ask price is the price a bank dealer is
+willing to sell for a currency. Therefore, bank clients buy at the ask price
+from the dealer and sell at the bid price to the dealer. The bid-ask spread,
+the difference between the ask price and the bid price, is the compensation
+(transaction cost) to the dealer (bank clients). The bid-ask spread and bid-ask
+relationship are basic parts of the FX market microstructure.
+(Introduction to foreign exchange markets)
+
+They find that bid-ask spreads increase when the FX volatility increases, and
+they decrease when the dealer competition increases.
+(Behavior of the spread)
+
+Quote (tick-by-tick) data with bid and ask prices for GBP vs USD currency pair
+are needed and they can be purchased from Tick Data, LLC. The trading of FX is
+24 hours a day. The quote data from Tick Data are time stamped to the
+millisecond (HH:MM:SS.mmm) and start at the first millisecond of 6 PM
+(18:00:00.001) Eastern Time (ET) on Sunday and end at the last millisecond of
+5:59 PM (17:59:59.999) ET on Friday for each week. So, Tick Data classifies
+one-day 24- hour trading as 18:00:00.001 ET on the previous date to
+17:59:59.999 ET on the current day. For example, the 24-hour trading time on
+June 23, 2016 is from 18:00:00.001 ET on June 22, 2016 to 17:59:59.999 ET on
+June 23, 2016.
+(Data description)
+
+The bid-ask spread can be computed as follows
+$$s(t) = a(t) - b(t)$$
+$$\% s(t) = \frac{a(t) - b(t)}{m(t)}$$
+where $b(t)$ and $a(t)$ are bid price and ask price at time t and
+$$m(t) = \frac{b(t) + a(t)}{2}$$
+is the quoted midpoint at time t
+(Spread definition)
