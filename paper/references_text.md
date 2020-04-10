@@ -298,3 +298,96 @@ where $b(t)$ and $a(t)$ are bid price and ask price at time t and
 $$m(t) = \frac{b(t) + a(t)}{2}$$
 is the quoted midpoint at time t
 (Spread definition)
+
+**Foreign Exchange Market Structure, Players and Evolution**
+Electronic trading has transformed foreign exchange markets over the past
+decade, and the pace of innovation only accelerates. This formerly opaque
+market is now fairly transparent and transaction costs are only a fraction of
+their former level. Entirely new agents have joined the fray, including retail
+and high-frequency traders, while foreign exchange trading volumes have
+tripled. Market concentration among dealers has risen reflecting the heavy
+investments in technology. Undeterred, some new non-bank market participants
+have begun to make markets, challenging the traditional foreign exchange
+dealers on their own turf.
+(Changes in Forex markets)
+
+It would be hard to overstate the importance of foreign exchange markets for
+the world economy. They affect output and employment through real exchange
+rates. They affect inflation through the cost of imports and commodity prices.
+They affect international capital flows through the risks and returns of
+different assets. Exchange rates are justifiably a major focus for
+policymakers, the public, and of course the media.
+(Importance of Forex markets)
+
+the trading day begins when dealers arrive for work in Australia and Asia.
+Activity then moves to Europe when markets open in Frankfurt, London, and
+Paris, and finishes late in the afternoon in New York. As always, there is no
+time during the day when the market formally closes, although there is a brief
+lull in activity between about 19:00 and 22:00 GMT when most New York traders
+have gone home and most Sydney traders are still on their way to work
+(Forex description)
+
+Most exchange rates are quoted to five significant digits, with the final (or
+smallest) digit known as a "pip". A pip is short for Price Increment Point. In
+EUR/USD, a one-pip change is e.g. from 1.2345 to 1.2346. In most major currency
+pairs, one pip is roughly one basis point.
+(Pip definition)
+
+The vast majority of FX trading is essentially unregulated, in striking
+contrast to the extensive regulations in most equity and bond markets. Some
+well-known regulations in other asset markets are missing in FX markets. Their
+absence is not a problem due to unique features of the FX market. Short-sales
+restrictions, for example, though severe in most developed equity and bond
+markets, cannot even be defined in this asset class because the sale of one
+currency is simply the purchase of another. Other practices that are illegal
+on most organised exchanges are discouraged in FX by market conventions and
+best practices. For example, front-running of customer orders is widely
+considered bad practice even though it is not illegal. 8 Fortunately, the FX
+market is sufficiently liquid that significant manipulation by any single actor
+is all but impossible during active trading hours for the major currencies.
+(Regulations)
+
+Since FX markets are subject to minimal regulation, they are also subject to
+minimal reporting requirements, which explains the scarcity of aggregate data
+on FX trading. Though equity trading volume is a staple on the evening news, on
+any given day no one knows how much was traded in FX markets - not the
+regulators, not the monetary authorities, not even the major FX dealers. The
+only comprehensive information source is the Triennial Central Bank Survey of
+Foreign Exchange Market Activity, a joint effort of central banks around the
+world coordinated every third year in April by the Bank for International
+Settlements (BIS). 9 In the absence of official sources of high-frequency data,
+most research on currency trading relies on proprietary data from banks and
+brokers.
+(Forex data)
+
+Interdealer trading can be carried out either directly in the over-the-counter
+market or indirectly via FX limit-order markets run by FX brokers. In
+over-the-counter markets, all trades take place through designated market
+makers. In limit-order markets, no agents are specifically tasked with
+providing liquidity. Every agent can either supply (“make”) liquidity by
+placing a limit order, or demand (“take”) liquidity by entering a market order.
+Limit orders indicate the prices at which an agent is willing to buy (bid) or
+sell (offer/ask) a specific quantity. The set of outstanding limit orders,
+which represents the existing liquidity supply, is known as the “limit order
+book.” Orders remain in the limit order book until executed or cancelled. The
+best bid or ask prices are known as “the quotes,” and the quantity available at
+the quotes is the market’s “depth.” Trades occur when another dealer indicates
+that s/he wishes to trade immediately by placing a “market order”. Market
+orders are executed against limit orders in the book, beginning with the
+best-priced limit order and, for large quantities, moving to limit orders with
+successively less attractive prices.
+(Interdealer trading - Order book)
+
+Interdealer bid-ask spreads in the major currencies are typically 0.5 to 2.0
+pips; those on less liquid currencies, particularly those with exchange
+controls, can reach 40 pips. These spreads, like spreads in equity and bond
+markets, are influenced by inventory risk, as indicated by the positive
+cross-sectional relation between average spreads and average market volatility.
+Nonetheless, the forces that drive FX interdealer spreads vary in striking ways
+from those that drive equity and bond spreads. FX interdealer spreads are
+highest during the short overnight period when trading is light and volatility
+is low. By contrast, spreads in equity and bond markets are typically highest
+at the market open, when trading and volatility are highest. This difference
+has been traced to the absence of regulation – and specifically the absence of
+formal opening and closing hours - in FX
+(Spread)
