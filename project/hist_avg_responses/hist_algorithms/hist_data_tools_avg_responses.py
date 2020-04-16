@@ -162,24 +162,26 @@ def hist_function_header_print_plot(function_name, fx_pair, year):
 # -----------------------------------------------------------------------------
 
 
-def hist_start_folders(year):
+def hist_start_folders(years):
     """Creates the initial folders to save the data and plots.
 
-    :param year: string of the year to be analyzed (i.e '2016').
+    :param years: list of string of the years to be analyzed
+     (i.e ['2016', '2017']).
     :return: None -- The function creates folders and does not return a value.
     """
 
-    try:
-        os.mkdir(f'../../hist_data/avg_responses_data_{year}')
-        os.mkdir(f'../../hist_plot/avg_responses_plot_{year}')
+    for year in years:
+        try:
+            os.mkdir(f'../../hist_data/avg_responses_data_{year}')
+            os.mkdir(f'../../hist_plot/avg_responses_plot_{year}')
 
-        print('Folder to save data created')
-        print()
+            print('Folder to save data created')
+            print()
 
-    except FileExistsError as e:
-        print('Folder exists. The folder was not created')
-        print(e)
-        # raise Exception('Check the folders')
+        except FileExistsError as e:
+            print('Folder exists. The folder was not created')
+            print(e)
+            # raise Exception('Check the folders')
 
     return None
 

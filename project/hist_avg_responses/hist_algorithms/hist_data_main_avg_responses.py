@@ -37,7 +37,7 @@ import hist_data_tools_avg_responses
 # -----------------------------------------------------------------------------
 
 
-def hist_data_plot_generator(year):
+def hist_data_plot_generator(years):
     """Generates all the analysis and plots from the HIST data.
 
     :param div: integer of the number of divisions in the tickers (i.e. 5).
@@ -46,27 +46,29 @@ def hist_data_plot_generator(year):
      a value.
     """
 
-    fx_pairs = hist_data_analysis_avg_responses \
-        .hist_fx_pair_spread_data(year)
+    for year in years:
 
-    for t_idx, ticker in enumerate(tickers):
-        print(f'GROUP {t_idx + 1}')
-        for t in ticker:
-            print(t)
-        print(f'Number of tickers group {t_idx + 1}: {len(ticker)}')
-        print()
+        fx_pairs = hist_data_analysis_avg_responses \
+            .hist_fx_pair_spread_data(year)
 
-    hist_data_analysis_avg_responses \
-        .hist_fx_self_response_year_avg_responses_trade_data(fx_pairs, year)
+        for fx_idx, fx_pair in enumerate(fx_pairs):
+            print(f'GROUP {fx_idx + 1}')
+            for fx_p in fx_pair:
+                print(fx_p)
+            print(f'Number of tickers group {fx_idx + 1}: {len(fx_pair)}')
+            print()
 
-    hist_data_analysis_avg_responses \
-        .hist_fx_self_response_year_avg_responses_physical_data(fx_pairs, year)
+        hist_data_analysis_avg_responses \
+            .hist_fx_self_response_year_avg_responses_trade_data(fx_pairs, year)
 
-    hist_data_plot_avg_responses \
-        .hist_fx_self_response_year_avg_responses_trade_plot(year)
+        # hist_data_analysis_avg_responses \
+        #     .hist_fx_self_response_year_avg_responses_physical_data(fx_pairs, year)
 
-    hist_data_plot_avg_responses \
-        .hist_fx_self_response_year_avg_responses_physical_plot(year)
+        hist_data_plot_avg_responses \
+            .hist_fx_self_response_year_avg_responses_trade_plot(year)
+
+        # hist_data_plot_avg_responses \
+        #     .hist_fx_self_response_year_avg_responses_physical_plot(year)
 
     return None
 
@@ -81,14 +83,14 @@ def main():
     :return: None.
     """
 
-    year = '2008'
+    years = ['2011', '2015', '2019']
 
     # Basic folders
-    hist_data_tools_avg_responses.hist_start_folders(year)
+    hist_data_tools_avg_responses.hist_start_folders(years)
 
     # Run analysis
     # Analysis and plot
-    hist_data_plot_generator(year)
+    hist_data_plot_generator(years)
 
     print('Ay vamos!!')
 

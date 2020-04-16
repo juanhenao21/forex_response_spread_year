@@ -34,7 +34,7 @@ import pickle
 
 import hist_data_tools_avg_responses
 
-__tau__ = 10000
+__tau__ = 1000
 
 # ----------------------------------------------------------------------------
 
@@ -59,20 +59,20 @@ def hist_fx_pair_spread_data(year):
 
         tickers = []
 
-        g1 = spread_data[spread_data['Avg_Spread'] < 0.03]
-        tickers_g1 = g1['Ticker'].tolist()
-        g2 = spread_data[(spread_data['Avg_Spread'] <= 0.03)
-                         & spread_data['Avg_Spread'] < 0.06]
-        tickers_g2 = g2['Ticker'].tolist()
-        g3 = spread_data[(spread_data['Avg_Spread'] <= 0.06)
-                         & spread_data['Avg_Spread'] < 0.09]
-        tickers_g3 = g3['Ticker'].tolist()
-        g4 = spread_data[(spread_data['Avg_Spread'] <= 0.09)
-                         & spread_data['Avg_Spread'] < 0.15]
-        tickers_g4 = g4['Ticker'].tolist()
-        g5 = spread_data[(spread_data['Avg_Spread'] <= 0.15)
-                         & spread_data['Avg_Spread'] < 0.4]
-        tickers_g5 = g5['Ticker'].tolist()
+        g1 = spread_data[spread_data['Avg_Spread'] < 0.0001]
+        tickers_g1 = g1['FxPair'].tolist()
+        g2 = spread_data[(spread_data['Avg_Spread'] <= 0.0001)
+                         & spread_data['Avg_Spread'] < 0.0002]
+        tickers_g2 = g2['FxPair'].tolist()
+        g3 = spread_data[(spread_data['Avg_Spread'] <= 0.0002)
+                         & spread_data['Avg_Spread'] < 0.0003]
+        tickers_g3 = g3['FxPair'].tolist()
+        g4 = spread_data[(spread_data['Avg_Spread'] <= 0.0003)
+                         & spread_data['Avg_Spread'] < 0.01]
+        tickers_g4 = g4['FxPair'].tolist()
+        g5 = spread_data[(spread_data['Avg_Spread'] <= 0.01)
+                         & spread_data['Avg_Spread'] < 0.1]
+        tickers_g5 = g5['FxPair'].tolist()
 
         tickers.append(tickers_g1)
         tickers.append(tickers_g2)
@@ -100,7 +100,7 @@ def hist_fx_self_response_year_avg_responses_trade_data(fx_pairs, year):
     :return: tuple -- The function returns a tuple with numpy arrays.
     """
 
-    function_name = hist_self_response_year_avg_responses_trade_data.__name__
+    function_name = hist_fx_self_response_year_avg_responses_trade_data.__name__
     hist_data_tools_avg_responses \
         .hist_function_header_print_data(function_name, '', year, '')
 
@@ -115,7 +115,7 @@ def hist_fx_self_response_year_avg_responses_trade_data(fx_pairs, year):
                 + f'_year_responses_trade_data/{fx_p}/hist_fx_self_response'
                 + f'_year_responses_trade_data_{fx_p}_{year}.pickle', 'rb'))
 
-        avg_response = response / len(ticker)
+        avg_response = response / len(fx_pair)
         results_avg.append(avg_response)
 
     results_avg = tuple(results_avg)
@@ -138,8 +138,8 @@ def hist_fx_self_response_year_avg_responses_physical_data(fx_pairs, year):
     :return: tuple -- The function returns a tuple with numpy arrays.
     """
 
-    function_name = hist_self_response_year_avg_responses_physical_data.__name__
-    hist_data_tools_avg_responses
+    function_name = hist_fx_self_response_year_avg_responses_physical_data.__name__
+    hist_data_tools_avg_responses \
         .hist_function_header_print_data(function_name, '', year, '')
 
     results_avg = []
@@ -154,7 +154,7 @@ def hist_fx_self_response_year_avg_responses_physical_data(fx_pairs, year):
                 + f'_response_year_responses_physical_data_{fx_p}_{year}'
                 + f'.pickle', 'rb'))
 
-        avg_response = response / len(ticker)
+        avg_response = response / len(fx_pair)
         results_avg.append(avg_response)
 
     results_avg = tuple(results_avg)

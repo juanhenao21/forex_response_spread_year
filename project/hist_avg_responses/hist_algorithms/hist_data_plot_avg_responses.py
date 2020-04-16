@@ -40,10 +40,10 @@ def hist_fx_self_response_year_avg_responses_trade_plot(year):
     """
 
     try:
-        function_name = hist_self_response_year_avg_responses_trade_plot \
+        function_name = hist_fx_self_response_year_avg_responses_trade_plot \
             .__name__
         hist_data_tools_avg_responses \
-            .hist_function_header_print_plot(function_name, '', year, '')
+            .hist_function_header_print_plot(function_name, '', year)
 
         # Load data
         resp_g1, resp_g2, resp_g3, resp_g4, resp_g5 = pickle.load(open(
@@ -73,7 +73,7 @@ def hist_fx_self_response_year_avg_responses_trade_plot(year):
 
         # Plotting
         hist_data_tools_avg_responses \
-            .hist_save_plot(function_name, figure, '', year, '')
+            .hist_save_plot(function_name, figure, '', year)
 
         return None
 
