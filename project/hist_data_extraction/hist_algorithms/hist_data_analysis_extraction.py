@@ -261,6 +261,9 @@ def hist_fx_trade_signs_trade_data(fx_pair, year, week):
 
         if (trade_signs[0] == 0):
             trade_signs[0] = trade_signs[1]
+        if (trade_signs[0] == 0 and trade_signs[1] == 0):
+            trade_signs[0] = trade_signs[2]
+            trade_signs[1] = trade_signs[2]
         assert np.sum(trade_signs == 0) == 0
 
         fx_data['Signs'] = trade_signs
