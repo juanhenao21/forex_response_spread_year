@@ -391,3 +391,90 @@ at the market open, when trading and volatility are highest. This difference
 has been traced to the absence of regulation – and specifically the absence of
 formal opening and closing hours - in FX
 (Spread)
+
+**The electronic trading systems and bid-ask spreads in foreign exchange market**
+Through the mid-1990s, the foreign exchange market was primarily reliant on
+phone-based tech- nology. In April 1992, the first electronic brokers system
+(Reuters D2000-2) was introduced in the foreign exchange market. The second
+major electronic system, EBS (Electronic Broking Services), was launched 1 year
+later in September 1993. Although uptake of electronic broking was relatively
+slow at first, by the late 1990s these platforms started to dominate interbank
+trading flows. By most estimates, their combined market share now accounts for
+about 90 percent of interbank trading in most major currency pairs.
+(Electronic trading history)
+
+Advantages of the electronic systems are obvious: lower operation costs, faster
+and more accurate transaction processing, fewer geographical restrictions,
+lower thresholds for market entry and higher market transparency.
+(Advantages EBS)
+
+In general, the EBS system reduces spreads significantly. Dealers with
+information advantage tend to quote relatively wider spreads than small dealers
+in electronic systems. Geographical differences in market liquidity are greatly
+reduced through electronic trading. Finally, the effects mentioned above are
+immediate and persistent.
+(Effect of the introduction of EBS)
+
+FX market differs from stock market. Spreads in the public NASDAQ market, which
+started operating electronic systems in 1990, are found to be even wider than
+competitive spreads in early 1990s. This due to the lack of effective
+competition among dealers in the stock market. In contrast, competition among
+dealers in the FX market is anything but lacking. This comparison tends to
+suggest that the advantageous features of electronic systems do not
+automatically lead to higher liquidity in the market. Instead, it is more
+effective competition among dealers caused by electronic systems that reduces
+transaction costs and raises market liquidity.
+(Comparison between stock and forex markets)
+
+Bid-ask spreads in financial markets are an indicator of the cost of trading
+and providing the service of liquidity. Finance theories have identified three
+basic sources of bid-ask spreads: order processing costs, inventory holding
+risk, and information costs of market making. In addition, more recent market
+microstructure theory, finds that strategic trading, i.e. dealers reducing
+their quoted spreads to attract order flow and gain information advantage, also
+contributes to spreads.
+(Spread sources)
+
+Electronic transaction data currently available, do not have dealer IDs
+associated with each transaction. Real transaction data for years prior to 1992
+are hardly available. Finally, transaction volume data are not available for
+major currencies in all the existing data sources.
+(Data characteristics)
+
+**Microstructure effects, bid-ask spreads and volatility**
+Prices move in discrete units. The exact size of these discrete units may be
+imposed by a regulator or an exchange, or it may arise as a market convention.
+Price discreteness is clearly important for bid–ask spreads because the minimum
+price increment, or “tick size”, places a lower bound on the size of the
+bid–ask spread. It also determines volatility since it determines the minimum
+increment by which price can change.
+(Price discrete units)
+
+EBS provided the data for the present study, and this dataset that has not
+previously been available to academic researchers. It contains spot FX quote
+and trade price data for eight currency pairs from the EBS electronic
+inter-dealer market. The quotes data comprises the best bid and ask quote
+prices per second (Greenwich Mean Time (GMT)). Trade data is also time-stamped
+to the nearest second (GMT). No information about the size of each transaction
+is provided. Also, there are no identifiers of the parties to each trade.
+(Data description)
+
+The term ‘pip’ is commonly used in the foreign exchange market in place of the
+word ‘tick’. It may be worth acknowledging the distinction that pips arise as a
+matter of convention, whereas ticks are formally enforced, usually by an
+exchange. However, in the present paper we use the two terms inter-changeably.
+A pip usually refers to the incremental value in the fifth non-zero digit
+position from the left. Note that it is not related to the position of the
+decimal point. For example, one pip in a USD/JPY value of 113.57 would be 0.01,
+while one pip for EUR/USD of 1.0434 would be 0.0001. The fact that the decimal
+place does not occupy a fixed position necessitates the introduction of a
+‘scaling factor’ with the purpose of bringing the pip to the left of the
+decimal point. For example, the scaling factor for the USD/JPY is 100 and that
+for the EUR/USD is 10,000.
+(Pip)
+
+The pip bid–ask spread is defined as:
+$$pip = \left(ask−bid\right) \cdot scaling \, factor$$
+The percentage bid–ask spread formula is:
+$$\% bid−ask \, spread = \frac{ask−bid}{traded price} \cdot 100$$
+(Method to compare bid-ask spreads)
