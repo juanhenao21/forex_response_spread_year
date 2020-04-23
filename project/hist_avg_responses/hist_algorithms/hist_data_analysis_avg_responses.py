@@ -61,16 +61,16 @@ def hist_fx_pair_spread_data(year):
 
         g1 = spread_data[spread_data['Avg_Spread'] < 0.0001]
         tickers_g1 = g1['FxPair'].tolist()
-        g2 = spread_data[(spread_data['Avg_Spread'] <= 0.0001)
+        g2 = spread_data[(spread_data['Avg_Spread'] >= 0.0001)
                          & spread_data['Avg_Spread'] < 0.0002]
         tickers_g2 = g2['FxPair'].tolist()
-        g3 = spread_data[(spread_data['Avg_Spread'] <= 0.0002)
+        g3 = spread_data[(spread_data['Avg_Spread'] >= 0.0002)
                          & spread_data['Avg_Spread'] < 0.0003]
         tickers_g3 = g3['FxPair'].tolist()
-        g4 = spread_data[(spread_data['Avg_Spread'] <= 0.0003)
+        g4 = spread_data[(spread_data['Avg_Spread'] >= 0.0003)
                          & spread_data['Avg_Spread'] < 0.01]
         tickers_g4 = g4['FxPair'].tolist()
-        g5 = spread_data[(spread_data['Avg_Spread'] <= 0.01)
+        g5 = spread_data[(spread_data['Avg_Spread'] >= 0.01)
                          & spread_data['Avg_Spread'] < 0.1]
         tickers_g5 = g5['FxPair'].tolist()
 
