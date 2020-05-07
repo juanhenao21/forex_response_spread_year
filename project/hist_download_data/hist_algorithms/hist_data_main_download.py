@@ -5,9 +5,10 @@ Capital in a year.
 
 This script requires the following modules:
     * histdata
-    * itertools.product
+    * itertools
     * multiprocessing
     * os
+    * typing
     * hist_data_tools_download
 
 The module contains the following functions:
@@ -21,18 +22,20 @@ The module contains the following functions:
 # -----------------------------------------------------------------------------
 # Modules
 
-from histdata import download_hist_data as dl
-from histdata.api import Platform as P, TimeFrame as TF
 from itertools import product as iprod
 import multiprocessing as mp
 import os
+from typing import List
+
+from histdata import download_hist_data as dl # type: ignore
+from histdata.api import Platform as P, TimeFrame as TF # type: ignore
 
 import hist_data_tools_download
 
 # -----------------------------------------------------------------------------
 
 
-def hist_download_data(fx_pair, year):
+def hist_download_data(fx_pair: str, year: str) -> None:
     """Downloads the HIST data.
 
     :param fx_pair: string abbreviation of the forex pairs to be analyzed
@@ -43,39 +46,42 @@ def hist_download_data(fx_pair, year):
     """
 
     try:
-        function_name = hist_download_data.__name__
+        function_name: str = hist_download_data.__name__
         hist_data_tools_download.hist_function_header_print_data(
             function_name, fx_pair, year, '')
 
-        pair_split = fx_pair.split('_')
-        p = pair_split[0] + pair_split[1]
-        p_cap = pair_split[0].upper() + pair_split[1].upper()
+        pair_split: List[str] = fx_pair.split('_')
+        p_low: str = pair_split[0] + pair_split[1]
+        p_cap: str = pair_split[0].upper() + pair_split[1].upper()
 
         # Absolute path file
-        abs_path = os.path.abspath(__file__).split('/')
+        abs_path: List[str] = os.path.abspath(__file__).split('/')
         # Take the path from the start to the project folder
-        root_path = '/'.join(abs_path[:abs_path.index('project') + 1])
+        root_path: str = '/'.join(abs_path[:abs_path.index('project') + 1])
         os.chdir(root_path + f'/hist_data/original_data_{year}/{fx_pair}/')
 
-        for m in range(1, 13):
+        # Download forex pair for a year
+        m_val: int
+        for m_val in range(1, 13):
 
-            dl(year=f'{year}', month=f'{m}', pair=f'{p}',
+            dl(year=f'{year}', month=f'{m_val}', pair=f'{p_low}',
                platform=P.GENERIC_ASCII, time_frame=TF.TICK_DATA)
-            if (m < 10):
-                m = f'0{m}'
-            os.rename(f'DAT_ASCII_{p_cap}_T_{year}{m}.zip',
-                    f'hist_{fx_pair}_{year}{m}.zip')
+            if m_val < 10:
+                m_val_str = f'0{m_val}'
+                os.rename(f'DAT_ASCII_{p_cap}_T_{year}{m_val_str}.zip',
+                          f'hist_{fx_pair}_{year}{m_val_str}.zip')
+            else:
+                os.rename(f'DAT_ASCII_{p_cap}_T_{year}{m_val}.zip',
+                          f'hist_{fx_pair}_{year}{m_val}.zip')
 
-    except AssertionError as e:
+    except AssertionError as error:
         print('No data')
-        print(e)
-
-    return None
+        print(error)
 
 # -----------------------------------------------------------------------------
 
 
-def hist_download_all_data(fx_pairs, years):
+def hist_download_all_data(fx_pairs: List[str], years: List[str]) -> None:
     """Downloads all the HIST data.
 
     :param fx_pairs: list of the string abbreviation of the forex pairs to be
@@ -89,12 +95,10 @@ def hist_download_all_data(fx_pairs, years):
 
         pool.starmap(hist_download_data, iprod(fx_pairs, years))
 
-    return None
-
 # -----------------------------------------------------------------------------
 
 
-def main():
+def main() -> None:
     """The main function of the script.
 
     The main function extract, analyze and plot the data.
@@ -102,47 +106,48 @@ def main():
     :return: None.
     """
 
-    hist_data_tools_download.hist_initial_data()
+    hist_data_tools_download.hist_initial_message()
 
     # Forex pairs and weeks to analyze
     # Response function analysis
     # The other years will be downloaded with the spread data
-    years = ['2008', '2014']
-    fx_pairs = ['eur_usd', 'gbp_usd', 'usd_jpy', 'aud_usd',
-                'usd_chf', 'usd_cad', 'nzd_usd']
+    years_1: List[str] = ['2008', '2014']
+    fx_pairs_1: List[str] = ['eur_usd', 'gbp_usd', 'usd_jpy', 'aud_usd',
+                             'usd_chf', 'usd_cad', 'nzd_usd']
 
     # Basic folders
-    hist_data_tools_download.hist_start_folders(fx_pairs, years)
+    hist_data_tools_download.hist_start_folders(fx_pairs_1, years_1)
 
     # Run analysis
     # Download data
-    hist_download_all_data(fx_pairs, years)
+    hist_download_all_data(fx_pairs_1, years_1)
 
     # Spread impact analysis
-    years = ['2011', '2015', '2019']
-    fx_pairs = ['aud_cad', 'aud_chf', 'aud_jpy', 'aud_nzd', 'aud_usd',
-                'aux_aud', 'bco_usd', 'cad_chf', 'cad_jpy', 'chf_jpy',
-                'eur_aud', 'eur_cad', 'eur_chf', 'eur_czk', 'eur_dkk',
-                'eur_gbp', 'eur_huf', 'eur_jpy', 'eur_nok', 'eur_nzd',
-                'eur_pln', 'eur_sek', 'eur_try', 'eur_usd', 'gbp_aud',
-                'gbp_cad', 'gbp_chf', 'gbp_jpy', 'gbp_nzd', 'gbp_usd',
-                'jpx_jpy', 'nsx_usd', 'nzd_cad', 'nzd_chf', 'nzd_jpy',
-                'nzd_usd', 'sgd_jpy', 'spx_usd', 'udx_usd', 'usd_cad',
-                'usd_chf', 'usd_czk', 'usd_dkk', 'usd_hkd', 'usd_huf',
-                'usd_jpy', 'usd_mxn', 'usd_nok', 'usd_pln', 'usd_sek',
-                'usd_sgd', 'usd_try', 'usd_zar', 'wti_usd', 'xag_usd',
-                'xau_usd', 'zar_jpy']
+    years_2: List[str] = ['2011', '2015', '2019']
+    fx_pairs_2: List[str] = ['aud_cad', 'aud_chf', 'aud_jpy', 'aud_nzd',
+                             'aud_usd', 'aux_aud', 'bco_usd', 'cad_chf',
+                             'cad_jpy', 'chf_jpy', 'eur_aud', 'eur_cad',
+                             'eur_chf', 'eur_czk', 'eur_dkk', 'eur_gbp',
+                             'eur_huf', 'eur_jpy', 'eur_nok', 'eur_nzd',
+                             'eur_pln', 'eur_sek', 'eur_try', 'eur_usd',
+                             'gbp_aud', 'gbp_cad', 'gbp_chf', 'gbp_jpy',
+                             'gbp_nzd', 'gbp_usd', 'jpx_jpy', 'nsx_usd',
+                             'nzd_cad', 'nzd_chf', 'nzd_jpy', 'nzd_usd',
+                             'sgd_jpy', 'spx_usd', 'udx_usd', 'usd_cad',
+                             'usd_chf', 'usd_czk', 'usd_dkk', 'usd_hkd',
+                             'usd_huf', 'usd_jpy', 'usd_mxn', 'usd_nok',
+                             'usd_pln', 'usd_sek', 'usd_sgd', 'usd_try',
+                             'usd_zar', 'wti_usd', 'xag_usd', 'xau_usd',
+                             'zar_jpy']
 
     # Basic folders
-    hist_data_tools_download.hist_start_folders(fx_pairs, years)
+    hist_data_tools_download.hist_start_folders(fx_pairs_2, years_2)
 
     # Run analysis
     # Download data
-    hist_download_all_data(fx_pairs, years)
+    hist_download_all_data(fx_pairs_2, years_2)
 
-    print('Ay vamos!!')
-
-    return None
+    print('Ay vamos!!!')
 
 # -----------------------------------------------------------------------------
 
