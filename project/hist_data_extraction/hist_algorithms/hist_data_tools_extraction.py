@@ -27,11 +27,12 @@ The module contains the following functions:
 # -----------------------------------------------------------------------------
 # Modules
 
-from matplotlib import pyplot as plt
 import os
-import pandas as pd
 import pickle
-from typing import Any, List
+from typing import Any, List, Tuple
+
+from matplotlib import pyplot as plt  # type: ignore
+import pandas as pd  # type: ignore
 
 # -----------------------------------------------------------------------------
 
@@ -67,8 +68,8 @@ def hist_save_data(data: Any, fx_pair: str, year: str, week: str) -> None:
             print('Folder exists. The folder was not created')
 
     pickle.dump(data, open(f'../../hist_data/extraction_data_{year}/'
-                + f'/hist_fx_data_extraction/{fx_pair}/hist_fx_data_extraction'
-                + f'_{fx_pair}_w{week}.pickle', 'wb'))
+                           + f'/hist_fx_data_extraction/{fx_pair}/hist_fx_data'
+                           + f'_extraction_{fx_pair}_w{week}.pickle', 'wb'))
 
     print('Data Saved')
     print()
@@ -76,7 +77,7 @@ def hist_save_data(data: Any, fx_pair: str, year: str, week: str) -> None:
 # -----------------------------------------------------------------------------
 
 
-def hist_save_plot(function_name: str, figure: plt.figure, fx_pair: str,
+def hist_save_plot(function_name: str, figure: plt.Figure, fx_pair: str,
                    year: str, month: str) -> None:
     """Saves plot in png files.
 
@@ -113,12 +114,11 @@ def hist_save_plot(function_name: str, figure: plt.figure, fx_pair: str,
     print('Plot saved')
     print()
 
-    return None
-
 # -----------------------------------------------------------------------------
 
 
-def hist_function_header_print_data(function_name, fx_pair, year, week):
+def hist_function_header_print_data(function_name: str, fx_pair: str,
+                                    year: str, week: str) -> None:
     """Prints a header of a function that generates data when it is running.
 
     :param function_name: name of the function that generates the data.
@@ -134,17 +134,16 @@ def hist_function_header_print_data(function_name, fx_pair, year, week):
     print('HIST data')
     print(function_name)
 
-    fx_pair_upper = fx_pair[:3].upper() + '/' + fx_pair[4:].upper()
+    fx_pair_upper: str = fx_pair[:3].upper() + '/' + fx_pair[4:].upper()
     print(f'Processing data for the forex pair {fx_pair_upper} in the week '
           + f'{week} of {year}')
     print()
 
-    return None
-
 # -----------------------------------------------------------------------------
 
 
-def hist_function_header_print_plot(function_name, fx_pair, year, month):
+def hist_function_header_print_plot(function_name: str, fx_pair: str,
+                                    year: str, month: str) -> None:
     """Prints a header of a function that generates a plot when it is running.
 
     :param function_name: name of the function that generates the plot.
@@ -160,20 +159,19 @@ def hist_function_header_print_plot(function_name, fx_pair, year, month):
     print('HIST data')
     print(function_name)
 
-    fx_pair_upper = fx_pair[:3].upper() + '/' + fx_pair[4:].upper()
+    fx_pair_upper: str = fx_pair[:3].upper() + '/' + fx_pair[4:].upper()
     print(f'Processing plot for the forex pair {fx_pair_upper} the '
           + f'{year}.{month}')
     print()
 
-    return None
-
 # -----------------------------------------------------------------------------
 
 
-def hist_start_folders(years):
+def hist_start_folders(years: List[str]) -> None:
     """Creates the initial folders to save the data and plots.
 
-    :param year: string of the year to be analyzed (i.e '2016').
+    :param years: List of the strings of the year to be analyzed
+     (i.e ['2016', '2017']).
     :return: None -- The function creates folders and does not return a value.
     """
 
@@ -184,21 +182,17 @@ def hist_start_folders(years):
             os.mkdir(f'../../hist_plot/extraction_plot_{year}')
             print('Folder to save data created')
 
-        except FileExistsError as e:
+        except FileExistsError as error:
             print('Folder exists. The folder was not created')
-            print(e)
-            # raise Exception('Check the folders')
-
-    return None
+            print(error)
 
 # -----------------------------------------------------------------------------
 
 
-def hist_initial_data():
-    """Takes the initial values for the analysis
+def taq_initial_message() -> None:
+    """Prints the initial message with basic information.
 
-    :return: Tuple -- The function return a tuple with a string with the year
-     to be analyzed and a list with the name of the forex pairs.
+    :return: None -- The function prints a message and does not return a value.
     """
 
     print()
@@ -210,83 +204,65 @@ def hist_initial_data():
     print('University of Duisburg-Essen')
     print('Author: Juan Camilo Henao Londono')
     print('More information in:')
-    print('  * https://juanhenao21.github.io/')
-    print('  * https://github.com/juanhenao21/forex')
-    print('  * https://forex.readthedocs.io/en/latest/')
+    print('* https://juanhenao21.github.io/')
+    print('* https://github.com/juanhenao21/forex_response_spread_year')
+    print('* https://forex-response_spread-year.readthedocs.io/en/latest/')
     print()
-
-    print('How many forex pairs do you want to analyze?')
-    n_tick = int(input())
-    pairs = []
-
-    for _ in range(n_tick):
-
-        print(f'Insert the symbol of the forex pair (i.e. eur_usd):')
-        res = input()
-
-        pairs.append(res)
-
-    print()
-
-    print('Please enter the year to be analyzed (i.e. 2008): ')
-    year = input()
-    print()
-
-    return (year, pairs)
 
 # -----------------------------------------------------------------------------
 
 
-def hist_sundays(year):
+def hist_sundays(year: str) -> Tuple[str, ...]:
     """Generates a list with the dates of every sunday in a year.
 
     :param year: string of the year to be analyzed (i.e '2016').
-    :return: list.
+    :return: tuple.
     """
 
-    init_date = f'01/01/{year}'
-    last_date = f'12/31/{year}'
+    init_date: str = f'01/01/{year}'
+    last_date: str = f'12/31/{year}'
 
     # Get the date of every Sunday
-    dt = pd.date_range(start=init_date, end=last_date, freq='W')
-    dt_df = dt.to_frame(index=False)
-    date_list = dt_df[0].astype(str).tolist()
+    s_date: pd.DatetimeIndex = pd.date_range(start=init_date, end=last_date,
+                                             freq='W')
+    s_date_df: pd.DataFrame = s_date.to_frame(index=False)
+    date_list: List[str] = s_date_df[0].astype(str).tolist()
 
-    return date_list
+    return tuple(date_list)
 
 # -----------------------------------------------------------------------------
 
 
-def hist_weeks():
-    """Generates a list with the dates of every sunday in a year.
+def hist_weeks() -> Tuple[str, ...]:
+    """Generates a tuple with the numbers from 0 to 53 representing the weeks
+       in a year.
 
     :param year: string of the year to be analyzed (i.e '2016').
-    :return: list.
+    :return: tuple.
     """
 
     week_num = []
 
+    val: int
     for val in range(1, 54):
-        if (val < 10):
-            val = f'0{val}'
-        week_num.append(f'{val}')
+        if val < 10:
+            val_str: str = f'0{val}'
+            week_num.append(f'{val_str}')
+        else:
+            week_num.append(f'{val}')
 
-    return week_num
+    return tuple(week_num)
 
 # -----------------------------------------------------------------------------
 
 
-def main():
+def main() -> None:
     """The main function of the script.
 
     The main function is used to test the functions in the script.
 
     :return: None.
     """
-
-    pass
-
-    return None
 
 # -----------------------------------------------------------------------------
 

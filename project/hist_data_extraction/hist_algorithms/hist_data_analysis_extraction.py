@@ -4,12 +4,13 @@ The functions in the module extract the bid and ask from the Historic Rate Data
 from HIST Capital in a year.
 
 This script requires the following modules:
-    * datetime
-    * numpy
     * os
-    * pandas
     * pickle
     * zipfile
+    * datetime
+    * numpy
+    * pandas
+    * hist_data_tools_extraction
 
 The module contains the following functions:
     * hist_fx_data_extraction - extracts the bid and ask for a year.
@@ -21,22 +22,25 @@ The module contains the following functions:
 
 ..moduleauthor:: Juan Camilo Henao Londono <www.github.com/juanhenao21>
 '''
+
 # -----------------------------------------------------------------------------
 # Modules
 
+import os
+import pickle
+from typing import Any, Dict, List
+import zipfile
+
 import datetime as dt
 import numpy as np
-import os
-import pandas as pd
-import pickle
-import zipfile
+import pandas as pd  # type: ignore
 
 import hist_data_tools_extraction
 
 # -----------------------------------------------------------------------------
 
 
-def hist_fx_data_extraction(fx_pair, year):
+def hist_fx_data_extraction(fx_pair: str, year: str) -> None:
     """Extracts the bid and ask for a week.
 
     :param fx_pair: string of the abbreviation of the forex pair to be analyzed
@@ -46,44 +50,49 @@ def hist_fx_data_extraction(fx_pair, year):
      a value.
     """
 
-    function_name = hist_fx_data_extraction.__name__
+    function_name: str = hist_fx_data_extraction.__name__
     hist_data_tools_extraction \
         .hist_function_header_print_data(function_name, fx_pair, year, '')
 
-    pair = fx_pair.split('_')
-    cap_pair = pair[0].upper() + pair[1].upper()
-    fx_data_col = ['DateTime', 'Bid', 'Ask']
-    fx_data_type = {'DateTime': str, 'Bid': float, 'Ask': float}
-    fx_data = pd.DataFrame(columns=fx_data_col)
+    pair: List[str] = fx_pair.split('_')
+    cap_pair: str = pair[0].upper() + pair[1].upper()
+    fx_data_col: List[str] = ['DateTime', 'Bid', 'Ask']
+    fx_data_type: Dict[str, Any] = {'DateTime': str, 'Bid': float,
+                                    'Ask': float}
+    fx_data: pd.DataFrame = pd.DataFrame(columns=fx_data_col)
 
+    m_num: int
     for m_num in range(1, 13):
 
-        if (m_num < 10):
-            m_num = f'0{m_num}'
+        m_num_str: str
+        if m_num < 10:
+            m_num_str = f'0{m_num}'
+        else:
+            m_num_str = f'{m_num}'
 
         try:
             # Load data
-            zf = zipfile.ZipFile(
+            zip_f = zipfile.ZipFile(
                 f'../../hist_data/original_data_{year}/{fx_pair}/hist'
                 + f'_{fx_pair}_{year}{m_num}.zip')
-            fx_data = fx_data.append(pd.read_csv(zf.open(
+            fx_data: pd.DataFrame = fx_data.append(pd.read_csv(zip_f.open(
                 f'DAT_ASCII_{cap_pair}_T_{year}{m_num}.csv'),
                 usecols=(0, 1, 2), names=fx_data_col, dtype=fx_data_type),
                 ignore_index=True)
 
-        except FileNotFoundError as e:
+        except FileNotFoundError as error:
             print('No data')
-            print(e)
+            print(error)
             print()
 
     # Convert 'DateTime' column to datetime type
-    fx_data['DateTime'] = pd.to_datetime(fx_data['DateTime'],
-                                         format='%Y%m%d %H%M%S%f')
+    fx_data['DateTime']: pd.Series = pd.to_datetime(fx_data['DateTime'],
+                                                    format='%Y%m%d %H%M%S%f')
 
     # Obtain the dates of every Sunday in the year
-    weeks_str = hist_data_tools_extraction.hist_sundays(year)
+    weeks_tup: str = hist_data_tools_extraction.hist_sundays(year)
     # Convert the Sundays dates in datetime type
-    weeks = [dt.datetime.strptime(x, '%Y-%m-%d') for x in weeks_str]
+    weeks = [dt.datetime.strptime(x, '%Y-%m-%d') for x in weeks_tup]
 
     # Saving data
     if (not os.path.isdir(
