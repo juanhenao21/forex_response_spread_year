@@ -56,7 +56,8 @@ def hist_start_folders(fx_pairs: List[str], years: List[str]) -> None:
 
     :param fx_pairs: list of the string abbreviation of the forex pairs to be
      analyzed (i.e. ['eur_usd', 'gbp_usd']).
-    :param year: string of the year to be analyzed (i.e '2016').
+    :param years: List of the strings of the year to be analyzed
+     (i.e ['2016', '2017']).
     :return: None -- The function creates folders and does not return a value.
     """
     try:

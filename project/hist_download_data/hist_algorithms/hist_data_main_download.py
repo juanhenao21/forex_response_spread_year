@@ -4,11 +4,11 @@ The functions in the module extract and plot the Historic Rate data from HIST
 Capital in a year.
 
 This script requires the following modules:
-    * histdata
     * itertools
     * multiprocessing
     * os
     * typing
+    * histdata
     * hist_data_tools_download
 
 The module contains the following functions:
@@ -27,8 +27,8 @@ import multiprocessing as mp
 import os
 from typing import List
 
-from histdata import download_hist_data as dl # type: ignore
-from histdata.api import Platform as P, TimeFrame as TF # type: ignore
+from histdata import download_hist_data as dl  # type: ignore
+from histdata.api import Platform as P, TimeFrame as TF  # type: ignore
 
 import hist_data_tools_download
 
