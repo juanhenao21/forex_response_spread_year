@@ -16,7 +16,7 @@ The module contains the following functions:
     * hist_function_header_print_data - prints info about the function running.
     * hist_function_header_print_plot - prints info about the plot.
     * hist_start_folders - creates folders to save data and plots.
-    * hist_initial_data - takes the initial values for the analysis.
+    * hist_initial_message - prints the initial message with basic information.
     * hist_sundays - generates a list with the dates of every sunday in a year.
     * hist_weeks - generates a list with the number of weeks in a year.
     * main - the main function of the script.
@@ -31,17 +31,17 @@ from matplotlib import pyplot as plt
 import os
 import pandas as pd
 import pickle
+from typing import Any, List
 
 # -----------------------------------------------------------------------------
 
 
-def hist_save_data(data, fx_pair, year, week):
+def hist_save_data(data: Any, fx_pair: str, year: str, week: str) -> None:
     """Saves computed data in pickle files.
 
     Saves the data generated in the functions of the
     hist_data_analysis_extraction module in pickle files.
 
-    :param function_name: name of the function that generates the data.
     :param data: data to be saved. The data can be of different types.
     :param fx_pair: string of the abbreviation of the forex pair to be analyzed
      (i.e. 'eur_usd').
@@ -73,12 +73,11 @@ def hist_save_data(data, fx_pair, year, week):
     print('Data Saved')
     print()
 
-    return None
-
 # -----------------------------------------------------------------------------
 
 
-def hist_save_plot(function_name, figure, fx_pair, year, month):
+def hist_save_plot(function_name: str, figure: plt.figure, fx_pair: str,
+                   year: str, month: str) -> None:
     """Saves plot in png files.
 
     Saves the plot generated in the functions of the
