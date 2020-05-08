@@ -11,7 +11,7 @@ This script requires the following modules:
 The module contains the following functions:
     * hist_function_header_print_data - prints info about the function running.
     * hist_start_folders - creates folders to save data and plots.
-    * hist_initial_message - takes the initial values for the analysis.
+    * hist_initial_message - prints the initial message with basic information.
     * main - the main function of the script.
 
 .. moduleauthor:: Juan Camilo Henao Londono <www.github.com/juanhenao21>
@@ -90,11 +90,10 @@ def hist_start_folders(fx_pairs: List[str], years: List[str]) -> None:
 # -----------------------------------------------------------------------------
 
 
-def hist_initial_message() -> None:
-    """Takes the initial values for the analysis
+def taq_initial_message() -> None:
+    """Prints the initial message with basic information.
 
-    :return: Tuple -- The function return a tuple with a string with the year
-     to be analyzed and a list with the name of the forex pairs.
+    :return: None -- The function prints a message and does not return a value.
     """
 
     print()
