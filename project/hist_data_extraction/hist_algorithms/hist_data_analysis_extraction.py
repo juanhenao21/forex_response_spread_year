@@ -72,11 +72,11 @@ def hist_fx_data_extraction(fx_pair: str, year: str) -> None:
 
         try:
             # Load data
-            zip_f = zipfile.ZipFile(
+            zip_f: zipfile.ZipFile = zipfile.ZipFile(
                 f'../../hist_data/original_data_{year}/{fx_pair}/hist'
-                + f'_{fx_pair}_{year}{m_num}.zip')
+                + f'_{fx_pair}_{year}{m_num_str}.zip')
             fx_data: pd.DataFrame = fx_data.append(pd.read_csv(zip_f.open(
-                f'DAT_ASCII_{cap_pair}_T_{year}{m_num}.csv'),
+                f'DAT_ASCII_{cap_pair}_T_{year}{m_num_str}.csv'),
                 usecols=(0, 1, 2), names=fx_data_col, dtype=fx_data_type),
                 ignore_index=True)
 
@@ -92,7 +92,7 @@ def hist_fx_data_extraction(fx_pair: str, year: str) -> None:
     # Obtain the dates of every Sunday in the year
     weeks_tup: str = hist_data_tools_extraction.hist_sundays(year)
     # Convert the Sundays dates in datetime type
-    weeks = [dt.datetime.strptime(x, '%Y-%m-%d') for x in weeks_tup]
+    weeks: List[dt.datetime]= [dt.datetime.strptime(x, '%Y-%m-%d') for x in weeks_tup]
 
     # Saving data
     if (not os.path.isdir(
@@ -119,17 +119,19 @@ def hist_fx_data_extraction(fx_pair: str, year: str) -> None:
         except FileExistsError:
             print('Folder exists. The folder was not created')
 
+    w_idx: int
+    week: dt.datetime
     for w_idx, week in enumerate(weeks):
 
         # Year that not starts with a Saturday or Sunday
         if (weeks[0].day != 1 and weeks[0].day != 2):
-            if (w_idx):
-                week_ini = weeks[w_idx - 1].replace(hour=17, minute=10, second=0)
+            if w_idx:
+                week_ini: dt.datetime = weeks[w_idx - 1].replace(hour=17, minute=10, second=0)
                 # Five days from Sunday 17h10 to Friday 16h50
-                t_secs = 432000 - 1200 + 1
-                week_fin = week_ini + dt.timedelta(seconds=t_secs)
-                w_df = fx_data[(fx_data['DateTime'] < week_fin)
-                            & (fx_data['DateTime'] >= week_ini)]
+                t_secs: int = 432000 - 1200 + 1
+                week_fin: dt.datetime = week_ini + dt.timedelta(seconds=t_secs)
+                w_df: pd.DataFrame = fx_data[(fx_data['DateTime'] < week_fin)
+                                        & (fx_data['DateTime'] >= week_ini)]
 
             else:
                 # First week of the year
@@ -137,44 +139,48 @@ def hist_fx_data_extraction(fx_pair: str, year: str) -> None:
                     hour=17, minute=10, second=0, microsecond=0)
                 week_fin = week.replace(
                     day=week.day - 2, hour=16, minute=51, second=0)
-                w_df = fx_data[(fx_data['DateTime'] < week_fin)
+                w_df: pd.DataFrame = fx_data[(fx_data['DateTime'] < week_fin)
                             & (fx_data['DateTime'] >= week_ini)]
 
             # Saving data
+            w_idx_str: str
             if (w_idx + 1 < 10):
-                w_idx = f'0{w_idx + 1}'
+                w_idx_str = f'0{w_idx + 1}'
             else:
-                w_idx += 1
+                w_idx_str = f'{w_idx + 1}'
+
             pickle.dump(w_df, open(f'../../hist_data/extraction_data_{year}/'
                         + f'{function_name}/{fx_pair}/{function_name}_{fx_pair}'
-                        + f'_w{w_idx}.pickle', 'wb'))
+                        + f'_w{w_idx_str}.pickle', 'wb'))
 
         # Year that starts with a Saturday or Sunday
         else:
 
             if (w_idx):
 
-
-                week_ini = weeks[w_idx - 1].replace(hour=17, minute=10, second=0)
+                week_ini: dt.datetime = weeks[w_idx - 1].replace(hour=17, minute=10, second=0)
                 # Five days from Sunday 17h10 to Friday 16h50
-                t_secs = 432000 - 1200 + 1
-                week_fin = week_ini + dt.timedelta(seconds=t_secs)
-                w_df = fx_data[(fx_data['DateTime'] < week_fin)
+                t_secs: int = 432000 - 1200 + 1
+                week_fin: dt.datetime = week_ini + dt.timedelta(seconds=t_secs)
+                w_df: pd.DataFrame = fx_data[(fx_data['DateTime'] < week_fin)
                             & (fx_data['DateTime'] >= week_ini)]
 
                 # Saving data
+                w_idx_str: str
                 if (w_idx < 10):
-                    w_idx = f'0{w_idx}'
+                    w_idx_str = f'0{w_idx}'
+                else:
+                    w_idx_str = f'{w_idx}'
 
                 pickle.dump(w_df, open(f'../../hist_data/extraction_data_{year}/'
                             + f'{function_name}/{fx_pair}/{function_name}_{fx_pair}'
-                            + f'_w{w_idx}.pickle', 'wb'))
+                            + f'_w{w_idx_str}.pickle', 'wb'))
 
     # Last days of the year
-    week_ini = weeks[-1].replace(hour=17, minute=10, second=0)
-    week_fin = fx_data['DateTime'].iloc[-1].replace(
+    week_ini: dt.datetime = weeks[-1].replace(hour=17, minute=10, second=0)
+    week_fin: dt.datetime = fx_data['DateTime'].iloc[-1].replace(
         hour=16, minute=51, second=0, microsecond=0)
-    w_df = fx_data[(fx_data['DateTime'] < week_fin)
+    w_df: pd.DataFrame = fx_data[(fx_data['DateTime'] < week_fin)
                    & (fx_data['DateTime'] >= week_ini)]
     # Saving data
     pickle.dump(w_df, open(f'../../hist_data/extraction_data_{year}/'
@@ -184,12 +190,10 @@ def hist_fx_data_extraction(fx_pair: str, year: str) -> None:
     del w_df
     del fx_data
 
-    return None
-
 # -----------------------------------------------------------------------------
 
 
-def hist_fx_midpoint_trade_data(fx_pair, year, week):
+def hist_fx_midpoint_trade_data(fx_pair: str, year: str, week: str) -> None:
     """Extracts the midpoint price for a year.
 
     :param fx_pair: string of the abbreviation of the forex pair to be analyzed
@@ -200,37 +204,34 @@ def hist_fx_midpoint_trade_data(fx_pair, year, week):
      a value.
     """
 
-    function_name = hist_fx_midpoint_trade_data.__name__
+    function_name: str = hist_fx_midpoint_trade_data.__name__
     hist_data_tools_extraction \
         .hist_function_header_print_data(function_name, fx_pair, year, week)
 
     try:
         # Load data
-        fx_data = pickle.load(open(
+        fx_data: pd.DataFrame = pickle.load(open(
                         f'../../hist_data/extraction_data_{year}/hist_fx_data'
                         + f'_extraction/{fx_pair}/hist_fx_data_extraction'
                         + f'_{fx_pair}_w{week}.pickle', 'rb'))
 
-        fx_data['Midpoint'] = (fx_data['Ask'] + fx_data['Bid']) / 2
-        fx_data['Spread'] = fx_data['Ask'] - fx_data['Bid']
+        fx_data['Midpoint']: pd.Series = (fx_data['Ask'] + fx_data['Bid']) / 2
+        fx_data['Spread']: pd.Series = fx_data['Ask'] - fx_data['Bid']
 
         # Saving data
         hist_data_tools_extraction.hist_save_data(fx_data, fx_pair, year, week)
 
         del fx_data
 
-        return None
-
-    except FileNotFoundError as e:
+    except FileNotFoundError as error:
         print('No data')
-        print(e)
+        print(error)
         print()
-        return None
 
 # -----------------------------------------------------------------------------
 
 
-def hist_fx_trade_signs_trade_data(fx_pair, year, week):
+def hist_fx_trade_signs_trade_data(fx_pair: str, year: str, week: str) -> None:
     """Extracts the trade signs price for a year.
 
     The trade signs are obtained from the midpoint price as
@@ -245,25 +246,27 @@ def hist_fx_trade_signs_trade_data(fx_pair, year, week):
      a value.
     """
 
-    function_name = hist_fx_trade_signs_trade_data.__name__
+    function_name: str = hist_fx_trade_signs_trade_data.__name__
     hist_data_tools_extraction \
         .hist_function_header_print_data(function_name, fx_pair, year, week)
 
     try:
         # Load data
-        fx_data = pickle.load(open(
+        fx_data: pd.DataFrame = pickle.load(open(
                         f'../../hist_data/extraction_data_{year}/hist_fx_data'
                         + f'_extraction/{fx_pair}/hist_fx_data_extraction'
                         + f'_{fx_pair}_w{week}.pickle', 'rb'))
 
-        midpoint = fx_data['Midpoint'].to_numpy()
-        trade_signs = 0 * midpoint
+        midpoint: np.array = fx_data['Midpoint'].to_numpy()
+        trade_signs: np.array = 0 * midpoint
 
+        m_idx: int
+        m_val: float
         for m_idx, m_val in enumerate(midpoint):
 
-            sign = np.sign(m_val - midpoint[m_idx - 1])
+            sign: np.array = np.sign(m_val - midpoint[m_idx - 1])
 
-            if (sign):
+            if sign:
                 trade_signs[m_idx] = sign
             else:
                 trade_signs[m_idx] = trade_signs[m_idx - 1]
@@ -275,35 +278,28 @@ def hist_fx_trade_signs_trade_data(fx_pair, year, week):
             trade_signs[1] = trade_signs[2]
         assert np.sum(trade_signs == 0) == 0
 
-        fx_data['Signs'] = trade_signs
+        fx_data['Signs']: pd.Series = trade_signs
 
         # Saving data
         hist_data_tools_extraction.hist_save_data(fx_data, fx_pair, year, week)
 
         del fx_data
 
-        return None
-
     except FileNotFoundError as e:
         print('No data')
         print(e)
         print()
-        return None
 
 # -----------------------------------------------------------------------------
 
 
-def main():
+def main() -> None:
     """The main function of the script.
 
     The main function is used to test the functions in the script.
 
     :return: None.
     """
-
-    pass
-
-    return None
 
 # -----------------------------------------------------------------------------
 
