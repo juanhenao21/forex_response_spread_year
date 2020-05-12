@@ -7,6 +7,7 @@ in the modules that use them.
 This script requires the following modules:
     * matplotlib
     * os
+    * pandas
     * pickle
 
 The module contains the following functions:
@@ -15,7 +16,7 @@ The module contains the following functions:
     * hist_function_header_print_data - prints info about the function running.
     * hist_function_header_print_plot - prints info about the plot.
     * hist_start_folders - creates folders to save data and plots.
-    * hist_initial_data - takes the initial values for the analysis.
+    * hist_initial_message - prints the initial message with basic information.
     * main - the main function of the script.
 
 .. moduleauthor:: Juan Camilo Henao Londono <www.github.com/juanhenao21>
@@ -24,25 +25,25 @@ The module contains the following functions:
 # -----------------------------------------------------------------------------
 # Modules
 
-from matplotlib import pyplot as plt
 import os
 import pickle
+from typing import Any, List, Tuple
+
+from matplotlib import pyplot as plt  # type: ignore
 
 # -----------------------------------------------------------------------------
 
 
-def hist_save_data(data, fx_pair, year):
+def hist_save_data(data: Any, fx_pair: str, year: str) -> None:
     """Saves computed data in pickle files.
 
     Saves the data generated in the functions of the
     hist_data_analysis_responses_trade module in pickle files.
 
-    :param function_name: name of the function that generates the data.
     :param data: data to be saved. The data can be of different types.
     :param fx_pair: string of the abbreviation of the forex pair to be analyzed
      (i.e. 'eur_usd').
     :param year: string of the year to be analyzed (i.e '2016').
-    :param month: string of the month to be analyzed (i.e '07').
     :return: None -- The function saves the data in a file and does not return
      a value.
     """
@@ -62,20 +63,20 @@ def hist_save_data(data, fx_pair, year):
         except FileExistsError:
             print('Folder exists. The folder was not created')
 
-    pickle.dump(data, open(f'../../hist_data/responses_trade_{year}'
-                + f'/hist_fx_self_response_year_responses_trade_data/{fx_pair}'
-                + f'/hist_fx_self_response_year_responses_trade_data_{fx_pair}'
-                + f'_{year}.pickle', 'wb'))
+    pickle.dump(data,
+                open(f'../../hist_data/responses_trade_{year}'
+                     + f'/hist_fx_self_response_year_responses_trade_data/'
+                     + f'{fx_pair}/hist_fx_self_response_year_responses_trade'
+                     + f'_data_{fx_pair}_{year}.pickle', 'wb'))
 
     print('Data Saved')
     print()
 
-    return None
-
 # -----------------------------------------------------------------------------
 
 
-def hist_save_plot(function_name, figure, fx_pair, year, month):
+def hist_save_plot(function_name: str, figure: plt.Figure, fx_pair: str,
+                   year: str, month: str) -> None:
     """Saves plot in png files.
 
     Saves the plot generated in the functions of the
@@ -111,20 +112,18 @@ def hist_save_plot(function_name, figure, fx_pair, year, month):
     print('Plot saved')
     print()
 
-    return None
-
 # -----------------------------------------------------------------------------
 
 
-def hist_function_header_print_data(function_name, fx_pair, year, week):
+def hist_function_header_print_data(function_name: str, fx_pair: str,
+                                    year: str, week: str) -> None:
     """Prints a header of a function that generates data when it is running.
 
     :param function_name: name of the function that generates the data.
     :param fx_pair: string of the abbreviation of the forex pair to be analyzed
      (i.e. 'eur_usd').
     :param year: string of the year to be analyzed (i.e '2016').
-    :param month: string of the month to be analyzed (i.e '07').
-    :param day: string of the day to be analyzed (i.e '07').
+    :param week: string of the week to be analyzed (i.e '07').
     :return: None -- The function prints a message and does not return a
      value.
     """
@@ -132,17 +131,16 @@ def hist_function_header_print_data(function_name, fx_pair, year, week):
     print('HIST data')
     print(function_name)
 
-    fx_pair_upper = fx_pair[:3].upper() + '/' + fx_pair[4:].upper()
+    fx_pair_upper: str = fx_pair[:3].upper() + '/' + fx_pair[4:].upper()
     print(f'Processing data for the forex pair {fx_pair_upper} in the week '
           + f'{week} of {year}')
     print()
 
-    return None
-
 # -----------------------------------------------------------------------------
 
 
-def hist_function_header_print_plot(function_name, fx_pair, year, month):
+def hist_function_header_print_plot(function_name: str, fx_pair: str,
+                                    year: str, month: str) -> None:
     """Prints a header of a function that generates a plot when it is running.
 
     :param function_name: name of the function that generates the plot.
@@ -150,7 +148,6 @@ def hist_function_header_print_plot(function_name, fx_pair, year, month):
      (i.e. 'eur_usd').
     :param year: string of the year to be analyzed (i.e '2016').
     :param month: string of the month to be analyzed (i.e '07').
-    :param day: string of the day to be analyzed (i.e '07').
     :return: None -- The function prints a message and does not return a
      value.
     """
@@ -158,23 +155,23 @@ def hist_function_header_print_plot(function_name, fx_pair, year, month):
     print('HIST data')
     print(function_name)
 
-    fx_pair_upper = fx_pair[:3].upper() + '/' + fx_pair[4:].upper()
+    fx_pair_upper: str = fx_pair[:3].upper() + '/' + fx_pair[4:].upper()
     print(f'Processing plot for the forex pair {fx_pair_upper} the '
           + f'{year}.{month}')
     print()
 
-    return None
-
 # -----------------------------------------------------------------------------
 
 
-def hist_start_folders(years):
+def hist_start_folders(years: List[str]) -> None:
     """Creates the initial folders to save the data and plots.
 
-    :param year: string of the year to be analyzed (i.e '2016').
+    :param years: List of the strings of the year to be analyzed
+     (i.e ['2016', '2017']).
     :return: None -- The function creates folders and does not return a value.
     """
 
+    year: str
     for year in years:
 
         try:
@@ -182,89 +179,65 @@ def hist_start_folders(years):
             os.mkdir(f'../../hist_plot/responses_trade_{year}')
             print('Folder to save data created')
 
-        except FileExistsError as e:
+        except FileExistsError as error:
             print('Folder exists. The folder was not created')
-            print(e)
-            # raise Exception('Check the folders')
-
-    return None
+            print(error)
 
 # -----------------------------------------------------------------------------
 
 
-def hist_initial_data():
-    """Takes the initial values for the analysis
+def hist_initial_message() -> None:
+    """Prints the initial message with basic information.
 
-    :return: Tuple -- The function return a tuple with a string with the year
-     to be analyzed and a list with the name of the forex pairs.
+    :return: None -- The function prints a message and does not return a value.
     """
 
     print()
-    print('###############################')
-    print('HIST Response Function Analysis')
-    print('###############################')
+    print('#################################################')
+    print('HIST Price Response Functions Trade Time Analysis')
+    print('#################################################')
     print('AG Guhr')
     print('Faculty of Physics')
     print('University of Duisburg-Essen')
     print('Author: Juan Camilo Henao Londono')
     print('More information in:')
-    print('  * https://juanhenao21.github.io/')
-    print('  * https://github.com/juanhenao21/forex')
-    print('  * https://forex.readthedocs.io/en/latest/')
+    print('* https://juanhenao21.github.io/')
+    print('* https://github.com/juanhenao21/forex_response_spread_year')
+    print('* https://forex-response_spread-year.readthedocs.io/en/latest/')
     print()
-
-    print('How many forex pairs do you want to analyze?')
-    n_tick = int(input())
-    pairs = []
-
-    for _ in range(n_tick):
-
-        print(f'Insert the symbol of the forex pair (i.e. eur_usd):')
-        res = input()
-
-        pairs.append(res)
-
-    print()
-
-    print('Please enter the year to be analyzed (i.e. 2008): ')
-    year = input()
-    print()
-
-    return (year, pairs)
 
 # -----------------------------------------------------------------------------
 
 
-def hist_weeks():
-    """Generates a list with the dates of every sunday in a year.
+def hist_weeks() -> Tuple[str, ...]:
+    """Generates a tuple with the numbers from 0 to 53 representing the weeks
+       in a year.
 
-    :param year: string of the year to be analyzed (i.e '2016').
-    :return: list.
+    :return: tuple.
     """
 
     week_num = []
 
+    val: int
     for val in range(1, 54):
-        if (val < 10):
-            val = f'0{val}'
-        week_num.append(f'{val}')
+        if val < 10:
+            val_str: str = f'0{val}'
+            week_num.append(f'{val_str}')
+        else:
+            week_num.append(f'{val}')
 
-    return week_num
+    return tuple(week_num)
 
 # -----------------------------------------------------------------------------
 
 
-def main():
+def main() -> None:
     """The main function of the script.
 
     The main function is used to test the functions in the script.
 
     :return: None.
     """
-
-    pass
-
-    return None
 
 # -----------------------------------------------------------------------------
 
