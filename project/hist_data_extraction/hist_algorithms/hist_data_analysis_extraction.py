@@ -239,8 +239,8 @@ def hist_fx_midpoint_trade_data(fx_pair: str, year: str, week: str) -> None:
         # Load data
         fx_data: pd.DataFrame = pickle.load(open(
                         f'../../hist_data/extraction_data_{year}/hist_fx_data'
-                        + f'_extraction/{fx_pair}/hist_fx_data_extraction'
-                        + f'_{fx_pair}_w{week}.pickle', 'rb'))
+                        + f'_extraction_week/{fx_pair}/hist_fx_data_extraction'
+                        + f'_week_{fx_pair}_w{week}.pickle', 'rb'))
 
         fx_data['Midpoint'] = (fx_data['Ask'] + fx_data['Bid']) / 2
         fx_data['Spread'] = fx_data['Ask'] - fx_data['Bid']
@@ -281,8 +281,8 @@ def hist_fx_trade_signs_trade_data(fx_pair: str, year: str, week: str) -> None:
         # Load data
         fx_data: pd.DataFrame = pickle.load(open(
                         f'../../hist_data/extraction_data_{year}/hist_fx_data'
-                        + f'_extraction/{fx_pair}/hist_fx_data_extraction'
-                        + f'_{fx_pair}_w{week}.pickle', 'rb'))
+                        + f'_extraction_week/{fx_pair}/hist_fx_data_extraction'
+                        + f'_week_{fx_pair}_w{week}.pickle', 'rb'))
 
         midpoint: np.array = fx_data['Midpoint'].to_numpy()
         trade_signs: np.array = 0 * midpoint

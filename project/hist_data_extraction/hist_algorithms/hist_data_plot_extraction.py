@@ -62,8 +62,8 @@ def hist_fx_quotes_year_plot(fx_pair: str, year: str,
             # Load data
             fx_data: pd.DataFrame = pickle.load(open(
                 f'../../hist_data/extraction_data_{year}/hist_fx_data'
-                + f'_extraction/{fx_pair}/hist_fx_data_extraction_{fx_pair}'
-                + f'_w{week}.pickle', 'rb'))
+                + f'_extraction_week/{fx_pair}/hist_fx_data_extraction_week'
+                + f'_{fx_pair}_w{week}.pickle', 'rb'))
 
             plt.plot(fx_data['DateTime'], fx_data['Bid'], 'g', linewidth=5,
                      label='Bid')
@@ -122,8 +122,8 @@ def hist_fx_midpoint_year_plot(fx_pair: str, year: str,
             # Load data
             fx_data: pd.DataFrame = pickle.load(open(
                 f'../../hist_data/extraction_data_{year}/hist_fx_data'
-                + f'_extraction/{fx_pair}/hist_fx_data_extraction_{fx_pair}'
-                + f'_w{week}.pickle', 'rb'))
+                + f'_extraction_week/{fx_pair}/hist_fx_data_extraction_week'
+                + f'_{fx_pair}_w{week}.pickle', 'rb'))
 
             plt.plot(fx_data['DateTime'],
                      (fx_data['Bid'] + fx_data['Ask']) / 2, 'g', linewidth=5)
@@ -178,8 +178,8 @@ def hist_fx_spread_year_plot(fx_pair: str, year: str,
             # Load data
             fx_data: pd.DataFrame = pickle.load(open(
                 f'../../hist_data/extraction_data_{year}/hist_fx_data'
-                + f'_extraction/{fx_pair}/hist_fx_data_extraction_{fx_pair}'
-                + f'_w{week}.pickle', 'rb'))
+                + f'_extraction_week/{fx_pair}/hist_fx_data_extraction_week'
+                + f'_{fx_pair}_w{week}.pickle', 'rb'))
 
             plt.plot(fx_data['DateTime'], fx_data['Ask'] - fx_data['Bid'], 'g',
                      linewidth=5)

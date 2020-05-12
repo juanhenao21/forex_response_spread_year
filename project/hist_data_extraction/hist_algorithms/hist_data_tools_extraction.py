@@ -125,8 +125,7 @@ def hist_function_header_print_data(function_name: str, fx_pair: str,
     :param fx_pair: string of the abbreviation of the forex pair to be analyzed
      (i.e. 'eur_usd').
     :param year: string of the year to be analyzed (i.e '2016').
-    :param month: string of the month to be analyzed (i.e '07').
-    :param day: string of the day to be analyzed (i.e '07').
+    :param week: string of the week to be analyzed (i.e '07').
     :return: None -- The function prints a message and does not return a
      value.
     """
@@ -175,6 +174,7 @@ def hist_start_folders(years: List[str]) -> None:
     :return: None -- The function creates folders and does not return a value.
     """
 
+    year: str
     for year in years:
 
         try:
