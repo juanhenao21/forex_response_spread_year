@@ -56,9 +56,9 @@ def hist_fx_self_response_week_responses_trade_data(
     try:
         # Load data
         fx_data: pd.DataFrame = pickle.load(open(
-                        f'../../hist_data/extraction_data_{year}/hist_fx'
-                        + f'_data_extraction/{fx_pair}/hist_fx_data_extraction'
-                        + f'_{fx_pair}_w{week}.pickle', 'rb'))
+                        f'../../hist_data/extraction_data_{year}/hist_fx_data'
+                        + f'_extraction_week/{fx_pair}/hist_fx_data_extraction'
+                        + f'_week_{fx_pair}_w{week}.pickle', 'rb'))
 
         midpoint: np.ndarray = fx_data['Midpoint'].to_numpy()
         trade_signs: np.ndarray = fx_data['Signs'].to_numpy()
