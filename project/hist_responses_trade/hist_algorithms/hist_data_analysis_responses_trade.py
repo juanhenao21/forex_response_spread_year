@@ -142,10 +142,8 @@ def hist_fx_self_response_year_responses_trade_data(
     self_v_final = np.sum(self_values[0], axis=0)
     print(type(self_v_final))
 
-    self_response_val = self_v_final[0] / self_v_final[1]
-    print(type(self_response_val))
-    self_response_avg = self_v_final[1]
-    print(type(self_response_avg))
+    self_response_val: np.ndarray = self_v_final[0] / self_v_final[1]
+    self_response_avg: np.ndarray = self_v_final[1]
 
     # Saving data
     if (not os.path.isdir(
