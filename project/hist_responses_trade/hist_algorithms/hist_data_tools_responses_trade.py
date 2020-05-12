@@ -17,6 +17,7 @@ The module contains the following functions:
     * hist_function_header_print_plot - prints info about the plot.
     * hist_start_folders - creates folders to save data and plots.
     * hist_initial_message - prints the initial message with basic information.
+    * hist_weeks - tuple with the numbers from 1 to 53 representing the weeks.
     * main - the main function of the script.
 
 .. moduleauthor:: Juan Camilo Henao Londono <www.github.com/juanhenao21>
@@ -210,7 +211,7 @@ def hist_initial_message() -> None:
 
 
 def hist_weeks() -> Tuple[str, ...]:
-    """Generates a tuple with the numbers from 0 to 53 representing the weeks
+    """Generates a tuple with the numbers from 1 to 53 representing the weeks
        in a year.
 
     :return: tuple.
