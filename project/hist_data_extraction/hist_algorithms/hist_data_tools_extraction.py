@@ -55,21 +55,22 @@ def hist_save_data(data: Any, fx_pair: str, year: str, week: str) -> None:
     # Saving data
 
     if (not os.path.isdir(
-            f'../../hist_data/extraction_data_{year}/hist_fx_data_extraction/'
-            + f'{fx_pair}/')):
+            f'../../hist_data/extraction_data_{year}/hist_fx_data_extraction'
+            + f'_week/{fx_pair}/')):
 
         try:
             os.mkdir(
                 f'../../hist_data/extraction_data_{year}/hist_fx_data'
-                + f'_extraction/{fx_pair}/')
+                + f'_extraction_week/{fx_pair}/')
             print('Folder to save data created')
 
         except FileExistsError:
             print('Folder exists. The folder was not created')
 
     pickle.dump(data, open(f'../../hist_data/extraction_data_{year}/'
-                           + f'/hist_fx_data_extraction/{fx_pair}/hist_fx_data'
-                           + f'_extraction_{fx_pair}_w{week}.pickle', 'wb'))
+                           + f'/hist_fx_data_extraction_week/{fx_pair}/hist_fx'
+                           + f'_data_extraction_week_{fx_pair}_w{week}.pickle',
+                           'wb'))
 
     print('Data Saved')
     print()
@@ -237,7 +238,6 @@ def hist_weeks() -> Tuple[str, ...]:
     """Generates a tuple with the numbers from 0 to 53 representing the weeks
        in a year.
 
-    :param year: string of the year to be analyzed (i.e '2016').
     :return: tuple.
     """
 
