@@ -48,50 +48,50 @@ def hist_fx_quotes_year_plot(fx_pair: str, year: str,
      a value.
     """
 
-    try:
-        function_name: str = hist_fx_quotes_year_plot.__name__
-        hist_data_tools_extraction \
-            .hist_function_header_print_plot(function_name, fx_pair, year, '')
+    function_name: str = hist_fx_quotes_year_plot.__name__
+    hist_data_tools_extraction \
+        .hist_function_header_print_plot(function_name, fx_pair, year, '')
 
-        fx_pair_upper: str = fx_pair[:3].upper() + '/' + fx_pair[4:].upper()
+    fx_pair_upper: str = fx_pair[:3].upper() + '/' + fx_pair[4:].upper()
 
-        figure: plt.Figure = plt.figure(figsize=(16, 9))
+    figure: plt.Figure = plt.figure(figsize=(16, 9))
 
-        week: str
-        for week in weeks:
+    week: str
+    for week in weeks:
+        try:
             # Load data
             fx_data: pd.DataFrame = pickle.load(open(
                 f'../../hist_data/extraction_data_{year}/hist_fx_data'
                 + f'_extraction_week/{fx_pair}/hist_fx_data_extraction_week'
                 + f'_{fx_pair}_w{week}.pickle', 'rb'))
 
-            plt.plot(fx_data['DateTime'], fx_data['Bid'], 'g', linewidth=5,
-                     label='Bid')
-            plt.plot(fx_data['DateTime'], fx_data['Ask'], 'b', linewidth=5,
-                     label='Ask')
+        except FileNotFoundError as error:
+            print('No data')
+            print(error)
+            print()
 
-        # plt.legend(loc='best', fontsize=25)
-        plt.title(f'HIST quotes price - {fx_pair_upper}', fontsize=40)
-        plt.xlabel(r'Time $[s]$', fontsize=35)
-        plt.ylabel(r'Quotes $[\$]$', fontsize=35)
-        plt.xticks(fontsize=25)
-        plt.yticks(fontsize=25)
-        plt.grid(True)
-        plt.tight_layout()
+        plt.plot(fx_data['DateTime'], fx_data['Bid'], 'g', linewidth=5,
+                 label='Bid')
+        plt.plot(fx_data['DateTime'], fx_data['Ask'], 'b', linewidth=5,
+                 label='Ask')
 
-        # Plotting
-        hist_data_tools_extraction \
-            .hist_save_plot(function_name, figure, fx_pair, year, '')
+    # plt.legend(loc='best', fontsize=25)
+    plt.title(f'HIST quotes price - {fx_pair_upper}', fontsize=40)
+    plt.xlabel(r'Time $[s]$', fontsize=35)
+    plt.ylabel(r'Quotes $[\$]$', fontsize=35)
+    plt.xticks(fontsize=25)
+    plt.yticks(fontsize=25)
+    plt.grid(True)
+    plt.tight_layout()
 
-        plt.close()
-        del fx_data
-        del figure
-        gc.collect()
+    # Plotting
+    hist_data_tools_extraction \
+        .hist_save_plot(function_name, figure, fx_pair, year, '')
 
-    except FileNotFoundError as error:
-        print('No data')
-        print(error)
-        print()
+    plt.close()
+    del fx_data
+    del figure
+    gc.collect()
 
 # ----------------------------------------------------------------------------
 

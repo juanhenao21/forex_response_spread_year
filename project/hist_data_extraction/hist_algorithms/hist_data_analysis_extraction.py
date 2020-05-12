@@ -231,10 +231,6 @@ def hist_fx_midpoint_trade_data(fx_pair: str, year: str, week: str) -> None:
      a value.
     """
 
-    function_name: str = hist_fx_midpoint_trade_data.__name__
-    hist_data_tools_extraction \
-        .hist_function_header_print_data(function_name, fx_pair, year, week)
-
     try:
         # Load data
         fx_data: pd.DataFrame = pickle.load(open(
@@ -273,10 +269,6 @@ def hist_fx_trade_signs_trade_data(fx_pair: str, year: str, week: str) -> None:
      a value.
     """
 
-    function_name: str = hist_fx_trade_signs_trade_data.__name__
-    hist_data_tools_extraction \
-        .hist_function_header_print_data(function_name, fx_pair, year, week)
-
     try:
         # Load data
         fx_data: pd.DataFrame = pickle.load(open(
@@ -284,14 +276,14 @@ def hist_fx_trade_signs_trade_data(fx_pair: str, year: str, week: str) -> None:
                         + f'_extraction_week/{fx_pair}/hist_fx_data_extraction'
                         + f'_week_{fx_pair}_w{week}.pickle', 'rb'))
 
-        midpoint: np.array = fx_data['Midpoint'].to_numpy()
-        trade_signs: np.array = 0 * midpoint
+        midpoint: np.ndarray = fx_data['Midpoint'].to_numpy()
+        trade_signs: np.ndarray = 0 * midpoint
 
         m_idx: int
         m_val: float
         for m_idx, m_val in enumerate(midpoint):
 
-            sign: np.array = np.sign(m_val - midpoint[m_idx - 1])
+            sign: np.ndarray = np.sign(m_val - midpoint[m_idx - 1])
 
             if sign:
                 trade_signs[m_idx] = sign
