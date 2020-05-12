@@ -189,7 +189,7 @@ def hist_start_folders(years: List[str]) -> None:
 # -----------------------------------------------------------------------------
 
 
-def taq_initial_message() -> None:
+def hist_initial_message() -> None:
     """Prints the initial message with basic information.
 
     :return: None -- The function prints a message and does not return a value.
