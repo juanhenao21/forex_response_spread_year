@@ -217,6 +217,9 @@ def main() -> None:
     :return: None.
     """
 
+    weeks = hist_data_tools_extraction.hist_weeks()
+    hist_fx_spread_year_plot('eur_usd', '2008', weeks)
+
 # -----------------------------------------------------------------------------
 
 
