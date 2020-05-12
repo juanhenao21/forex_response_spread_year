@@ -213,6 +213,7 @@ def hist_fx_data_extraction_week(fx_pair: str, year: str) -> None:
                 open(f'../../hist_data/extraction_data_{year}/{function_name}/'
                      + f'{fx_pair}/{function_name}_{fx_pair}_w{w_idx + 1}'
                      + f'.pickle', 'wb'))
+    print(w_idx + 1)
 
     del w_df
     del fx_data

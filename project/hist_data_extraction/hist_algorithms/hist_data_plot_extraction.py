@@ -109,46 +109,46 @@ def hist_fx_midpoint_year_plot(fx_pair: str, year: str,
      a value.
     """
 
-    try:
-        function_name: str = hist_fx_midpoint_year_plot.__name__
-        hist_data_tools_extraction \
-            .hist_function_header_print_plot(function_name, fx_pair, year, '')
-        fx_pair_upper: str = fx_pair[:3].upper() + '/' + fx_pair[4:].upper()
+    function_name: str = hist_fx_midpoint_year_plot.__name__
+    hist_data_tools_extraction \
+        .hist_function_header_print_plot(function_name, fx_pair, year, '')
+    fx_pair_upper: str = fx_pair[:3].upper() + '/' + fx_pair[4:].upper()
 
-        figure: plt.Figure = plt.figure(figsize=(16, 9))
+    figure: plt.Figure = plt.figure(figsize=(16, 9))
 
-        week: str
-        for week in weeks:
+    week: str
+    for week in weeks:
+        try:
             # Load data
             fx_data: pd.DataFrame = pickle.load(open(
                 f'../../hist_data/extraction_data_{year}/hist_fx_data'
                 + f'_extraction_week/{fx_pair}/hist_fx_data_extraction_week'
                 + f'_{fx_pair}_w{week}.pickle', 'rb'))
 
-            plt.plot(fx_data['DateTime'],
-                     (fx_data['Bid'] + fx_data['Ask']) / 2, 'g', linewidth=5)
+        except FileNotFoundError as error:
+            print('No data')
+            print(error)
+            print()
 
-        plt.title(f'HIST midpoint price - {fx_pair_upper}', fontsize=40)
-        plt.xlabel(r'Time $[s]$', fontsize=35)
-        plt.ylabel(r'$m(t) [\$]$', fontsize=35)
-        plt.xticks(fontsize=25)
-        plt.yticks(fontsize=25)
-        plt.grid(True)
-        plt.tight_layout()
+        plt.plot(fx_data['DateTime'],
+                (fx_data['Bid'] + fx_data['Ask']) / 2, 'g', linewidth=5)
 
-        # Plotting
-        hist_data_tools_extraction \
-            .hist_save_plot(function_name, figure, fx_pair, year, '')
+    plt.title(f'HIST midpoint price - {fx_pair_upper}', fontsize=40)
+    plt.xlabel(r'Time $[s]$', fontsize=35)
+    plt.ylabel(r'$m(t) [\$]$', fontsize=35)
+    plt.xticks(fontsize=25)
+    plt.yticks(fontsize=25)
+    plt.grid(True)
+    plt.tight_layout()
 
-        plt.close()
-        del fx_data
-        del figure
-        gc.collect()
+    # Plotting
+    hist_data_tools_extraction \
+        .hist_save_plot(function_name, figure, fx_pair, year, '')
 
-    except FileNotFoundError as error:
-        print('No data')
-        print(error)
-        print()
+    plt.close()
+    del fx_data
+    del figure
+    gc.collect()
 
 # ----------------------------------------------------------------------------
 
@@ -166,45 +166,45 @@ def hist_fx_spread_year_plot(fx_pair: str, year: str,
      a value.
     """
 
-    try:
-        function_name: str = hist_fx_spread_year_plot.__name__
-        hist_data_tools_extraction \
-            .hist_function_header_print_plot(function_name, fx_pair, year, '')
-        fx_pair_upper: str = fx_pair[:3].upper() + '/' + fx_pair[4:].upper()
+    function_name: str = hist_fx_spread_year_plot.__name__
+    hist_data_tools_extraction \
+        .hist_function_header_print_plot(function_name, fx_pair, year, '')
+    fx_pair_upper: str = fx_pair[:3].upper() + '/' + fx_pair[4:].upper()
 
-        figure: plt.Figure = plt.figure(figsize=(16, 9))
+    figure: plt.Figure = plt.figure(figsize=(16, 9))
 
-        for week in weeks:
+    for week in weeks:
+        try:
             # Load data
             fx_data: pd.DataFrame = pickle.load(open(
                 f'../../hist_data/extraction_data_{year}/hist_fx_data'
                 + f'_extraction_week/{fx_pair}/hist_fx_data_extraction_week'
                 + f'_{fx_pair}_w{week}.pickle', 'rb'))
 
-            plt.plot(fx_data['DateTime'], fx_data['Ask'] - fx_data['Bid'], 'g',
-                     linewidth=5)
+        except FileNotFoundError as error:
+            print('No data')
+            print(error)
+            print()
 
-        plt.title(f'HIST spread price - {fx_pair_upper}', fontsize=40)
-        plt.xlabel(r'Time $[s]$', fontsize=35)
-        plt.ylabel(r'Spread $[\$]$', fontsize=35)
-        plt.xticks(fontsize=25)
-        plt.yticks(fontsize=25)
-        plt.grid(True)
-        plt.tight_layout()
+        plt.plot(fx_data['DateTime'], fx_data['Ask'] - fx_data['Bid'], 'g',
+                    linewidth=5)
 
-        # Plotting
-        hist_data_tools_extraction \
-            .hist_save_plot(function_name, figure, fx_pair, year, '')
+    plt.title(f'HIST spread price - {fx_pair_upper}', fontsize=40)
+    plt.xlabel(r'Time $[s]$', fontsize=35)
+    plt.ylabel(r'Spread $[\$]$', fontsize=35)
+    plt.xticks(fontsize=25)
+    plt.yticks(fontsize=25)
+    plt.grid(True)
+    plt.tight_layout()
 
-        plt.close()
-        del fx_data
-        del figure
-        gc.collect()
+    # Plotting
+    hist_data_tools_extraction \
+        .hist_save_plot(function_name, figure, fx_pair, year, '')
 
-    except FileNotFoundError as error:
-        print('No data')
-        print(error)
-        print()
+    plt.close()
+    del fx_data
+    del figure
+    gc.collect()
 
 # -----------------------------------------------------------------------------
 
