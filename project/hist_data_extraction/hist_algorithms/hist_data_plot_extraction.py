@@ -186,7 +186,7 @@ def hist_fx_spread_year_plot(fx_pair: str, year: str,
             print(error)
             print()
 
-        plt.plot(fx_data['DateTime'], fx_data['Bid'] - fx_data['Ask'], 'g',
+        plt.plot(fx_data['DateTime'], fx_data['Ask'] - fx_data['Bid'], 'g',
                     linewidth=5)
 
     plt.title(f'HIST spread price - {fx_pair_upper}', fontsize=40)
@@ -216,9 +216,6 @@ def main() -> None:
 
     :return: None.
     """
-
-    weeks = hist_data_tools_extraction.hist_weeks()
-    hist_fx_spread_year_plot('eur_usd', '2008', weeks)
 
 # -----------------------------------------------------------------------------
 

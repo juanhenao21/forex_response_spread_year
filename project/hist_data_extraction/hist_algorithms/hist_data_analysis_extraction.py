@@ -56,7 +56,7 @@ def hist_fx_data_extraction_year(fx_pair: str, year: str) -> pd.DataFrame:
 
     pair: List[str] = fx_pair.split('_')
     cap_pair: str = pair[0].upper() + pair[1].upper()
-    fx_data_col: List[str] = ['DateTime', 'Bid', 'Ask']
+    fx_data_col: List[str] = ['DateTime', 'Ask', 'Bid']
     fx_data_type: Dict[str, Any] = {'DateTime': str, 'Ask': float,
                                     'Bid': float}
     fx_data: pd.DataFrame = pd.DataFrame(columns=fx_data_col)
