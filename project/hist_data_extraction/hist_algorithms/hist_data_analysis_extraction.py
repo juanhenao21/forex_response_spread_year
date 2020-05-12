@@ -150,8 +150,6 @@ def hist_fx_data_extraction_week(fx_pair: str, year: str) -> None:
 
         # Year that not starts with a Saturday or Sunday
         if (weeks[0].day != 1 and weeks[0].day != 2):
-            print('Holi')
-            print(weeks[0].day)
             if w_idx:
                 week_ini: dt.datetime = weeks[w_idx - 1] \
                     .replace(hour=17, minute=10, second=0)
@@ -202,6 +200,7 @@ def hist_fx_data_extraction_week(fx_pair: str, year: str) -> None:
                 else:
                     w_idx_str = f'{w_idx}'
 
+                print(w_idx_str)
                 pickle.dump(w_df,
                             open(f'../../hist_data/extraction_data_{year}/'
                                  + f'{function_name}/{fx_pair}/{function_name}'
