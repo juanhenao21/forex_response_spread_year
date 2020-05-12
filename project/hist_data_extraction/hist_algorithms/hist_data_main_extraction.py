@@ -6,6 +6,7 @@ Capital in a year.
 This script requires the following modules:
     * itertools
     * multiprocessing
+    * typing
     * hist_data_analysis_extraction
     * hist_data_plot_extraction
     * hist_data_tools_extraction
