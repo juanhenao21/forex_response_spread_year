@@ -186,7 +186,7 @@ def hist_fx_spread_year_plot(fx_pair: str, year: str,
             print(error)
             print()
 
-        plt.plot(fx_data['DateTime'], fx_data['Ask'] - fx_data['Bid'], 'g',
+        plt.plot(fx_data['DateTime'], fx_data['Bid'] - fx_data['Ask'], 'g',
                     linewidth=5)
 
     plt.title(f'HIST spread price - {fx_pair_upper}', fontsize=40)
