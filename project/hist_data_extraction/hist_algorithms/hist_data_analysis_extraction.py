@@ -141,15 +141,12 @@ def hist_fx_data_extraction_week(fx_pair: str, year: str) -> None:
         except FileExistsError:
             print('Folder exists. The folder was not created')
 
-    w_idx: int
-    week: dt.datetime
-    print(len(weeks))
-    for w_idx, week in enumerate(weeks):
+    # Year that not starts with a Saturday or Sunday
+    if (weeks[0].day != 1 and weeks[0].day != 2):
 
-        print(f'int: {w_idx}')
-
-        # Year that not starts with a Saturday or Sunday
-        if (weeks[0].day != 1 and weeks[0].day != 2):
+        w_idx: int
+        week: dt.datetime
+        for w_idx, week in enumerate(weeks):
             if w_idx:
                 week_ini: dt.datetime = weeks[w_idx - 1] \
                     .replace(hour=17, minute=10, second=0)
@@ -176,16 +173,26 @@ def hist_fx_data_extraction_week(fx_pair: str, year: str) -> None:
             else:
                 w_idx_str = f'{w_idx + 1}'
 
-            print(f'str: {w_idx_str}')
-
             pickle.dump(w_df,
                         open(f'../../hist_data/extraction_data_{year}/'
                              + f'{function_name}/{fx_pair}/{function_name}'
                              + f'_{fx_pair}_w{w_idx_str}.pickle', 'wb'))
 
-        # Year that starts with a Saturday or Sunday
-        else:
+        # Last days of the year
+        week_ini = weeks[-1].replace(hour=17, minute=10, second=0)
+        week_fin = fx_data['DateTime'].iloc[-1].replace(hour=16, minute=51,
+                                                        second=0, microsecond=0)
+        w_df = fx_data[(fx_data['DateTime'] < week_fin)
+                    & (fx_data['DateTime'] >= week_ini)]
+        # Saving data
+        pickle.dump(w_df,
+                    open(f'../../hist_data/extraction_data_{year}/{function_name}/'
+                        + f'{fx_pair}/{function_name}_{fx_pair}_w{w_idx + 2}'
+                        + f'.pickle', 'wb'))
 
+    # Year that starts with a Saturday or Sunday
+    else:
+        for w_idx, week in enumerate(weeks):
             if w_idx:
 
                 week_ini = weeks[w_idx - 1].replace(hour=17, minute=10,
@@ -207,18 +214,17 @@ def hist_fx_data_extraction_week(fx_pair: str, year: str) -> None:
                                  + f'{function_name}/{fx_pair}/{function_name}'
                                  + f'_{fx_pair}_w{w_idx_str}.pickle', 'wb'))
 
-    # Last days of the year
-    week_ini = weeks[-1].replace(hour=17, minute=10, second=0)
-    week_fin = fx_data['DateTime'].iloc[-1].replace(hour=16, minute=51,
-                                                    second=0, microsecond=0)
-    w_df = fx_data[(fx_data['DateTime'] < week_fin)
-                   & (fx_data['DateTime'] >= week_ini)]
-    # Saving data
-    pickle.dump(w_df,
-                open(f'../../hist_data/extraction_data_{year}/{function_name}/'
-                     + f'{fx_pair}/{function_name}_{fx_pair}_w{w_idx + 1}'
-                     + f'.pickle', 'wb'))
-    print(w_idx + 1)
+        # Last days of the year
+        week_ini = weeks[-1].replace(hour=17, minute=10, second=0)
+        week_fin = fx_data['DateTime'].iloc[-1].replace(hour=16, minute=51,
+                                                        second=0, microsecond=0)
+        w_df = fx_data[(fx_data['DateTime'] < week_fin)
+                    & (fx_data['DateTime'] >= week_ini)]
+        # Saving data
+        pickle.dump(w_df,
+                    open(f'../../hist_data/extraction_data_{year}/{function_name}/'
+                        + f'{fx_pair}/{function_name}_{fx_pair}_w{w_idx + 1}'
+                        + f'.pickle', 'wb'))
 
     del w_df
     del fx_data
