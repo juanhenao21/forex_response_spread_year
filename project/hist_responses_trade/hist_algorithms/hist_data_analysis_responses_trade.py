@@ -139,8 +139,7 @@ def hist_fx_self_response_year_responses_trade_data(
 
     # To obtain the total self-response, I sum over all the self-response
     # values and all the amount of trades (averaging values)
-    self_v_final = np.sum(self_values[0], axis=0)
-    print(type(self_v_final))
+    self_v_final: np.ndarray = np.sum(self_values[0], axis=0)
 
     self_response_val: np.ndarray = self_v_final[0] / self_v_final[1]
     self_response_avg: np.ndarray = self_v_final[1]
