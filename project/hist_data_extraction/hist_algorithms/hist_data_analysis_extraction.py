@@ -143,7 +143,10 @@ def hist_fx_data_extraction_week(fx_pair: str, year: str) -> None:
 
     w_idx: int
     week: dt.datetime
+    print(len(weeks))
     for w_idx, week in enumerate(weeks):
+
+        print(w_idx)
 
         # Year that not starts with a Saturday or Sunday
         if (weeks[0].day != 1 and weeks[0].day != 2):
