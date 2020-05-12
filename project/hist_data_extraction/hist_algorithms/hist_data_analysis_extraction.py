@@ -180,15 +180,15 @@ def hist_fx_data_extraction_week(fx_pair: str, year: str) -> None:
 
         # Last days of the year
         week_ini = weeks[-1].replace(hour=17, minute=10, second=0)
-        week_fin = fx_data['DateTime'].iloc[-1].replace(hour=16, minute=51,
-                                                        second=0, microsecond=0)
+        week_fin = fx_data['DateTime'].iloc[-1] \
+            .replace(hour=16, minute=51, second=0, microsecond=0)
         w_df = fx_data[(fx_data['DateTime'] < week_fin)
-                    & (fx_data['DateTime'] >= week_ini)]
+                       & (fx_data['DateTime'] >= week_ini)]
         # Saving data
         pickle.dump(w_df,
-                    open(f'../../hist_data/extraction_data_{year}/{function_name}/'
-                        + f'{fx_pair}/{function_name}_{fx_pair}_w{w_idx + 2}'
-                        + f'.pickle', 'wb'))
+                    open(f'../../hist_data/extraction_data_{year}/'
+                         + f'{function_name}/{fx_pair}/{function_name}'
+                         + f'_{fx_pair}_w{w_idx + 2}.pickle', 'wb'))
 
     # Year that starts with a Saturday or Sunday
     else:
@@ -216,15 +216,15 @@ def hist_fx_data_extraction_week(fx_pair: str, year: str) -> None:
 
         # Last days of the year
         week_ini = weeks[-1].replace(hour=17, minute=10, second=0)
-        week_fin = fx_data['DateTime'].iloc[-1].replace(hour=16, minute=51,
-                                                        second=0, microsecond=0)
+        week_fin = fx_data['DateTime'].iloc[-1] \
+            .replace(hour=16, minute=51, second=0, microsecond=0)
         w_df = fx_data[(fx_data['DateTime'] < week_fin)
-                    & (fx_data['DateTime'] >= week_ini)]
+                       & (fx_data['DateTime'] >= week_ini)]
         # Saving data
         pickle.dump(w_df,
-                    open(f'../../hist_data/extraction_data_{year}/{function_name}/'
-                        + f'{fx_pair}/{function_name}_{fx_pair}_w{w_idx + 1}'
-                        + f'.pickle', 'wb'))
+                    open(f'../../hist_data/extraction_data_{year}/'
+                         + f'{function_name}/{fx_pair}/{function_name}'
+                         + f'_{fx_pair}_w{w_idx + 1}.pickle', 'wb'))
 
     del w_df
     del fx_data
