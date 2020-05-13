@@ -73,6 +73,8 @@ def main() -> None:
     :return: None.
     """
 
+    hist_data_tools_physical_basic_data.hist_initial_message()
+
     # Forex pairs and weeks to analyze
     # Response function analysis
     # The other years will be downloaded with the spread data

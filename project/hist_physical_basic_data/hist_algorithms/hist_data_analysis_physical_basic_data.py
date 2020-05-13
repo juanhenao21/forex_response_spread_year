@@ -46,8 +46,6 @@ def hist_fx_physical_data(fx_pair: str, year: str, week: str) -> None:
     """
 
     function_name: str = hist_fx_physical_data.__name__
-    hist_data_tools_physical_basic_data \
-        .hist_function_header_print_data(function_name, fx_pair, year, week)
 
     try:
         # Load data
