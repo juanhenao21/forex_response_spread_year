@@ -112,7 +112,7 @@ def main() -> None:
     # Analysis and plot
     # hist_data_plot_generator(fx_pairs_2, years_2)
 
-    print('Ay vamos!!')
+    print('Ay vamos!!!')
 
 # -----------------------------------------------------------------------------
 
