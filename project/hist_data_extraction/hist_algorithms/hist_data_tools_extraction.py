@@ -5,10 +5,11 @@ whole implementation. These tools improve the way the tasks are standardized
 in the modules that use them.
 
 This script requires the following modules:
-    * matplotlib
     * os
-    * pandas
     * pickle
+    * typing
+    * matplotlib
+    * pandas
 
 The module contains the following functions:
     * hist_save_data - saves computed data.
@@ -17,8 +18,9 @@ The module contains the following functions:
     * hist_function_header_print_plot - prints info about the plot.
     * hist_start_folders - creates folders to save data and plots.
     * hist_initial_message - prints the initial message with basic information.
-    * hist_sundays - generates a list with the dates of every sunday in a year.
-    * hist_weeks - generates a list with the number of weeks in a year.
+    * hist_sundays - generates a tuple with the dates of every sunday in a
+      year.
+    * hist_weeks - generates a tuple with the number of weeks in a year.
     * main - the main function of the script.
 
 .. moduleauthor:: Juan Camilo Henao Londono <www.github.com/juanhenao21>
@@ -151,7 +153,6 @@ def hist_function_header_print_plot(function_name: str, fx_pair: str,
      (i.e. 'eur_usd').
     :param year: string of the year to be analyzed (i.e '2016').
     :param month: string of the month to be analyzed (i.e '07').
-    :param day: string of the day to be analyzed (i.e '07').
     :return: None -- The function prints a message and does not return a
      value.
     """
@@ -198,7 +199,7 @@ def hist_initial_message() -> None:
 
     print()
     print('####################')
-    print('HIST data extraction')
+    print('HIST Data Extraction')
     print('####################')
     print('AG Guhr')
     print('Faculty of Physics')
@@ -241,7 +242,7 @@ def hist_weeks() -> Tuple[str, ...]:
     :return: tuple.
     """
 
-    week_num = []
+    week_num: List[str] = []
 
     val: int
     for val in range(1, 54):
