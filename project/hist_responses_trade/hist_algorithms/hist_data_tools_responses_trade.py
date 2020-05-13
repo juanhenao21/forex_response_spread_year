@@ -5,10 +5,10 @@ whole implementation. These tools improve the way the tasks are standardized
 in the modules that use them.
 
 This script requires the following modules:
-    * matplotlib
     * os
-    * pandas
     * pickle
+    * typing
+    * matplotlib
 
 The module contains the following functions:
     * hist_save_data - saves computed data.
