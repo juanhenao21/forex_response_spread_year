@@ -5,15 +5,14 @@ hist_data_analysis_avg_responses module.
 
 This script requires the following modules:
     * matplotlib
-    * numpy
     * pickle
     * hist_data_tools_avg_responses
 
 The module contains the following functions:
-    * hist_self_response_year_avg_plot - plots the self-response average for a
-      year.
-    * hist_cross_response_year_avg_plot - plots the cross-response average for a
-      year.
+    * hist_fx_self_response_year_avg_responses_trade_plot - plots the
+      self-response average for a year in trade time scale.
+    * hist_fx_self_response_year_avg_responses_physical_plot - plots the
+      self-response average for a year in physical time scale.
     * main - the main function of the script.
 
 .. moduleauthor:: Juan Camilo Henao Londono <www.github.com/juanhenao21>
@@ -22,16 +21,16 @@ The module contains the following functions:
 # ----------------------------------------------------------------------------
 # Modules
 
-from matplotlib import pyplot as plt
-import numpy as np
 import pickle
+
+from matplotlib import pyplot as plt  # type: ignore
 
 import hist_data_tools_avg_responses
 
 # ----------------------------------------------------------------------------
 
 
-def hist_fx_self_response_year_avg_responses_trade_plot(year):
+def hist_fx_self_response_year_avg_responses_trade_plot(year: str) -> None:
     """Plots the self-response average for a year.
 
     :param year: string of the year to be analyzed (i.e '2008').
@@ -40,18 +39,18 @@ def hist_fx_self_response_year_avg_responses_trade_plot(year):
     """
 
     try:
-        function_name = hist_fx_self_response_year_avg_responses_trade_plot \
-            .__name__
+        function_name: str = \
+            hist_fx_self_response_year_avg_responses_trade_plot.__name__
         hist_data_tools_avg_responses \
             .hist_function_header_print_plot(function_name, '', year)
 
         # Load data
         resp_g1, resp_g2, resp_g3, resp_g4, resp_g5 = pickle.load(open(
-            f'../../hist_data/avg_responses_data_{year}/hist_fx_self'
-            + f'_response_year_avg_responses_trade_data/hist_fx_self_response'
-            + f'_year_avg_responses_trade_data_{year}_.pickle', 'rb'))
+            f'../../hist_data/avg_responses_data_{year}/hist_fx_self_response'
+            + f'_year_avg_responses_trade_data/hist_fx_self_response_year_avg'
+            + f'_responses_trade_data_{year}_.pickle', 'rb'))
 
-        figure = plt.figure(figsize=(16, 9))
+        figure: plt.Figure = plt.figure(figsize=(16, 9))
 
         plt.semilogx(resp_g1, linewidth=5, label=f'Group 1')
         plt.semilogx(resp_g2, linewidth=5, label=f'Group 2')
@@ -75,18 +74,15 @@ def hist_fx_self_response_year_avg_responses_trade_plot(year):
         hist_data_tools_avg_responses \
             .hist_save_plot(function_name, figure, '', year)
 
-        return None
-
-    except FileNotFoundError as e:
+    except FileNotFoundError as error:
         print('No data')
-        print(e)
+        print(error)
         print()
-        return None
 
 # ----------------------------------------------------------------------------
 
 
-def hist_fx_self_response_year_avg_responses_physical_plot(year):
+def hist_fx_self_response_year_avg_responses_physical_plot(year: str) -> None:
     """Plots the self-response average for a year.
 
     :param year: string of the year to be analyzed (i.e '2008').
@@ -95,18 +91,18 @@ def hist_fx_self_response_year_avg_responses_physical_plot(year):
     """
 
     try:
-        function_name = hist_fx_self_response_year_avg_responses_physical_plot \
-            .__name__
+        function_name: str = \
+            hist_fx_self_response_year_avg_responses_physical_plot.__name__
         hist_data_tools_avg_responses \
-            .hist_function_header_print_plot(function_name, '', year, '')
+            .hist_function_header_print_plot(function_name, '', year)
 
         # Load data
         resp_g1, resp_g2, resp_g3, resp_g4, resp_g5 = pickle.load(open(
-            f'../../hist_data/avg_responses_data_{year}/hist_fx_self'
-            + f'_response_year_avg_responses_physical_data/hist_fx_self_response'
-            + f'_year_avg_responses_physical_data_{year}_.pickle', 'rb'))
+            f'../../hist_data/avg_responses_data_{year}/hist_fx_self_response'
+            + f'_year_avg_responses_physical_data/hist_fx_self_response_year'
+            + f'_avg_responses_physical_data_{year}_.pickle', 'rb'))
 
-        figure = plt.figure(figsize=(16, 9))
+        figure: plt.Figure = plt.figure(figsize=(16, 9))
 
         plt.semilogx(resp_g1, linewidth=5, label=f'Group 1')
         plt.semilogx(resp_g2, linewidth=5, label=f'Group 2')
@@ -128,30 +124,23 @@ def hist_fx_self_response_year_avg_responses_physical_plot(year):
 
         # Plotting
         hist_data_tools_avg_responses \
-            .hist_save_plot(function_name, figure, '', year, '')
+            .hist_save_plot(function_name, figure, '', year)
 
-        return None
-
-    except FileNotFoundError as e:
+    except FileNotFoundError as error:
         print('No data')
-        print(e)
+        print(error)
         print()
-        return None
 
 # ----------------------------------------------------------------------------
 
 
-def main():
+def main() -> None:
     """The main function of the script.
 
     The main function is used to test the functions in the script.
 
     :return: None.
     """
-
-    pass
-
-    return None
 
 # -----------------------------------------------------------------------------
 

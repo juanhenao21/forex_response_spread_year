@@ -1,16 +1,14 @@
 '''HIST data analysis module.
 
-The functions in the module analyze the data from the NASDAQ stock market,
-computing the self- and cross-response functions and the trade sign self- and
-cross-correlator functions. This module reproduces the sections 3.1 and 3.2 of
-the `paper
-<https://link.springer.com/content/pdf/10.1140/epjb/e2016-60818-y.pdf>`_.
-
+The functions in the module compute the average response function in trade and
+physical time scale from the Historic Rate Data from HIST Capital data in a
+year.
 
 This script requires the following modules:
+    * pickle
+    * typing
     * numpy
     * pandas
-    * pickle
     * hist_data_tools_avg_responses_physical
 
 The module contains the following functions:
@@ -18,8 +16,9 @@ The module contains the following functions:
       classification.
     * hist_self_response_year_avg_responses_trade_data - computes the average
       self response for groups of tickers in a year in trade time scale.
-    * hist_self_response_year_avg_responses_physical_data - computes the average
-      self response for groups of tickers in a year in physical time scale.
+    * hist_self_response_year_avg_responses_physical_data - computes the
+      average self response for groups of tickers in a year in physical time
+      scale.
     * main - the main function of the script.
 
 .. moduleauthor:: Juan Camilo Henao Londono <www.github.com/juanhenao21>
@@ -28,9 +27,11 @@ The module contains the following functions:
 # ----------------------------------------------------------------------------
 # Modules
 
-import numpy as np
-import pandas as pd
 import pickle
+from typing import List, Tuple
+
+import numpy as np  # type: ignore
+import pandas as pd  # type: ignore
 
 import hist_data_tools_avg_responses
 
@@ -39,75 +40,84 @@ __tau__ = 1000
 # ----------------------------------------------------------------------------
 
 
-def hist_fx_pair_spread_data(year):
+def hist_fx_pair_spread_data(year: str) -> List[List[str]]:
     """Obtains the tickers and the spread range for the classification.
 
     :param year: string of the year to be analyzed (i.e. '2016').
-    :return: tuple -- The function returns a tuple with a numpy array and a
-     list.
+    :return: list -- The function returns a list of lists with forex pairs.
     """
 
-    function_name = hist_fx_pair_spread_data.__name__
+    function_name: str = hist_fx_pair_spread_data.__name__
     hist_data_tools_avg_responses \
         .hist_function_header_print_data(function_name, '', year, '')
 
     try:
         # load data
-        spread_data = pd.read_csv(
+        spread_data: pd.DataFrame = pd.read_csv(
             f'../../hist_avg_spread/hist_avg_spread_{year}.csv',
             usecols=['FxPair', 'Avg_Spread'])
 
-        tickers = []
+        fx_pairs: List[List[str]] = []
 
-        g1 = spread_data[spread_data['Avg_Spread'] < 0.0001]
-        tickers_g1 = g1['FxPair'].tolist()
-        g2 = spread_data[(spread_data['Avg_Spread'] >= 0.0001)
-                         & spread_data['Avg_Spread'] < 0.0002]
-        tickers_g2 = g2['FxPair'].tolist()
-        g3 = spread_data[(spread_data['Avg_Spread'] >= 0.0002)
-                         & spread_data['Avg_Spread'] < 0.0003]
-        tickers_g3 = g3['FxPair'].tolist()
-        g4 = spread_data[(spread_data['Avg_Spread'] >= 0.0003)
-                         & spread_data['Avg_Spread'] < 0.01]
-        tickers_g4 = g4['FxPair'].tolist()
-        g5 = spread_data[(spread_data['Avg_Spread'] >= 0.01)
-                         & spread_data['Avg_Spread'] < 0.1]
-        tickers_g5 = g5['FxPair'].tolist()
+        group_1: pd.DataFrame = \
+            spread_data[spread_data['Avg_Spread'] < 0.0001]
+        tickers_g1: List[str] = group_1['FxPair'].tolist()
+        group_2: pd.DataFrame = \
+            spread_data[(spread_data['Avg_Spread'] >= 0.0001)
+                        & spread_data['Avg_Spread'] < 0.0002]
+        tickers_g2: List[str] = group_2['FxPair'].tolist()
+        group_3: pd.DataFrame = \
+            spread_data[(spread_data['Avg_Spread'] >= 0.0002)
+                        & spread_data['Avg_Spread'] < 0.0003]
+        tickers_g3: List[str] = group_3['FxPair'].tolist()
+        group_4: pd.DataFrame = \
+            spread_data[(spread_data['Avg_Spread'] >= 0.0003)
+                        & spread_data['Avg_Spread'] < 0.01]
+        tickers_g4: List[str] = group_4['FxPair'].tolist()
+        group_5: pd.DataFrame = \
+            spread_data[(spread_data['Avg_Spread'] >= 0.01)
+                        & spread_data['Avg_Spread'] < 0.1]
+        tickers_g5: List[str] = group_5['FxPair'].tolist()
 
-        tickers.append(tickers_g1)
-        tickers.append(tickers_g2)
-        tickers.append(tickers_g3)
-        tickers.append(tickers_g4)
-        tickers.append(tickers_g5)
+        fx_pairs.append(tickers_g1)
+        fx_pairs.append(tickers_g2)
+        fx_pairs.append(tickers_g3)
+        fx_pairs.append(tickers_g4)
+        fx_pairs.append(tickers_g5)
 
-        return tickers
+        return fx_pairs
 
-    except FileNotFoundError as e:
+    except FileNotFoundError as error:
         print('No data')
-        print(e)
+        print(error)
         print()
         raise Exception('Check the CSV file')
 
 # ----------------------------------------------------------------------------
 
 
-def hist_fx_self_response_year_avg_responses_trade_data(fx_pairs, year):
+def hist_fx_self_response_year_avg_responses_trade_data(
+        fx_pairs: List[List[str]], year: str) -> Tuple[np.ndarray, ...]:
     """Computes the avg self-response for groups of tickers in a year.
 
-    :param fx_pairs: list of strings of the abbreviation of the forex pairs to
-     be analyzed (i.e. ['eur_usd', 'gbp_usd']).
+    :param fx_pairs: list of lists of strings of the abbreviation of the forex
+     pairs to be analyzed
+     (i.e. [['eur_usd', 'gbp_usd'], ['aud_usd', 'usd_cad']).
     :param year: string of the year to be analyzed (i.e '2016').
     :return: tuple -- The function returns a tuple with numpy arrays.
     """
 
-    function_name = hist_fx_self_response_year_avg_responses_trade_data.__name__
+    function_name: str = hist_fx_self_response_year_avg_responses_trade_data \
+        .__name__
     hist_data_tools_avg_responses \
         .hist_function_header_print_data(function_name, '', year, '')
 
-    results_avg = []
+    results_avg: List[np.ndarray] = []
 
+    fx_pair: List[str]
+    fx_p: str
     for fx_pair in fx_pairs:
-        response = np.zeros(__tau__)
+        response: np.ndarray = np.zeros(__tau__)
         for fx_p in fx_pair:
             # Load data
             response += pickle.load(open(
@@ -115,37 +125,42 @@ def hist_fx_self_response_year_avg_responses_trade_data(fx_pairs, year):
                 + f'_year_responses_trade_data/{fx_p}/hist_fx_self_response'
                 + f'_year_responses_trade_data_{fx_p}_{year}.pickle', 'rb'))
 
-        avg_response = response / len(fx_pair)
+        avg_response: np.ndarray = response / len(fx_pair)
         results_avg.append(avg_response)
 
-    results_avg = tuple(results_avg)
+    results_avg_tup: Tuple[np.ndarray, ...] = tuple(results_avg)
 
     # Saving data
     hist_data_tools_avg_responses \
-        .hist_save_data(function_name, results_avg, '', year, '')
+        .hist_save_data(function_name, results_avg_tup, '', year, '')
 
-    return results_avg
+    return results_avg_tup
 
 # ----------------------------------------------------------------------------
 
 
-def hist_fx_self_response_year_avg_responses_physical_data(fx_pairs, year):
+def hist_fx_self_response_year_avg_responses_physical_data(
+        fx_pairs: List[List[str]], year: str) -> Tuple[np.ndarray, ...]:
     """Computes the avg self-response for groups of tickers in a year.
 
-    :param fx_pairs: list of strings of the abbreviation of the forex pairs to
-     be analyzed (i.e. ['eur_usd', 'gbp_usd']).
+    :param fx_pairs: list of lists of strings of the abbreviation of the forex
+     pairs to be analyzed
+     (i.e. [['eur_usd', 'gbp_usd'], ['aud_usd', 'usd_cad']).
     :param year: string of the year to be analyzed (i.e '2016').
     :return: tuple -- The function returns a tuple with numpy arrays.
     """
 
-    function_name = hist_fx_self_response_year_avg_responses_physical_data.__name__
+    function_name: str = \
+        hist_fx_self_response_year_avg_responses_physical_data.__name__
     hist_data_tools_avg_responses \
         .hist_function_header_print_data(function_name, '', year, '')
 
-    results_avg = []
+    results_avg: List[np.ndarray] = []
 
+    fx_pair: List[str]
+    fx_p: str
     for fx_pair in fx_pairs:
-        response = np.zeros(__tau__)
+        response: np.ndarray = np.zeros(__tau__)
         for fx_p in fx_pair:
             # Load data
             response += pickle.load(open(
@@ -154,31 +169,27 @@ def hist_fx_self_response_year_avg_responses_physical_data(fx_pairs, year):
                 + f'_response_year_responses_physical_data_{fx_p}_{year}'
                 + f'.pickle', 'rb'))
 
-        avg_response = response / len(fx_pair)
+        avg_response: np.ndarray = response / len(fx_pair)
         results_avg.append(avg_response)
 
-    results_avg = tuple(results_avg)
+    results_avg_tup: Tuple[np.ndarray, ...] = tuple(results_avg)
 
     # Saving data
     hist_data_tools_avg_responses \
-        .hist_save_data(function_name, results_avg, '', year, '')
+        .hist_save_data(function_name, results_avg_tup, '', year, '')
 
-    return results_avg
+    return results_avg_tup
 
 # ----------------------------------------------------------------------------
 
 
-def main():
+def main() -> None:
     """The main function of the script.
 
     The main function is used to test the functions in the script.
 
     :return: None.
     """
-
-    pass
-
-    return None
 
 # ----------------------------------------------------------------------------
 

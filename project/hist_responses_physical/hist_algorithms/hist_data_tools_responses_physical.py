@@ -179,6 +179,7 @@ def hist_start_folders(years: List[str]) -> None:
             os.mkdir(f'../../hist_data/responses_physical_{year}')
             os.mkdir(f'../../hist_plot/responses_physical_{year}')
             print('Folder to save data created')
+            print()
 
         except FileExistsError as error:
             print('Folder exists. The folder was not created')
