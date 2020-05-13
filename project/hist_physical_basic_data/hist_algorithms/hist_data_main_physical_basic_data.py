@@ -4,8 +4,9 @@ The functions in the module extract and plot the Historic Rate data from HIST
 Capital in a year.
 
 This script requires the following modules:
-    * itertools.product
+    * itertools
     * multiprocessing
+    * typing
     * hist_data_analysis_physical_basic_data
     * hist_data_plot_extraction
     * hist_data_tools_physical_basic_data
@@ -23,6 +24,7 @@ The module contains the following functions:
 
 from itertools import product as iprod
 import multiprocessing as mp
+from typing import List, Tuple
 
 import hist_data_analysis_physical_basic_data
 import hist_data_plot_physical_basic_data
@@ -31,14 +33,15 @@ import hist_data_tools_physical_basic_data
 # -----------------------------------------------------------------------------
 
 
-def hist_data_plot_generator(fx_pairs, years, weeks):
+def hist_data_plot_generator(fx_pairs: List[str], years: List[str],
+                             weeks: Tuple[str, ...]) -> None:
     """Generates all the analysis and plots from the HIST data.
 
     :param fx_pairs: list of the string abbreviation of the forex pairs to be
      analyzed (i.e. ['eur_usd', 'gbp_usd']).
-    :param years: list of the string of the year to be analyzed
+    :param years: list of the strings of the year to be analyzed
      (i.e. ['2016', '2017']).
-    :param weeks: list of the string of the weeks to be analyzed
+    :param weeks: tuple of the strings of the weeks to be analyzed
      (i.e. ['01', '02']).
     :return: None -- The function saves the data in a file and does not return
      a value.
@@ -51,18 +54,18 @@ def hist_data_plot_generator(fx_pairs, years, weeks):
                      .hist_fx_physical_data,
                      iprod(fx_pairs, years, weeks))
 
+    fx_pair: str
+    year: str
     for fx_pair in fx_pairs:
         for year in years:
             # Plot
             hist_data_plot_physical_basic_data \
                 .hist_fx_midpoint_year_plot(fx_pair, year, weeks)
 
-    return None
-
 # -----------------------------------------------------------------------------
 
 
-def main():
+def main() -> None:
     """The main function of the script.
 
     The main function extract, analyze and plot the data.
@@ -73,44 +76,45 @@ def main():
     # Forex pairs and weeks to analyze
     # Response function analysis
     # The other years will be downloaded with the spread data
-    years = ['2008', '2014']
-    weeks = hist_data_tools_physical_basic_data.hist_weeks()
-    fx_pairs = ['eur_usd', 'gbp_usd', 'usd_jpy', 'aud_usd',
-                'usd_chf', 'usd_cad', 'nzd_usd']
+    years_1: List[str] = ['2008', '2014']
+    weeks_1: Tuple[str, ...] = hist_data_tools_physical_basic_data.hist_weeks()
+    fx_pairs_1: List[str] = ['eur_usd', 'gbp_usd', 'usd_jpy', 'aud_usd',
+                             'usd_chf', 'usd_cad', 'nzd_usd']
 
     # Basic folders
-    hist_data_tools_physical_basic_data.hist_start_folders(years)
+    hist_data_tools_physical_basic_data.hist_start_folders(years_1)
 
     # Run analysis
     # Analysis and plot
-    hist_data_plot_generator(fx_pairs, years, weeks)
+    hist_data_plot_generator(fx_pairs_1, years_1, weeks_1)
 
     # Spread impact analysis
-    years = ['2011', '2015', '2019']
-    weeks = hist_data_tools_physical_basic_data.hist_weeks()
-    fx_pairs = ['aud_cad', 'aud_chf', 'aud_jpy', 'aud_nzd', 'aud_usd',
-                'aux_aud', 'bco_usd', 'cad_chf', 'cad_jpy', 'chf_jpy',
-                'eur_aud', 'eur_cad', 'eur_chf', 'eur_czk', 'eur_dkk',
-                'eur_gbp', 'eur_huf', 'eur_jpy', 'eur_nok', 'eur_nzd',
-                'eur_pln', 'eur_sek', 'eur_try', 'eur_usd', 'gbp_aud',
-                'gbp_cad', 'gbp_chf', 'gbp_jpy', 'gbp_nzd', 'gbp_usd',
-                'jpx_jpy', 'nsx_usd', 'nzd_cad', 'nzd_chf', 'nzd_jpy',
-                'nzd_usd', 'sgd_jpy', 'spx_usd', 'udx_usd', 'usd_cad',
-                'usd_chf', 'usd_czk', 'usd_dkk', 'usd_hkd', 'usd_huf',
-                'usd_jpy', 'usd_mxn', 'usd_nok', 'usd_pln', 'usd_sek',
-                'usd_sgd', 'usd_try', 'usd_zar', 'wti_usd', 'xag_usd',
-                'xau_usd', 'zar_jpy']
+    # years_2: List[str] = ['2011', '2015', '2019']
+    # weeks_2 = hist_data_tools_physical_basic_data.hist_weeks()
+    # fx_pairs_2: List[str] = ['aud_cad', 'aud_chf', 'aud_jpy', 'aud_nzd',
+    #                          'aud_usd', 'aux_aud', 'bco_usd', 'cad_chf',
+    #                          'cad_jpy', 'chf_jpy', 'eur_aud', 'eur_cad',
+    #                          'eur_chf', 'eur_czk', 'eur_dkk', 'eur_gbp',
+    #                          'eur_huf', 'eur_jpy', 'eur_nok', 'eur_nzd',
+    #                          'eur_pln', 'eur_sek', 'eur_try', 'eur_usd',
+    #                          'gbp_aud', 'gbp_cad', 'gbp_chf', 'gbp_jpy',
+    #                          'gbp_nzd', 'gbp_usd', 'jpx_jpy', 'nsx_usd',
+    #                          'nzd_cad', 'nzd_chf', 'nzd_jpy', 'nzd_usd',
+    #                          'sgd_jpy', 'spx_usd', 'udx_usd', 'usd_cad',
+    #                          'usd_chf', 'usd_czk', 'usd_dkk', 'usd_hkd',
+    #                          'usd_huf', 'usd_jpy', 'usd_mxn', 'usd_nok',
+    #                          'usd_pln', 'usd_sek', 'usd_sgd', 'usd_try',
+    #                          'usd_zar', 'wti_usd', 'xag_usd', 'xau_usd',
+    #                          'zar_jpy']
 
     # Basic folders
-    hist_data_tools_physical_basic_data.hist_start_folders(years)
+    # hist_data_tools_physical_basic_data.hist_start_folders(years_2)
 
     # Run analysis
     # Analysis and plot
-    hist_data_plot_generator(fx_pairs, years, weeks)
+    # hist_data_plot_generator(fx_pairs_2, years_2, weeks_2)
 
-    print('Ay vamos!!')
-
-    return None
+    print('Ay vamos!!!')
 
 # -----------------------------------------------------------------------------
 

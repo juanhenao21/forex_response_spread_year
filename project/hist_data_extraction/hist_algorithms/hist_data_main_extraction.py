@@ -72,12 +72,12 @@ def hist_data_plot_generator(fx_pairs: List[str], years: List[str],
     for fx_pair in fx_pairs:
         for year in years:
             # Plot
-            hist_data_plot_extraction.hist_fx_quotes_year_plot(fx_pair, year,
-                                                               weeks)
-            hist_data_plot_extraction.hist_fx_midpoint_year_plot(fx_pair, year,
-                                                                 weeks)
-            hist_data_plot_extraction.hist_fx_spread_year_plot(fx_pair, year,
-                                                               weeks)
+            hist_data_plot_extraction \
+                .hist_fx_quotes_year_plot(fx_pair, year, weeks)
+            hist_data_plot_extraction \
+                .hist_fx_midpoint_year_plot(fx_pair, year, weeks)
+            hist_data_plot_extraction \
+                .hist_fx_spread_year_plot(fx_pair, year, weeks)
 
 # -----------------------------------------------------------------------------
 
