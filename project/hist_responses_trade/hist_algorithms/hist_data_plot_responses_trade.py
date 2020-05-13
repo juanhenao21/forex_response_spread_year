@@ -31,8 +31,8 @@ import hist_data_tools_responses_trade
 # ----------------------------------------------------------------------------
 
 
-def hist_fx_self_response_year_avg_responses_trade_plot(fx_pair: str,
-                                                        year: str) -> None:
+def hist_fx_self_response_year_avg_responses_trade_plot(
+        fx_pair: str, year: str) -> None:
     """Plots the self-response average for a year.
 
     :param fx_pair: string of the abbreviation of the forex pair to be analyzed
@@ -43,8 +43,8 @@ def hist_fx_self_response_year_avg_responses_trade_plot(fx_pair: str,
     """
 
     try:
-        function_name = hist_fx_self_response_year_avg_responses_trade_plot \
-            .__name__
+        function_name: str = \
+            hist_fx_self_response_year_avg_responses_trade_plot.__name__
         hist_data_tools_responses_trade \
             .hist_function_header_print_plot(function_name, fx_pair, year, '')
 

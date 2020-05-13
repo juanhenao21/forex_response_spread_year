@@ -8,6 +8,7 @@ This script requires the following modules:
     * multiprocessing
     * os
     * pickle
+    * typing
     * numpy
     * pandas
 

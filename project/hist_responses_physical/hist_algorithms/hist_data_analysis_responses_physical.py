@@ -6,10 +6,11 @@ from the Historic Rate Data from HIST Capital data in a year.
 This script requires the following modules:
     * itertools
     * multiprocessing
-    * numpy
     * os
-    * pandas
     * pickle
+    * typing
+    * numpy
+    * pandas
 
 The module contains the following functions:
     * hist_fx_self_response_week_responses_physical - extracts the midpoint
@@ -25,10 +26,12 @@ The module contains the following functions:
 
 from itertools import product as iprod
 import multiprocessing as mp
-import numpy as np
 import os
-import pandas as pd
 import pickle
+from typing import Iterator, List, Tuple
+
+import numpy as np  # type: ignore
+import pandas as pd  # type: ignore
 
 import hist_data_tools_responses_physical
 
@@ -37,7 +40,8 @@ __tau__ = 1000
 # -----------------------------------------------------------------------------
 
 
-def hist_fx_self_response_week_responses_physical_data(fx_pair, year, week):
+def hist_fx_self_response_week_responses_physical_data(
+        fx_pair: str, year: str, week: str) -> Tuple[np.ndarray, ...]:
     """Computes the self-response of a year.
 
     Using the midpoint price and the trade signs of a ticker computes the
@@ -45,19 +49,20 @@ def hist_fx_self_response_week_responses_physical_data(fx_pair, year, week):
 
     :param fx_pair: string of the abbreviation of the forex pair to be analyzed
      (i.e. 'eur_usd').
-    :param week: string of the week to be analyzed (i.e. '16').
+    :param year: string of the year to be analyzed (i.e. '2016').
+    :param week: string of the week to be analyzed (i.e. '01').
     :return: tuple -- The function returns a tuple with numpy arrays.
     """
 
     try:
         # Load data
-        fx_data = pickle.load(open(
+        fx_data: pd.DataFrame = pickle.load(open(
                         f'../../hist_data/physical_basic_data_{year}/hist_fx'
                         + f'_physical_basic_data/{fx_pair}/hist_fx_physical'
                         + f'_basic_data_{fx_pair}_w{week}.pickle', 'rb'))
 
-        midpoint = fx_data['Midpoint'].to_numpy()
-        trade_signs = fx_data['Signs'].to_numpy()
+        midpoint: np.ndarray = fx_data['Midpoint'].to_numpy()
+        trade_signs: np.ndarray = fx_data['Signs'].to_numpy()
 
         # Relate the return of the previous second with the current trade sign
         midpoint = midpoint[:-1]
@@ -66,36 +71,37 @@ def hist_fx_self_response_week_responses_physical_data(fx_pair, year, week):
         assert len(midpoint) == len(trade_signs)
 
         # Array of the average of each tau
-        self_response_tau = np.zeros(__tau__)
-        num = np.zeros(__tau__)
+        self_response_tau: np.ndarray = np.zeros(__tau__)
+        num: np.ndarray = np.zeros(__tau__)
 
         # Calculating the midpoint price return and the self-response function
         # Depending on the tau value
+        tau_idx: int
         for tau_idx in range(__tau__):
 
-            trade_sign_tau = trade_signs[:-tau_idx - 1]
-            trade_sign_no_0_len = len(trade_sign_tau[trade_sign_tau != 0])
+            trade_sign_tau: np.ndarray = trade_signs[:-tau_idx - 1]
+            trade_sign_no_0_len: int = len(trade_sign_tau[trade_sign_tau != 0])
             num[tau_idx] = trade_sign_no_0_len
             # Obtain the midpoint price return. Displace the numerator tau
             # values to the right and compute the return
 
             # Midpoint price returns
-            log_return_sec = (midpoint[tau_idx + 1:]
-                              - midpoint[:-tau_idx - 1]) \
+            log_return_sec: np.ndarray = (midpoint[tau_idx + 1:]
+                                          - midpoint[:-tau_idx - 1]) \
                 / midpoint[:-tau_idx - 1]
 
             # Obtain the self response value
-            if (trade_sign_no_0_len != 0):
-                product = log_return_sec * trade_sign_tau
+            if trade_sign_no_0_len != 0:
+                product: np.ndarray = log_return_sec * trade_sign_tau
                 self_response_tau[tau_idx] = np.sum(product)
 
         del fx_data
 
         return (self_response_tau, num)
 
-    except FileNotFoundError as e:
+    except FileNotFoundError as error:
         print('No data')
-        print(e)
+        print(error)
         print()
         zeros = np.zeros(__tau__)
         return (zeros, zeros)
@@ -103,7 +109,8 @@ def hist_fx_self_response_week_responses_physical_data(fx_pair, year, week):
 # ----------------------------------------------------------------------------
 
 
-def hist_fx_self_response_year_responses_physical_data(fx_pair, year):
+def hist_fx_self_response_year_responses_physical_data(
+        fx_pair: str, year: str) -> Tuple[np.ndarray, ...]:
     """Computes the self-response of a year.
 
     Using the hist_self_response_year_responses_physical_data function computes
@@ -115,14 +122,15 @@ def hist_fx_self_response_year_responses_physical_data(fx_pair, year):
     :return: tuple -- The function returns a tuple with numpy arrays.
     """
 
-    function_name = hist_fx_self_response_year_responses_physical_data.__name__
+    function_name: str = hist_fx_self_response_year_responses_physical_data \
+        .__name__
     hist_data_tools_responses_physical \
         .hist_function_header_print_data(function_name, fx_pair, year, '')
 
-    weeks = hist_data_tools_responses_physical.hist_weeks()
+    weeks: Tuple[str, ...] = hist_data_tools_responses_physical.hist_weeks()
 
-    self_values = []
-    args_prod = iprod([fx_pair], [year], weeks)
+    self_values: List[np.ndarray] = []
+    args_prod: Iterator[Tuple[str, ...]] = iprod([fx_pair], [year], weeks)
 
     # Parallel computation of the self-responses. Every result is appended to
     # a list
@@ -132,10 +140,10 @@ def hist_fx_self_response_year_responses_physical_data(fx_pair, year):
 
     # To obtain the total self-response, I sum over all the self-response
     # values and all the amount of trades (averaging values)
-    self_v_final = np.sum(self_values[0], axis=0)
+    self_v_final: np.ndarray = np.sum(self_values[0], axis=0)
 
-    self_response_val = self_v_final[0] / self_v_final[1]
-    self_response_avg = self_v_final[1]
+    self_response_val: np.ndarray = self_v_final[0] / self_v_final[1]
+    self_response_avg: np.ndarray = self_v_final[1]
 
     # Saving data
     if (not os.path.isdir(
@@ -170,17 +178,13 @@ def hist_fx_self_response_year_responses_physical_data(fx_pair, year):
 # -----------------------------------------------------------------------------
 
 
-def main():
+def main() -> None:
     """The main function of the script.
 
     The main function is used to test the functions in the script.
 
     :return: None.
     """
-
-    pass
-
-    return None
 
 # -----------------------------------------------------------------------------
 
