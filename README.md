@@ -3,7 +3,7 @@
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](https://forex-response-spread-year.readthedocs.io/en/latest/)
 
-In this repository, I analyze the price response functions of the foreign
+In this repository, I analyzed the price response functions of the foreign
 exchange market data for different years,
 
 I use the same methodology from my work in the project
