@@ -11,23 +11,18 @@ I use the same methodology from my work in the project
 analysis. From the data I obtain the midpoint prices, trade signs and
 self-responses for different forex pairs.
 
-(MODIFY)
 Based on these values, I analyze responses functions in trade time scale
-([taq_responses_trade](https://github.com/juanhenao21/financial_response_spread_year/tree/master/project/taq_responses_trade/taq_algorithms))
-and the influence of the number of trades in a second in the response functions
-([taq_responses_activity](https://github.com/juanhenao21/financial_response_spread_year/tree/master/project/taq_responses_activity/taq_algorithms)).
-I also analyze the influence of the time shift between trade signs and midpoint
-prices
-([taq_physical_shift](https://github.com/juanhenao21/financial_response_spread_year/tree/master/project/taq_physical_shift/taq_algorithms),
-[taq_responses_physical_shift](https://github.com/juanhenao21/financial_response_spread_year/tree/master/project/taq_responses_physical_shift/taq_algorithms),
-[taq_trade_shift](https://github.com/juanhenao21/financial_response_spread_year/tree/master/project/taq_trade_shift/taq_algorithms)
-and
-[taq_responses_trade_shift](https://github.com/juanhenao21/financial_response_spread_year/tree/master/project/taq_responses_trade_shift/taq_algorithms)),
-the influence of the time lag
-([taq_responses_physical_short_long](https://github.com/juanhenao21/financial_response_spread_year/tree/master/project/taq_responses_physical_short_long/taq_algorithms))
-in the response functions and the impact of the spread
-([taq_avg_responses_physical](https://github.com/juanhenao21/financial_response_spread_year/tree/master/project/taq_avg_responses_physical/taq_algorithms))
-in the strength of the response functions.
+([hist_responses_trade](https://github.com/juanhenao21/forex_response_spread_year/tree/master/project/hist_responses_trade/hist_algorithms)),
+physical time scale
+([hist_responses_physical](https://github.com/juanhenao21/forex_response_spread_year/tree/master/project/hist_responses_physical/hist_algorithms))
+and the impact of the spread
+([hist_avg_responses](https://github.com/juanhenao21/forex_response_spread_year/tree/master/project/hist_avg_responses/hist_algorithms))
+in the strength of the response functions in trade and physical time scale.
+
+All the results and figures obtained using the modules in the repository will
+be saved in the folders
+`forex_response_spread_year/project/hist_data` and
+`forex_response_spread_year/project/hist_plot`.
 
 You can find
 [here](https://forex-response-spread-year.readthedocs.io/en/latest/)
@@ -93,158 +88,153 @@ $ python3 hist_data_main_download.py
 
 The program will download the data from the corresponding forex pairs.
 
-### Forex responses
+### Forex price responses functions
 
-#### Physical time scale
-
-# VOY AQUI EDITANDO
-
-To run the code from the scratch and reproduce the results in section 2.3 and
-2.4 of the
-[paper](https://link.springer.com/content/pdf/10.1140/epjb/e2016-60818-y.pdf),
-you need to copy the folder `decompress_original_data_2008` to the folder
-`financial_response_spread_year/project/taq_data`.
-Then you need to create a folder with the name `original_year_data_2008` inside
-`financial_response_spread_year/project/taq_data` and move the `.quotes` and
-`.trades` files of the tickers you want to analyze. Make sure you move a copy
-of the files and not the originals, because when you run the code, it will
-delete these files to free space.
-
-Then, you need to move (cd) to the folder
-`financial_response_spread_year/project/taq_responses_physical/taq_algorithms/`
-and in the `main()` function of the module
-`taq_data_main_responses_physical.py`, edit the tickers list with the stocks
-you want to analyze (in this case the symbols of the files of the tickers you
-copy in the previous step).
-
-```Python
-tickers = ['AAPL', 'MSFT']
-```
-
-Finally, you need to run the module. In Linux, using the terminal the command
-looks like
-
-```bash
-$ python3 taq_data_main_responses_physical.py
-```
-
-The program will obtain and plot the data for the corresponding stocks.
-
-#### For the users with the year CSV data files
-
-If you have the CSV data files, you need to create a folder with the name
-`csv_year_data_2008` inside `financial_response_spread_year/project/taq_data`,
-and move the CSV files inside.  Make sure you move a copy of the files and not
-the originals, because when you run the code, it will delete these files to
-free space. Then go to the
-`financial_response_spread_year/project/taq_responses_physical/taq_algorithms/taq_data_main_responses_physical.py`
-file and comment the line in the `main` function
-
-```Python
-# taq_build_from_scratch(tickers, year)
-```
-
-Edit the tickers list with the stocks you want to analyze (in this case the
-symbols of the files of the tickers you copy in the previous step).
-
-```Python
-tickers = ['AAPL', 'MSFT']
-```
-
-Finally, you need to run the module. In Linux, using the terminal, the command
-looks like
-
-```bash
-$ python3 taq_data_main_responses_physical.py
-```
-
-The program will obtain and plot the data for the corresponding stocks.
-
-All the following analysis depend directly from the results of this section. If
-you want to run them, you need to run this section first.
-
-### TAQ Responses Trade
-
-To run this part of the code, you need to move (cd) to the folder
-`financial_response_spread_year/project/taq_responses_trade/taq_algorithms/` and run
-the module `taq_data_main_responses_trade.py`. In Linux, using the terminal the
-command looks like
-
-```bash
-$ python3 taq_data_main_responses_trade.py
-```
-
-This part of the code is the slowest. I do not recommend to analyze several
-stocks in this time scale.
-
-### TAQ Responses Activity
-
-To run this part of the code, you need to move (cd) to the folder
-`financial_response_spread_year/project/taq_responses_activity/taq_algorithms/`
-and run the module `taq_data_main_responses_activity.py`. In Linux, using the
-terminal the command looks like
-
-```bash
-$ python3 taq_data_main_responses_trade.py
-```
-
-### TAQ Time Shift
-
-The TAQ time shift analysis is divided in two time scales and in two modules.
-The modules have to be executed in the order shown.
-
-#### Physical time scale
-
-To run this part of the code, you need to move (cd) to the folder
-`financial_response_spread_year/project/taq_physical_shift/taq_algorithms/` and
-run the module `taq_data_main_physical_shift.py`. In Linux, using the terminal
-the command looks like
-
-```bash
-$ python3 taq_data_main_physical_shift.py
-```
-
-After run the `taq_data_main_physical_shift.py` module, you can move (cd) to
-the folder
-`financial_response_spread_year/project/taq_responses_physical_shift/taq_algorithms/`
-and run the module `taq_data_main_responses_physical_shift.py`. In Linux, using
-the terminal the command looks like
-
-```bash
-$ python3 taq_data_main_responses_physical_shift.py
-```
+The forex price response functions can be obtained in two time scales: trade
+and physical time scale. In the following sections I describe in detail how
+to run both.
 
 #### Trade time scale
 
-To run this part of the code, you need to move (cd) to the folder
-`financial_response_spread_year/project/taq_trade_shift/taq_algorithms/` and
-run the module `taq_data_main_trade_shift.py`. In Linux, using the terminal the
+##### Data extraction
+
+To extract the midpoint price and the trade signs from the data, you need to
+move (cd) to the folder
+`forex_response_spread_year/project/hist_data_extraction/hist_algorithms/`.
+
+If you want to get my results, you just need to run the module
+`hist_data_main_extraction`. If you want to select other years or forex pairs
+you have to change all the contents of the main function and add the following
+
+```Python
+hist_data_tools_extraction.hist_initial_message()
+# Years you want to analyze
+years: List[str] = ['2018', '2019']
+# Forex pairs you want to analyze
+fx_pairs: List[str] = ['eur_usd', 'gbp_usd']
+# Basic folders
+hist_data_tools_extraction.hist_start_folders(fx_pairs, years)
+# Run analysis
+# Download data
+hist_data_plot_generator(fx_pairs, years)
+```
+
+In any case, you need to run the module. In Linux, using the terminal the
 command looks like
 
 ```bash
-$ python3 taq_data_main_trade_shift.py
+$ python3 hist_data_main_extraction.py
 ```
 
-After run the `taq_data_main_trade_shift.py` module, you can move (cd) to the
-folder
-`financial_response_spread_year/project/taq_responses_trade_shift/taq_algorithms/`
-and run the module `taq_data_main_responses_trade_shift.py`. In Linux, using
-the terminal the command looks like
+The program will compute the values from the corresponding forex pairs.
+
+##### Price response functions - trade time scale
+
+To compute the price response functions from the data, you need to move (cd) to
+the folder
+`forex_response_spread_year/project/hist_responses_trade/hist_algorithms/`.
+
+If you want to get my results, you just need to run the module
+`hist_data_main_responses_trade`. If you want to select other years or forex
+pairs you have to change all the contents of the main function and add the
+following
+
+```Python
+hist_data_tools_responses_trade.hist_initial_message()
+# Years you want to analyze
+years: List[str] = ['2018', '2019']
+# Forex pairs you want to analyze
+fx_pairs: List[str] = ['eur_usd', 'gbp_usd']
+# Basic folders
+hist_data_tools_responses_trade.hist_start_folders(fx_pairs, years)
+# Run analysis
+# Download data
+hist_data_plot_generator(fx_pairs, years)
+```
+
+In any case, you need to run the module. In Linux, using the terminal the
+command looks like
 
 ```bash
-$ python3 taq_data_main_responses_trade_shift.py
+$ python3 hist_data_main_responses_trade.py
 ```
 
-### TAQ Responses Short Long
+The program will compute and plot the values from the corresponding forex
+pairs.
 
-To run this part of the code, you need to move (cd) to the folder
-`financial_response_spread_year/project/taq_responses_physical_short_long/taq_algorithms/`
-and run the module `taq_data_main_responses_physical_short_long.py`. In Linux,
-using the terminal the command looks like
+#### Physical time scale
+
+##### Physical basic data
+
+To run the physical time scale part, you need to have the results from the
+trade time scale part.
+
+To compute the midpoint price and the trade signs in physical time scale, you
+need to move (cd) to the folder
+`forex_response_spread_year/project/hist_physical_basic_data/hist_algorithms/`.
+
+If you want to get my results, you just need to run the module
+`hist_data_main_physical_basic_data`. If you want to select other years or
+forex pairs you have to change all the contents of the main function and add
+the following
+
+```Python
+hist_data_tools_physical_basic_data.hist_initial_message()
+# Years you want to analyze
+years: List[str] = ['2018', '2019']
+# Forex pairs you want to analyze
+fx_pairs: List[str] = ['eur_usd', 'gbp_usd']
+# Basic folders
+hist_data_tools_physical_basic_data.hist_start_folders(fx_pairs, years)
+# Run analysis
+# Download data
+hist_data_plot_generator(fx_pairs, years)
+```
+
+In any case, you need to run the module. In Linux, using the terminal the
+command looks like
 
 ```bash
-$ python3 taq_data_main_responses_physical_short_long.py
+$ python3 hist_data_main_physical_basic_data.py
 ```
+
+The program will compute the values from the corresponding forex pairs.
+
+##### Price response functions - physical time scale
+
+To compute the price response functions from the data, you need to move (cd) to
+the folder
+`forex_response_spread_year/project/hist_responses_physical/hist_algorithms/`.
+
+If you want to get my results, you just need to run the module
+`hist_data_main_responses_physical`. If you want to select other years or forex
+pairs you have to change all the contents of the main function and add the
+following
+
+```Python
+hist_data_tools_responses_physical.hist_initial_message()
+# Years you want to analyze
+years: List[str] = ['2018', '2019']
+# Forex pairs you want to analyze
+fx_pairs: List[str] = ['eur_usd', 'gbp_usd']
+# Basic folders
+hist_data_tools_responses_physical.hist_start_folders(fx_pairs, years)
+# Run analysis
+# Download data
+hist_data_plot_generator(fx_pairs, years)
+```
+
+In any case, you need to run the module. In Linux, using the terminal the
+command looks like
+
+```bash
+$ python3 hist_data_main_responses_physical.py
+```
+
+The program will compute and plot the values from the corresponding forex
+pairs.
+
+# VOY AQUI EDITANDO
 
 ### TAQ Spread Impact
 
