@@ -131,7 +131,7 @@ def hist_fx_midpoint_year_plot(fx_pair: str, year: str,
             print()
 
         plt.plot(fx_data['DateTime'],
-                (fx_data['Bid'] + fx_data['Ask']) / 2, 'g', linewidth=5)
+                 (fx_data['Bid'] + fx_data['Ask']) / 2, 'g', linewidth=5)
 
     plt.title(f'HIST midpoint price - {fx_pair_upper}', fontsize=40)
     plt.xlabel(r'Time $[s]$', fontsize=35)
@@ -187,7 +187,7 @@ def hist_fx_spread_year_plot(fx_pair: str, year: str,
             print()
 
         plt.plot(fx_data['DateTime'], fx_data['Ask'] - fx_data['Bid'], 'g',
-                    linewidth=5)
+                 linewidth=5)
 
     plt.title(f'HIST spread price - {fx_pair_upper}', fontsize=40)
     plt.xlabel(r'Time $[s]$', fontsize=35)

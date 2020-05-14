@@ -23,7 +23,7 @@ The module contains the following functions:
 # Modules
 
 import pickle
-from typing import Iterator, List
+from typing import List
 
 import datetime as dt
 import numpy as np  # type: ignore
@@ -44,8 +44,6 @@ def hist_fx_physical_data(fx_pair: str, year: str, week: str) -> None:
     :return: None -- The function saves the data in a file and does not return
      a value.
     """
-
-    function_name: str = hist_fx_physical_data.__name__
 
     try:
         # Load data

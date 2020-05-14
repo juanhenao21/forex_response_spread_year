@@ -91,30 +91,30 @@ def main() -> None:
     hist_data_plot_generator(fx_pairs_1, years_1, weeks_1)
 
     # Spread impact analysis
-    # years_2: List[str] = ['2011', '2015', '2019']
-    # weeks_2 = hist_data_tools_physical_basic_data.hist_weeks()
-    # fx_pairs_2: List[str] = ['aud_cad', 'aud_chf', 'aud_jpy', 'aud_nzd',
-    #                          'aud_usd', 'aux_aud', 'bco_usd', 'cad_chf',
-    #                          'cad_jpy', 'chf_jpy', 'eur_aud', 'eur_cad',
-    #                          'eur_chf', 'eur_czk', 'eur_dkk', 'eur_gbp',
-    #                          'eur_huf', 'eur_jpy', 'eur_nok', 'eur_nzd',
-    #                          'eur_pln', 'eur_sek', 'eur_try', 'eur_usd',
-    #                          'gbp_aud', 'gbp_cad', 'gbp_chf', 'gbp_jpy',
-    #                          'gbp_nzd', 'gbp_usd', 'jpx_jpy', 'nsx_usd',
-    #                          'nzd_cad', 'nzd_chf', 'nzd_jpy', 'nzd_usd',
-    #                          'sgd_jpy', 'spx_usd', 'udx_usd', 'usd_cad',
-    #                          'usd_chf', 'usd_czk', 'usd_dkk', 'usd_hkd',
-    #                          'usd_huf', 'usd_jpy', 'usd_mxn', 'usd_nok',
-    #                          'usd_pln', 'usd_sek', 'usd_sgd', 'usd_try',
-    #                          'usd_zar', 'wti_usd', 'xag_usd', 'xau_usd',
-    #                          'zar_jpy']
+    years_2: List[str] = ['2011', '2015', '2019']
+    weeks_2 = hist_data_tools_physical_basic_data.hist_weeks()
+    fx_pairs_2: List[str] = ['aud_cad', 'aud_chf', 'aud_jpy', 'aud_nzd',
+                             'aud_usd', 'aux_aud', 'bco_usd', 'cad_chf',
+                             'cad_jpy', 'chf_jpy', 'eur_aud', 'eur_cad',
+                             'eur_chf', 'eur_czk', 'eur_dkk', 'eur_gbp',
+                             'eur_huf', 'eur_jpy', 'eur_nok', 'eur_nzd',
+                             'eur_pln', 'eur_sek', 'eur_try', 'eur_usd',
+                             'gbp_aud', 'gbp_cad', 'gbp_chf', 'gbp_jpy',
+                             'gbp_nzd', 'gbp_usd', 'jpx_jpy', 'nsx_usd',
+                             'nzd_cad', 'nzd_chf', 'nzd_jpy', 'nzd_usd',
+                             'sgd_jpy', 'spx_usd', 'udx_usd', 'usd_cad',
+                             'usd_chf', 'usd_czk', 'usd_dkk', 'usd_hkd',
+                             'usd_huf', 'usd_jpy', 'usd_mxn', 'usd_nok',
+                             'usd_pln', 'usd_sek', 'usd_sgd', 'usd_try',
+                             'usd_zar', 'wti_usd', 'xag_usd', 'xau_usd',
+                             'zar_jpy']
 
     # Basic folders
-    # hist_data_tools_physical_basic_data.hist_start_folders(years_2)
+    hist_data_tools_physical_basic_data.hist_start_folders(years_2)
 
     # Run analysis
     # Analysis and plot
-    # hist_data_plot_generator(fx_pairs_2, years_2, weeks_2)
+    hist_data_plot_generator(fx_pairs_2, years_2, weeks_2)
 
     print('Ay vamos!!!')
 
