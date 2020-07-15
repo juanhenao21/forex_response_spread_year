@@ -100,9 +100,9 @@ fundamental nor technical analysis can consistently produce abnormal returns.
 
 The weak form of market efficiency states that all past prices are reflected in
 the today's price on the market. This basically means that is it not possible
-to get any significant advantage on the market by analyzing pastprices only, as
-it is done in the case of technical analysis. However, fundamental analysis can
-be successfully applied.
+to get any significant advantage on the market by analyzing past prices only,
+as it is done in the case of technical analysis. However, fundamental analysis
+can be successfully applied.
 (Weak market efficiency)
 
 Tools used to test market efficiency are dependent on the form of efficiency to
@@ -242,6 +242,7 @@ artificial as it is also real published market data. The approximately 26.5
 million ticks in the GBP-JPY cross-rate are derived from the ticks in GBP-USD
 (13.9 million) and USD-JPY (13.5 million).
 (Data description)
+
 **Information Flows in Foreign Exchange Markets**
 The foreign exchange (FX) market is the largest financial market in the world,
 with a daily trading volume of about five trillion U.S. dollars (USDs; Bank for
@@ -394,7 +395,7 @@ formal opening and closing hours - in FX
 
 **The electronic trading systems and bid-ask spreads in foreign exchange market**
 Through the mid-1990s, the foreign exchange market was primarily reliant on
-phone-based tech- nology. In April 1992, the first electronic brokers system
+phone-based technology. In April 1992, the first electronic brokers system
 (Reuters D2000-2) was introduced in the foreign exchange market. The second
 major electronic system, EBS (Electronic Broking Services), was launched 1 year
 later in September 1993. Although uptake of electronic broking was relatively
@@ -478,3 +479,27 @@ $$pip = \left(ask−bid\right) \cdot scaling \, factor$$
 The percentage bid–ask spread formula is:
 $$\% bid−ask \, spread = \frac{ask−bid}{traded price} \cdot 100$$
 (Method to compare bid-ask spreads)
+
+**The global transmission of Volatility**
+It is well known that the peak period of daily FX market activity occurs when
+European and American trading overlap. Hence, price fluctuations during this
+time period should be treated as an idiosyncratic activity block. The
+Asia-Europe overlap, on the other hand, has been given little consideration in
+the literature.
+(Forex activity)
+
+**Liquidity in the Foreign Exchange Market**
+Over the last three decades, liquidity in equity and bond markets has been
+studied extensively in the finance literature. 1 By contrast, the literature
+has had little to say about liquidity in the foreign exchange (FX) market.
+(Introduction)
+
+In this paper, we investigate nine currency pairs in detail, namely, the
+AUD/USD, EUR/CHF, EUR/GBP, EUR/JPY, EUR/USD, GBP/USD, USD/CAD, USD/CHF, and
+USD/JPY exchange rates. For each exchange rate, we process the irregularly
+spaced raw data to construct second-by-second price and volume series, each
+containing 86,400 observations per day. For every second, the midpoint of best
+bid and ask quotes or the transaction price of deals is used to construct
+one-second log-returns. For the sake of interpretability, we multiply these FX
+returns by 10,000 to obtain basis points (bps) as the unit of measurement.
+(Data description)

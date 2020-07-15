@@ -2,47 +2,47 @@ This is BibTeX, Version 0.99d (TeX Live 2016/Debian)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: main.aux
 The style file: plain.bst
+I found no \citation commands---while reading file main.aux
 Database file #1: bib.bib
-Warning--can't use both author and editor fields in market_making
-You've used 10 entries,
+You've used 0 entries,
             2118 wiz_defined-function locations,
-            568 strings with 5957 characters,
-and the built_in function-call counts, 3241 in all, are:
-= -- 304
-> -- 163
-< -- 1
-+ -- 64
-- -- 54
-* -- 249
-:= -- 559
-add.period$ -- 29
-call.type$ -- 10
-change.case$ -- 56
+            497 strings with 3984 characters,
+and the built_in function-call counts, 18 in all, are:
+= -- 0
+> -- 0
+< -- 0
++ -- 0
+- -- 0
+* -- 2
+:= -- 7
+add.period$ -- 0
+call.type$ -- 0
+change.case$ -- 0
 chr.to.int$ -- 0
-cite$ -- 11
-duplicate$ -- 113
-empty$ -- 248
-format.name$ -- 54
-if$ -- 663
+cite$ -- 0
+duplicate$ -- 0
+empty$ -- 1
+format.name$ -- 0
+if$ -- 1
 int.to.chr$ -- 0
-int.to.str$ -- 10
-missing$ -- 10
-newline$ -- 52
-num.names$ -- 20
-pop$ -- 51
+int.to.str$ -- 0
+missing$ -- 0
+newline$ -- 3
+num.names$ -- 0
+pop$ -- 0
 preamble$ -- 1
-purify$ -- 47
+purify$ -- 0
 quote$ -- 0
-skip$ -- 82
+skip$ -- 1
 stack$ -- 0
-substring$ -- 182
-swap$ -- 18
-text.length$ -- 1
+substring$ -- 0
+swap$ -- 0
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 38
-warning$ -- 1
-while$ -- 29
-width$ -- 12
-write$ -- 109
-(There was 1 warning)
+type$ -- 0
+warning$ -- 0
+while$ -- 0
+width$ -- 0
+write$ -- 2
+(There was 1 error message)
