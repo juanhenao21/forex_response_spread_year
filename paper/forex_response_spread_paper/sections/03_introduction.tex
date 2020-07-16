@@ -1,11 +1,47 @@
 \section{Introduction}\label{sec:introduction}
 
-In foreign exchange markets, the research focuses mainly on volatility (buscar
-referencias) and ...
+Basic description:
 
-The paper is organized as follows: in Sect. \ref{sec:data_time} we present our
+The term ``pip'' is commonly used in the foreign exchange market in place of the
+word ‘tick’. Pips arise as a matter of convention.
+A pip refers to the incremental value in the fifth non-zero digit
+position from the left. Note that it is not related to the position of the
+decimal point. For example, one pip in a USD/JPY value of 113.57 would be 0.01,
+while one pip for EUR/USD of 1.0434 would be 0.0001 \cite{micro_eff}.
+
+
+Previous works (general):
+
+In \cite{micro_eff} they found that smaller volumes cause larger bid-ask
+spreads for technical reasons to do with measurement, whereas in
+\cite{eur_int_curr,eur_change_forex} claim that larger bid-ask spreads caused
+smaller volumes due to trader behavior.
+
+In \cite{curr_speculation}, they found the spreads to be between two and four
+times larger for emerging market currencies than for developed country currencies.
+
+
+
+Previous works (specific):
+
+
+
+
+
+
+Explanation of our work:
+
+
+
+
+
+
+Paper distribution:
+
+The paper is organized as follows: in Sect. \ref{sec:data_set} we present our
 data set of foreign exchange pairs and briefly describe the physical and trade time. We then
 analyze the definition of the response functions in Sect.
-\ref{sec:response_functions}, and compute them for the majors pairs.
+\ref{sec:response_functions_def}, and compute them for the majors pairs in
+Sect. \ref{sec:response_functions_imp}.
 In Sect. \ref{sec:spread_impact} we show how the spread impact the values of the
 response functions. Our conclusions follows in Sect. \ref{sec:conclusion}.
