@@ -1,1 +1,14 @@
 \section{Spread impact in price response functions}\label{sec:spread_impact}
+
+
+As we showed in \ref{sec:introduction}, due to the difference in the position of the decimal
+points between foreign exchange rates, we need to introduce a ``scaling factor''
+with the purpose of bringing the pip to the left of the decimal point.
+For example, the scaling factor for the USD/JPY is $100$ and that for the
+EUR/USD is $10000$.
+
+The pip bid-ask spread is defined as \cite{micro_eff}:
+
+\begin{equation}
+    \text{pip}_{spread} = \left(a\left(t\right) - b\left(t\right)\right) \cdot \text{scaling factor}
+\end{equation}

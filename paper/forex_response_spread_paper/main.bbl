@@ -1,3 +1,27 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{curr_speculation}
+Craig Burnside, Martin Eichenbaum, and Sergio Rebelo.
+\newblock The returns to currency speculation in emerging markets.
+\newblock Working Paper 12916, National Bureau of Economic Research, February
+  2007.
+
+\bibitem{eur_int_curr}
+Harald Hau, William Killeen, and Michael Moore.
+\newblock The euro as an international currency: explaining puzzling first
+  evidence from the foreign exchange markets.
+\newblock {\em Journal of International Money and Finance}, 21(3):351--383,
+  June 2002.
+
+\bibitem{eur_change_forex}
+Harald Hau, William Killeen, and Michael Moore.
+\newblock {How has the euro changed the foreign exchange market?}
+\newblock {\em Economic Policy}, 17(34):149--192, April 2002.
+
+\bibitem{micro_eff}
+Frank McGroarty, Owain {ap Gwilym}, and Stephen Thomas.
+\newblock Microstructure effects, bid–ask spreads and volatility in the spot
+  foreign exchange market pre and post-emu.
+\newblock {\em Global Finance Journal}, 17(1):23 -- 49, 2006.
 
 \end{thebibliography}
