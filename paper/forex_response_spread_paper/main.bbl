@@ -1,10 +1,35 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{curr_speculation}
 Craig Burnside, Martin Eichenbaum, and Sergio Rebelo.
 \newblock The returns to currency speculation in emerging markets.
 \newblock Working Paper 12916, National Bureau of Economic Research, February
   2007.
+
+\bibitem{teach_spread}
+Jeng-Hong Chen.
+\newblock Teaching the bid-ask spread and triangular arbitrage for the foreign
+  exchange market.
+\newblock {\em American Journal of Business Education (AJBE)}, 11:55--62, 10
+  2018.
+
+\bibitem{electronic_forex}
+Liang Ding and Jonas Hiltrop.
+\newblock The electronic trading systems and bid-ask spreads in the foreign
+  exchange market.
+\newblock {\em Journal of International Financial Markets, Institutions and
+  Money}, 20(4):323 -- 345, 2010.
+
+\bibitem{forex_microstructure}
+Martin~D.D. Evans and Dagfinn Rime.
+\newblock Microstructure of foreign exchange markets.
+\newblock {\em Available at SSRN 3345289}, 2019.
+
+\bibitem{patterns_forex}
+James Glattfelder, Alexandre Dupuis, and Richard Olsen.
+\newblock Patterns in high-frequency fx data: Discovery of 12 empirical scaling
+  laws.
+\newblock {\em arXiv.org, Quantitative Finance Papers}, 11, 01 2008.
 
 \bibitem{eur_int_curr}
 Harald Hau, William Killeen, and Michael Moore.
@@ -18,10 +43,46 @@ Harald Hau, William Killeen, and Michael Moore.
 \newblock {How has the euro changed the foreign exchange market?}
 \newblock {\em Economic Policy}, 17(34):149--192, April 2002.
 
+\bibitem{spread_competition}
+Roger~D. Huang and Ronald~W. Masulis.
+\newblock Fx spreads and dealer competition across the 24-hour trading day.
+\newblock {\em Capital Markets: Market Microstructure}, 1999.
+
+\bibitem{forex_structure}
+Michael King, Carol Osler, and Dagfinn Rime.
+\newblock {\em Foreign Exchange Market Structure, Players and Evolution}.
+\newblock 08 2012.
+
+\bibitem{political_forex}
+M.~Kremer, A.~P. Becker, I.~Vodenska, H.~E. Stanley, and R.~Schäfer.
+\newblock Economic and political effects on currency clustering dynamics.
+\newblock {\em Quantitative Finance}, 19(5):705--716, 2019.
+
 \bibitem{micro_eff}
 Frank McGroarty, Owain {ap Gwilym}, and Stephen Thomas.
 \newblock Microstructure effects, bid–ask spreads and volatility in the spot
   foreign exchange market pre and post-emu.
 \newblock {\em Global Finance Journal}, 17(1):23 -- 49, 2006.
+
+\bibitem{info_forex}
+LUKAS MENKHOFF, LUCIO SARNO, MAIK SCHMELING, and ANDREAS SCHRIMPF.
+\newblock Information flows in foreign exchange markets: Dissecting customer
+  currency trades.
+\newblock {\em The Journal of Finance}, 71(2):601--634, 2016.
+
+\bibitem{intraday_forex}
+Anna Serbinenko and Svetlozar Rachev.
+\newblock Intraday spot foreign exchange market. analysis of efficiency,
+  liquidity and volatility.
+\newblock {\em Investment Management and Financial Innovations}, 6:35--45, 01
+  2009.
+
+\bibitem{forex_inefficiency}
+Syed Jawad~Hussain Shahzad, Jose~Areola Hernandez, Waqas Hanif, and
+  Ghulam~Mujtaba Kayani.
+\newblock Intraday return inefficiency and long memory in the volatilities of
+  forex markets and the role of trading volume.
+\newblock {\em Physica A: Statistical Mechanics and its Applications}, 506:433
+  -- 450, 2018.
 
 \end{thebibliography}
