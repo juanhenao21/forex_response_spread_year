@@ -12,6 +12,12 @@ the best bid and best ask quotes prices in the Eastern Standard Time (EST) time 
 No information about the size of each transaction is provided. Also, the
 identity of the participants is not given.
 
+For each exchange rate, we process the irregularly
+spaced raw data to construct second-by-second price and volume series, each
+containing 86,400 observations per day. For every second, the midpoint of best
+bid and ask quotes or the transaction price of deals is used to construct
+one-second log-returns.
+
 % We download currency exchange rate time series from
 % OANDA via an open access API.‡ Our data comprises the
 % following currencies, which are all quoted in terms of euro

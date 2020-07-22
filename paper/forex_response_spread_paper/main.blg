@@ -1,49 +1,49 @@
-This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2016/Debian)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: main.aux
 The style file: plain.bst
 Database file #1: bib.bib
 Warning--empty chapter and pages in forex_structure
 Warning--empty publisher in forex_structure
-You've used 14 entries,
+You've used 16 entries,
             2118 wiz_defined-function locations,
-            590 strings with 6649 characters,
-and the built_in function-call counts, 4529 in all, are:
-= -- 426
-> -- 241
+            603 strings with 6999 characters,
+and the built_in function-call counts, 5226 in all, are:
+= -- 494
+> -- 272
 < -- 1
-+ -- 97
-- -- 80
-* -- 356
-:= -- 795
-add.period$ -- 42
-call.type$ -- 14
-change.case$ -- 81
++ -- 110
+- -- 90
+* -- 413
+:= -- 911
+add.period$ -- 48
+call.type$ -- 16
+change.case$ -- 92
 chr.to.int$ -- 0
-cite$ -- 16
-duplicate$ -- 151
-empty$ -- 332
-format.name$ -- 80
-if$ -- 915
+cite$ -- 18
+duplicate$ -- 173
+empty$ -- 388
+format.name$ -- 90
+if$ -- 1060
 int.to.chr$ -- 0
-int.to.str$ -- 14
-missing$ -- 14
-newline$ -- 73
-num.names$ -- 28
-pop$ -- 68
+int.to.str$ -- 16
+missing$ -- 16
+newline$ -- 83
+num.names$ -- 32
+pop$ -- 75
 preamble$ -- 1
-purify$ -- 68
+purify$ -- 77
 quote$ -- 0
-skip$ -- 98
+skip$ -- 113
 stack$ -- 0
-substring$ -- 262
-swap$ -- 14
+substring$ -- 321
+swap$ -- 16
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 54
+type$ -- 62
 warning$ -- 2
-while$ -- 37
-width$ -- 16
-write$ -- 152
+while$ -- 43
+width$ -- 18
+write$ -- 174
 (There were 2 warnings)

@@ -58,14 +58,25 @@ M.~Kremer, A.~P. Becker, I.~Vodenska, H.~E. Stanley, and R.~Schäfer.
 \newblock Economic and political effects on currency clustering dynamics.
 \newblock {\em Quantitative Finance}, 19(5):705--716, 2019.
 
+\bibitem{forex_liquidity}
+Loriano Mancini, Angelo Ranaldo, and Jan Wrampelmeyer.
+\newblock Liquidity in the foreign exchange market: Measurement, commonality,
+  and risk premiums.
+\newblock {\em The Journal of Finance}, 68(5):1805--1841, 2013.
+
 \bibitem{micro_eff}
 Frank McGroarty, Owain {ap Gwilym}, and Stephen Thomas.
 \newblock Microstructure effects, bid–ask spreads and volatility in the spot
   foreign exchange market pre and post-emu.
 \newblock {\em Global Finance Journal}, 17(1):23 -- 49, 2006.
 
+\bibitem{forex_volatility}
+Michael Melvin and Bettina~Peiers Melvin.
+\newblock The global transmission of volatility in the foreign exchange market.
+\newblock {\em The Review of Economics and Statistics}, 85(3):670--679, 2003.
+
 \bibitem{info_forex}
-LUKAS MENKHOFF, LUCIO SARNO, MAIK SCHMELING, and ANDREAS SCHRIMPF.
+Lukas Menkhoff, Lucio Sarno, Maik Schmeling, and Andreas Schrimpf.
 \newblock Information flows in foreign exchange markets: Dissecting customer
   currency trades.
 \newblock {\em The Journal of Finance}, 71(2):601--634, 2016.
