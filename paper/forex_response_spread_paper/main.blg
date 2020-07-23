@@ -5,45 +5,45 @@ The style file: plain.bst
 Database file #1: bib.bib
 Warning--empty chapter and pages in forex_structure
 Warning--empty publisher in forex_structure
-You've used 16 entries,
+You've used 18 entries,
             2118 wiz_defined-function locations,
-            603 strings with 6999 characters,
-and the built_in function-call counts, 5226 in all, are:
-= -- 494
-> -- 272
+            614 strings with 7344 characters,
+and the built_in function-call counts, 5918 in all, are:
+= -- 561
+> -- 302
 < -- 1
-+ -- 110
-- -- 90
-* -- 413
-:= -- 911
-add.period$ -- 48
-call.type$ -- 16
-change.case$ -- 92
++ -- 123
+- -- 100
+* -- 470
+:= -- 1027
+add.period$ -- 54
+call.type$ -- 18
+change.case$ -- 103
 chr.to.int$ -- 0
-cite$ -- 18
-duplicate$ -- 173
-empty$ -- 388
-format.name$ -- 90
-if$ -- 1060
+cite$ -- 20
+duplicate$ -- 195
+empty$ -- 444
+format.name$ -- 100
+if$ -- 1203
 int.to.chr$ -- 0
-int.to.str$ -- 16
-missing$ -- 16
-newline$ -- 83
-num.names$ -- 32
-pop$ -- 75
+int.to.str$ -- 18
+missing$ -- 18
+newline$ -- 93
+num.names$ -- 36
+pop$ -- 82
 preamble$ -- 1
-purify$ -- 77
+purify$ -- 86
 quote$ -- 0
-skip$ -- 113
+skip$ -- 127
 stack$ -- 0
-substring$ -- 321
-swap$ -- 16
+substring$ -- 380
+swap$ -- 18
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 62
+type$ -- 70
 warning$ -- 2
-while$ -- 43
-width$ -- 18
-write$ -- 174
+while$ -- 49
+width$ -- 20
+write$ -- 196
 (There were 2 warnings)

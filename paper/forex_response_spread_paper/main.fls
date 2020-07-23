@@ -146,9 +146,9 @@ INPUT /scratch/jchenaol/forex_response_spread_year/paper/forex_response_spread_p
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmssbx10.tfm
-INPUT /scratch/jchenaol/forex_response_spread_year/paper/forex_response_spread_paper/sections/04_data.tex
-INPUT /scratch/jchenaol/forex_response_spread_year/paper/forex_response_spread_paper/sections/04_data.tex
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
+INPUT /scratch/jchenaol/forex_response_spread_year/paper/forex_response_spread_paper/sections/04_data.tex
+INPUT /scratch/jchenaol/forex_response_spread_year/paper/forex_response_spread_paper/sections/04_data.tex
 INPUT /scratch/jchenaol/forex_response_spread_year/paper/forex_response_spread_paper/sections/05_response_definitions.tex
 INPUT /scratch/jchenaol/forex_response_spread_year/paper/forex_response_spread_paper/sections/05_response_definitions.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss10.tfm

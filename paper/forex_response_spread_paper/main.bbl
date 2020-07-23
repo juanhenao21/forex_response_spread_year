@@ -6,12 +6,24 @@ Craig Burnside, Martin Eichenbaum, and Sergio Rebelo.
 \newblock Working Paper 12916, National Bureau of Economic Research, February
   2007.
 
+\bibitem{forex_algorithmic}
+Alain~P. Chaboud, Benjamin Chiquoine, Erik Hjalmarsson, and Clara Vega.
+\newblock Rise of the machines: Algorithmic trading in the foreign exchange
+  market.
+\newblock {\em The Journal of Finance}, 69(5):2045--2084, 2014.
+
 \bibitem{teach_spread}
 Jeng-Hong Chen.
 \newblock Teaching the bid-ask spread and triangular arbitrage for the foreign
   exchange market.
 \newblock {\em American Journal of Business Education (AJBE)}, 11:55--62, 10
   2018.
+
+\bibitem{spread_futures}
+David~K. Ding.
+\newblock The determinants of bid-ask spreads in the foreign exchange futures
+  market: A microstructure analysis.
+\newblock {\em Journal of Futures Markets}, 19(3):307--324, 1999.
 
 \bibitem{electronic_forex}
 Liang Ding and Jonas Hiltrop.

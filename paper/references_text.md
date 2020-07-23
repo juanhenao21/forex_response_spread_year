@@ -504,7 +504,10 @@ one-second log-returns. For the sake of interpretability, we multiply these FX
 returns by 10,000 to obtain basis points (bps) as the unit of measurement.
 (Data description)
 
-measures how
-much the exchange rate changes in response to a given order flow. The higher
-the price impact, the more the exchange rate moves following a trade, reflecting
-lower liquidity. Moreover, if a currency i
+The higher the price impact, the more the exchange rate moves following a
+trade, reflecting lower liquidity.
+(Price impact)
+
+**The determinants of bid-ask spreads in the foreign market**
+The bid-ask spread represents a major component of a trader’s transaction
+cost.
