@@ -1,15 +1,15 @@
 # Fdb version 3
-["bibtex main"] 1595511135 "main.aux" "main.bbl" "main" 1595511136
+["bibtex main"] 1601288678 "main.aux" "main.bbl" "main" 1601296966
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "bib.bib" 1595500037 24683 22c30d0d77e4f429eb2f48c0dd9214c1 ""
-  "main.aux" 1595511136 5130 9585148bc5aa074de3e2c40b8477bd4b ""
+  "main.aux" 1601296966 5089 9550d225c4a041991c099aaaa2d7eba8 ""
   "main.bcf" 0 -1 0 ""
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1595511135 "/scratch/jchenaol/forex_response_spread_year/paper/forex_response_spread_paper/main.tex" "/scratch/jchenaol/forex_response_spread_year/paper/forex_response_spread_paper/main.pdf" "main" 1595511136
+["pdflatex"] 1601296966 "/scratch/jchenaol/forex_response_spread_year/paper/forex_response_spread_paper/main.tex" "/scratch/jchenaol/forex_response_spread_year/paper/forex_response_spread_paper/main.pdf" "main" 1601296966
   "/etc/texmf/web2c/texmf.cnf" 1541150118 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/scratch/jchenaol/forex_response_spread_year/paper/forex_response_spread_paper/main.aux" 1595511136 5130 9585148bc5aa074de3e2c40b8477bd4b ""
+  "/scratch/jchenaol/forex_response_spread_year/paper/forex_response_spread_paper/main.aux" 1601296966 5089 9550d225c4a041991c099aaaa2d7eba8 ""
   "/scratch/jchenaol/forex_response_spread_year/paper/forex_response_spread_paper/main.tex" 1594805447 627 d6dd9ca6910fbee134f0caf34c50488c ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -94,14 +94,14 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1488610416 31340 0f53f8665296bf8fe6c697f9505e31d8 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1541150371 2044936 0edf5ca64352b50b145b46ea2ee03d92 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1541150394 3871170 e246f3758e2a7db5381823c579e4d0c7 ""
-  "main.aux" 1595511136 5130 9585148bc5aa074de3e2c40b8477bd4b ""
-  "main.bbl" 1595511135 4320 0fd6e352b09802416c01073312d4f911 "bibtex main"
-  "main.out" 1595511136 512 0f8c2ae0417cd96cd4e875a1c6ab73c0 ""
+  "main.aux" 1601296966 5089 9550d225c4a041991c099aaaa2d7eba8 ""
+  "main.bbl" 1601288678 4320 0fd6e352b09802416c01073312d4f911 "bibtex main"
+  "main.out" 1601296966 512 0f8c2ae0417cd96cd4e875a1c6ab73c0 ""
   "main.tex" 1594805447 627 d6dd9ca6910fbee134f0caf34c50488c ""
   "sections/01_title.tex" 1594803718 506 68fcf15ce382c138ab40cbcae8594308 ""
   "sections/02_abstract.tex" 1594803745 193 4823e9ddec1de2dc8baccfb8257cce25 ""
-  "sections/03_introduction.tex" 1595511135 5101 caa474129ac2be957257237c752e1695 ""
-  "sections/04_data.tex" 1595414328 6059 8a4af89b09627e07b71659c891c665d2 ""
+  "sections/03_introduction.tex" 1601296965 4596 55f226fe57cd6d9862361f4949550073 ""
+  "sections/04_data.tex" 1601284303 6425 3b1bffa608040e8655b6f59b59976a15 ""
   "sections/05_response_definitions.tex" 1595414306 1467 d012dbe6be7de2e0b019de8bfec3cdb8 ""
   "sections/06_response_implementations.tex" 1594804844 649 9faccdfd3b18ffd2c4991b437212609c ""
   "sections/07_spread_impact.tex" 1594893923 607 5832f3f71bf516a263788c592f0a720d ""
@@ -114,8 +114,8 @@
   "svjour.cls" 1570709632 41964 f1cf530a6c8e721e6b13dafe3c59d374 ""
   (generated)
   "/scratch/jchenaol/forex_response_spread_year/paper/forex_response_spread_paper/main.log"
-  "main.log"
-  "main.aux"
-  "main.pdf"
   "main.out"
+  "main.pdf"
+  "main.aux"
+  "main.log"
   "/scratch/jchenaol/forex_response_spread_year/paper/forex_response_spread_paper/main.pdf"
