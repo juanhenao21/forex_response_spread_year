@@ -36,48 +36,43 @@ found that bid-ask spreads increase when the foreign exchange market volatility
 increases, and decrease when the dealer competition increases. In Ref.
 \cite{electronic_forex}, Ding et al. found the Electronic Broking Services
 (EBS) reduces spreads significantly, but dealers with information advantage
-tend to quote relatively wider spreads. In Ref. \cite{spread_futures}, it is
+tend to quote relatively wider spreads. In Ref. \cite{spread_futures}, King
 analyzed the foreign exchange futures market and found that the number of
 transactions is negatively related with bid-ask spread, whereas volatility in
-general is positively related. In Ref. \cite{intraday_forex}, they focus in the
-three major market characteristics, namely efficiency, liquidity and
-volatility, finding that the market is efficient in a weak form.
+general is positively related. In Ref. \cite{intraday_forex}, Serbinenko et al.
+focus in the three major market characteristics, namely efficiency, liquidity
+and volatility, finding that the market is efficient in a weak form.
 
-Previous works (specific):
+Due to the lack of available data in the past, very few studies exist on price
+response functions in the foreign exchange market. Even if there are several
+papers about foreign exchange markets, we did not found large information about
+price response functions in this market. In Ref. \cite{forex_volatility},
+Melvin et al. simulate their proposed model for different region foreign
+exchange markets to analyze the impact of a one-standard-deviation shock using
+impulse response functions. The general pattern of response was a fairly steep
+drop over the first couple of days followed by a few days of gradual decline
+until the response is not statistically different from zero. In Ref.
+\cite{forex_liquidity}, Mancini et al. model the price impact and return
+reversal to analyze liquidity. Their model predicts that more liquid assets
+should exhibit narrower spreads and lower price impact.
 
-In \cite{forex_volatility}, they simulate their proposed model for different
-region foreign exchange markets to analyze the
-impact of a one-standard-deviation shock using impulse response functions. The
-general pattern of response was a fairly steep drop over the first couple of
-days followed by a few days of gradual decline until the response is not
-statistically different from zero.
+Here, we want to discuss, based on a series of detailed empirical results
+obtained on trade by trade data, that the price response functions behave
+qualitatively the same in foreign exchange markets compared with correlated
+financial markets. We consider different time scales and currency pairs to
+compute the price response. To facilitate the reproduction of our results, the
+source code for the data analysis is available in Ref. (Poner referencia).
 
-In \cite{forex_liquidity}, they model the price impact and return reversal to
-analyze liquidity. Their model predicts that more liquid assets should exhibit
-narrower spreads and lower price impact.
-
-
-
-
-Explanation of our work:
-
-Due to the lack of available data, very few studies exist on price response functions in the foreign exchange
-market.
-Despite the foreign exchange market is often cited as the world's largest financial
-market, this description fail to consider the considerable differences in trading
-volume and liquidity across different currency pairs \cite{forex_microstructure}. These differences can be
-directly seen in the spread. Furthermore, the bid-ask spread is directly related
-with the transaction costs to the dealer \cite{teach_spread,spread_futures}.
-
-
-
-
-Paper distribution:
+We delve into the price response function computation in foreign exchange
+markets. We perform a empirical study in different time scales and different
+years. We show the similarity between the price response functions in foreign
+exchange markets and correlated financial markets. Finally, we shed light on
+the spread impact in the response functions for currency pairs.
 
 The paper is organized as follows: in Sect. \ref{sec:data_set} we present our
-data set of foreign exchange pairs and briefly describe the physical and trade time. We then
-analyze the definition of the response functions in Sect.
+data set of foreign exchange pairs and briefly describe the physical and trade
+time. We then analyze the definition of the response functions in Sect.
 \ref{sec:response_functions_def}, and compute them for the majors pairs in
-Sect. \ref{sec:response_functions_imp}.
-In Sect. \ref{sec:spread_impact} we show how the spread impact the values of the
-response functions. Our conclusions follows in Sect. \ref{sec:conclusion}.
+Sect. \ref{sec:response_functions_imp}. In Sect. \ref{sec:spread_impact} we
+show how the spread impact the values of the response functions. Our
+conclusions follows in Sect. \ref{sec:conclusion}.
