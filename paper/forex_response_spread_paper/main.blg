@@ -3,47 +3,52 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: main.aux
 The style file: plain.bst
 Database file #1: bib.bib
+Warning--empty booktitle in market_digest
+Warning--empty journal in my_paper_response_financial
+Warning--empty year in my_paper_response_financial
 Warning--empty chapter and pages in forex_structure
 Warning--empty publisher in forex_structure
-You've used 18 entries,
+Warning--empty publisher in intro_market_micro
+Warning--empty booktitle in prop_order_book
+You've used 43 entries,
             2118 wiz_defined-function locations,
-            614 strings with 7344 characters,
-and the built_in function-call counts, 5918 in all, are:
-= -- 561
-> -- 302
-< -- 1
-+ -- 123
-- -- 100
-* -- 470
-:= -- 1027
-add.period$ -- 54
-call.type$ -- 18
-change.case$ -- 103
+            744 strings with 11355 characters,
+and the built_in function-call counts, 14425 in all, are:
+= -- 1359
+> -- 755
+< -- 2
++ -- 304
+- -- 252
+* -- 1146
+:= -- 2473
+add.period$ -- 127
+call.type$ -- 43
+change.case$ -- 253
 chr.to.int$ -- 0
-cite$ -- 20
-duplicate$ -- 195
-empty$ -- 444
-format.name$ -- 100
-if$ -- 1203
+cite$ -- 50
+duplicate$ -- 475
+empty$ -- 1087
+format.name$ -- 252
+if$ -- 2935
 int.to.chr$ -- 0
-int.to.str$ -- 18
-missing$ -- 18
-newline$ -- 93
-num.names$ -- 36
-pop$ -- 82
+int.to.str$ -- 43
+missing$ -- 43
+newline$ -- 216
+num.names$ -- 86
+pop$ -- 222
 preamble$ -- 1
-purify$ -- 86
+purify$ -- 212
 quote$ -- 0
-skip$ -- 127
+skip$ -- 315
 stack$ -- 0
-substring$ -- 380
-swap$ -- 18
-text.length$ -- 1
+substring$ -- 925
+swap$ -- 49
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 70
-warning$ -- 2
-while$ -- 49
-width$ -- 20
-write$ -- 196
-(There were 2 warnings)
+type$ -- 168
+warning$ -- 7
+while$ -- 121
+width$ -- 45
+write$ -- 457
+(There were 7 warnings)

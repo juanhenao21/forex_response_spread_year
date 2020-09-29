@@ -1,10 +1,50 @@
 \begin{thebibliography}{10}
 
+\bibitem{components_spread_tokyo}
+Hee-Joon Ahn, Jun Cai, Yasushi Hamao, and Richard~Y.K Ho.
+\newblock The components of the bid–ask spread in a limit-order market:
+  evidence from the tokyo stock exchange.
+\newblock {\em Journal of Empirical Finance}, 9(4):399 -- 430, 2002.
+
+\bibitem{effects_spread}
+Yakov Amihud and Haim Mendelson.
+\newblock The effects of beta, bid-ask spread, residual risk, and size on stock
+  returns.
+\newblock {\em The Journal of Finance}, 44(2):479--486, 1989.
+
+\bibitem{subtle_nature}
+Jean-Philippe Bouchaud.
+\newblock The subtle nature of financial random walks.
+\newblock {\em Chaos: An Interdisciplinary Journal of Nonlinear Science},
+  15(2):026104, 2005.
+
+\bibitem{market_digest}
+Jean-Philippe Bouchaud, J.~Doyne Farmer, and Fabrizio Lillo.
+\newblock How markets slowly digest changes in supply and demand.
+\newblock 2008.
+
+\bibitem{Bouchaud_2004}
+Jean-Philippe Bouchaud, Yuval Gefen, Marc Potters, and Matthieu Wyart.
+\newblock Fluctuations and response in financial markets: the subtle nature of
+  “random” price changes.
+\newblock {\em Quantitative Finance}, 4(2):176–190, Apr 2004.
+
+\bibitem{stat_prop}
+Jean-Philippe Bouchaud, Marc Mézard, and Marc Potters.
+\newblock Statistical properties of stock order books: empirical results and
+  models.
+\newblock {\em Quantitative Finance}, 2(4):251–256, Aug 2002.
+
 \bibitem{curr_speculation}
 Craig Burnside, Martin Eichenbaum, and Sergio Rebelo.
 \newblock The returns to currency speculation in emerging markets.
 \newblock Working Paper 12916, National Bureau of Economic Research, February
   2007.
+
+\bibitem{account_spread}
+Carolyn Callahan, Charles Lee, and Teri Yohn.
+\newblock Accounting information and bid-ask spread.
+\newblock {\em Accounting Horizons}, 11:50--60, 01 1997.
 
 \bibitem{forex_algorithmic}
 Alain~P. Chaboud, Benjamin Chiquoine, Erik Hjalmarsson, and Clara Vega.
@@ -12,12 +52,22 @@ Alain~P. Chaboud, Benjamin Chiquoine, Erik Hjalmarsson, and Clara Vega.
   market.
 \newblock {\em The Journal of Finance}, 69(5):2045--2084, 2014.
 
+\bibitem{empirical_facts}
+Anirban Chakraborti, Ioane Toke, Marco Patriarca, and Frédéric Abergel.
+\newblock Econophysics: Empirical facts and agent-based models.
+\newblock {\em arXiv.org, Quantitative Finance Papers}, 09 2009.
+
 \bibitem{teach_spread}
 Jeng-Hong Chen.
 \newblock Teaching the bid-ask spread and triangular arbitrage for the foreign
   exchange market.
 \newblock {\em American Journal of Business Education (AJBE)}, 11:55--62, 10
   2018.
+
+\bibitem{limit_ord_spread}
+Kee~H Chung, Bonnie F~[Van Ness], and Robert A~[Van Ness].
+\newblock Limit orders and the bid–ask spread.
+\newblock {\em Journal of Financial Economics}, 53(2):255 -- 287, 1999.
 
 \bibitem{spread_futures}
 David~K. Ding.
@@ -37,11 +87,32 @@ Martin~D.D. Evans and Dagfinn Rime.
 \newblock Microstructure of foreign exchange markets.
 \newblock {\em Available at SSRN 3345289}, 2019.
 
+\bibitem{large_prices_changes}
+J.~Doyne Farmer, László Gillemot, Fabrizio Lillo, Szabolcs Mike, and Anindya
+  Sen.
+\newblock What really causes large price changes?
+\newblock {\em Quantitative Finance}, 4(4):383--397, 2004.
+
+\bibitem{predictive_pow}
+J.~Doyne Farmer, Paolo Patelli, and Ilija~I. Zovko.
+\newblock The predictive power of zero intelligence in financial markets, 2003.
+
 \bibitem{patterns_forex}
 James Glattfelder, Alexandre Dupuis, and Richard Olsen.
 \newblock Patterns in high-frequency fx data: Discovery of 12 empirical scaling
   laws.
 \newblock {\em arXiv.org, Quantitative Finance Papers}, 11, 01 2008.
+
+\bibitem{components_spread}
+Lawrence~R Glosten and Lawrence~E Harris.
+\newblock Estimating the components of the bid/ask spread.
+\newblock {\em Journal of Financial Economics}, 21(1):123 -- 142, 1988.
+
+\bibitem{spread_changes_affect}
+Stephan Grimm and Thomas Guhr.
+\newblock How spread changes affect the order book: comparing the price
+  responses of order deletions and placements to trades.
+\newblock {\em The European Physical Journal B}, 92:1--11, 2018.
 
 \bibitem{eur_int_curr}
 Harald Hau, William Killeen, and Michael Moore.
@@ -55,6 +126,11 @@ Harald Hau, William Killeen, and Michael Moore.
 \newblock {How has the euro changed the foreign exchange market?}
 \newblock {\em Economic Policy}, 17(34):149--192, April 2002.
 
+\bibitem{my_paper_response_financial}
+Juan~C. Henao-Londono, Sebastian~M. Krause, and Thomas Guhr.
+\newblock Price response functions and spread impact in correlated financial
+  markets.
+
 \bibitem{spread_competition}
 Roger~D. Huang and Ronald~W. Masulis.
 \newblock Fx spreads and dealer competition across the 24-hour trading day.
@@ -65,10 +141,21 @@ Michael King, Carol Osler, and Dagfinn Rime.
 \newblock {\em Foreign Exchange Market Structure, Players and Evolution}.
 \newblock 08 2012.
 
+\bibitem{em_stylized_facts}
+Sebastian Krause, Jonas Fiegen, and Thomas Guhr.
+\newblock Emergence of stylized facts during the opening of stock markets.
+\newblock {\em The European Physical Journal B}, 2018.
+
 \bibitem{political_forex}
 M.~Kremer, A.~P. Becker, I.~Vodenska, H.~E. Stanley, and R.~Schäfer.
 \newblock Economic and political effects on currency clustering dynamics.
 \newblock {\em Quantitative Finance}, 19(5):705--716, 2019.
+
+\bibitem{intro_market_micro}
+Fabrizio Lillo.
+\newblock {\em Introduction to market microstructure and heterogeneity of
+  investors}, pages 73--89.
+\newblock 2019.
 
 \bibitem{forex_liquidity}
 Loriano Mancini, Angelo Ranaldo, and Jan Wrampelmeyer.
@@ -93,6 +180,42 @@ Lukas Menkhoff, Lucio Sarno, Maik Schmeling, and Andreas Schrimpf.
   currency trades.
 \newblock {\em The Journal of Finance}, 71(2):601--634, 2016.
 
+\bibitem{asynchrony_effects_corr}
+Michael~C. Münnix, Rudi Schäfer, and Thomas Guhr.
+\newblock Compensating asynchrony effects in the calculation of financial
+  correlations.
+\newblock {\em Physica A: Statistical Mechanics and its Applications},
+  389(4):767 -- 779, 2010.
+
+\bibitem{tick_size_impact}
+Michael~C. Münnix, Rudi Schäfer, and Thomas Guhr.
+\newblock Impact of the tick-size on financial returns and correlations.
+\newblock {\em Physica A: Statistical Mechanics and its Applications},
+  389(21):4828 -- 4843, 2010.
+
+\bibitem{causes_epps_effect}
+Michael~C. Münnix, Rudi Schäfer, and Thomas Guhr.
+\newblock Statistical causes for the epps effect in microstructure noise.
+\newblock {\em International Journal of Theoretical and Applied Finance},
+  14(08):1231--1246, 2011.
+
+\bibitem{quant_stock_price_response}
+Vasiliki Plerou, Parameswaran Gopikrishnan, Xavier Gabaix, and H.~Eugene
+  Stanley.
+\newblock Quantifying stock-price response to demand fluctuations.
+\newblock {\em Phys. Rev. E}, 66:027104, Aug 2002.
+
+\bibitem{prop_order_book}
+Marc Potters and Jean-Philippe Bouchaud.
+\newblock More statistical properties of order books and price impact.
+\newblock 2002.
+
+\bibitem{non_stationarity}
+Thilo~A. Schmitt, Desislava Chetalova, Rudi Schäfer, and Thomas Guhr.
+\newblock Non-stationarity in financial time series: Generic features and tail
+  behavior.
+\newblock {\em {EPL} (Europhysics Letters)}, 103(5):58003, sep 2013.
+
 \bibitem{intraday_forex}
 Anna Serbinenko and Svetlozar Rachev.
 \newblock Intraday spot foreign exchange market. analysis of efficiency,
@@ -107,5 +230,20 @@ Syed Jawad~Hussain Shahzad, Jose~Areola Hernandez, Waqas Hanif, and
   forex markets and the role of trading volume.
 \newblock {\em Physica A: Statistical Mechanics and its Applications}, 506:433
   -- 450, 2018.
+
+\bibitem{stat_theory}
+Eric Smith, J~Doyne Farmer, L\'aszl\'o Gillemot, and Supriya Krishnamurthy.
+\newblock Statistical theory of the continuous double auction.
+\newblock {\em Quantitative Finance}, 3(6):481--514, 2003.
+
+\bibitem{order_flow_persistent}
+Bence Tóth, Imon Palit, Fabrizio Lillo, and J.~Doyne Farmer.
+\newblock {Why is equity order flow so persistent?}
+\newblock {\em Journal of Economic Dynamics and Control}, 51(C):218--239, 2015.
+
+\bibitem{Wang_2016_cross}
+Shanshan Wang, Rudi Schäfer, and Thomas Guhr.
+\newblock Cross-response in correlated financial markets: individual stocks.
+\newblock {\em The European Physical Journal B}, 89(4), Apr 2016.
 
 \end{thebibliography}
