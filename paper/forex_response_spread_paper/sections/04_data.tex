@@ -1,124 +1,61 @@
 \section{Data set}\label{sec:data_set}
 
-In this study, we analyze foreign exchange pairs from the foreign exchange market.
-
-We selected the foreign exchange market because ...
-
-In the foreign exchange market, the trading day begins in the markets of
-Australia and Asia. Then the markets of Europe open and finishes late in the
+In this study, we analyze foreign exchange pairs from the foreign exchange
+market. In the foreign exchange market, the trading day begins in the markets
+of Australia and Asia. Then the markets of Europe open and finishes late in the
 afternoon in New York \cite{forex_structure}. The markets does not formally
 closes during the week. Thus, using the New York time as reference, the market
-opens on Sunday at 18h00 and closes on Friday at 18h00 (?).
+opens on Sunday at 19h00 and closes on Friday at 17h00.
 
 The foreign exchange financial data was obtained from
-\href{www.histdata.com}{HistData.com}. We used a tick-by-tick database in generic ASCII
-format for different years and currency pairs. The data comprises the date time
-stamp (YYYYMMDD HHMMSSNNN),
-the best bid and best ask quotes prices in the Eastern Standard Time (EST) time zone.
-No information about the size of each transaction is provided. Also, the
-identity of the participants is not given.
+\href{www.histdata.com}{HistData.com}. We used a tick-by-tick database in
+generic ASCII format for different years and currency pairs. The data comprises
+the date time stamp (YYYYMMDD HHMMSSNNN), the best bid and best ask quotes
+prices in the Eastern Standard Time (EST) time zone. No information about the
+size of each transaction is provided. Also, the identity of the participants is
+not given.
 
-For each exchange rate, we process the irregularly
+On physical time scale, for each exchange rate, we process the irregularly
 spaced raw data to construct second-by-second price and volume series, each
 containing 86,400 observations per day. For every second, the midpoint of best
 bid and ask quotes or the transaction price of deals is used to construct
 one-second log-returns.
 
-% We download currency exchange rate time series from
-% OANDA via an open access API.‡ Our data comprises the
-% following currencies, which are all quoted in terms of euro
-% (EUR) and listed in alphabetical order of their ISO cur-
-% rency code: Australian dollar (AUD), Canadian dollar (CAD),
-% Swiss franc (CHF), British pound (GBP), Hong Kong dollar
-% (HKD), Japanese yen (JPY), Mexican peso (MXN), Nor-
-% wegian krone (NOK), New Zealand dollar (NZD), Swedish
-% krona (SEK), Singapore dollar (SGD), US dollar (USD), and
-% South African rand (ZAR). These currencies cover 14 of
-% the 20 globally most traded currencies and each of them
-% accounts for a share of at least 1% of average daily turnover
-% in April 2016 according to Bank for International Settle-
-% ments (2016). Since OANDA does not provide sufficiently
-% complete data for the remaining six currencies, we omit them
-% in our analysis. This selection of currencies gives us 14 dis-
-% tinct exchange rate time series when we include a dummy
-% euro time series which consists of only ones. The data set
-% spans from 2 January 2005 to 9 May 2017, a period of more
-% than 12 years. The start date is chosen such that we can
-% observe a time window as long as possible while at the same
-% time maintaining the quality of the data. There is no trading
-% on certain holidays as well as from Friday night to Sun-
-% day night. We download exchange rates in 10-minute time
-% intervals. Note that our results are independent of the time
-% resolution of the underlying data set. When studying currency
-% dynamics, however, a large amount of data is a prerequi-
-% site, and therefore we consider observations in 10-minute time
-% intervals.
+To analyze the price response functions in Sect.
+\ref{sec:response_functions_imp}, we select the seven major currency pairs in
+three different years (2008, 2014 and 2019). Table \ref{tab:majors} shows the
+currency pairs with their corresponding symbols.
 
-% In the TAQ data set, there are two data files for each stock. One gives the
-% list of all successive quotes. Thus, we have the best bid price, best ask
-% price, available volume and the time stamp accurate to the second. The other
-% data file is the list of all successive trades, with the traded price, traded
-% volume and time stamp accurate to the second. Despite the one second accuracy
-% of the time stamps, in both files more than one quote or trade may be recorded
-% in the same second.
+\begin{table}[htbp]
+\centering
+\begin{threeparttable}
+\caption{Analyzed currency pairs.}
+\begin{tabular*}{\columnwidth}{P{5cm}P{3cm}}
+\toprule
+\bf{Currency pair} & \bf{Symbol} \tabularnewline
+\midrule
+euro/U.S dollar& EUR/USD \tabularnewline
+British pound/U.S dollar& GBP/USD \tabularnewline
+Japanese yen/U.S dollar& JPY/USD \tabularnewline
+Australian dollar/U.S dollar& AUD/USD \tabularnewline
+U.S dollar/Swiss franc& USD/CHF \tabularnewline
+U.S dollar/Canadian dollar& USD/CAD \tabularnewline
+New Zealand dollar/U.S dollar& NZD/USD \tabularnewline
+\bottomrule
+\end{tabular*}
+\label{tab:majors}
+\end{threeparttable}
+\end{table}
 
-% Due to the the time stamp accuracy, it is not possible to match each trade with
-% the directly preceding quote. Hence, we cannot determine the trade sign by
-% comparing the traded price and the preceding midpoint price
-% \cite{Wang_2016_cross}. In this case we need to do a preprocessing of the data
-% to relate the midpoint prices with the trade signs in trade time scale and in
-% physical time scale.
+To analyze the spread impact in price response functions (Sect.
+\ref{sec:spread_impact}), we select 57 currency pairs, in three different years
+(2011, 2015 and 2019). The selected pairs are listed in Appendix
+\ref{app:fx_pairs_spread}
 
-% To analyze the response functions, we select the majors pairs (EUR/USD, GBP/USD,
-% USD/JPY, AUD/USD, USD/CHF, USD/CAD and NZD/USD) for the years 2008, 2014 and
-% 2019.
-
-% To analyze the spread impact in the response functions, we use XX foreign exchange
-% pairs in the years 2010, 2014 and 2019. The list of the pairs can be seen in Appendix
-% \ref{app:fx_pairs_spread}.
-
-% In order to avoid overnight effects and any artifact due to the opening and
-% closing of the foreign exchange market, we systematically discarded the first ten and the last
-% ten minutes of trading in a given week
-% \cite{Bouchaud_2004,large_prices_changes,spread_changes_affect,Wang_2016_cross}.
-% Therefore, we only consider trades of the same week from Sunday 17:10:00 to Friday
-% 16:50:00 New York local time. We will refer to this interval of time as the ``market
-% time".
-
-
-% \begin{table*}[htbp]
-% \begin{threeparttable}
-% \caption{Analyzed companies.}
-% \begin{tabular*}{\textwidth}{c @{\extracolsep{\fill}} ccccc}
-% \toprule
-% \bf{Company} & \bf{Symbol} & \bf{Sector} & \bf{Quotes}\tnote{1} &
-% \bf{Trades}\tnote{2} & \bf{Spread}\tnote{3}\tabularnewline
-% \midrule
-% Alphabet Inc. & GOOG & Information Technology (IT) & $164489$ & $19029$ &
-% $\$0.04$\tabularnewline
-% Mastercard Inc. & MA & Information Technology (IT) & $98909$ & $6977$ &
-% $\$0.38$\tabularnewline
-% CME Group Inc. & CME & Financials (F) & $98188$ & $3032$ &
-% $\$1.08$\tabularnewline
-% Goldman Sachs Group Inc. & GS & Financials (F) & $160470$ & $26227$ &
-% $\$0.11$\tabularnewline
-% Transocean Ltd. & RIG & Energy (E) & $107092$ & $11641$ &
-% $\$0.12$\tabularnewline
-% Apache Corp. & APA & Energy (E) & $103074$ & $8889$ & $\$0.13$\tabularnewline
-% \bottomrule
-% \end{tabular*}
-% \label{tab:companies}
-% \begin{tablenotes}\footnotesize
-% \item[1] Average number of quotes from 9:40:00 to 15:50:00 New York time.
-% \item[2] Average number of trades from 9:40:00 to 15:50:00 New York time.
-% \item[3] Average spread from 9:40:00 to 15:50:00 New York time.
-% \end{tablenotes}
-% \end{threeparttable}
-% \end{table*}
-
-% Table \ref{tab:companies} shows the companies analyzed with their corresponding
-% symbol and sector. The highest average number of quotes per day and the most
-% liquid stock on average from our selection for the year 2008 is Alphabet Inc.
-% The most traded stock on average from the group was Goldman Sachs Group Inc.
-% On the other side, the stock with the less quotes, less traded and less
-% liquidity on average for the analyzed year was CME Group Inc.
+In order to avoid overnight effects and any artifact due to the opening and
+closing of the foreign exchange market, we systematically discarded the first
+ten and the last ten minutes of trading in a given week
+\cite{Bouchaud_2004,large_prices_changes,spread_changes_affect,Wang_2016_cross,my_paper_response_financial}.
+Therefore, we only consider trades of the same week from Sunday 19:10:00 to
+Friday 16:50:00 New York local time. We will refer to this interval of time as
+the ``market time".
