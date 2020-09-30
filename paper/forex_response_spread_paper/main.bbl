@@ -108,6 +108,12 @@ Lawrence~R Glosten and Lawrence~E Harris.
 \newblock Estimating the components of the bid/ask spread.
 \newblock {\em Journal of Financial Economics}, 21(1):123 -- 142, 1988.
 
+\bibitem{sampling_returns}
+Jim~E. Griffin and Roel C.~A. Oomen.
+\newblock Sampling returns for realized variance calculations: Tick time or
+  transaction time?
+\newblock {\em Econometric Reviews}, 27(1-3):230--253, 2008.
+
 \bibitem{spread_changes_affect}
 Stephan Grimm and Thomas Guhr.
 \newblock How spread changes affect the order book: comparing the price
@@ -236,10 +242,33 @@ Eric Smith, J~Doyne Farmer, L\'aszl\'o Gillemot, and Supriya Krishnamurthy.
 \newblock Statistical theory of the continuous double auction.
 \newblock {\em Quantitative Finance}, 3(6):481--514, 2003.
 
+\bibitem{market_making}
+Ioane~Muni Toke.
+\newblock {\em ``Market Making'' in an Order Book Model and Its Impact on the
+  Spread}, pages 49--64.
+\newblock Springer Milan, Milano, 2011.
+
 \bibitem{order_flow_persistent}
 Bence Tóth, Imon Palit, Fabrizio Lillo, and J.~Doyne Farmer.
 \newblock {Why is equity order flow so persistent?}
 \newblock {\em Journal of Economic Dynamics and Control}, 51(C):218--239, 2015.
+
+\bibitem{Wang_2017}
+Shanshan Wang.
+\newblock Trading strategies for stock pairs regarding to the cross-impact
+  cost, 2017.
+
+\bibitem{Wang_2018_copulas}
+Shanshan Wang and Thomas Guhr.
+\newblock Local fluctuations of the signed traded volumes and the dependencies
+  of demands: a copula analysis.
+\newblock {\em Journal of Statistical Mechanics: Theory and Experiment},
+  2018(3):033407, mar 2018.
+
+\bibitem{Wang_2016_avg}
+Shanshan Wang, Rudi Sch{\"a}fer, and Thomas Guhr.
+\newblock Average cross-responses in correlated financial markets.
+\newblock {\em The European Physical Journal B}, 89(9):207, Sep 2016.
 
 \bibitem{Wang_2016_cross}
 Shanshan Wang, Rudi Schäfer, and Thomas Guhr.
