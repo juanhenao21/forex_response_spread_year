@@ -158,6 +158,12 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmssbx10.tfm
 INPUT /scratch/jchenaol/forex_response_spread_year/paper/forex_response_spread_paper/sections/06_response_functions.tex
 INPUT /scratch/jchenaol/forex_response_spread_year/paper/forex_response_spread_paper/sections/06_response_functions.tex
+INPUT /scratch/jchenaol/forex_response_spread_year/paper/forex_response_spread_paper/figures/04_responses_trade_scale.png
+INPUT /scratch/jchenaol/forex_response_spread_year/paper/forex_response_spread_paper/figures/04_responses_trade_scale.png
+INPUT /scratch/jchenaol/forex_response_spread_year/paper/forex_response_spread_paper/figures/04_responses_trade_scale.png
+INPUT /scratch/jchenaol/forex_response_spread_year/paper/forex_response_spread_paper/figures/04_responses_physical_scale.png
+INPUT /scratch/jchenaol/forex_response_spread_year/paper/forex_response_spread_paper/figures/04_responses_physical_scale.png
+INPUT /scratch/jchenaol/forex_response_spread_year/paper/forex_response_spread_paper/figures/04_responses_physical_scale.png
 INPUT /scratch/jchenaol/forex_response_spread_year/paper/forex_response_spread_paper/sections/07_spread_impact.tex
 INPUT /scratch/jchenaol/forex_response_spread_year/paper/forex_response_spread_paper/sections/07_spread_impact.tex
 INPUT /scratch/jchenaol/forex_response_spread_year/paper/forex_response_spread_paper/sections/08_conclusion.tex
@@ -175,7 +181,9 @@ INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
