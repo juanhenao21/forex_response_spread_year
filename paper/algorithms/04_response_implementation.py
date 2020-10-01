@@ -24,14 +24,14 @@ The module contains the following functions:
 import pickle
 from typing import List
 
-from matplotlib import pyplot as plt #type: ignore
-import numpy as np #type: ignore
+from matplotlib import pyplot as plt  #type: ignore
+import numpy as np  #type: ignore
 
 # ----------------------------------------------------------------------------
 
 
 def hist_trade_scale_response_year_avg_plot(
-        fx_pairs: List[str], years: List[str]) -> None:
+        fx_pairs: List[str], symbols: List[str], years: List[str]) -> None:
     """Plots the avg response for a year in trade time scale.
 
     :param fx_pair: string of the abbreviation of the forex pair to be analyzed
@@ -42,10 +42,10 @@ def hist_trade_scale_response_year_avg_plot(
     """
 
     try:
-        figure: plt.Figure = plt.figure(figsize=(16, 5))
-        ax1: plt.subplot = plt.subplot(1, 3, 1)
-        ax2: plt.subplot = plt.subplot(1, 3, 2)
-        ax3: plt.subplot = plt.subplot(1, 3, 3)
+        figure: plt.Figure = plt.figure(figsize=(6, 16))
+        ax1: plt.subplot = plt.subplot(3, 1, 1)
+        ax2: plt.subplot = plt.subplot(3, 1, 2)
+        ax3: plt.subplot = plt.subplot(3, 1, 3)
 
         ax_plot: List[plt.subplot] = [ax1, ax2, ax3]
 
@@ -53,7 +53,7 @@ def hist_trade_scale_response_year_avg_plot(
         year: str
 
         for idx, year in enumerate(years):
-            for fx_pair in fx_pairs:
+            for fx_idx, fx_pair in enumerate(fx_pairs):
 
                 # Load data
                 resp: np.ndarray = pickle.load(
@@ -62,10 +62,11 @@ def hist_trade_scale_response_year_avg_plot(
                          + f'{fx_pair}/hist_fx_self_response_year_responses'
                          + f'_trade_data_{fx_pair}_{year}.pickle', 'rb'))
 
-                ax_plot[idx].semilogx(resp, linewidth=5, label=f'{fx_pair}')
+                ax_plot[idx].semilogx(resp, linewidth=5,
+                                      label=f'{symbols[fx_idx]}')
 
-        ax1.set_title(f'{years[0]}', fontsize=20)
-        ax1.set_xlabel(r'$\tau \, [s]$', fontsize=15)
+        ax1.set_title(f'{years[0]}', fontsize=15)
+        ax1.set_xlabel(r'$\tau \, [trades]$', fontsize=15)
         ax1.set_ylabel(r'$R^{\left(t\right)}_{ii}(\tau)$', fontsize=15)
         ax1.tick_params(axis='x', labelsize=10)
         ax1.tick_params(axis='y', labelsize=10)
@@ -75,9 +76,8 @@ def hist_trade_scale_response_year_avg_plot(
         ax1.yaxis.offsetText.set_fontsize(10)
         ax1.grid(True)
 
-
-        ax2.set_title(f'{years[1]}', fontsize=20)
-        ax2.set_xlabel(r'$\tau \, [s]$', fontsize=15)
+        ax2.set_title(f'{years[1]}', fontsize=15)
+        ax2.set_xlabel(r'$\tau \, [trades]$', fontsize=15)
         ax2.set_ylabel(r'$R^{\left(t\right)}_{ii}(\tau)$', fontsize=15)
         ax2.tick_params(axis='x', labelsize=10)
         ax2.tick_params(axis='y', labelsize=10)
@@ -87,10 +87,10 @@ def hist_trade_scale_response_year_avg_plot(
         ax2.yaxis.offsetText.set_fontsize(10)
         ax2.grid(True)
 
-        ax3.set_title(f'{years[2]}', fontsize=20)
-        # plt.legend(loc='upper center', bbox_to_anchor=(0.01, -0.8, 1, 1), bbox_transform=plt.gcf().transFigure, ncol=7,
-        #            fontsize=15)
-        ax3.set_xlabel(r'$\tau \, [s]$', fontsize=15)
+        ax3.set_title(f'{years[2]}', fontsize=15)
+        ax3.legend(loc='upper center', bbox_to_anchor=(0.5, -0.2), ncol=3,
+                   fontsize=13)
+        ax3.set_xlabel(r'$\tau \, [trades]$', fontsize=15)
         ax3.set_ylabel(r'$R^{\left(t\right)}_{ii}(\tau)$', fontsize=15)
         ax3.tick_params(axis='x', labelsize=10)
         ax3.tick_params(axis='y', labelsize=10)
@@ -116,7 +116,7 @@ def hist_trade_scale_response_year_avg_plot(
 
 
 def hist_physical_scale_response_year_avg_plot(
-        fx_pairs: List[str], years: List[str]) -> None:
+        fx_pairs: List[str], symbols: List[str], years: List[str]) -> None:
     """Plots the avg response for a year in physical time scale.
 
     :param fx_pair: string of the abbreviation of the forex pair to be analyzed
@@ -127,10 +127,10 @@ def hist_physical_scale_response_year_avg_plot(
     """
 
     try:
-        figure: plt.Figure = plt.figure(figsize=(16, 5))
-        ax1: plt.subplot = plt.subplot(1, 3, 1)
-        ax2: plt.subplot = plt.subplot(1, 3, 2)
-        ax3: plt.subplot = plt.subplot(1, 3, 3)
+        figure: plt.Figure = plt.figure(figsize=(6, 16))
+        ax1: plt.subplot = plt.subplot(3, 1, 1)
+        ax2: plt.subplot = plt.subplot(3, 1, 2)
+        ax3: plt.subplot = plt.subplot(3, 1, 3)
 
         ax_plot: List[plt.subplot] = [ax1, ax2, ax3]
 
@@ -138,7 +138,7 @@ def hist_physical_scale_response_year_avg_plot(
         year: str
 
         for idx, year in enumerate(years):
-            for fx_pair in fx_pairs:
+            for fx_idx, fx_pair in enumerate(fx_pairs):
 
                 # Load data
                 resp: np.ndarray = pickle.load(
@@ -148,13 +148,12 @@ def hist_physical_scale_response_year_avg_plot(
                          + f'_responses_physical_data_{fx_pair}_{year}.pickle',
                          'rb'))
 
-                ax_plot[idx].semilogx(resp, linewidth=5, label=f'{fx_pair}')
+                ax_plot[idx].semilogx(resp, linewidth=5,
+                                      label=f'{symbols[fx_idx]}')
 
-        ax1.legend(loc='upper center', bbox_to_anchor=(0.5, -0.2), ncol=3,
-                   fontsize=15)
-        ax1.set_title(f'{years[0]}', fontsize=20)
+        ax1.set_title(f'{years[0]}', fontsize=15)
         ax1.set_xlabel(r'$\tau \, [s]$', fontsize=15)
-        ax1.set_ylabel(r'$R^{\left(t\right)}_{ii}(\tau)$', fontsize=15)
+        ax1.set_ylabel(r'$R^{\left(p\right)}_{ii}(\tau)$', fontsize=15)
         ax1.tick_params(axis='x', labelsize=10)
         ax1.tick_params(axis='y', labelsize=10)
         ax1.set_xlim(1, 1000)
@@ -163,11 +162,9 @@ def hist_physical_scale_response_year_avg_plot(
         ax1.yaxis.offsetText.set_fontsize(10)
         ax1.grid(True)
 
-        ax2.legend(loc='upper center', bbox_to_anchor=(0.5, -0.2), ncol=3,
-                   fontsize=15)
-        ax2.set_title(f'{years[1]}', fontsize=20)
+        ax2.set_title(f'{years[1]}', fontsize=15)
         ax2.set_xlabel(r'$\tau \, [s]$', fontsize=15)
-        ax2.set_ylabel(r'$R^{\left(t\right)}_{ii}(\tau)$', fontsize=15)
+        ax2.set_ylabel(r'$R^{\left(p\right)}_{ii}(\tau)$', fontsize=15)
         ax2.tick_params(axis='x', labelsize=10)
         ax2.tick_params(axis='y', labelsize=10)
         ax2.set_xlim(1, 1000)
@@ -176,11 +173,11 @@ def hist_physical_scale_response_year_avg_plot(
         ax2.yaxis.offsetText.set_fontsize(10)
         ax2.grid(True)
 
+        ax3.set_title(f'{years[2]}', fontsize=15)
         ax3.legend(loc='upper center', bbox_to_anchor=(0.5, -0.2), ncol=3,
-                   fontsize=15)
-        ax3.set_title(f'{years[2]}', fontsize=20)
+                   fontsize=13)
         ax3.set_xlabel(r'$\tau \, [s]$', fontsize=15)
-        ax3.set_ylabel(r'$R^{\left(t\right)}_{ii}(\tau)$', fontsize=15)
+        ax3.set_ylabel(r'$R^{\left(p\right)}_{ii}(\tau)$', fontsize=15)
         ax3.tick_params(axis='x', labelsize=10)
         ax3.tick_params(axis='y', labelsize=10)
         ax3.set_xlim(1, 1000)
@@ -211,10 +208,12 @@ def main():
 
     fx_pairs: List[str] = ['eur_usd', 'gbp_usd', 'usd_jpy', 'aud_usd',
                            'usd_chf', 'usd_cad', 'nzd_usd']
+    symbols: List[str] = ['EUR/USD', 'GBP/USD', 'USD/JPY', 'AUD/USD',
+                          'USD/CHF', 'USD/CAD', 'NZD/USD']
     years: List[str] = ['2008', '2014', '2019']
 
-    hist_trade_scale_response_year_avg_plot(fx_pairs, years)
-    hist_physical_scale_response_year_avg_plot(fx_pairs, years)
+    hist_trade_scale_response_year_avg_plot(fx_pairs, symbols, years)
+    hist_physical_scale_response_year_avg_plot(fx_pairs, symbols, years)
 
 # -----------------------------------------------------------------------------
 
