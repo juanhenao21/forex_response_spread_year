@@ -45,7 +45,7 @@ def hist_fx_self_response_year_avg_responses_trade_plot(year: str) -> None:
             .hist_function_header_print_plot(function_name, '', year)
 
         # Load data
-        resp_g1, resp_g2, resp_g3, resp_g4, resp_g5 = pickle.load(open(
+        resp_g1, resp_g2, resp_g3 = pickle.load(open(
             f'../../hist_data/avg_responses_data_{year}/hist_fx_self_response'
             + f'_year_avg_responses_trade_data/hist_fx_self_response_year_avg'
             + f'_responses_trade_data_{year}_.pickle', 'rb'))
@@ -55,8 +55,6 @@ def hist_fx_self_response_year_avg_responses_trade_plot(year: str) -> None:
         plt.semilogx(resp_g1, linewidth=5, label=f'Group 1')
         plt.semilogx(resp_g2, linewidth=5, label=f'Group 2')
         plt.semilogx(resp_g3, linewidth=5, label=f'Group 3')
-        plt.semilogx(resp_g4, linewidth=5, label=f'Group 4')
-        plt.semilogx(resp_g5, linewidth=5, label=f'Group 5')
 
         plt.legend(loc='best', fontsize=25)
         plt.title('Self-response', fontsize=40)
@@ -97,7 +95,7 @@ def hist_fx_self_response_year_avg_responses_physical_plot(year: str) -> None:
             .hist_function_header_print_plot(function_name, '', year)
 
         # Load data
-        resp_g1, resp_g2, resp_g3, resp_g4, resp_g5 = pickle.load(open(
+        resp_g1, resp_g2, resp_g3 = pickle.load(open(
             f'../../hist_data/avg_responses_data_{year}/hist_fx_self_response'
             + f'_year_avg_responses_physical_data/hist_fx_self_response_year'
             + f'_avg_responses_physical_data_{year}_.pickle', 'rb'))
@@ -107,8 +105,6 @@ def hist_fx_self_response_year_avg_responses_physical_plot(year: str) -> None:
         plt.semilogx(resp_g1, linewidth=5, label=f'Group 1')
         plt.semilogx(resp_g2, linewidth=5, label=f'Group 2')
         plt.semilogx(resp_g3, linewidth=5, label=f'Group 3')
-        plt.semilogx(resp_g4, linewidth=5, label=f'Group 4')
-        plt.semilogx(resp_g5, linewidth=5, label=f'Group 5')
 
         plt.legend(loc='best', fontsize=25)
         plt.title('Self-response', fontsize=40)
