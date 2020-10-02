@@ -58,7 +58,15 @@ def hist_quotes_trades_day_avg_spread_data(
                         + f'_data_extraction/{fx_pair}/hist_fx_data_extraction'
                         + f'_{fx_pair}_w{week}.pickle', 'rb'))
 
-        spread: np.ndarray = fx_data['Spread'].to_numpy()
+        if ('JPY' in fx_pair or
+            'CZK' in fx_pair or
+            'HUF' in fx_pair or
+            'MXN' in fx_pair or
+            'ZAR' in fx_pair):
+            spread: np.ndarray = fx_data['Spread'].to_numpy() * 100
+            print(fx_pair)
+        else:
+            spread: np.ndarray = fx_data['Spread'].to_numpy() * 1000
 
         num_quotes: int = len(spread)
         avg_spread: float = np.mean(spread)
@@ -115,8 +123,7 @@ def hist_quotes_trades_year_avg_spread_data(fx_pairs: List[str],
 
         # To obtain the average of the year, I average all the results of the
         # corresponding values (number quotes, trades and avg spread)
-        stat_year: List[str] = list(str(np.nanmean(stat[0], axis=0)))
-
+        stat_year: List[str] = list(np.nanmean(stat[0], axis=0))
         spread_stats.loc[idx] = [fx_pair] + stat_year
 
     spread_stats.sort_values(by='Avg_Spread', inplace=True)
