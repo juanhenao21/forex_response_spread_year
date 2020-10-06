@@ -324,28 +324,13 @@ def hist_fx_trade_signs_trade_data(fx_pair: str, year: str, week: str) -> None:
         fx_data: pd.DataFrame = pickle.load(open(
                         f'../../hist_data/extraction_data_{year}/hist_fx_data'
                         + f'_extraction_week/{fx_pair}/hist_fx_data_extraction'
-                        + f'_week_{fx_pair}_w{week}.pickle', 'rb'))
+                        + f'week_{fx_pair}_w{week}.pickle', 'rb'))
 
-        midpoint: np.ndarray = fx_data['Midpoint'].to_numpy()
-        trade_signs: np.ndarray = 0 * midpoint
-
-        m_idx: int
-        m_val: float
-        for m_idx, m_val in enumerate(midpoint):
-
-            sign: np.ndarray = np.sign(m_val - midpoint[m_idx - 1])
-
-            if sign:
-                trade_signs[m_idx] = sign
-            else:
-                trade_signs[m_idx] = trade_signs[m_idx - 1]
-
-        if trade_signs[0] == 0:
-            trade_signs[0] = trade_signs[1]
-        if (trade_signs[0] == 0 and trade_signs[1] == 0):
-            trade_signs[0] = trade_signs[2]
-            trade_signs[1] = trade_signs[2]
-        assert np.sum(trade_signs == 0) == 0
+        trade_signs_bef: pd.Series = np.sign(fx_data['Midpoint'].diff())
+        trade_signs_bef[trade_signs_bef == 0] =\
+            trade_signs_bef[trade_signs_bef == 0] * np.nan
+        trade_signs_bef.iloc[0] = 1
+        trade_signs: pd.Series = trade_signs_bef.fillna(method='ffill')
 
         fx_data['Signs'] = trade_signs
 
