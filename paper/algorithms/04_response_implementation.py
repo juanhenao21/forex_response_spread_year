@@ -34,9 +34,10 @@ def hist_trade_scale_response_year_avg_plot(
         fx_pairs: List[str], symbols: List[str], years: List[str]) -> None:
     """Plots the avg response for a year in trade time scale.
 
-    :param fx_pair: string of the abbreviation of the forex pair to be analyzed
-     (i.e. ['eur_usd', 'gbp_usd']).
-    :param year: string of the year to be analyzed (i.e. ['2016', '2019']).
+    :param fx_pairs: list of strings of the abbreviation of the forex pairs to
+     be analyzed (i.e. ['eur_usd', 'gbp_usd']).
+    :param years: list of strings of the years to be analyzed
+     (i.e. ['2016', '2019']).
     :return: None -- The function saves the plot in a file and does not return
      a value.
     """
