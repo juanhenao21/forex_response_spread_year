@@ -56,9 +56,9 @@ def hist_fx_data_extraction_year(fx_pair: str, year: str) -> pd.DataFrame:
 
     pair: List[str] = fx_pair.split('_')
     cap_pair: str = pair[0].upper() + pair[1].upper()
-    fx_data_col: List[str] = ['DateTime', 'Ask', 'Bid']
-    fx_data_type: Dict[str, Any] = {'DateTime': str, 'Ask': float,
-                                    'Bid': float}
+    fx_data_col: List[str] = ['DateTime', 'Bid', 'Ask']
+    fx_data_type: Dict[str, Any] = {'DateTime': str, 'Bid': float,
+                                    'Ask': float}
     fx_data: pd.DataFrame = pd.DataFrame(columns=fx_data_col)
 
     m_num: int
@@ -333,6 +333,7 @@ def hist_fx_trade_signs_trade_data(fx_pair: str, year: str, week: str) -> None:
         trade_signs: pd.Series = trade_signs_bef.fillna(method='ffill')
 
         fx_data['Signs'] = trade_signs
+        fx_data.set_index('DateTime', inplace=True)
 
         # Saving data
         hist_data_tools_extraction.hist_save_data(fx_data, fx_pair, year, week)
