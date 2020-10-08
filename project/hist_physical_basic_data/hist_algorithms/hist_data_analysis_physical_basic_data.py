@@ -52,77 +52,39 @@ def hist_fx_physical_data(fx_pair: str, year: str, week: str) -> None:
                         + f'_extraction_week/{fx_pair}/hist_fx_data_extraction'
                         + f'_week_{fx_pair}_w{week}.pickle', 'rb'))
 
-        # DataFrame physical time
-        physical_col: List[str] = ['DateTime', 'Midpoint', 'Signs']
-        physical_data: pd.DataFrame = pd.DataFrame(columns=physical_col)
+        fx_data_p = fx_data[['Midpoint', 'Signs']]
+
         # Days in the week
-        dates: List[dt.date] = sorted(set(fx_data['DateTime'].dt.date))
-        date: dt.date = dates[0]
+        dates: List[dt.date] = sorted(set(fx_data.index))
+        date_init: dt.date = dates[0]
+        date_end: dt.date = dates[-1]
 
         # First day of the week to be analyzed
-        t_init: dt.datetime = dt.datetime(date.year, date.month, date.day,
-                                          17, 10, 0, 0)
+        t_init: dt.datetime = dt.datetime(date_init.year, date_init.month,
+                                          date_init.day, 17, 10, 0, 0)
+        t_init_dict = {'DateTime': t_init, 'Midpoint': np.nan, 'Signs': np.nan}
+        t_init_df = pd.DataFrame(t_init_dict, index=[t_init])
+        t_init_df.set_index('DateTime', inplace=True)
+        fx_data_p = pd.concat([t_init_df, fx_data_p])
 
-        # The total number of seconds in the week. The time starts 10 min after
-        # the opening of the market and ends 10 min before it closes
-        t_secs: range = range(0, 86400 * (len(dates) - 1) - 1200 + 2)
-        # Create DateTime object with all the seconds in all the days of the
-        # week
-        dates_seconds: List[dt.datetime] = list(
-            map(lambda x: t_init + dt.timedelta(seconds=x), t_secs))
-        physical_data['DateTime'] = dates_seconds[:-1]
+        # Last day of the week to be analyzed
+        t_end: dt.datetime = dt.datetime(date_end.year, date_end.month,
+                                          date_end.day, 16, 50, 1, 0)
+        t_end_dict = {'DateTime': t_end, 'Midpoint': np.nan, 'Signs': np.nan}
+        t_end_df = pd.DataFrame(t_end_dict, index=[t_end])
+        t_end_df.set_index('DateTime', inplace=True)
+        fx_data_p = pd.concat([fx_data_p, t_end_df])
 
-        # Initial numpy arrays
-        midpoint: np.ndarray = np.zeros(len(dates_seconds[:-1]))
-        trade_signs: np.ndarray = np.zeros(len(dates_seconds[:-1]))
-
-        # Trade data to numpy array
-        datetime_fx_data: List[dt.datetime] = list(sorted(set(
-            map(lambda x: x.replace(microsecond=0), fx_data['DateTime']))))
-        midpoint_fx_data: np.ndarray = fx_data['Midpoint'].to_numpy()
-        trade_signs_fx_data: np.ndarray = fx_data['Signs'].to_numpy()
-
-        # Select the last midpoint price of every second. If there is no
-        # midpoint price in a second, takes the value of the previous second
-        t_val: dt.datetime
-        for t_val in datetime_fx_data:
-            condition: np.ndarray = (fx_data['DateTime'] >= t_val) \
-                & (fx_data['DateTime'] < t_val + dt.timedelta(seconds=1))
-            trades_same_t_exp: np.ndarray = trade_signs_fx_data[condition]
-            sign_exp: np.ndarray = int(np.sign(np.sum(trades_same_t_exp)))
-            pos: np.ndarray = np.where(t_val == physical_data['DateTime'])
-            trade_signs[pos] = sign_exp
-            midpoint[pos] = midpoint_fx_data[condition][-1]
-
-        # Some values in the midpoint array are 0. To fix it find the zero
-        # values positions and replace with the first value different to
-        # zero
-        no_zero_pos: np.ndarray = np.where(midpoint != 0)[0]
-
-        z_idx: int
-        z_pos: int
-        for z_idx, z_pos in enumerate(no_zero_pos):
-            # First positions
-            if not z_idx:
-                midpoint[:z_pos] = midpoint[z_pos]
-                midpoint[z_pos:no_zero_pos[z_idx + 1]] = midpoint[z_pos]
-            # Last positions
-            if z_pos == no_zero_pos[-1]:
-                midpoint[z_pos:] = midpoint[z_pos]
-            else:
-                midpoint[z_pos:no_zero_pos[z_idx + 1]] = midpoint[z_pos]
-
-        assert not np.sum(midpoint == 0)
-
-        physical_data['Midpoint'] = midpoint
-        physical_data['Signs'] = trade_signs
+        fx_data_p = fx_data_p.asfreq(freq='S', method='ffill')
+        fx_data_p = fx_data_p.fillna(method='ffill')
+        fx_data_p = fx_data_p.fillna(method='bfill')
 
         # Saving data
         hist_data_tools_physical_basic_data \
-            .hist_save_data(physical_data, fx_pair, year, week)
+            .hist_save_data(fx_data_p, fx_pair, year, week)
 
         del fx_data
-        del physical_data
+        del fx_data_p
 
     except FileNotFoundError as error:
         print('No data')
