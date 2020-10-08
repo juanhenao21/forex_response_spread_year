@@ -324,7 +324,7 @@ def hist_fx_trade_signs_trade_data(fx_pair: str, year: str, week: str) -> None:
         fx_data: pd.DataFrame = pickle.load(open(
                         f'../../hist_data/extraction_data_{year}/hist_fx_data'
                         + f'_extraction_week/{fx_pair}/hist_fx_data_extraction'
-                        + f'week_{fx_pair}_w{week}.pickle', 'rb'))
+                        + f'_week_{fx_pair}_w{week}.pickle', 'rb'))
 
         trade_signs_bef: pd.Series = np.sign(fx_data['Midpoint'].diff())
         trade_signs_bef[trade_signs_bef == 0] =\
