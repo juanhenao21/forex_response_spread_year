@@ -69,7 +69,7 @@ def hist_fx_physical_data(fx_pair: str, year: str, week: str) -> None:
 
         # Last day of the week to be analyzed
         t_end: dt.datetime = dt.datetime(date_end.year, date_end.month,
-                                          date_end.day, 16, 50, 1, 0)
+                                         date_end.day, 16, 50, 1, 0)
         t_end_dict = {'DateTime': t_end, 'Midpoint': np.nan, 'Signs': np.nan}
         t_end_df = pd.DataFrame(t_end_dict, index=[t_end])
         t_end_df.set_index('DateTime', inplace=True)

@@ -123,7 +123,6 @@ def main() -> None:
                              'usd_mxn', 'usd_nok', 'usd_pln', 'usd_sek',
                              'usd_sgd', 'usd_try', 'usd_zar']
 
-
     # Basic folders
     hist_data_tools_extraction.hist_start_folders(years_2)
 
