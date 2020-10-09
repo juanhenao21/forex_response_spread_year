@@ -104,28 +104,6 @@ def main() -> None:
     :return: None.
     """
 
-    import multiprocessing as mp
-    from itertools import product as iprod
-
-    # Forex pairs and weeks to analyze
-    # Response function analysis
-    # The other years will be downloaded with the spread data
-    years_1: List[str] = ['2008']#, '2014']
-    weeks_1: Tuple[str, ...] = hist_data_tools_physical_basic_data.hist_weeks()
-    fx_pairs_1: List[str] = ['eur_usd']#, 'gbp_usd', 'usd_jpy', 'aud_usd',
-                            #  'usd_chf', 'usd_cad', 'nzd_usd']
-
-
-    hist_fx_physical_data('eur_usd', '2008', '01')
-    # Basic folders
-    # hist_data_tools_physical_basic_data.hist_start_folders(years_1)
-
-    # Parallel computing
-    # with mp.Pool(processes=mp.cpu_count() - 5) as pool:
-    #     # Basic functions
-    #     pool.starmap(hist_fx_physical_data,
-    #                  iprod(fx_pairs_1, years_1, weeks_1))
-
 # -----------------------------------------------------------------------------
 
 
