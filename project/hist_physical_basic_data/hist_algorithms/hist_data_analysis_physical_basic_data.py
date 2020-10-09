@@ -103,6 +103,7 @@ def main() -> None:
     """
 
     import multiprocessing as mp
+    from itertools import product as iprod
 
     # Forex pairs and weeks to analyze
     # Response function analysis
@@ -118,8 +119,7 @@ def main() -> None:
     # Parallel computing
     with mp.Pool(processes=mp.cpu_count() - 5) as pool:
         # Basic functions
-        pool.starmap(hist_data_analysis_physical_basic_data
-                     .hist_fx_physical_data,
+        pool.starmap(hist_fx_physical_data,
                      iprod(fx_pairs_1, years_1, weeks_1))
 
 # -----------------------------------------------------------------------------
