@@ -75,6 +75,8 @@ def hist_fx_physical_data(fx_pair: str, year: str, week: str) -> None:
         t_end_df.set_index('DateTime', inplace=True)
         fx_data_p = pd.concat([fx_data_p, t_end_df])
 
+        fx_data_p = fx_data_p.groupby(level=fx_data_p.index.names)
+        fx_data_p = fx_data_p.last()
         fx_data_p = fx_data_p.asfreq(freq='S', method='ffill')
         fx_data_p = fx_data_p.fillna(method='ffill')
         fx_data_p = fx_data_p.fillna(method='bfill')
@@ -110,17 +112,19 @@ def main() -> None:
     # The other years will be downloaded with the spread data
     years_1: List[str] = ['2008']#, '2014']
     weeks_1: Tuple[str, ...] = hist_data_tools_physical_basic_data.hist_weeks()
-    fx_pairs_1: List[str] = ['eur_usd', 'gbp_usd', 'usd_jpy', 'aud_usd',
-                             'usd_chf', 'usd_cad', 'nzd_usd']
+    fx_pairs_1: List[str] = ['eur_usd']#, 'gbp_usd', 'usd_jpy', 'aud_usd',
+                            #  'usd_chf', 'usd_cad', 'nzd_usd']
 
+
+    hist_fx_physical_data('eur_usd', '2008', '01')
     # Basic folders
-    hist_data_tools_physical_basic_data.hist_start_folders(years_1)
+    # hist_data_tools_physical_basic_data.hist_start_folders(years_1)
 
     # Parallel computing
-    with mp.Pool(processes=mp.cpu_count() - 5) as pool:
-        # Basic functions
-        pool.starmap(hist_fx_physical_data,
-                     iprod(fx_pairs_1, years_1, weeks_1))
+    # with mp.Pool(processes=mp.cpu_count() - 5) as pool:
+    #     # Basic functions
+    #     pool.starmap(hist_fx_physical_data,
+    #                  iprod(fx_pairs_1, years_1, weeks_1))
 
 # -----------------------------------------------------------------------------
 
