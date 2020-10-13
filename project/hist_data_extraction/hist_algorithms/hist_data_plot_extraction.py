@@ -75,7 +75,7 @@ def hist_fx_quotes_year_plot(fx_pair: str, year: str,
 
     # plt.legend(loc='best', fontsize=25)
     plt.title(f'HIST quotes price - {fx_pair_upper}', fontsize=40)
-    plt.xlabel(r'Time $[s]$', fontsize=35)
+    plt.xlabel(r'Time $[trades]$', fontsize=35)
     plt.ylabel(r'Quotes $[\$]$', fontsize=35)
     plt.xticks(fontsize=25)
     plt.yticks(fontsize=25)
@@ -131,7 +131,7 @@ def hist_fx_midpoint_year_plot(fx_pair: str, year: str,
         plt.plot(fx_data['Midpoint'], 'g', linewidth=5)
 
     plt.title(f'HIST midpoint price - {fx_pair_upper}', fontsize=40)
-    plt.xlabel(r'Time $[s]$', fontsize=35)
+    plt.xlabel(r'Time $[trades]$', fontsize=35)
     plt.ylabel(r'$m(t) [\$]$', fontsize=35)
     plt.xticks(fontsize=25)
     plt.yticks(fontsize=25)
@@ -186,7 +186,7 @@ def hist_fx_spread_year_plot(fx_pair: str, year: str,
         plt.plot(fx_data['Spread'], 'g', linewidth=5)
 
     plt.title(f'HIST spread price - {fx_pair_upper}', fontsize=40)
-    plt.xlabel(r'Time $[s]$', fontsize=35)
+    plt.xlabel(r'Time $[trades]$', fontsize=35)
     plt.ylabel(r'Spread $[\$]$', fontsize=35)
     plt.xticks(fontsize=25)
     plt.yticks(fontsize=25)
