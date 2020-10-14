@@ -77,9 +77,10 @@ def hist_fx_physical_data(fx_pair: str, year: str, week: str) -> None:
 
         fx_data_p = fx_data_p.groupby(level=fx_data_p.index.names)
         fx_data_p = fx_data_p.last()
-        fx_data_p = fx_data_p.asfreq(freq='S', method='ffill')
-        fx_data_p = fx_data_p.fillna(method='ffill')
-        fx_data_p = fx_data_p.fillna(method='bfill')
+        fx_data_p = fx_data_p.asfreq(freq='S')
+        fx_data_p['Midpoint'] = fx_data_p['Midpoint'].fillna(method='ffill')
+        fx_data_p['Midpoint'] = fx_data_p['Midpoint'].fillna(method='bfill')
+        fx_data_p['Signs'] = fx_data_p['Signs'].fillna(value=0)
 
         # Saving data
         hist_data_tools_physical_basic_data \
@@ -103,6 +104,12 @@ def main() -> None:
 
     :return: None.
     """
+
+    fx_pair = 'eur_usd'
+    year = '2011'
+    week = '01'
+
+    hist_fx_physical_data(fx_pair, year, week)
 
 # -----------------------------------------------------------------------------
 
