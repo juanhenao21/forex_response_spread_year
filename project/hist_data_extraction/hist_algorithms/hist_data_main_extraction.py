@@ -47,27 +47,27 @@ def hist_data_plot_generator(fx_pairs: List[str], years: List[str],
      a value.
     """
 
-    fx_pair: str
-    year: str
-    for fx_pair in fx_pairs:
-        for year in years:
-            # Data extraction
-            hist_data_analysis_extraction \
-                .hist_fx_data_extraction_week(fx_pair, year)
+    # fx_pair: str
+    # year: str
+    # for fx_pair in fx_pairs:
+    #     for year in years:
+    #         # Data extraction
+    #         hist_data_analysis_extraction \
+    #             .hist_fx_data_extraction_week(fx_pair, year)
 
-    # Parallel computing
-    with mp.Pool(processes=mp.cpu_count()) as pool:
-        # Basic functions
-        pool.starmap(hist_data_analysis_extraction
-                     .hist_fx_midpoint_trade_data,
-                     iprod(fx_pairs, years, weeks))
+    # # Parallel computing
+    # with mp.Pool(processes=mp.cpu_count()) as pool:
+    #     # Basic functions
+    #     pool.starmap(hist_data_analysis_extraction
+    #                  .hist_fx_midpoint_trade_data,
+    #                  iprod(fx_pairs, years, weeks))
 
-    # Parallel computing
-    with mp.Pool(processes=mp.cpu_count()) as pool:
-        # Basic functions
-        pool.starmap(hist_data_analysis_extraction
-                     .hist_fx_trade_signs_trade_data,
-                     iprod(fx_pairs, years, weeks))
+    # # Parallel computing
+    # with mp.Pool(processes=mp.cpu_count()) as pool:
+    #     # Basic functions
+    #     pool.starmap(hist_data_analysis_extraction
+    #                  .hist_fx_trade_signs_trade_data,
+    #                  iprod(fx_pairs, years, weeks))
 
     for fx_pair in fx_pairs:
         for year in years:
