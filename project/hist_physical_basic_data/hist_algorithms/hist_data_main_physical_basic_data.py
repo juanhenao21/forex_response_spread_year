@@ -47,12 +47,12 @@ def hist_data_plot_generator(fx_pairs: List[str], years: List[str],
      a value.
     """
 
-    # Parallel computing
-    with mp.Pool(processes=mp.cpu_count() - 5) as pool:
-        # Basic functions
-        pool.starmap(hist_data_analysis_physical_basic_data
-                     .hist_fx_physical_data,
-                     iprod(fx_pairs, years, weeks))
+    # # Parallel computing
+    # with mp.Pool(processes=mp.cpu_count() - 5) as pool:
+    #     # Basic functions
+    #     pool.starmap(hist_data_analysis_physical_basic_data
+    #                  .hist_fx_physical_data,
+    #                  iprod(fx_pairs, years, weeks))
 
     fx_pair: str
     year: str
