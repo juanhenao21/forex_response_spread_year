@@ -76,8 +76,12 @@ def hist_fx_physical_data(fx_pair: str, year: str, week: str) -> None:
         fx_data_p = pd.concat([fx_data_p, t_end_df])
 
         fx_data_p = fx_data_p.groupby(level=fx_data_p.index.names)
-        fx_data_p = fx_data_p.last()
-        fx_data_p = fx_data_p.asfreq(freq='S')
+        midpoint = fx_data_p['Midpoint'].last()
+        midpoint = midpoint.asfreq(freq='S')
+        signs = np.sign(fx_data_p['Signs'].sum())
+        signs = signs.asfreq(freq='S')
+        series = [midpoint, signs]
+        fx_data_p = pd.concat(series, axis=1)
         fx_data_p['Midpoint'] = fx_data_p['Midpoint'].fillna(method='ffill')
         fx_data_p['Midpoint'] = fx_data_p['Midpoint'].fillna(method='bfill')
         fx_data_p['Signs'] = fx_data_p['Signs'].fillna(value=0)
