@@ -4,7 +4,6 @@ The functions in the module obtain the midpoint price and the trade signs in
 physical time scale for HIST Capital in a year.
 
 This script requires the following modules:
-    * os
     * pickle
     * typing
     * datetime
@@ -53,6 +52,7 @@ def hist_fx_physical_data(fx_pair: str, year: str, week: str) -> None:
                         + f'_week_{fx_pair}_w{week}.pickle', 'rb'))
 
         fx_data_p = fx_data[['Midpoint', 'Signs']]
+        fx_data_p = fx_data_p[fx_data_p.index <= '2019-01-04 16:50:00']
 
         # Days in the week
         dates: List[dt.date] = sorted(set(fx_data.index))
@@ -65,22 +65,22 @@ def hist_fx_physical_data(fx_pair: str, year: str, week: str) -> None:
         t_init_dict = {'DateTime': t_init, 'Midpoint': np.nan, 'Signs': np.nan}
         t_init_df = pd.DataFrame(t_init_dict, index=[t_init])
         t_init_df.set_index('DateTime', inplace=True)
-        fx_data_p = pd.concat([t_init_df, fx_data_p])
 
         # Last day of the week to be analyzed
         t_end: dt.datetime = dt.datetime(date_end.year, date_end.month,
-                                         date_end.day, 16, 50, 1, 0)
+                                         date_end.day, 16, 50, 0, 0)
         t_end_dict = {'DateTime': t_end, 'Midpoint': np.nan, 'Signs': np.nan}
         t_end_df = pd.DataFrame(t_end_dict, index=[t_end])
         t_end_df.set_index('DateTime', inplace=True)
-        fx_data_p = pd.concat([fx_data_p, t_end_df])
 
-        fx_data_p = fx_data_p.groupby(level=fx_data_p.index.names)
-        midpoint = fx_data_p['Midpoint'].last()
-        midpoint = midpoint.asfreq(freq='S')
-        signs = np.sign(fx_data_p['Signs'].sum())
-        signs = signs.asfreq(freq='S')
+        fx_data_p = pd.concat([t_init_df, fx_data_p, t_end_df])
+
+        midpoint = fx_data_p['Midpoint'].resample('S').last()
+        signs = fx_data_p['Signs'].resample('S').sum()
+        signs = np.sign(signs)
+
         series = [midpoint, signs]
+
         fx_data_p = pd.concat(series, axis=1)
         fx_data_p['Midpoint'] = fx_data_p['Midpoint'].fillna(method='ffill')
         fx_data_p['Midpoint'] = fx_data_p['Midpoint'].fillna(method='bfill')
@@ -108,12 +108,6 @@ def main() -> None:
 
     :return: None.
     """
-
-    fx_pair = 'eur_usd'
-    year = '2011'
-    week = '01'
-
-    hist_fx_physical_data(fx_pair, year, week)
 
 # -----------------------------------------------------------------------------
 
