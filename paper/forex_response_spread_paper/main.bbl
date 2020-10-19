@@ -64,6 +64,12 @@ Jeng-Hong Chen.
 \newblock {\em American Journal of Business Education (AJBE)}, 11:55--62, 10
   2018.
 
+\bibitem{order_flow_forex}
+Shikuan Chen, Chih-Chung Chien, and Ming-Jen Chang.
+\newblock Order flow, bid-ask spread and trading density in foreign exchange
+  markets.
+\newblock {\em Journal of Banking \& Finance}, 36(2):597--612, 2012.
+
 \bibitem{limit_ord_spread}
 Kee~H Chung, Bonnie F~[Van Ness], and Robert A~[Van Ness].
 \newblock Limit orders and the bid–ask spread.
@@ -186,6 +192,12 @@ Lukas Menkhoff, Lucio Sarno, Maik Schmeling, and Andreas Schrimpf.
   currency trades.
 \newblock {\em The Journal of Finance}, 71(2):601--634, 2016.
 
+\bibitem{local_forex}
+Lukas Menkhoff and Maik Schmeling.
+\newblock Local information in foreign exchange markets.
+\newblock {\em Journal of International Money and Finance}, 27(8):1383 -- 1406,
+  2008.
+
 \bibitem{asynchrony_effects_corr}
 Michael~C. Münnix, Rudi Schäfer, and Thomas Guhr.
 \newblock Compensating asynchrony effects in the calculation of financial
@@ -204,6 +216,11 @@ Michael~C. Münnix, Rudi Schäfer, and Thomas Guhr.
 \newblock Statistical causes for the epps effect in microstructure noise.
 \newblock {\em International Journal of Theoretical and Applied Finance},
   14(08):1231--1246, 2011.
+
+\bibitem{forex_market_micro}
+Carol Osler.
+\newblock {\em Market Microstructure, Foreign Exchange}, pages 580--614.
+\newblock Springer New York, New York, NY, 2011.
 
 \bibitem{quant_stock_price_response}
 Vasiliki Plerou, Parameswaran Gopikrishnan, Xavier Gabaix, and H.~Eugene
