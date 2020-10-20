@@ -52,7 +52,6 @@ def hist_fx_physical_data(fx_pair: str, year: str, week: str) -> None:
                         + f'_week_{fx_pair}_w{week}.pickle', 'rb'))
 
         fx_data_p = fx_data[['Midpoint', 'Signs']]
-        fx_data_p = fx_data_p[fx_data_p.index <= '2019-01-04 16:50:00']
 
         # Days in the week
         dates: List[dt.date] = sorted(set(fx_data.index))
@@ -72,6 +71,8 @@ def hist_fx_physical_data(fx_pair: str, year: str, week: str) -> None:
         t_end_dict = {'DateTime': t_end, 'Midpoint': np.nan, 'Signs': np.nan}
         t_end_df = pd.DataFrame(t_end_dict, index=[t_end])
         t_end_df.set_index('DateTime', inplace=True)
+
+        fx_data_p = fx_data_p[fx_data_p.index <= t_end]
 
         fx_data_p = pd.concat([t_init_df, fx_data_p, t_end_df])
 
