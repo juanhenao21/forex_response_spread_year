@@ -64,7 +64,6 @@ def hist_quotes_trades_day_avg_spread_data(
             'mxn' in fx_pair or
             'zar' in fx_pair):
             spread: np.ndarray = fx_data['Spread'].to_numpy() * 100
-            print(fx_pair)
         else:
             spread: np.ndarray = fx_data['Spread'].to_numpy() * 1000
 
