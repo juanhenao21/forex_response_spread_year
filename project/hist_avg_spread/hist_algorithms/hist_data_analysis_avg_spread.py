@@ -54,9 +54,9 @@ def hist_quotes_trades_day_avg_spread_data(
     try:
         # Load data
         fx_data: pd.DataFrame = pickle.load(open(
-                        f'../../hist_data/extraction_data_{year}/hist_fx'
-                        + f'_data_extraction/{fx_pair}/hist_fx_data_extraction'
-                        + f'_{fx_pair}_w{week}.pickle', 'rb'))
+                        f'../../hist_data/extraction_data_{year}/hist_fx_data'
+                        + f'_extraction_week/{fx_pair}/hist_fx_data_extraction'
+                        + f'_week_{fx_pair}_w{week}.pickle', 'rb'))
 
         if ('JPY' in fx_pair or
             'CZK' in fx_pair or
