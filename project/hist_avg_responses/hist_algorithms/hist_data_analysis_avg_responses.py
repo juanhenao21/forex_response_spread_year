@@ -60,10 +60,10 @@ def hist_fx_pair_spread_data(year: str) -> List[List[str]]:
         fx_pairs: List[List[str]] = []
 
         group_1: pd.DataFrame = \
-            spread_data[spread_data['Avg_Spread'] < 0.5]
+            spread_data[spread_data['Avg_Spread'] < 0.6]
         tickers_g1: List[str] = group_1['FxPair'].tolist()
         group_2: pd.DataFrame = \
-            spread_data[(spread_data['Avg_Spread'] >= 0.5)
+            spread_data[(spread_data['Avg_Spread'] >= 0.6)
                         & (spread_data['Avg_Spread'] < 7)]
         tickers_g2: List[str] = group_2['FxPair'].tolist()
         group_3: pd.DataFrame = \
