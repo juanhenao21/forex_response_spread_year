@@ -109,17 +109,22 @@ $average$ refers to the way to average the price response, whether relative to
 the physical time scale ($average = P$) or relative to the trade time scale
 ($average = T$).
 
+For correlated financial markets, the price response function increase to a
+maximum and then slowly decrease. This result is observed empirically in trade
+time scale and in physical time scale
+\cite{my_paper_response_financial,Wang_2016_avg}.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Response functions on trade time scale}
 \label{subsec:response_function_trade}
 
 The price response function in trade time scale is defined as
+\cite{my_paper_response_financial}
 \begin{equation}\label{eq:response_functions_trade_scale_general}
     R^{\left(t\right)}_{ii}\left(\tau\right)=\left\langle r^{\left(p\right)}
     _{i}\left(t-1,\tau \right)\varepsilon_{i}^{\left(t\right)}
     \left(t, n\right)\right\rangle _{T}
 \end{equation}
-where the superscript $t$ refers to the trade time scale.
 
 To compute the response functions on trade time scale, we used all the trade
 signs during a week in market time.
@@ -135,20 +140,23 @@ signs during a week in market time.
     \label{fig:response_function_trade_scale}
 \end{figure}
 
-% The results of Fig. \ref{fig:response_function_trade_scale} show the self-
-% responses of the six stocks used in the analysis and the cross-responses for
-% pairs of stocks representing three different economic sectors.
-
-% The self-response functions increase to a maximum and then slowly decrease. In
-% some stocks this behavior is more pronounced than in others. For our selected
-% tickers, a time lag of $\tau = 10^{3}s$ is enough to see an increase to a
-% maximum followed by a decrease. Thus, the trend in the self-response functions
-% is eventually reversed.
-% On the other hand, the cross-response functions have smaller signal strength
-% than the self-response functions. For our cross-response functions of stocks in
-% the same sectors, some couples exhibit the increase-decrease behavior inside a
-% time lag of $\tau = 10^{3}s$. Other couples seems to need a larger time lag to
-% reach the decrease behavior.
+The results of Fig. \ref{fig:response_function_trade_scale} show the
+price response functions of the seven foreign exchange pair majors used in the
+analysis (see \ref{tab:majors}). In general it can be seen the same behavior
+observed in financial correlated markets. The response functions increase to a
+maximum and then slowly decrease. For our selected pairs, a time lag of
+$\tau = 10^{3}s$ is enough to see an increase to a maximum followed by a
+decrease. Thus, the trend in the self-response functions is eventually
+reversed. The response signal is much more noisier in the year 2008 for the
+first seconds in the time lag. In the three years, the more liquid currency
+pairs have a smaller response in comparison with the non-liquid pairs. The
+strength of the response function vary from one year to the other. In 2008 the
+strength of the signal is one order of magnitude stronger than the response in
+2014, but the signal in 2014 is approximately twice the strength the signal of
+2019. This behavior can be explained by the fact that in recent times algorithm
+trading has been used intensively. Thus, many more trades were carried out in
+the last years, which means, the impact of each trade is reduced, and then the
+response functions tend to decrese compared with previous years.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Response functions on physical time scale}
@@ -158,7 +166,7 @@ One important detail to compute the market response in physical time scale is
 to define how the averaging of the function will be made, because the
 response functions highly differ when we include or exclude
 $\varepsilon^{\left(p\right)}_j \left( t\right) = 0$ \cite{Wang_2016_cross}.
-The cross-responses including
+The price responses including
 $\varepsilon^{\left(p\right)}_j \left( t\right) = 0$ are weaker than the
 excluding ones due to the omission of direct influence of the lack of trades.
 However, either including or excluding $\varepsilon^{p}_j \left( t\right) = 0$
@@ -166,18 +174,18 @@ does not change the trend of price reversion versus the time lag, but it does
 affect the response function strength \cite{Wang_2016_avg}. For a deeper
 analysis of the influence of the term
 $\varepsilon^{\left(p\right)}_j \left( t\right) = 0$, we suggest to check Refs.
-\cite{Wang_2016_avg,Wang_2016_cross}. We will only take in account the
-cross-response function excluding $\varepsilon^{p}_j \left( t\right) = 0$.
+\cite{Wang_2016_avg,Wang_2016_cross}. We will only take in account the price
+response functions excluding $\varepsilon^{p}_j \left( t\right) = 0$.
 
 We define the price response functions in physical time scale, using
 the trade signs and the returns in physical time scale. The price response
 function on physical time scale is defined as
+\cite{my_paper_response_financial}
 \begin{equation}\label{eq:response_functions_time_scale_general}
     R^{\left(p\right)}_{ii}\left(\tau\right)=\left\langle r^{\left(p\right)}
     _{i}\left(t-1, \tau\right) \varepsilon_{i}^{\left(p\right)} \left(t\right)
     \right\rangle _{P}
 \end{equation}
-where the superscript $p$ refers to the physical time scale.
 
 \begin{figure}[htbp]
     \centering
@@ -188,17 +196,23 @@ where the superscript $p$ refers to the physical time scale.
              $\varepsilon^{\left(p\right)}_{i}\left(t\right) = 0$ versus time
              lag $\tau$ on a logarithmic scale in physical time scale for the
              years 2008 (top), 2014 (middle) and 2019 (bottom).}
-    \label{fig:market_response_time_scale}
+    \label{fig:response_function_physical_scale}
 \end{figure}
 
-% The results showed in Fig. \ref{fig:market_response_time_scale} are the
-% self- and cross-response functions in physical time scale. For the
-% self-response functions we can say again that in almost all the cases, an
-% increase to a maximum is followed by a decrease. Thus, the trend in the self-
-% and cross-response is eventually reversed.
-% In the cross-response functions, we have a similar behavior with the previous
-% subsection, where the time lag in some pairs was not enough to see the decrease
-% of the response.
+The results showed in Fig. \ref{fig:response_function_physical_scale} are the
+price response functions in physical time scale. The results show the same
+behavior observed in currency exchange pairs in trade time scale, and in
+correlated financial markets, where we can see that an increase to a maximum is
+followed by a decrease. Thus again, the trend in the price responses is
+eventually reversed.
 
-% Compared with the response functions in trade time scale, the response functions
-% in physical time scale are stronger.
+Compared with the response functions in trade time scale, the strength of the
+signal of the response functions in physical time scale simililar in magnitude
+in the corresponding years. This behavior is different to the one presented
+in correlated financial markets, where the results differ about a factor of
+two depending on the time scale.
+
+Also, the older the response, the stronger the signal. We consider the same
+argument of algorithm trading to explain why the signals in recent years are
+weaker than in older years. Here again, the liquid foreign exchange pairs have
+smaller response signal strength.
