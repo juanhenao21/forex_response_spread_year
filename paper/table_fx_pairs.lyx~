@@ -46,7 +46,7 @@
 \biblio_style plain
 \use_bibtopic false
 \use_indices false
-\paperorientation landscape
+\paperorientation portrait
 \suppress_date false
 \justification true
 \use_refstyle 1
@@ -83,7 +83,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Tabular
-<lyxtabular version="3" rows="45" columns="11">
+<lyxtabular version="3" rows="48" columns="7">
 <features tabularvalignment="middle">
 <column alignment="left" valignment="top">
 <column alignment="left" valignment="top">
@@ -92,12 +92,8 @@ status open
 <column alignment="left" valignment="top">
 <column alignment="left" valignment="top">
 <column alignment="left" valignment="top">
-<column alignment="left" valignment="top">
-<column alignment="left" valignment="top">
-<column alignment="left" valignment="top">
-<column alignment="left" valignment="top">
 <row>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -106,7 +102,7 @@ Symbol
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -115,7 +111,16 @@ Pair
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Categorie
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -124,73 +129,37 @@ Scaling factor
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $2011$
+\end_inset
+
 
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Symbol
-\end_layout
-
+\begin_inset Formula $2015$
 \end_inset
-</cell>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
 
-\begin_layout Plain Layout
-Pair
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Scaling factor
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
+\begin_inset Formula $2019$
 \end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
 
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -216,11 +185,11 @@ Australian dollar/Canadian dollar
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Cross
 \end_layout
 
 \end_inset
@@ -229,7 +198,7 @@ Australian dollar/Canadian dollar
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1000
 \end_layout
 
 \end_inset
@@ -238,7 +207,7 @@ Australian dollar/Canadian dollar
 \begin_inset Text
 
 \begin_layout Plain Layout
-USD/HUF
+G2
 \end_layout
 
 \end_inset
@@ -247,9 +216,7 @@ USD/HUF
 \begin_inset Text
 
 \begin_layout Plain Layout
-U.
- S.
- dollar/Hungarian forint
+G1
 \end_layout
 
 \end_inset
@@ -258,43 +225,7 @@ U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -319,11 +250,11 @@ Australian dollar/Swiss franc
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Cross
 \end_layout
 
 \end_inset
@@ -332,7 +263,7 @@ Australian dollar/Swiss franc
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1000
 \end_layout
 
 \end_inset
@@ -341,7 +272,7 @@ Australian dollar/Swiss franc
 \begin_inset Text
 
 \begin_layout Plain Layout
-USD/JPY
+G2
 \end_layout
 
 \end_inset
@@ -350,9 +281,7 @@ USD/JPY
 \begin_inset Text
 
 \begin_layout Plain Layout
-U.
- S.
- dollar/Japanese yen
+G1
 \end_layout
 
 \end_inset
@@ -361,43 +290,7 @@ U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-100
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -422,11 +315,11 @@ Australian dollar/Japanese yen
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Cross
 \end_layout
 
 \end_inset
@@ -435,7 +328,7 @@ Australian dollar/Japanese yen
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+100
 \end_layout
 
 \end_inset
@@ -444,7 +337,7 @@ Australian dollar/Japanese yen
 \begin_inset Text
 
 \begin_layout Plain Layout
-USD/MXN
+G2
 \end_layout
 
 \end_inset
@@ -453,9 +346,7 @@ USD/MXN
 \begin_inset Text
 
 \begin_layout Plain Layout
-U.
- S.
- dollar/Mexican peso
+G2
 \end_layout
 
 \end_inset
@@ -464,43 +355,7 @@ U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -525,11 +380,11 @@ Australian dollar/New Zealand dollar
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Cross
 \end_layout
 
 \end_inset
@@ -538,7 +393,7 @@ Australian dollar/New Zealand dollar
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1000
 \end_layout
 
 \end_inset
@@ -547,7 +402,7 @@ Australian dollar/New Zealand dollar
 \begin_inset Text
 
 \begin_layout Plain Layout
-USD/NOK
+G2
 \end_layout
 
 \end_inset
@@ -556,9 +411,7 @@ USD/NOK
 \begin_inset Text
 
 \begin_layout Plain Layout
-U.
- S.
- dollar/Norwegian krone
+G1
 \end_layout
 
 \end_inset
@@ -567,43 +420,7 @@ U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -630,11 +447,11 @@ Australian dollar/U.
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Major
 \end_layout
 
 \end_inset
@@ -643,7 +460,7 @@ Australian dollar/U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1000
 \end_layout
 
 \end_inset
@@ -652,7 +469,7 @@ Australian dollar/U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-USD/PLN
+G1
 \end_layout
 
 \end_inset
@@ -661,9 +478,7 @@ USD/PLN
 \begin_inset Text
 
 \begin_layout Plain Layout
-U.
- S.
- dollar/Polish zloty
+G1
 \end_layout
 
 \end_inset
@@ -672,251 +487,7 @@ U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-AUX/AUD
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-ASX 200 in Australian dollar (Index)
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-USD/SEK
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-U.
- S.
- dollar/Swedish krona
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-BCO/USD
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Brent crude oil in U.
- S.
- dollar
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-USD/SGD
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-U.
- S.
- dollar/Singapore dollar
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -941,11 +512,11 @@ Canadian dollar/Swiss franc
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Cross
 \end_layout
 
 \end_inset
@@ -954,7 +525,7 @@ Canadian dollar/Swiss franc
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1000
 \end_layout
 
 \end_inset
@@ -963,7 +534,7 @@ Canadian dollar/Swiss franc
 \begin_inset Text
 
 \begin_layout Plain Layout
-USD/TRY
+G2
 \end_layout
 
 \end_inset
@@ -972,9 +543,7 @@ USD/TRY
 \begin_inset Text
 
 \begin_layout Plain Layout
-U.
- S.
- dollar/Turkish lira
+G1
 \end_layout
 
 \end_inset
@@ -983,43 +552,7 @@ U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -1044,11 +577,11 @@ Canadian dollar/Japanese yen
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Cross
 \end_layout
 
 \end_inset
@@ -1057,7 +590,7 @@ Canadian dollar/Japanese yen
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+100
 \end_layout
 
 \end_inset
@@ -1066,7 +599,7 @@ Canadian dollar/Japanese yen
 \begin_inset Text
 
 \begin_layout Plain Layout
-USD/ZAR
+G2
 \end_layout
 
 \end_inset
@@ -1075,9 +608,7 @@ USD/ZAR
 \begin_inset Text
 
 \begin_layout Plain Layout
-U.
- S.
- dollar/South African rand
+G2
 \end_layout
 
 \end_inset
@@ -1086,43 +617,7 @@ U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -1147,11 +642,11 @@ Swiss franc/Japanese yen
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Cross
 \end_layout
 
 \end_inset
@@ -1160,7 +655,7 @@ Swiss franc/Japanese yen
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+100
 \end_layout
 
 \end_inset
@@ -1169,7 +664,7 @@ Swiss franc/Japanese yen
 \begin_inset Text
 
 \begin_layout Plain Layout
-WTI/USD
+G3
 \end_layout
 
 \end_inset
@@ -1178,9 +673,7 @@ WTI/USD
 \begin_inset Text
 
 \begin_layout Plain Layout
-West Texas intermediate in U.
- S.
- dollar (Commodity)
+G2
 \end_layout
 
 \end_inset
@@ -1189,43 +682,7 @@ West Texas intermediate in U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -1250,11 +707,11 @@ euro/Australian dollar
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Cross
 \end_layout
 
 \end_inset
@@ -1263,7 +720,7 @@ euro/Australian dollar
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1000
 \end_layout
 
 \end_inset
@@ -1272,7 +729,7 @@ euro/Australian dollar
 \begin_inset Text
 
 \begin_layout Plain Layout
-XAG/USD
+G2
 \end_layout
 
 \end_inset
@@ -1281,9 +738,7 @@ XAG/USD
 \begin_inset Text
 
 \begin_layout Plain Layout
-silver/U.
- S.
- dollar
+G1
 \end_layout
 
 \end_inset
@@ -1292,43 +747,7 @@ silver/U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -1353,11 +772,11 @@ euro/Canadian dollar
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Cross
 \end_layout
 
 \end_inset
@@ -1366,7 +785,7 @@ euro/Canadian dollar
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1000
 \end_layout
 
 \end_inset
@@ -1375,7 +794,7 @@ euro/Canadian dollar
 \begin_inset Text
 
 \begin_layout Plain Layout
-XAU/USD
+G2
 \end_layout
 
 \end_inset
@@ -1384,9 +803,7 @@ XAU/USD
 \begin_inset Text
 
 \begin_layout Plain Layout
-gold/U.
- S.
- dollar
+G1
 \end_layout
 
 \end_inset
@@ -1395,43 +812,7 @@ gold/U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -1456,11 +837,11 @@ euro/Swiss franc
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Cross
 \end_layout
 
 \end_inset
@@ -1469,7 +850,7 @@ euro/Swiss franc
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1000
 \end_layout
 
 \end_inset
@@ -1478,7 +859,7 @@ euro/Swiss franc
 \begin_inset Text
 
 \begin_layout Plain Layout
-ZAR/JPY
+G1
 \end_layout
 
 \end_inset
@@ -1487,7 +868,7 @@ ZAR/JPY
 \begin_inset Text
 
 \begin_layout Plain Layout
-South African rand/Japanese yen
+G1
 \end_layout
 
 \end_inset
@@ -1496,43 +877,7 @@ South African rand/Japanese yen
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -1557,11 +902,11 @@ euro/Czech koruna
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Exotic
 \end_layout
 
 \end_inset
@@ -1570,7 +915,7 @@ euro/Czech koruna
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+100
 \end_layout
 
 \end_inset
@@ -1579,7 +924,7 @@ euro/Czech koruna
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -1588,7 +933,7 @@ euro/Czech koruna
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -1597,43 +942,7 @@ euro/Czech koruna
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -1658,11 +967,11 @@ euro/Danish krone
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Exotic
 \end_layout
 
 \end_inset
@@ -1671,7 +980,7 @@ euro/Danish krone
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1000
 \end_layout
 
 \end_inset
@@ -1680,7 +989,7 @@ euro/Danish krone
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -1689,7 +998,7 @@ euro/Danish krone
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -1698,43 +1007,7 @@ euro/Danish krone
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -1759,11 +1032,11 @@ euro/British pound
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Cross
 \end_layout
 
 \end_inset
@@ -1772,7 +1045,7 @@ euro/British pound
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1000
 \end_layout
 
 \end_inset
@@ -1781,7 +1054,7 @@ euro/British pound
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -1790,7 +1063,7 @@ euro/British pound
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -1799,43 +1072,7 @@ euro/British pound
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -1860,11 +1097,11 @@ euro/Hungarian forint
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Exotic
 \end_layout
 
 \end_inset
@@ -1873,7 +1110,7 @@ euro/Hungarian forint
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+100
 \end_layout
 
 \end_inset
@@ -1882,7 +1119,7 @@ euro/Hungarian forint
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G3
 \end_layout
 
 \end_inset
@@ -1891,7 +1128,7 @@ euro/Hungarian forint
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G3
 \end_layout
 
 \end_inset
@@ -1900,43 +1137,7 @@ euro/Hungarian forint
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G3
 \end_layout
 
 \end_inset
@@ -1961,11 +1162,11 @@ euro/Japanese yen
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Cross
 \end_layout
 
 \end_inset
@@ -1974,7 +1175,7 @@ euro/Japanese yen
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+100
 \end_layout
 
 \end_inset
@@ -1983,7 +1184,7 @@ euro/Japanese yen
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -1992,7 +1193,7 @@ euro/Japanese yen
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -2001,43 +1202,7 @@ euro/Japanese yen
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -2062,11 +1227,11 @@ euro/Norwegian krone
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Exotic
 \end_layout
 
 \end_inset
@@ -2075,7 +1240,7 @@ euro/Norwegian krone
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1000
 \end_layout
 
 \end_inset
@@ -2084,7 +1249,7 @@ euro/Norwegian krone
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -2093,7 +1258,7 @@ euro/Norwegian krone
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -2102,43 +1267,7 @@ euro/Norwegian krone
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -2163,11 +1292,11 @@ euro/New Zealand dollar
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Cross
 \end_layout
 
 \end_inset
@@ -2176,7 +1305,7 @@ euro/New Zealand dollar
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1000
 \end_layout
 
 \end_inset
@@ -2185,7 +1314,7 @@ euro/New Zealand dollar
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -2194,7 +1323,7 @@ euro/New Zealand dollar
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -2203,43 +1332,7 @@ euro/New Zealand dollar
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -2264,11 +1357,11 @@ euro/Polish zloty
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Exotic
 \end_layout
 
 \end_inset
@@ -2277,7 +1370,7 @@ euro/Polish zloty
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1000
 \end_layout
 
 \end_inset
@@ -2286,7 +1379,7 @@ euro/Polish zloty
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -2295,7 +1388,7 @@ euro/Polish zloty
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -2304,43 +1397,7 @@ euro/Polish zloty
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -2365,11 +1422,11 @@ euro/Swedish krona
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Exotic
 \end_layout
 
 \end_inset
@@ -2378,7 +1435,7 @@ euro/Swedish krona
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1000
 \end_layout
 
 \end_inset
@@ -2387,7 +1444,7 @@ euro/Swedish krona
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -2396,7 +1453,7 @@ euro/Swedish krona
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -2405,43 +1462,7 @@ euro/Swedish krona
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -2466,11 +1487,11 @@ euro/Turkish lira
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Exotic
 \end_layout
 
 \end_inset
@@ -2479,7 +1500,7 @@ euro/Turkish lira
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1000
 \end_layout
 
 \end_inset
@@ -2488,7 +1509,7 @@ euro/Turkish lira
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -2497,7 +1518,7 @@ euro/Turkish lira
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -2506,43 +1527,7 @@ euro/Turkish lira
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -2569,6 +1554,15 @@ euro/U.
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Major
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="left" valignment="top" usebox="none">
 \begin_inset Text
 
@@ -2582,7 +1576,7 @@ euro/U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -2591,7 +1585,7 @@ euro/U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -2600,52 +1594,7 @@ euro/U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -2670,11 +1619,11 @@ British pound/Australian dollar
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Cross
 \end_layout
 
 \end_inset
@@ -2683,7 +1632,7 @@ British pound/Australian dollar
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1000
 \end_layout
 
 \end_inset
@@ -2692,7 +1641,7 @@ British pound/Australian dollar
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -2701,7 +1650,7 @@ British pound/Australian dollar
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -2710,43 +1659,7 @@ British pound/Australian dollar
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -2771,11 +1684,11 @@ British pound/Canadian dollar
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Cross
 \end_layout
 
 \end_inset
@@ -2784,7 +1697,7 @@ British pound/Canadian dollar
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1000
 \end_layout
 
 \end_inset
@@ -2793,7 +1706,7 @@ British pound/Canadian dollar
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -2802,7 +1715,7 @@ British pound/Canadian dollar
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -2811,43 +1724,7 @@ British pound/Canadian dollar
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -2872,11 +1749,11 @@ British pound/Swiss franc
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Cross
 \end_layout
 
 \end_inset
@@ -2885,7 +1762,7 @@ British pound/Swiss franc
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1000
 \end_layout
 
 \end_inset
@@ -2894,7 +1771,7 @@ British pound/Swiss franc
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -2903,7 +1780,7 @@ British pound/Swiss franc
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -2912,43 +1789,7 @@ British pound/Swiss franc
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -2973,11 +1814,11 @@ British pound/Japanese yen
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Cross
 \end_layout
 
 \end_inset
@@ -2986,7 +1827,7 @@ British pound/Japanese yen
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+100
 \end_layout
 
 \end_inset
@@ -2995,7 +1836,7 @@ British pound/Japanese yen
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -3004,7 +1845,7 @@ British pound/Japanese yen
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -3013,43 +1854,7 @@ British pound/Japanese yen
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -3074,11 +1879,11 @@ British pound/New Zealand dollar
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Cross
 \end_layout
 
 \end_inset
@@ -3087,7 +1892,7 @@ British pound/New Zealand dollar
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1000
 \end_layout
 
 \end_inset
@@ -3096,7 +1901,7 @@ British pound/New Zealand dollar
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -3105,7 +1910,7 @@ British pound/New Zealand dollar
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -3114,43 +1919,7 @@ British pound/New Zealand dollar
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -3177,6 +1946,15 @@ British pound/U.
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Major
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="left" valignment="top" usebox="none">
 \begin_inset Text
 
@@ -3190,7 +1968,7 @@ British pound/U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -3199,7 +1977,7 @@ British pound/U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -3208,256 +1986,7 @@ British pound/U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-JPX/JPY
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Nikkei 225 in Japanese yen (Index)
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-NSX/USD
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-NASDAQ 100 in U.
- S.
- dollar (Index)
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -3482,11 +2011,11 @@ New Zealand dollar/Canadian dollar
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Cross
 \end_layout
 
 \end_inset
@@ -3495,7 +2024,7 @@ New Zealand dollar/Canadian dollar
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1000
 \end_layout
 
 \end_inset
@@ -3504,7 +2033,7 @@ New Zealand dollar/Canadian dollar
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -3513,7 +2042,7 @@ New Zealand dollar/Canadian dollar
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -3522,43 +2051,7 @@ New Zealand dollar/Canadian dollar
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -3583,11 +2076,11 @@ New Zealand dollar/Swiss franc
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Cross
 \end_layout
 
 \end_inset
@@ -3596,7 +2089,7 @@ New Zealand dollar/Swiss franc
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1000
 \end_layout
 
 \end_inset
@@ -3605,7 +2098,7 @@ New Zealand dollar/Swiss franc
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -3614,7 +2107,7 @@ New Zealand dollar/Swiss franc
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -3623,43 +2116,7 @@ New Zealand dollar/Swiss franc
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -3684,11 +2141,11 @@ New Zealand dollar/Japanese yen
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Cross
 \end_layout
 
 \end_inset
@@ -3697,7 +2154,7 @@ New Zealand dollar/Japanese yen
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+100
 \end_layout
 
 \end_inset
@@ -3706,7 +2163,7 @@ New Zealand dollar/Japanese yen
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -3715,7 +2172,7 @@ New Zealand dollar/Japanese yen
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -3724,43 +2181,7 @@ New Zealand dollar/Japanese yen
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -3787,11 +2208,11 @@ New Zealand dollar/U.
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Major
 \end_layout
 
 \end_inset
@@ -3800,7 +2221,7 @@ New Zealand dollar/U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1000
 \end_layout
 
 \end_inset
@@ -3809,7 +2230,7 @@ New Zealand dollar/U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -3818,7 +2239,7 @@ New Zealand dollar/U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -3827,43 +2248,7 @@ New Zealand dollar/U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -3888,11 +2273,11 @@ Singapore dollar/Japanese yen
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Exotic
 \end_layout
 
 \end_inset
@@ -3901,7 +2286,7 @@ Singapore dollar/Japanese yen
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+100
 \end_layout
 
 \end_inset
@@ -3910,7 +2295,7 @@ Singapore dollar/Japanese yen
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -3919,7 +2304,7 @@ Singapore dollar/Japanese yen
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -3928,251 +2313,7 @@ Singapore dollar/Japanese yen
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-SPX/USD
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-S&P 500 in U.
- S.
- dollar (Index)
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-UDX/USD
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-U.
- S.
- dollar index in U.
- S.
- dollar (Index)
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -4199,11 +2340,11 @@ U.
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Major
 \end_layout
 
 \end_inset
@@ -4212,7 +2353,7 @@ U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1000
 \end_layout
 
 \end_inset
@@ -4221,7 +2362,7 @@ U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -4230,7 +2371,7 @@ U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -4239,43 +2380,7 @@ U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -4302,11 +2407,11 @@ U.
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Major
 \end_layout
 
 \end_inset
@@ -4315,7 +2420,7 @@ U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1000
 \end_layout
 
 \end_inset
@@ -4324,7 +2429,7 @@ U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -4333,7 +2438,7 @@ U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -4342,43 +2447,7 @@ U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -4405,11 +2474,11 @@ U.
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Exotic
 \end_layout
 
 \end_inset
@@ -4418,7 +2487,7 @@ U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+100
 \end_layout
 
 \end_inset
@@ -4427,7 +2496,7 @@ U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -4436,7 +2505,7 @@ U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -4445,43 +2514,7 @@ U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G2
 \end_layout
 
 \end_inset
@@ -4508,11 +2541,11 @@ U.
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Exotic
 \end_layout
 
 \end_inset
@@ -4521,7 +2554,7 @@ U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1000
 \end_layout
 
 \end_inset
@@ -4530,7 +2563,7 @@ U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -4539,7 +2572,7 @@ U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -4548,43 +2581,7 @@ U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -4611,11 +2608,11 @@ U.
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Exotic
 \end_layout
 
 \end_inset
@@ -4624,7 +2621,7 @@ U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1000
 \end_layout
 
 \end_inset
@@ -4633,7 +2630,7 @@ U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -4642,7 +2639,7 @@ U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
@@ -4651,43 +2648,610 @@ U.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+G1
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+USD/HUF
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+U.
+ S.
+ dollar/Hungarian forint
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Exotic
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+100
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+USD/JPY
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+U.
+ S.
+ dollar/Japanese yen
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Major
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+USD/MXN
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+U.
+ S.
+ dollar/Mexican peso
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exotic
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+USD/NOK
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+U.
+ S.
+ dollar/Norwegian krone
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exotic
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+USD/PLN
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+U.
+ S.
+ dollar/Polish zloty
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exotic
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+USD/SEK
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+U.
+ S.
+ dollar/Swedish krona
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exotic
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+USD/SGD
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+U.
+ S.
+ dollar/Singapore dollar
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exotic
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+USD/TRY
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+U.
+ S.
+ dollar/Turkish lira
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exotic
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+USD/ZAR
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+U.
+ S.
+ dollar/South African rand
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exotic
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G2
 \end_layout
 
 \end_inset
@@ -4704,7 +3268,7 @@ U.
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Information of the stocks in Group 1.
+Foreign exchange pairs used in.
 \end_layout
 
 \end_inset
