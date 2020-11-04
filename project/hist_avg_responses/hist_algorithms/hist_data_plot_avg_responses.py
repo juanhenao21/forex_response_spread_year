@@ -27,6 +27,7 @@ from matplotlib import pyplot as plt  # type: ignore
 
 import hist_data_tools_avg_responses
 
+__tau__ = 10000
 # ----------------------------------------------------------------------------
 
 
@@ -62,7 +63,7 @@ def hist_fx_self_response_year_avg_responses_trade_plot(year: str) -> None:
         plt.ylabel(r'$R_{ii}(\tau)$', fontsize=35)
         plt.xticks(fontsize=25)
         plt.yticks(fontsize=25)
-        plt.xlim(1, 1000)
+        plt.xlim(1, __tau__)
         # plt.ylim(13 * 10 ** -5, 16 * 10 ** -5)
         plt.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
         plt.grid(True)
@@ -112,7 +113,7 @@ def hist_fx_self_response_year_avg_responses_physical_plot(year: str) -> None:
         plt.ylabel(r'$R_{ii}(\tau)$', fontsize=35)
         plt.xticks(fontsize=25)
         plt.yticks(fontsize=25)
-        plt.xlim(1, 1000)
+        plt.xlim(1, __tau__)
         # plt.ylim(13 * 10 ** -5, 16 * 10 ** -5)
         plt.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
         plt.grid(True)

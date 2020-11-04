@@ -28,6 +28,8 @@ import numpy as np  # type: ignore
 
 import hist_data_tools_responses_trade
 
+__tau__ = 10000
+
 # ----------------------------------------------------------------------------
 
 
@@ -66,7 +68,7 @@ def hist_fx_self_response_year_avg_responses_trade_plot(
         plt.ylabel(r'$R_{ii}(\tau)$', fontsize=35)
         plt.xticks(fontsize=25)
         plt.yticks(fontsize=25)
-        plt.xlim(1, 1000)
+        plt.xlim(1, __tau__)
         plt.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
         plt.grid(True)
         plt.tight_layout()

@@ -35,7 +35,7 @@ import pandas as pd  # type: ignore
 
 import hist_data_tools_avg_responses
 
-__tau__ = 1000
+__tau__ = 10000
 
 # ----------------------------------------------------------------------------
 
