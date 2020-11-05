@@ -29,7 +29,7 @@ import numpy as np  # type: ignore
 
 import hist_data_tools_responses_physical
 
-__tau_ = 10000
+__tau__ = 10000
 
 # ----------------------------------------------------------------------------
 
