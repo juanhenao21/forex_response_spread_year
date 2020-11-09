@@ -25,6 +25,8 @@ from typing import List
 from matplotlib import pyplot as plt  #type: ignore
 import numpy as np  #type: ignore
 
+__tau__ = 10000
+
 # ----------------------------------------------------------------------------
 
 def hist_response_year_avg_responses_plot(years: List[str]) -> None:
@@ -53,6 +55,11 @@ def hist_response_year_avg_responses_plot(years: List[str]) -> None:
                 + f'_avg_responses_physical_data_{year}_.pickle', 'rb'))
 
 
+            if year == '2011':
+                print(resp_g1_t)
+                print(np.sum(np.isnan(resp_g1_t)))
+                print(resp_g1_t[-1])
+
             axs[0, idx].semilogx(resp_g1_t, linewidth=5, label=f'Group 1')
             axs[0, idx].semilogx(resp_g2_t, linewidth=5, label=f'Group 2')
             axs[0, idx].semilogx(resp_g3_t, linewidth=5, label=f'Group 3')
@@ -64,7 +71,7 @@ def hist_response_year_avg_responses_plot(years: List[str]) -> None:
             axs[0, idx].set_ylabel(r'$R^{\left(t\right)}_{ii}(\tau)$', fontsize=15)
             axs[0, idx].tick_params(axis='x', labelsize=10)
             axs[0, idx].tick_params(axis='y', labelsize=10)
-            axs[0, idx].set_xlim(1, 1000)
+            axs[0, idx].set_xlim(1, __tau__)
             # axs[0, idx].ylim(19.5 * 10 ** -5, 32.5 * 10 ** -5)
             axs[0, idx].ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
             axs[0, idx].yaxis.offsetText.set_fontsize(10)
@@ -81,7 +88,7 @@ def hist_response_year_avg_responses_plot(years: List[str]) -> None:
             axs[1, idx].set_ylabel(r'$R^{\left(p\right)}_{ii}(\tau)$', fontsize=15)
             axs[1, idx].tick_params(axis='x', labelsize=10)
             axs[1, idx].tick_params(axis='y', labelsize=10)
-            axs[1, idx].set_xlim(1, 1000)
+            axs[1, idx].set_xlim(1, __tau__)
             # axs[0, idx].ylim(19.5 * 10 ** -5, 32.5 * 10 ** -5)
             axs[1, idx].ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
             axs[1, idx].yaxis.offsetText.set_fontsize(10)

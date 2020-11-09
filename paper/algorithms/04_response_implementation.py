@@ -27,6 +27,8 @@ from typing import List
 from matplotlib import pyplot as plt  #type: ignore
 import numpy as np  #type: ignore
 
+__tau__ = 10000
+
 # ----------------------------------------------------------------------------
 
 
@@ -71,7 +73,7 @@ def hist_trade_scale_response_year_avg_plot(
         ax1.set_ylabel(r'$R^{\left(t\right)}_{ii}(\tau)$', fontsize=15)
         ax1.tick_params(axis='x', labelsize=10)
         ax1.tick_params(axis='y', labelsize=10)
-        ax1.set_xlim(1, 1000)
+        ax1.set_xlim(1, __tau__)
         # plt.ylim(13 * 10 ** -5, 16 * 10 ** -5)
         ax1.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
         ax1.yaxis.offsetText.set_fontsize(10)
@@ -82,7 +84,7 @@ def hist_trade_scale_response_year_avg_plot(
         ax2.set_ylabel(r'$R^{\left(t\right)}_{ii}(\tau)$', fontsize=15)
         ax2.tick_params(axis='x', labelsize=10)
         ax2.tick_params(axis='y', labelsize=10)
-        ax2.set_xlim(1, 1000)
+        ax2.set_xlim(1, __tau__)
         # plt.ylim(13 * 10 ** -5, 16 * 10 ** -5)
         ax2.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
         ax2.yaxis.offsetText.set_fontsize(10)
@@ -95,7 +97,7 @@ def hist_trade_scale_response_year_avg_plot(
         ax3.set_ylabel(r'$R^{\left(t\right)}_{ii}(\tau)$', fontsize=15)
         ax3.tick_params(axis='x', labelsize=10)
         ax3.tick_params(axis='y', labelsize=10)
-        ax3.set_xlim(1, 1000)
+        ax3.set_xlim(1, __tau__)
         # plt.ylim(13 * 10 ** -5, 16 * 10 ** -5)
         ax3.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
         ax3.yaxis.offsetText.set_fontsize(10)
@@ -157,7 +159,7 @@ def hist_physical_scale_response_year_avg_plot(
         ax1.set_ylabel(r'$R^{\left(p\right)}_{ii}(\tau)$', fontsize=15)
         ax1.tick_params(axis='x', labelsize=10)
         ax1.tick_params(axis='y', labelsize=10)
-        ax1.set_xlim(1, 1000)
+        ax1.set_xlim(1, __tau__)
         # plt.ylim(13 * 10 ** -5, 16 * 10 ** -5)
         ax1.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
         ax1.yaxis.offsetText.set_fontsize(10)
@@ -168,7 +170,7 @@ def hist_physical_scale_response_year_avg_plot(
         ax2.set_ylabel(r'$R^{\left(p\right)}_{ii}(\tau)$', fontsize=15)
         ax2.tick_params(axis='x', labelsize=10)
         ax2.tick_params(axis='y', labelsize=10)
-        ax2.set_xlim(1, 1000)
+        ax2.set_xlim(1, __tau__)
         # plt.ylim(13 * 10 ** -5, 16 * 10 ** -5)
         ax2.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
         ax2.yaxis.offsetText.set_fontsize(10)
@@ -181,7 +183,7 @@ def hist_physical_scale_response_year_avg_plot(
         ax3.set_ylabel(r'$R^{\left(p\right)}_{ii}(\tau)$', fontsize=15)
         ax3.tick_params(axis='x', labelsize=10)
         ax3.tick_params(axis='y', labelsize=10)
-        ax3.set_xlim(1, 1000)
+        ax3.set_xlim(1, __tau__)
         # plt.ylim(13 * 10 ** -5, 16 * 10 ** -5)
         ax3.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
         ax3.yaxis.offsetText.set_fontsize(10)
