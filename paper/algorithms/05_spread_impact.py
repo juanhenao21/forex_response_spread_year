@@ -54,12 +54,6 @@ def hist_response_year_avg_responses_plot(years: List[str]) -> None:
                 + f'_year_avg_responses_physical_data/hist_fx_self_response_year'
                 + f'_avg_responses_physical_data_{year}_.pickle', 'rb'))
 
-
-            if year == '2011':
-                print(resp_g1_t)
-                print(np.sum(np.isnan(resp_g1_t)))
-                print(resp_g1_t[-1])
-
             axs[0, idx].semilogx(resp_g1_t, linewidth=5, label=f'Group 1')
             axs[0, idx].semilogx(resp_g2_t, linewidth=5, label=f'Group 2')
             axs[0, idx].semilogx(resp_g3_t, linewidth=5, label=f'Group 3')

@@ -113,15 +113,15 @@ def main() -> None:
     fx_pairs_2: List[str] = ['aud_cad', 'aud_chf', 'aud_jpy', 'aud_nzd',
                              'aud_usd', 'cad_chf', 'cad_jpy', 'chf_jpy',
                              'eur_aud', 'eur_cad', 'eur_chf', 'eur_czk',
-                             'eur_dkk', 'eur_gbp', 'eur_huf', 'eur_jpy',
-                             'eur_nok', 'eur_nzd', 'eur_pln', 'eur_sek',
-                             'eur_try', 'eur_usd', 'gbp_aud', 'gbp_cad',
-                             'gbp_chf', 'gbp_jpy', 'gbp_nzd', 'gbp_usd',
-                             'nzd_cad', 'nzd_chf', 'nzd_jpy', 'nzd_usd',
-                             'sgd_jpy', 'usd_cad', 'usd_chf', 'usd_czk',
-                             'usd_dkk', 'usd_hkd', 'usd_huf', 'usd_jpy',
-                             'usd_mxn', 'usd_nok', 'usd_pln', 'usd_sek',
-                             'usd_sgd', 'usd_try', 'usd_zar']
+                             'eur_gbp', 'eur_huf', 'eur_jpy', 'eur_nok',
+                             'eur_nzd', 'eur_pln', 'eur_sek', 'eur_try',
+                             'eur_usd', 'gbp_aud', 'gbp_cad', 'gbp_chf',
+                             'gbp_jpy', 'gbp_nzd', 'gbp_usd', 'nzd_cad',
+                             'nzd_chf', 'nzd_jpy', 'nzd_usd', 'sgd_jpy',
+                             'usd_cad', 'usd_chf', 'usd_czk', 'usd_dkk',
+                             'usd_hkd', 'usd_huf', 'usd_jpy', 'usd_mxn',
+                             'usd_nok', 'usd_pln', 'usd_sek', 'usd_sgd',
+                             'usd_try', 'usd_zar']
 
     # Basic folders
     hist_data_tools_extraction.hist_start_folders(years_2)
