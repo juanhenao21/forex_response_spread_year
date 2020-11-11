@@ -65,10 +65,10 @@ def hist_quotes_trades_day_avg_spread_data(
             'zar' in fx_pair):
             spread: np.ndarray = fx_data['Spread'].to_numpy() * 100
         else:
-            spread: np.ndarray = fx_data['Spread'].to_numpy() * 1000
+            spread: np.ndarray = fx_data['Spread'].to_numpy() * 10000
 
         num_quotes: int = len(spread)
-        avg_spread: float = np.mean(spread)
+        avg_spread: int = int(np.mean(spread))
 
         return (num_quotes, avg_spread)
 
