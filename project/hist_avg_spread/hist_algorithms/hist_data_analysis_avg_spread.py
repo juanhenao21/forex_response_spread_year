@@ -122,7 +122,7 @@ def hist_quotes_trades_year_avg_spread_data(fx_pairs: List[str],
 
         # To obtain the average of the year, I average all the results of the
         # corresponding values (number quotes, trades and avg spread)
-        stat_year: List[str] = list(np.nanmean(stat[0], axis=0))
+        stat_year: List[str] = list(np.nanmean(stat[0], axis=0).astype(int))
         spread_stats.loc[idx] = [fx_pair] + stat_year
 
     spread_stats.sort_values(by='Avg_Spread', inplace=True)
