@@ -20,6 +20,10 @@ and the impact of the spread
 ([hist_avg_responses](https://github.com/juanhenao21/forex_response_spread_year/tree/master/project/hist_avg_responses/hist_algorithms))
 in the strength of the response functions in trade and physical time scale.
 
+All the results and figures obtained using the modules in the repository will
+be saved in the folders `forex_response_spread_year/project/hist_data` and
+`forex_response_spread_year/project/hist_plot`.
+
 You can find
 [here](https://forex-response-spread-year.readthedocs.io/en/latest/)
 a detailed documentation of the code.
@@ -82,7 +86,7 @@ command looks like
 $ python3 hist_data_main_download.py
 ```
 
-The program will download the data from the corresponding forex pairs.
+The program will download the data for the corresponding forex pairs.
 
 ### Forex price responses functions
 
@@ -91,6 +95,10 @@ and physical time scale. In the following sections I describe in detail how
 to run both.
 
 #### Trade time scale
+
+To obtain the price response functions in trade time scale you need to run the
+code in the Data extraction section and run the code in the Price response
+functions - trade time scale section.
 
 ##### Data extraction
 
@@ -111,7 +119,6 @@ fx_pairs: List[str] = ['eur_usd', 'gbp_usd']
 # Basic folders
 hist_data_tools_extraction.hist_start_folders(fx_pairs, years)
 # Run analysis
-# Download data
 hist_data_plot_generator(fx_pairs, years)
 ```
 
@@ -144,7 +151,6 @@ fx_pairs: List[str] = ['eur_usd', 'gbp_usd']
 # Basic folders
 hist_data_tools_responses_trade.hist_start_folders(fx_pairs, years)
 # Run analysis
-# Download data
 hist_data_plot_generator(fx_pairs, years)
 ```
 
@@ -160,10 +166,12 @@ pairs.
 
 #### Physical time scale
 
-##### Physical basic data
+To obtain the price response functions in physical time scale you need to run
+first the code in the Data extraction section, and then run the code in the
+Physical basic data section and run the code in the Price response functions -
+physical time scale section.
 
-To run the physical time scale part, you need to have the results from the
-trade time scale part.
+##### Physical basic data
 
 To compute the midpoint price and the trade signs in physical time scale, you
 need to move (cd) to the folder
@@ -183,7 +191,6 @@ fx_pairs: List[str] = ['eur_usd', 'gbp_usd']
 # Basic folders
 hist_data_tools_physical_basic_data.hist_start_folders(fx_pairs, years)
 # Run analysis
-# Download data
 hist_data_plot_generator(fx_pairs, years)
 ```
 
@@ -216,7 +223,6 @@ fx_pairs: List[str] = ['eur_usd', 'gbp_usd']
 # Basic folders
 hist_data_tools_responses_physical.hist_start_folders(fx_pairs, years)
 # Run analysis
-# Download data
 hist_data_plot_generator(fx_pairs, years)
 ```
 
