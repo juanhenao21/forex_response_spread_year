@@ -3,7 +3,7 @@
 HIST Responses Physical
 ***********************
 
-To be done ...
+This module computes the price response functions in physical time scale.
 
 To run this part of the code is necessary to have the results from the module
 :ref:`hist_physical_basic_data`.
