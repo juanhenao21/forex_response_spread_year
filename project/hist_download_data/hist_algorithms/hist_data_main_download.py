@@ -66,13 +66,12 @@ def hist_download_data(fx_pair: str, year: str) -> None:
 
             dl(year=f'{year}', month=f'{m_val}', pair=f'{p_low}',
                platform=P.GENERIC_ASCII, time_frame=TF.TICK_DATA)
+
             if m_val < 10:
-                m_val_str = f'0{m_val}'
-                os.rename(f'DAT_ASCII_{p_cap}_T_{year}{m_val_str}.zip',
-                          f'hist_{fx_pair}_{year}{m_val_str}.zip')
-            else:
-                os.rename(f'DAT_ASCII_{p_cap}_T_{year}{m_val}.zip',
-                          f'hist_{fx_pair}_{year}{m_val}.zip')
+                m_val = f'0{m_val}'
+
+            os.rename(f'DAT_ASCII_{p_cap}_T_{year}{m_val}.zip',
+                        f'hist_{fx_pair}_{year}{m_val}.zip')
 
     except AssertionError as error:
         print('No data')
@@ -86,13 +85,13 @@ def hist_download_all_data(fx_pairs: List[str], years: List[str]) -> None:
 
     :param fx_pairs: list of the string abbreviation of the forex pairs to be
      analyzed (i.e. ['eur_usd', 'gbp_usd']).
-    :param year: string of the year to be analyzed (i.e. '2016').
+    :param years: list of the strings of the years to be analyzed
+     (i.e. ['2016', '2017]).
     :return: None -- The function saves the data in a file and does not return
      a value.
     """
 
     with mp.Pool(processes=mp.cpu_count()) as pool:
-
         pool.starmap(hist_download_data, iprod(fx_pairs, years))
 
 # -----------------------------------------------------------------------------

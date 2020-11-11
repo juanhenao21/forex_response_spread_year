@@ -71,20 +71,17 @@ def hist_fx_data_extraction_year(fx_pair: str, year: str) -> pd.DataFrame:
     m_num: int
     for m_num in range(1, 13):
 
-        m_num_str: str
         if m_num < 10:
-            m_num_str = f'0{m_num}'
-        else:
-            m_num_str = f'{m_num}'
+            m_num = f'0{m_num}'
 
         try:
             # Load data
             zip_f: zipfile.ZipFile = zipfile.ZipFile(
                 f'../../hist_data/original_data_{year}/{fx_pair}/hist'
-                + f'_{fx_pair}_{year}{m_num_str}.zip')
+                + f'_{fx_pair}_{year}{m_num}.zip')
             fx_data = fx_data.append(
                 pd.read_csv(zip_f.open(
-                    f'DAT_ASCII_{cap_pair}_T_{year}{m_num_str}.csv'),
+                    f'DAT_ASCII_{cap_pair}_T_{year}{m_num}.csv'),
                             usecols=(0, 1, 2), names=fx_data_col,
                             dtype=fx_data_type), ignore_index=True)
 
@@ -170,6 +167,10 @@ def hist_fx_week_start(fx_pair: str, function_name: str, year: str,
                        weeks: List[dt.datetime]) -> None:
     """Extracts the bid and ask for a week that starts in a week day.
 
+    :param fx_pair: string of the abbreviation of the forex pair to be analyzed
+     (i.e. 'eur_usd').
+    :param function_name: string of the function used to analyze the data.
+    :param year: string of the year to be analyzed (i.e. '2016').
     :param fx_data: pd.DataFrame with the data.
     :param weeks: List with the dates of the sundays in a year.
     :return: None -- The function saves the data in a file and does not return
@@ -232,6 +233,10 @@ def hist_fx_weekend_start(fx_pair: str, function_name: str, year: str,
                           weeks: List[dt.datetime]) -> None:
     """Extracts the bid and ask for a weekend that starts in a week day.
 
+    :param fx_pair: string of the abbreviation of the forex pair to be analyzed
+     (i.e. 'eur_usd').
+    :param function_name: string of the function used to analyze the data.
+    :param year: string of the year to be analyzed (i.e. '2016').
     :param fx_data: pd.DataFrame with the data.
     :param weeks: List with the dates of the sundays in a year.
     :return: None -- The function saves the data in a file and does not return
