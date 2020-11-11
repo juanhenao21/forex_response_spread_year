@@ -38,7 +38,7 @@ import hist_data_tools_download
 def hist_download_data(fx_pair: str, year: str) -> None:
     """Downloads the HIST data.
 
-    :param fx_pair: string abbreviation of the forex pairs to be analyzed
+    :param fx_pair: string abbreviation of the forex pair to be analyzed
      (i.e. 'eur_usd').
     :param year: string of the year to be analyzed (i.e. '2016').
     :return: None -- The function saves the data in a file and does not return
