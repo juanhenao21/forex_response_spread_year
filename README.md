@@ -7,22 +7,18 @@ In this repository, I analyzed the price response functions of the foreign
 exchange market data for different years,
 
 I use the same methodology from my work in the project
-[Price response function and spread impact analysis in correlated financial markets](https://github.com/juanhenao21/financial_response_spread_year) to compute all the
-analysis. From the data I obtain the midpoint prices, trade signs and
-self-responses for different forex pairs.
+[Price response function and spread impact analysis in correlated financial markets](https://github.com/juanhenao21/financial_response_spread_year)
+([paper](https://arxiv.org/abs/2010.15105)) to compute all the analysis. From
+the data I obtain the midpoint prices, trade signs and self-responses for
+different foreign exchange pairs.
 
-Based on these values, I analyze responses functions in trade time scale
+Based on these values, I analyze price response functions in trade time scale
 ([hist_responses_trade](https://github.com/juanhenao21/forex_response_spread_year/tree/master/project/hist_responses_trade/hist_algorithms)),
 physical time scale
 ([hist_responses_physical](https://github.com/juanhenao21/forex_response_spread_year/tree/master/project/hist_responses_physical/hist_algorithms))
 and the impact of the spread
 ([hist_avg_responses](https://github.com/juanhenao21/forex_response_spread_year/tree/master/project/hist_avg_responses/hist_algorithms))
 in the strength of the response functions in trade and physical time scale.
-
-All the results and figures obtained using the modules in the repository will
-be saved in the folders
-`forex_response_spread_year/project/hist_data` and
-`forex_response_spread_year/project/hist_plot`.
 
 You can find
 [here](https://forex-response-spread-year.readthedocs.io/en/latest/)
@@ -32,7 +28,7 @@ a detailed documentation of the code.
 
 The main code is implemented in `Python`. We use tick data in generic ASCII
 format from
-[HistData.com](http://www.histdata.com/download-free-forex-data/?/ascii/tick-data-quotes)
+[HistData.com](http://www.histdata.com/download-free-forex-data/?/ascii/tick-data-quotes).
 
 ### Prerequisites
 
