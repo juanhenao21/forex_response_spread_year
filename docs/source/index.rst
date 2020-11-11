@@ -8,9 +8,11 @@ Price response functions and spread impact in foreign exchange markets
 
 In this study, we analyzed tick data from the foreign exchange market.
 
-The data contains the best bid price and the best ask price. With this
-information we compute the midpoint price and the trade signs. Finally we
-obtain the price response functions.
+The data contains the best bid price and the best ask price. With these
+information we compute the midpoint price and the trade signs. Then we obtain
+the price response functions in two different time scale for different years.
+Using the spread values, we group the foreign exchange pairs to average their
+responses and check any group behavior.
 
 In order to avoid overnight effects and any artifact due to the opening and
 closing of the market, we systematically discarded the first ten and the last
@@ -41,6 +43,10 @@ project.
    04_hist_physical_basic_data
 
    05_hist_responses_physical
+
+   06_hist_avg_spread
+
+   07_hist_avg_responses
 
 Indices and tables
 ==================
