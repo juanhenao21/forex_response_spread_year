@@ -59,10 +59,7 @@ def hist_quotes_trades_day_avg_spread_data(
                         + f'_week_{fx_pair}_w{week}.pickle', 'rb'))
 
         if ('jpy' in fx_pair or
-            'czk' in fx_pair or
-            'huf' in fx_pair or
-            'mxn' in fx_pair or
-            'zar' in fx_pair):
+            'huf' in fx_pair):
             spread: np.ndarray = fx_data['Spread'].to_numpy() * 100
         else:
             spread: np.ndarray = fx_data['Spread'].to_numpy() * 10000
