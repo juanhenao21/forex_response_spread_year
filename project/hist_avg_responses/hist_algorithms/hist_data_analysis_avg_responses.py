@@ -59,21 +59,56 @@ def hist_fx_pair_spread_data(year: str) -> List[List[str]]:
 
         fx_pairs: List[List[str]] = []
 
-        group_1: pd.DataFrame = \
-            spread_data[spread_data['Avg_Spread'] < 0.6]
-        tickers_g1: List[str] = group_1['FxPair'].tolist()
-        group_2: pd.DataFrame = \
-            spread_data[(spread_data['Avg_Spread'] >= 0.6)
-                        & (spread_data['Avg_Spread'] < 7)]
-        tickers_g2: List[str] = group_2['FxPair'].tolist()
-        group_3: pd.DataFrame = \
-            spread_data[(spread_data['Avg_Spread'] >= 7)
-                        & (spread_data['Avg_Spread'] < 1000)]
-        tickers_g3: List[str] = group_3['FxPair'].tolist()
+        if year == '2011':
+            group_1: pd.DataFrame = \
+                spread_data[spread_data['Avg_Spread'] < 6]
+            tickers_g1: List[str] = group_1['FxPair'].tolist()
+            group_2: pd.DataFrame = \
+                spread_data[(spread_data['Avg_Spread'] >= 6)
+                            & (spread_data['Avg_Spread'] < 10)]
+            tickers_g2: List[str] = group_2['FxPair'].tolist()
+            group_3: pd.DataFrame = \
+                spread_data[(spread_data['Avg_Spread'] >= 10)
+                            & (spread_data['Avg_Spread'] < 1000)]
+            tickers_g3: List[str] = group_3['FxPair'].tolist()
 
-        fx_pairs.append(tickers_g1)
-        fx_pairs.append(tickers_g2)
-        fx_pairs.append(tickers_g3)
+            fx_pairs.append(tickers_g1)
+            fx_pairs.append(tickers_g2)
+            fx_pairs.append(tickers_g3)
+
+        elif year == '2015':
+            group_1: pd.DataFrame = \
+                spread_data[spread_data['Avg_Spread'] < 3]
+            tickers_g1: List[str] = group_1['FxPair'].tolist()
+            group_2: pd.DataFrame = \
+                spread_data[(spread_data['Avg_Spread'] >= 3)
+                            & (spread_data['Avg_Spread'] < 6)]
+            tickers_g2: List[str] = group_2['FxPair'].tolist()
+            group_3: pd.DataFrame = \
+                spread_data[(spread_data['Avg_Spread'] >= 6)
+                            & (spread_data['Avg_Spread'] < 1000)]
+            tickers_g3: List[str] = group_3['FxPair'].tolist()
+
+            fx_pairs.append(tickers_g1)
+            fx_pairs.append(tickers_g2)
+            fx_pairs.append(tickers_g3)
+
+        else:
+            group_1: pd.DataFrame = \
+                spread_data[spread_data['Avg_Spread'] < 3]
+            tickers_g1: List[str] = group_1['FxPair'].tolist()
+            group_2: pd.DataFrame = \
+                spread_data[(spread_data['Avg_Spread'] >= 3)
+                            & (spread_data['Avg_Spread'] < 6)]
+            tickers_g2: List[str] = group_2['FxPair'].tolist()
+            group_3: pd.DataFrame = \
+                spread_data[(spread_data['Avg_Spread'] >= 6)
+                            & (spread_data['Avg_Spread'] < 1000)]
+            tickers_g3: List[str] = group_3['FxPair'].tolist()
+
+            fx_pairs.append(tickers_g1)
+            fx_pairs.append(tickers_g2)
+            fx_pairs.append(tickers_g3)
 
         return fx_pairs
 
