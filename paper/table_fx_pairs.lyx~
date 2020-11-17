@@ -76,12 +76,15 @@
 \begin_body
 
 \begin_layout Standard
+\align center
 \begin_inset Float table
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="48" columns="7">
 <features tabularvalignment="middle">
