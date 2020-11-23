@@ -3,7 +3,9 @@
 HIST Data Extraction
 ********************
 
-To be done ...
+This module extracts the information from the data downloaded with the module
+:ref:`hist_download_data`. We obtain the time, best ask, best bid, midpoint
+price, spread and trade signs in trade time scale.
 
 To run this part of the code is necessary to have the results from the module
 :ref:`hist_download_data`.

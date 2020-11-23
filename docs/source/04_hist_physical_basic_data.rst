@@ -3,7 +3,9 @@
 HIST Physical Basic Data
 ************************
 
-To be done ...
+This module obtains the information from the data extracted with the module
+:ref:`hist_data_extraction`. We obtain the time, best ask, best bid, midpoint
+price, spread and trade signs in physical time scale.
 
 To run this part of the code is necessary to have the results from the module
 :ref:`hist_data_extraction`.

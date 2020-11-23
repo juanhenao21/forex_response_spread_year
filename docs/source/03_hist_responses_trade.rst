@@ -3,7 +3,7 @@
 HIST Responses Trade
 ********************
 
-To be done ...
+This module computes the price response functions in trade time scale.
 
 To run this part of the code is necessary to have the results from the module
 :ref:`hist_data_extraction`.
