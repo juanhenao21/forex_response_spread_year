@@ -27,7 +27,7 @@ from typing import List
 from matplotlib import pyplot as plt  #type: ignore
 import numpy as np  #type: ignore
 
-__tau__ = 10000
+__tau__ = 1000
 
 # ----------------------------------------------------------------------------
 
