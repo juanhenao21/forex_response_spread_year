@@ -3,10 +3,10 @@
 To analyze the spread impact in price response functions, we used 47 foreign
 exchange pairs from three different years (Appendix \ref{app:fx_pairs_spread}).
 As we showed in Sect. \ref{sec:introduction}, due to the difference in the
-position of the decimal points between foreign exchange pairs, to compare them
-we need to introduce a ``scaling factor'' with the purpose of bringing the pip
-to the left of the decimal point. For example, the scaling factor for the
-USD/JPY is $100$ and that for the EUR/USD is $10000$.
+position of the decimal points in the price between foreign exchange pairs, to
+compare them we need to introduce a ``scaling factor'' with the purpose of
+bringing the pip to the left of the decimal point. For example, the scaling
+factor for the USD/JPY is $100$ and the one for the EUR/USD is $10000$.
 
 The pip bid-ask spread is defined as \cite{micro_eff}:
 
@@ -36,25 +36,32 @@ pairs.
     \label{fig:spread_impact}
 \end{figure*}
 
-We used three intervals to select the stocks groups ($s_{pip}<0.6$,
-$0.6 \le s_{pip} <7$ and $7 \le s_{pip} <40$). The detailed information of the
-foreign exchange pairs, spread and the groups can be seen in Appendix
-\ref{app:fx_pairs_spread}. With the groups of the stocks defined, we averaged
-the price response functions of each group.
+Depending on the year, we identified different number of groups according with
+the pip spread $s_{pip}$. For the years 2011 and 2015, we used two intervals to
+select the foreign exchange pairs groups ($s_{pip}<10$ and $10 \le s_{pip}$).
+We used three intervals in the year 2019 to select the foreign exchange pairs
+groups ($s_{pip}<4$, $4 \le s_{pip} < 10$ and $10 \le s_{pip}$). The detailed
+information of the foreign exchange pairs, spread and the groups can be seen in
+Appendix \ref{app:fx_pairs_spread}. With the groups of the stocks defined, we
+averaged the price response functions of each group.
 
 In Fig. \ref{fig:spread_impact} we show the average response functions for
-three groups in three different years. From year to year the groups can vary
-depending on the pip spread. The average price response function for the pairs
-with smaller pip spreads (more liquid) have in average the weakest signal in
-the figure for all the years and both time scales. On the other hand, the
-average price responses for the pairs with larger pip spread (less liquid) have
-in average the strongest signal for all the years in both time scales.
+the corresponding groups in three different years. From year to year the groups
+can vary depending on the pip spread. The average price response function for
+the pairs with smaller pip spreads (more liquid) have in average the weakest
+signal in the figure for all the years and both time scales. On the other hand,
+the average price responses for the pairs with larger pip spread (less liquid)
+have in average the strongest signal for all the years in both time scales.
 
 From Sect. \ref{sec:response_functions} we could expect the
-increase-maximum-decrease behavior. In all the figures with the average
-response on trade time scale, we can see that the curves keep their shape and
-follow an increase, reach a maximum and then start to slowly decrease. The
-response in trade time scale seems to be noisier, with large changes in the
+increase-maximum-decrease behavior. This behavior can be seen in the figures of
+the year 2015 for both time scales and in the figure of the year 2019 in trade
+time scale. In these figures the average price response functions follow an
+increase, reach a maximum and then start to slowly decrease. For the other
+figures, in average, the response functions start to decrease from the
+beginning.
+
+The response in trade time scale seems to be noisier, with large changes in the
 first time steps. This aggregate noise can be related with the crosses and
 exotics pairs, who tend to fluctuate more.
 
@@ -66,9 +73,7 @@ follow the trend, seem to have a instantaneous high response that slowly
 decrease with time. This behavior is mostly noticeable in the year 2019.
 
 For the year 2011 in physical time scale, the increase-maximum-decrease shape
-is not present. For the group 1 and 2 the response decrease almost immediately.
-For the group 3, it starts to decrease, but then is starts to grow and
-stabilize at the end of the time lag.
+is not present. For both groups the response decrease almost immediately.
 
 In the three plots, the foreign exchange market seems to have a global
 influence over all the pairs in the corresponding years. A similar behavior
