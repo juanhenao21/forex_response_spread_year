@@ -8,13 +8,11 @@ compare them we need to introduce a ``scaling factor'' with the purpose of
 bringing the pip to the left of the decimal point. For example, the scaling
 factor for the USD/JPY is $100$ and the one for the EUR/USD is $10000$.
 
-The pip bid-ask spread is defined as \cite{micro_eff}:
-
+The pip bid-ask spread is defined as \cite{micro_eff}
 \begin{equation}
-    s_{pip} = \left(a\left(t\right) - b\left(t\right)\right) \cdot
-    \text{scaling factor}
+    s_{\textrm{pip}} = \left(a\left(t\right) - b\left(t\right)\right) \cdot
+    \textrm{scaling factor}.
 \end{equation}
-
 With the $s_{pip}$ we can group the foreign exchange pairs and check how the
 average strength of the price response functions on trade time scale and
 physical time scale behave. For each pair we compute the pip bid-ask spread in
@@ -53,13 +51,12 @@ signal in the figure for all the years and both time scales. On the other hand,
 the average price responses for the pairs with larger pip spread (less liquid)
 have in average the strongest signal for all the years in both time scales.
 
-From Sect. \ref{sec:response_functions} we could expect the
-increase-maximum-decrease behavior. This behavior can be seen in the figures of
-the year 2015 for both time scales and in the figure of the year 2019 in trade
-time scale. In these figures the average price response functions follow an
-increase, reach a maximum and then start to slowly decrease. For the other
-figures, in average, the response functions start to decrease from the
-beginning.
+From Sect. \ref{sec:response_functions} we expect the increase-maximum-decrease
+behavior. This behavior can be seen in the figures of the year 2015 for both
+time scales and in the figure of the year 2019 in trade time scale. In these
+figures the average price response functions follow an increase, reach a
+maximum and then start to slowly decrease. For the other figures, on average,
+the response functions start to decrease from the beginning.
 
 The response in trade time scale seems to be noisier, with large changes in the
 first time steps. This aggregate noise can be related with the crosses and
