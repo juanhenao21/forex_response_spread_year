@@ -2,28 +2,26 @@
 
 In Sect. \ref{subsec:time_definition} we describe the physical time scale and
 the trade time scale. In Sect. \ref{subsec:trade_time} and Sect.
-\ref{subsec:physical_time} we define the trade time scale and physical time
-scale respectively.
+\ref{subsec:physical_time} we define the trade and the physical time scales,
+respectively.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Time definition}\label{subsec:time_definition}
 
 Due to the nature of the data, they are several options to define time for
-analyzing data.
-
-In general, the time series are indexed in calendar time (hours, minutes,
-seconds, milliseconds). Moreover, tick-by-tick data available on financial
-markets all over the world is time stamped up to the millisecond, but the order
-of magnitude of the guaranteed precision is much larger, usually one second or
-a few hundreds of milliseconds \cite{market_digest,empirical_facts}. In several
-papers are used different time definitions (calendar time, physical time, event
-time, trade time, tick time)
+analyzing data. In general, the time series are labeled in calendar time
+(hours, minutes, seconds, milliseconds). Moreover, tick-by-tick data available
+on financial markets all over the world is time stamped up to the millisecond,
+but the order of magnitude of the guaranteed precision is much larger, usually
+one second or a few hundreds of milliseconds
+\cite{market_digest,empirical_facts}. In several papers are used different time
+definitions (calendar time, physical time, event time, trade time, tick time)
 \cite{empirical_facts,sampling_returns,market_making}. The foreign exchange
 market data used in the analysis only has the quotes. In consequence, we have
 to infer the trades during the market time. As we have tick-by-tick resolution,
 we can use either trade time scale or physical time scale.
 
-The trade time scale is increased by one unit each time a transaction happens,
+The trade time scale increases by one unit each time a transaction happens,
 which in our case is every time the quotes change. The advantage of this count
 is that limit orders far away in the order book do not increase the time by one
 unit. The main outcome of trade time scale is its ``smoothing" of data and the
@@ -60,8 +58,8 @@ triggered by a market order to sell.
 
 In the second case of Eq. (\ref{eq:trade_signs_trade}), if two consecutive
 trades with the same trading direction did not exhaust all the available volume
-at the best quote, the trades would have the same price, and in consequence
-they will have the same trade sign.
+at the best quote, the trades would have the same price, and they will thus
+have the same trade sign.
 
 With this classification we obtain trade signs for every single trade in the
 data set. According to Ref. \cite{Wang_2016_cross}, the average accuracy of the
@@ -83,23 +81,21 @@ Eq. (\ref{eq:trade_signs_trade}) and reads
     0, & \text{If }N\left(t\right)=0
     \end{array}\right.
 \end{equation}
-where $N \left(t \right)$ is the number of trades in a second interval.
-$\varepsilon^{\left(p\right)}\left( t \right) = +1$ implies that the majority
-of trades in second $t$ were triggered by a market order to buy, and a value
-$\varepsilon^{\left(p\right)}\left( t \right) = -1$ indicates a majority of
-sell market orders. In this definition, they are two ways to obtain
-$\varepsilon^{\left(p\right)}\left( t \right) = 0$. One way is that in a
-particular second there are no trades, and then no trade sign. The other way is
-that the addition of the trade signs ($+1$ and $-1$) in a second be equal to
-zero. In this case, there is a balance of buy and sell market orders.
+where $N \left(t \right)$ is the number of trades in an interval of one second.
+Here, $\varepsilon^{\left(p\right)}\left( t \right) = +1$ implies that the
+majority of trades in second $t$ were triggered by a market order to buy, and a
+value $\varepsilon^{\left(p\right)}\left( t \right) = -1$ indicates a majority
+of sell market orders. In this definition, they are two ways to obtain
+$\varepsilon^{\left(p\right)}\left( t \right) = 0$. First, there are not trades
+in a particular second and thus no trade sign. Second, the sum of the trade
+signs in a given second amounts to zero, indicating an exact balance of buy and
+sell market orders.
 
-Market orders show opposite trade directions to limit order executed
-simultaneously. An executed sell limit order corresponds to a buyer-initiated
-market order. An executed buy limit order corresponds to a seller-initiated
-market order.
-
-In this case we do not compare every single trade sign in a second, but the net
-trade sign obtained for every second with the definition, see
-Eq. (\ref{eq:trade_signs_physical}). According to Ref. \cite{Wang_2016_cross},
-this definition has an average accuracy up to $82\%$ in the physical time
-scale.
+Market orders show opposite trade directions as compared to limit orders
+executed simultaneously. An executed sell limit order corresponds to a
+buyer-initiated market order. An executed buy limit order corresponds to a
+seller-initiated market order. In this case we do not compare every single
+trade sign in a second, but the net trade sign obtained for every second with
+the definition, see Eq. (\ref{eq:trade_signs_physical}). According to Ref.
+\cite{Wang_2016_cross}, this definition has an average accuracy up to $82\%$ in
+the physical time scale.
