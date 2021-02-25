@@ -1,30 +1,30 @@
 \section{Data set}\label{sec:data_set}
 
-In this study, we analyze foreign exchange pairs from the foreign exchange
-market. In the foreign exchange market, the trading day begins in the markets
-of Australia and Asia. Then the markets of Europe open and finishes late in the
-afternoon in New York \cite{forex_structure,forex_market_micro}. The markets does not formally
-closes during the week. Thus, using the New York time as reference, the market
-opens on Sunday at 19h00 and closes on Friday at 17h00.
+In the foreign exchange market, the trading day begins in Australia and Asia.
+Then the markets in Europe open and finally the markets in America
+\cite{forex_structure,forex_market_micro}. As the close time in New York
+overlaps the open time in Australia and Asia, the markets do not formally close
+during the week. Thus, using the New York time as reference, the market opens
+on Sunday at 19h00 and closes on Friday at 17h00.
 
 The foreign exchange financial data was obtained from
-\href{www.histdata.com}{HistData.com}. We used a tick-by-tick database in
+\href{www.histdata.com}{HistData.com}. We use a tick-by-tick database in
 generic ASCII format for different years and currency pairs. The data comprises
 the date time stamp (YYYYMMDD HHMMSSNNN), the best bid and best ask quotes
 prices in the Eastern Standard Time (EST) time zone. No information about the
 size of each transaction is provided. Also, the identity of the participants is
 not given.
 
-On physical time scale, for each exchange rate, we process the irregularly
+On the physical time scale, for each exchange rate, we process the irregularly
 spaced raw data to construct second-by-second price and volume series, each
 containing 86,400 observations per day. For every second, the midpoint of best
 bid and ask quotes or the transaction price of deals is used to construct
 one-second log-returns.
 
-To analyze the price response functions in Sect.
-\ref{sec:response_functions}, we select the seven major currency pairs in
-three different years (2008, 2014 and 2019). Table \ref{tab:majors} shows the
-currency pairs with their corresponding symbols.
+To analyze the price response functions in Sect. \ref{sec:response_functions},
+we select the seven major currency pairs in three different years (2008, 2014
+and 2019). Table \ref{tab:majors} shows the currency pairs with their
+corresponding symbols.
 
 \begin{table}[htbp]
 \centering
@@ -53,7 +53,7 @@ To analyze the spread impact in price response functions (Sect.
 \ref{app:fx_pairs_spread}.
 
 In order to avoid overnight effects and any artifact due to the opening and
-closing of the foreign exchange market, we systematically discarded the first
+closing of the foreign exchange market, we systematically discard the first
 ten and the last ten minutes of trading in a given week
 \cite{Bouchaud_2004,large_prices_changes,spread_changes_affect,my_paper_response_financial,Wang_2016_cross}.
 Therefore, we only consider trades of the same week from Sunday 19:10:00 to
