@@ -1,83 +1,79 @@
 \section{Introduction}\label{sec:introduction}
 
 The foreign exchange market is the most volatile, liquid and largest of all
-financial markets on earth.
-\cite{forex_liquidity,info_forex,forex_market_micro,intraday_forex}. Its
-importance in the world economy is prominent. It affects employment, inflation,
+financial markets
+\cite{forex_liquidity,info_forex,forex_market_micro,intraday_forex}, and it has
+a paramount importance for the world economy. It affects employment, inflation,
 international capital flows, among others \cite{forex_structure}. The foreign
-exchange market is a decentralized market without common trading floor
+exchange market is a decentralized market without a common trading floor
 \cite{teach_spread,forex_structure,info_forex,forex_market_micro}
 
-The term ``pip'' (Price Increment Point) is commonly used in the foreign
-exchange market in place of the word ‘tick’. Pips arise as a matter of
-convention. A pip refers to the incremental value in the fifth non-zero digit
-position from the left. Note that it is not related to the position of the
-decimal point. For example, one pip in a USD/JPY value of 124.21 would be 0.01,
-while one pip for EUR/USD of 1.1025 would be 0.0001
+The term pip (Price Increment Point) is commonly used in the foreign exchange
+market instead of tick. The precise definition of a pip is a matter of
+convention. Usually, it refers to the incremental value in the fifth non-zero
+digit position from the left. It is not related to the position of the decimal
+point. For example, one pip in the exchange rate USD/JPY of 124.21 would be
+0.01, while one pip for EUR/USD of 1.1021 would be 0.0001
 \cite{order_flow_forex,forex_structure,micro_eff,forex_market_micro}.
 
 The foreign exchange market has attracted a lot of attention in the last 20
 years. Electronic trading has changed an opaque market to a fairly transparent
-with transactions costs that are a fraction of their former level. The large
-amount of data that is now available to the public make possible different
-kinds of analysis to this data. A lot of research is currently carry out in
+one with transactions costs that are a fraction of their former level. The
+large amount of data that is now available to the public make possible
+different kinds of data analysis. Intense research is currently carried out in
 different directions
 \cite{curr_speculation,forex_algorithmic,teach_spread,electronic_forex,forex_microstructure,patterns_forex,eur_change_forex,spread_competition,forex_structure,political_forex,forex_liquidity,forex_volatility,info_forex,local_forex,intraday_forex,forex_inefficiency}.
 
-In Ref. \cite{micro_eff}, McGroarty et al. found that smaller volumes cause
-larger bid-ask spreads for technical reasons to do with measurement, whereas in
-Refs. \cite{eur_int_curr,eur_change_forex}, Hau et al. claim that larger
-bid-ask spreads caused smaller volumes due to trader behavior.
+McGroarty et al. \cite{micro_eff} found that smaller volumes cause larger
+bid-ask spreads for technical reasons related to the measurement, whereas Hau
+et al. \cite{eur_int_curr,eur_change_forex} claim that larger bid-ask spreads
+caused smaller volumes due to the traders' behavior.
 
-In Ref. \cite{curr_speculation}, Burnside et al. found the spreads to be
-between two and four times larger for emerging market currencies than for
-developed country currencies. In Ref. \cite{spread_competition}, Huang et al.
-found that bid-ask spreads increase when the foreign exchange market volatility
-increases, and decrease when the dealer competition increases. In Ref.
-\cite{electronic_forex}, Ding et al. found the Electronic Broking Services
-(EBS) reduces spreads significantly, but dealers with information advantage
-tend to quote relatively wider spreads. In Ref. \cite{spread_futures}, King
-analyzed the foreign exchange futures market and found that the number of
-transactions is negatively related with bid-ask spread, whereas volatility in
-general is positively related. In Ref. \cite{intraday_forex}, Serbinenko et al.
-focus in the three major market characteristics, namely efficiency, liquidity
-and volatility, finding that the market is efficient in a weak form. In Ref
-\cite{local_forex}, Menkhoff et al. used orders from the Russian interbank for
-Russian rouble/US dollar pair. They analyzed the price impact in different
-regions of Russia, finding that regions that are better informed, have high
-permanent price impact.
+Burnside et al. \cite{curr_speculation} found the spreads to be between two and
+four times larger for emerging market currencies than for developed country
+currencies. According to Huang and Masulis \cite{spread_competition}, bid-ask
+spreads increase when the foreign exchange market volatility increases, and
+decrease when the competition between the dealers increases. Ding and Hiltrop
+\cite{electronic_forex} showed that the Electronic Broking Services (EBS)
+reduces spreads significantly, but dealers with information advantage tend to
+quote relatively wider spreads. King \cite{spread_futures} analyzed the foreign
+exchange futures market and observed that the number of transactions is
+negatively related with bid-ask spread, whereas volatility in general is
+positively related. Serbinenko and Rachev \cite{intraday_forex} focus on the
+three major market characteristics, namely efficiency, liquidity and
+volatility, and found that the market is efficient in a weak form. Menkhoff and
+Schmeling \cite{local_forex} used orders from the Russian interbank for Russian
+rouble/US dollar rate. They analyzed the price impact in different regions of
+Russia, and found that regions that are centers of political and financial
+decision making have high permanent price impact.
 
-Due to the lack of available data in the past, very few studies exist on price
-response functions in the foreign exchange market. Even if there are several
-papers about foreign exchange markets, we did not found large information about
-price response functions in this market. In Ref. \cite{forex_volatility},
-Melvin et al. simulate their proposed model for different foreign exchange
-markets region to analyze the impact of a one-standard-deviation shock using
-impulse response functions. The general pattern of response was a fairly steep
-drop over the first couple of days followed by a few days of gradual decline
-until the response is not statistically different from zero. In Ref.
-\cite{forex_liquidity}, Mancini et al. model the price impact and return
-reversal to analyze liquidity. Their model predicts that more liquid assets
-should exhibit narrower spreads and lower price impact.
+Little is known about price response functions in the foreign exchange markets:
+\cite{forex_liquidity,forex_volatility}. Melvin and Melvin \cite{forex_volatility}
+simulate their proposed model for different foreign exchange markets region to
+analyze the impact of a one-standard-deviation shock using impulse response
+functions. The general pattern of response was a fairly steep drop over the
+first couple of days followed by a few days of gradual decline until the
+response is not statistically different from zero. Mancini et al.
+\cite{forex_liquidity} model the price impact and return reversal to analyze
+liquidity. Their model predicts that more liquid assets should exhibit narrower
+spreads and lower price impact.
 
-Here, we want to discuss, based on a series of detailed empirical results
-obtained on trade by trade data, that the price response functions behave
-qualitatively the same in foreign exchange markets compared with correlated
-financial markets. We consider different time scales and currency pairs to
-compute the price response functions. To facilitate the reproduction of our
-results, the source code for the data analysis is available in Ref.
-(Poner referencia).
-
-We delve into the price response function computation in foreign exchange
-markets. We perform a empirical study in different time scales and different
-years. We show the similarity between the price response functions in foreign
-exchange markets and correlated financial markets. Finally, we shed light on
-the spread impact in the response functions for currency pairs.
+To the best of our knowledge, no large-scale data analysis of response
+functions for foreign exchange market has been carried out. Response functions
+are important observables as they give information on non-Markovian behavior.
+It is the purpose of the present study to close this gap. Based on a series of
+detailed empirical results obtained on trade by trade data, we will show that
+the price response functions in the foreign exchange markets behave
+qualitatively similar as the ones in correlated stocks markets. We consider
+different time scales and currency pairs to compute the price response
+functions. We also shed light on the spread impact in the response functions
+for currency pairs. To facilitate the reproduction of our results, the source
+code for the data analysis is available in Ref. (Poner referencia).
 
 The paper is organized as follows: in Sect. \ref{sec:data_set} we present our
 data set of foreign exchange pairs and briefly describe the physical and trade
-time scale. We define the time scale we will use in Sect. \ref{sec:time_scale},
+time scale. We define the time scale to be used in Sect. \ref{sec:time_scale},
 and compute the price response functions for the majors pairs in Sect.
 \ref{sec:response_functions}. In Sect. \ref{sec:spread_impact} we show how
-the spread impact the values of the response functions. Our conclusions follows
+the spread impact the values of the response functions. Our conclusions follow
 in Sect. \ref{sec:conclusion}.
