@@ -41,6 +41,8 @@ def hist_response_year_avg_responses_plot(years: List[str]) -> None:
     try:
         figure, axs = plt.subplots(2, 3, sharex=True, figsize=(16, 9))
 
+        markers: List = ['-o', '-^', '-s']
+
         year: str
         for idx, year in enumerate(years):
 
@@ -54,9 +56,12 @@ def hist_response_year_avg_responses_plot(years: List[str]) -> None:
                 + f'_year_avg_responses_physical_data/hist_fx_self_response_year'
                 + f'_avg_responses_physical_data_{year}_.pickle', 'rb'))
 
-            axs[0, idx].semilogx(resp_g1_t, linewidth=5, label=f'Group 1')
-            axs[0, idx].semilogx(resp_g2_t, linewidth=5, label=f'Group 2')
-            axs[0, idx].semilogx(resp_g3_t, linewidth=5, label=f'Group 3')
+            axs[0, idx].semilogx(resp_g1_t, markers[0], ms=10,
+                                 label=f'Group 1')
+            axs[0, idx].semilogx(resp_g2_t, markers[1], ms=10,
+                                 label=f'Group 2')
+            axs[0, idx].semilogx(resp_g3_t, markers[2], ms=10,
+                                 label=f'Group 3')
 
             # axs[idx, 0].legend(loc='upper center', bbox_to_anchor=(0.5, -0.2), ncol=3,
             #         fontsize=30)
@@ -71,9 +76,12 @@ def hist_response_year_avg_responses_plot(years: List[str]) -> None:
             axs[0, idx].yaxis.offsetText.set_fontsize(10)
             axs[0, idx].grid(True)
 
-            axs[1, idx].semilogx(resp_g1_p, linewidth=5, label=f'Group 1')
-            axs[1, idx].semilogx(resp_g2_p, linewidth=5, label=f'Group 2')
-            axs[1, idx].semilogx(resp_g3_p, linewidth=5, label=f'Group 3')
+            axs[1, idx].semilogx(resp_g1_p, markers[0], ms=10,
+                                 label=f'Group 1')
+            axs[1, idx].semilogx(resp_g2_p, markers[1], ms=10,
+                                 label=f'Group 2')
+            axs[1, idx].semilogx(resp_g3_p, markers[2], ms=10,
+                                 label=f'Group 3')
 
             # axs[1, idx].legend(loc='upper center', bbox_to_anchor=(0.5, -0.2), ncol=3,
             #                    fontsize=15)

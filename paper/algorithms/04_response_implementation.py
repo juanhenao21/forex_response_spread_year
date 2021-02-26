@@ -55,6 +55,8 @@ def hist_trade_scale_response_year_avg_plot(
         fx_pair: str
         year: str
 
+        markers: List = ['-o', '-^', '-s', '-P', '-*', '-d', '-|' ]
+
         for idx, year in enumerate(years):
             for fx_idx, fx_pair in enumerate(fx_pairs):
 
@@ -65,7 +67,7 @@ def hist_trade_scale_response_year_avg_plot(
                          + f'{fx_pair}/hist_fx_self_response_year_responses'
                          + f'_trade_data_{fx_pair}_{year}.pickle', 'rb'))
 
-                ax_plot[idx].semilogx(resp, linewidth=5,
+                ax_plot[idx].semilogx(resp, markers[fx_idx], ms=10,
                                       label=f'{symbols[fx_idx]}')
 
         ax1.set_title(f'{years[0]}', fontsize=15)
@@ -140,6 +142,8 @@ def hist_physical_scale_response_year_avg_plot(
         fx_pair: str
         year: str
 
+        markers: List = ['-o', '-^', '-s', '-P', '-*', '-d', '-|' ]
+
         for idx, year in enumerate(years):
             for fx_idx, fx_pair in enumerate(fx_pairs):
 
@@ -151,7 +155,7 @@ def hist_physical_scale_response_year_avg_plot(
                          + f'_responses_physical_data_{fx_pair}_{year}.pickle',
                          'rb'))
 
-                ax_plot[idx].semilogx(resp, linewidth=5,
+                ax_plot[idx].semilogx(resp, markers[fx_idx], ms=10,
                                       label=f'{symbols[fx_idx]}')
 
         ax1.set_title(f'{years[0]}', fontsize=15)
