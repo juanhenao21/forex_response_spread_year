@@ -241,6 +241,13 @@ Marc Potters and Jean-Philippe Bouchaud.
 \newblock More statistical properties of order books and price impact.
 \newblock 2002.
 
+\bibitem{complex_markets}
+Dean Rickles.
+\newblock Econophysics and the complexity of financial markets.
+\newblock In Cliff Hooker, editor, {\em Philosophy of Complex Systems},
+  volume~10 of {\em Handbook of the Philosophy of Science}, pages 531--565.
+  North-Holland, Amsterdam, 2011.
+
 \bibitem{non_stationarity}
 Thilo~A. Schmitt, Desislava Chetalova, Rudi Schäfer, and Thomas Guhr.
 \newblock Non-stationarity in financial time series: Generic features and tail
@@ -266,6 +273,12 @@ Syed Jawad~Hussain Shahzad, Jose~Areola Hernandez, Waqas Hanif, and
 Eric Smith, J~Doyne Farmer, L\'aszl\'o Gillemot, and Supriya Krishnamurthy.
 \newblock Statistical theory of the continuous double auction.
 \newblock {\em Quantitative Finance}, 3(6):481--514, 2003.
+
+\bibitem{physicists_contribution}
+H.E Stanley, L.A.N Amaral, D~Canning, P~Gopikrishnan, Y~Lee, and Y~Liu.
+\newblock Econophysics: Can physicists contribute to the science of economics?
+\newblock {\em Physica A: Statistical Mechanics and its Applications},
+  269(1):156--169, 1999.
 
 \bibitem{market_making}
 Ioane~Muni Toke.
