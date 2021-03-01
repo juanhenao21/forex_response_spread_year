@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2016/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: main.aux
 The style file: plain.bst
@@ -11,45 +11,45 @@ Warning--empty publisher in intro_market_micro
 Warning--can't use both author and editor fields in forex_market_micro
 Warning--empty booktitle in prop_order_book
 Warning--can't use both author and editor fields in market_making
-You've used 54 entries,
+You've used 55 entries,
             2118 wiz_defined-function locations,
-            821 strings with 13404 characters,
-and the built_in function-call counts, 18487 in all, are:
-= -- 1763
-> -- 910
+            825 strings with 13528 characters,
+and the built_in function-call counts, 18684 in all, are:
+= -- 1780
+> -- 917
 < -- 7
-+ -- 364
-- -- 301
-* -- 1446
-:= -- 3118
-add.period$ -- 161
-call.type$ -- 54
-change.case$ -- 307
++ -- 367
+- -- 303
+* -- 1452
+:= -- 3150
+add.period$ -- 163
+call.type$ -- 55
+change.case$ -- 311
 chr.to.int$ -- 0
-cite$ -- 62
-duplicate$ -- 635
-empty$ -- 1427
-format.name$ -- 301
-if$ -- 3822
+cite$ -- 63
+duplicate$ -- 642
+empty$ -- 1449
+format.name$ -- 303
+if$ -- 3865
 int.to.chr$ -- 0
-int.to.str$ -- 54
+int.to.str$ -- 55
 missing$ -- 55
-newline$ -- 270
-num.names$ -- 112
-pop$ -- 271
+newline$ -- 274
+num.names$ -- 114
+pop$ -- 280
 preamble$ -- 1
-purify$ -- 257
+purify$ -- 260
 quote$ -- 0
-skip$ -- 436
+skip$ -- 444
 stack$ -- 0
-substring$ -- 1231
-swap$ -- 96
+substring$ -- 1236
+swap$ -- 97
 text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 208
+type$ -- 212
 warning$ -- 8
-while$ -- 162
-width$ -- 56
-write$ -- 585
+while$ -- 164
+width$ -- 57
+write$ -- 593
 (There were 8 warnings)
