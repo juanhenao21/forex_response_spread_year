@@ -1,9 +1,8 @@
-This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2016/Debian)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: main.aux
 The style file: plain.bst
 Database file #1: bib.bib
-Warning--empty booktitle in market_digest
 Warning--empty journal in my_paper_response_financial
 Warning--empty year in my_paper_response_financial
 Warning--empty chapter and pages in forex_structure
@@ -14,43 +13,43 @@ Warning--empty booktitle in prop_order_book
 Warning--can't use both author and editor fields in market_making
 You've used 52 entries,
             2118 wiz_defined-function locations,
-            802 strings with 12892 characters,
-and the built_in function-call counts, 17361 in all, are:
-= -- 1649
-> -- 858
-< -- 4
-+ -- 345
-- -- 284
-* -- 1355
-:= -- 2943
-add.period$ -- 153
+            808 strings with 13049 characters,
+and the built_in function-call counts, 17574 in all, are:
+= -- 1675
+> -- 866
+< -- 5
++ -- 347
+- -- 286
+* -- 1373
+:= -- 2973
+add.period$ -- 154
 call.type$ -- 52
 change.case$ -- 294
 chr.to.int$ -- 0
-cite$ -- 61
-duplicate$ -- 590
-empty$ -- 1343
-format.name$ -- 284
-if$ -- 3567
+cite$ -- 60
+duplicate$ -- 599
+empty$ -- 1357
+format.name$ -- 286
+if$ -- 3623
 int.to.chr$ -- 0
 int.to.str$ -- 52
 missing$ -- 53
 newline$ -- 260
-num.names$ -- 104
-pop$ -- 264
+num.names$ -- 106
+pop$ -- 259
 preamble$ -- 1
 purify$ -- 246
 quote$ -- 0
-skip$ -- 401
+skip$ -- 411
 stack$ -- 0
-substring$ -- 1149
-swap$ -- 76
-text.length$ -- 4
+substring$ -- 1172
+swap$ -- 83
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 200
-warning$ -- 9
-while$ -- 151
+warning$ -- 8
+while$ -- 154
 width$ -- 54
-write$ -- 555
-(There were 9 warnings)
+write$ -- 560
+(There were 8 warnings)
