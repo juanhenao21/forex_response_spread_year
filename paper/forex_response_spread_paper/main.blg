@@ -11,45 +11,45 @@ Warning--empty publisher in intro_market_micro
 Warning--can't use both author and editor fields in forex_market_micro
 Warning--empty booktitle in prop_order_book
 Warning--can't use both author and editor fields in market_making
-You've used 55 entries,
+You've used 59 entries,
             2118 wiz_defined-function locations,
-            825 strings with 13528 characters,
-and the built_in function-call counts, 18684 in all, are:
-= -- 1780
-> -- 917
+            840 strings with 13968 characters,
+and the built_in function-call counts, 19795 in all, are:
+= -- 1878
+> -- 983
 < -- 7
-+ -- 367
-- -- 303
-* -- 1452
-:= -- 3150
-add.period$ -- 163
-call.type$ -- 55
-change.case$ -- 311
++ -- 394
+- -- 325
+* -- 1527
+:= -- 3342
+add.period$ -- 173
+call.type$ -- 59
+change.case$ -- 334
 chr.to.int$ -- 0
-cite$ -- 63
-duplicate$ -- 642
-empty$ -- 1449
-format.name$ -- 303
-if$ -- 3865
+cite$ -- 67
+duplicate$ -- 677
+empty$ -- 1536
+format.name$ -- 325
+if$ -- 4090
 int.to.chr$ -- 0
-int.to.str$ -- 55
-missing$ -- 55
-newline$ -- 274
-num.names$ -- 114
-pop$ -- 280
+int.to.str$ -- 59
+missing$ -- 57
+newline$ -- 292
+num.names$ -- 122
+pop$ -- 311
 preamble$ -- 1
-purify$ -- 260
+purify$ -- 279
 quote$ -- 0
-skip$ -- 444
+skip$ -- 474
 stack$ -- 0
-substring$ -- 1236
-swap$ -- 97
+substring$ -- 1275
+swap$ -- 101
 text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 212
+type$ -- 228
 warning$ -- 8
-while$ -- 164
-width$ -- 57
-write$ -- 593
+while$ -- 173
+width$ -- 61
+write$ -- 630
 (There were 8 warnings)
