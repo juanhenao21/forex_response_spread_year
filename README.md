@@ -2,6 +2,7 @@
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](https://forex-response-spread-year.readthedocs.io/en/latest/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4569918.svg)](https://doi.org/10.5281/zenodo.4569918)
 
 In this repository, I analyzed the price response functions of the foreign
 exchange market data for different years,
