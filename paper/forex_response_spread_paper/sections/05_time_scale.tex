@@ -40,7 +40,6 @@ We use the trade sign classification in trade time scale proposed in Ref.
 \cite{Wang_2016_cross} and used in Refs.
 \cite{my_paper_response_financial,Wang_2017,Wang_2018_copulas,Wang_2016_avg}
 that reads
-
 \begin{equation}\label{eq:trade_signs_trade}
     \varepsilon^{\left(t\right)}\left(t,n\right)=\left\{
     \begin{array}{cc}
@@ -50,14 +49,13 @@ that reads
     & \text{otherwise}
     \end{array}\right..
 \end{equation}
-
 Here, $\varepsilon^{\left(t\right)}\left( t,n \right) = +1$ implies a trade
 triggered by a market order to buy, and a value
 $\varepsilon^{\left(t\right)}\left( t,n \right) = -1$ indicates a trade
 triggered by a market order to sell.
 
 In the second case of Eq. (\ref{eq:trade_signs_trade}), if two consecutive
-trades with the same trading direction did not exhaust all the available volume
+trades with the same trading direction do not exhaust all the available volume
 at the best quote, the trades would have the same price, and they will thus
 have the same trade sign.
 
@@ -83,7 +81,7 @@ Eq. (\ref{eq:trade_signs_trade}) and reads
 \end{equation}
 where $N \left(t \right)$ is the number of trades in an interval of one second.
 Here, $\varepsilon^{\left(p\right)}\left( t \right) = +1$ implies that the
-majority of trades in second $t$ were triggered by a market order to buy, and a
+majority of trades in second $t$ are triggered by a market order to buy, and a
 value $\varepsilon^{\left(p\right)}\left( t \right) = -1$ indicates a majority
 of sell market orders. In this definition, they are two ways to obtain
 $\varepsilon^{\left(p\right)}\left( t \right) = 0$. First, there are not trades

@@ -10,13 +10,13 @@ we analyze the responses functions in physical time scale.
 \subsection{Key concepts}\label{subsec:key_concepts}
 
 In general, three categories of currency pairs are defined: majors, crosses,
-and exotics. The ``major'' foreign exchange currency pairs are the major
-countries that are paired with the U.S. dollar (see Table \ref{tab:majors}).
-The ``crosses'' are those majors pairs that are not paired against the U.S.
-dollar. Finally, the ``exotic'' pairs usually consist of a major currency
-alongside a thinly traded currency or an emerging market economy currency.
-The majors are the most liquid pairs, in contrast with the exotics, who can be
-much more volatile.
+and exotics. The ``major'' foreign exchange currency pairs are the most
+frequently traded currencies that are paired with the U.S. dollar (see Table
+\ref{tab:majors}). The ``crosses'' are those majors pairs paired between them
+and that exclude the U.S. dollar. Finally, the ``exotic'' pairs usually consist
+of a major currency alongside a thinly traded currency or an emerging market
+economy currency. The majors are the most liquid pairs, in contrast with the
+exotics, who can be much more volatile.
 
 In foreign exchange markets, orders are execute at the best available buy or
 sell price. Orders often fail to result in an immediate transaction, and are
@@ -54,8 +54,8 @@ defined as
 \end{equation}
 Price changes are typically characterized as returns. If one denotes
 $S\left( t\right)$ the price of an asset at time $t$, the return
-$r\left(t, \tau\right)$, at time $t$ and time lag $\tau$ is simply the relative
-variation of the price from $t$ to $t + \tau$
+$r^{\left(g\right)}\left(t, \tau\right)$, at time $t$ and time lag $\tau$ is
+simply the relative variation of the price from $t$ to $t + \tau$
 \cite{subtle_nature,empirical_facts,asynchrony_effects_corr,tick_size_impact,causes_epps_effect,non_stationarity},
 \begin{equation}\label{eq:return_general}
     r^{\left(g\right)} \left(t, \tau \right) = \frac{S\left(t + \tau\right)
@@ -122,7 +122,7 @@ The price response function in trade time scale is defined as
     _{i}\left(t-1,\tau \right)\varepsilon_{i}^{\left(t\right)}
     \left(t, n\right)\right\rangle _{T}.
 \end{equation}
-To compute the response functions on trade time scale, we used both, the trade
+To compute the response functions on trade time scale, we use both, the trade
 signs and the returns during a week in market time.
 
 \begin{figure}[htbp]
@@ -186,7 +186,6 @@ function on physical time scale is defined as
     _{i}\left(t-1, \tau\right) \varepsilon_{i}^{\left(p\right)} \left(t\right)
     \right\rangle _{P}
 \end{equation}
-
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\columnwidth]
@@ -198,13 +197,14 @@ function on physical time scale is defined as
              years 2008 (top), 2014 (middle) and 2019 (bottom).}
     \label{fig:response_function_physical_scale}
 \end{figure}
-
 The results shown in Fig. \ref{fig:response_function_physical_scale} are the
 price response functions on physical time scale for three different years. The
-results show the same behavior observed in currency exchange pairs in trade
-time scale, and in correlated financial markets, where we can see that an
-increase to a maximum is followed by a decrease. Thus again, the trend in the
-price responses is eventually reversed.
+results show approximately the same behavior observed in currency exchange
+pairs in trade time scale, and in correlated financial markets, where we can
+see that an increase to a maximum is followed by a decrease. Thus again, the
+trend in the price responses is eventually reversed. An exception occurs in the
+year 2008, where the response at short time lags seems to decrease, to then
+start to slightly increase, and finally it decrease again.
 
 The price response functions on physical time scale are smoother than the
 responses on trade time scale. As we reduce from trade data all the returns and
