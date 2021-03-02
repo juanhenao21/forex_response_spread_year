@@ -15,9 +15,9 @@ present interdisciplinary contribution is to study the application of the price
 response function concept and shed light on the impact of the trades in the
 market. Such analysis was already made for stock markets, but for our surprise,
 we did not find any similar analysis on foreign exchange markets. Then, we feel
-this study is a rewarding effort. It helps to examine the characteristics of
-the functions applied to the foreign exchange market and it is suitable to
-compare the similarities and differences to other markets.
+this study is a rewarding effort. It helps to examine the behavior of the
+functions applied to the foreign exchange market and it is suitable to compare
+the similarities and differences to other markets.
 
 The foreign exchange market is the most volatile, liquid and largest of all
 financial markets
@@ -66,12 +66,13 @@ rouble/US dollar rate. They analyzed the price impact in different regions of
 Russia, and found that regions that are centers of political and financial
 decision making have high permanent price impact.
 
-The price response functions measures price changes resulting from execution of
-market orders. The price response function measures how a buy or sell order at
-time $t$ influences on average the price at a later time $t + \tau$. It was
-shown in different works
-\cite{my_paper_response_financial_arxiv,r_walks_liquidity,subtle_nature,Bouchaud_2004,theory_market_impact,components_spread_tokyo,dissecting_cross,Wang_2016_cross,Wang_2016_avg}
-
+The price response functions measure price changes resulting from execution of
+market orders. Specifically, they measure how a buy or sell order at time $t$
+influences on average the price at a later time $t + \tau$. It was shown in
+different works
+\cite{components_spread_tokyo,dissecting_cross,r_walks_liquidity,subtle_nature,Bouchaud_2004,theory_market_impact,my_paper_response_financial_arxiv,Wang_2016_avg,Wang_2016_cross}
+that the price response functions increase to a maximum and then slowly
+decrease as the time lag grows.
 
 Little is known about price response functions in the foreign exchange markets:
 \cite{forex_liquidity,forex_volatility,response_funct_fx}. Melvin and Melvin
@@ -91,10 +92,12 @@ It is the purpose of the present study to close this gap. Based on a series of
 detailed empirical results obtained on trade by trade data, we will show that
 the price response functions in the foreign exchange markets behave
 qualitatively similar as the ones in correlated stocks markets. We consider
-different time scales and currency pairs to compute the price response
-functions. We also shed light on the spread impact in the response functions
-for currency pairs. To facilitate the reproduction of our results, the source
-code for the data analysis is available in Ref. \cite{code}.
+different time scales, years and currency pairs to compute the price response
+functions. Finally, we shed light on the spread impact in the response
+functions for foreign exchange pairs. We use a pip spread definition to group
+different foreign exchange pairs and show that large pip spreads have stronger
+impact on the response.To facilitate the reproduction of our results, the
+source code for the data analysis is available in Ref. \cite{code}.
 
 The paper is organized as follows: in Sect. \ref{sec:data_set} we present our
 data set of foreign exchange pairs and briefly describe the physical and trade
