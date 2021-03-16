@@ -92,24 +92,26 @@ $\varepsilon(t) = -1$
 The main objective of this work is to analyze the price response functions. In
 general we define the price response functions in a foreign exchange market as
 \begin{equation}\label{eq:response_general}
-    R^{\left(scale\right)}_{ii}\left(\tau\right)=\left\langle
-    r^{\left(scale\right)}_{i}\left(t-1, \tau\right)
-    \varepsilon^{\left(scale\right)}_{i} \left(t\right)\right\rangle_{average},
+    R^{\left(\textrm{scale}\right)}_{ii}\left(\tau\right)=\left\langle
+    r^{\left(\textrm{scale}\right)}_{i}\left(t-1, \tau\right)
+    \varepsilon^{\left(\textrm{scale}\right)}_{i} \left(t\right)\right\rangle
+    _{\textrm{average}},
 \end{equation}
 where the index $i$ correspond to currency pairs in the market,
-$r^{\left(scale\right)}_{i}$ is the return of the pair $i$ in a time lag $\tau$
-in the corresponding scale and $\varepsilon^{\left(scale\right)}_{i}$ is the
-trade sign of the pair $i$ in the corresponding scale. The superscript $scale$
-refers to the time scale used, whether physical time scale
-($scale = p$) or trade time scale ($scale = t$). Finally, The subscript
-$average$ refers to the way to average the price response, whether relative to
-the physical time scale ($average = P$) or relative to the trade time scale
-($average = T$).
+$r^{\left(\textrm{scale}\right)}_{i}$ is the return of the pair $i$ in a time
+lag $\tau$ in the corresponding scale and
+$\varepsilon^{\left(\textrm{scale}\right)}_{i}$ is the trade sign of the pair
+$i$ in the corresponding scale. The superscript scale refers to the time scale
+used, whether physical time scale ($\textrm{scale} = \textrm{p}$) or trade time
+scale ($\textrm{scale} = \textrm{t}$). Finally, The subscript average refers to
+the way to average the price response, whether relative to the physical time
+scale ($\textrm{average} = P$) or relative to the trade time scale
+($\textrm{average} = T$).
 
 For correlated financial markets, the price response function increase to a
 maximum and then slowly decrease. This result is observed empirically in trade
 time scale and in physical time scale
-\cite{my_paper_response_financial,Wang_2016_avg}.
+\cite{Wang_2016_avg,my_paper_response_financial}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Response functions on trade time scale}
@@ -118,8 +120,9 @@ time scale and in physical time scale
 The price response function in trade time scale is defined as
 \cite{my_paper_response_financial}
 \begin{equation}\label{eq:response_functions_trade_scale_general}
-    R^{\left(t\right)}_{ii}\left(\tau\right)=\left\langle r^{\left(t\right)}
-    _{i}\left(t-1,\tau \right)\varepsilon_{i}^{\left(t\right)}
+    R^{\left(\textrm{t}\right)}_{ii}\left(\tau\right)=\left\langle
+    r^{\left(\textrm{t}\right)}_{i}\left(t-1,\tau \right)
+    \varepsilon_{i}^{\left(\textrm{t}\right)}
     \left(t, n\right)\right\rangle _{T}.
 \end{equation}
 To compute the response functions on trade time scale, we use both, the trade
@@ -130,9 +133,9 @@ signs and the returns during a week in market time.
     \includegraphics[width=\columnwidth]
     {figures/04_responses_trade_scale.png}
     \caption{Price response functions
-             $R^{\left(t\right)}_{ii}\left(\tau\right)$ versus time lag $\tau$
-             on a logarithmic scale in trade time scale for the years 2008
-             (top), 2014 (middle) and 2019 (bottom).}
+             $R^{\left(\textrm{t}\right)}_{ii}\left(\tau\right)$ versus time
+             lag $\tau$ on a logarithmic scale in trade time scale for the
+             years 2008 (top), 2014 (middle) and 2019 (bottom).}
     \label{fig:response_function_trade_scale}
 \end{figure}
 
@@ -164,35 +167,36 @@ compared with previous years.
 One important detail to compute the price response function on physical time
 scale is to define how the averaging of the function will be made, because the
 response functions highly differ when we include or exclude
-$\varepsilon^{\left(p\right)}_j \left( t\right) = 0$ \cite{Wang_2016_cross}.
-The price responses including
-$\varepsilon^{\left(p\right)}_j \left( t\right) = 0$ are weaker than the
-excluding ones due to the omission of direct influence of the lack of trades.
-However, either including or excluding $\varepsilon^{p}_j \left( t\right) = 0$
-does not change the trend of price reversion versus the time lag, but it does
-affect the response function strength \cite{Wang_2016_avg}. For a deeper
-analysis of the influence of the term
-$\varepsilon^{\left(p\right)}_j \left( t\right) = 0$ in price response
+$\varepsilon^{\left(\textrm{p}\right)}_j \left( t\right) = 0$
+\cite{Wang_2016_cross}. The price responses including
+$\varepsilon^{\left(\textrm{p}\right)}_j \left( t\right) = 0$ are weaker than
+the excluding ones due to the omission of direct influence of the lack of
+trades. However, either including or excluding
+$\varepsilon^{\left(\textrm{p}\right)}_j \left( t\right) = 0$ does not change
+the trend of price reversion versus the time lag, but it does affect the
+response function strength \cite{Wang_2016_avg}. For a deeper analysis of the
+influence of the term
+$\varepsilon^{\left(\textrm{p}\right)}_j \left( t\right) = 0$ in price response
 functions, we suggest to review Refs. \cite{Wang_2016_avg,Wang_2016_cross}. We
 will only take into account the price response functions excluding
-$\varepsilon^{p}_j \left( t\right) = 0$.
+$\varepsilon^{\textrm{p}}_j \left( t\right) = 0$.
 
 We define the price response functions on physical time scale, using
 the trade signs and the returns in physical time scale. The price response
 function on physical time scale is defined as
 \cite{my_paper_response_financial}
 \begin{equation}\label{eq:response_functions_time_scale_general}
-    R^{\left(p\right)}_{ii}\left(\tau\right)=\left\langle r^{\left(p\right)}
-    _{i}\left(t-1, \tau\right) \varepsilon_{i}^{\left(p\right)} \left(t\right)
-    \right\rangle _{P}
+    R^{\left(\textrm{p}\right)}_{ii}\left(\tau\right)=\left\langle
+    r^{\left(\textrm{p}\right)}_{i}\left(t-1, \tau\right)
+    \varepsilon_{i}^{\left(\textrm{p}\right)} \left(t\right)\right\rangle _{P}
 \end{equation}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\columnwidth]
     {figures/04_responses_physical_scale.png}
     \caption{Price response functions
-             $R^{\left(p\right)}_{ii}\left(\tau\right)$ excluding
-             $\varepsilon^{\left(p\right)}_{i}\left(t\right) = 0$ versus time
+             $R^{\left(\textrm{p}\right)}_{ii}\left(\tau\right)$ excluding
+             $\varepsilon^{\left(\textrm{p}\right)}_{i}\left(t\right) = 0$ versus time
              lag $\tau$ on a logarithmic scale in physical time scale for the
              years 2008 (top), 2014 (middle) and 2019 (bottom).}
     \label{fig:response_function_physical_scale}

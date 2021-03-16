@@ -41,16 +41,16 @@ We use the trade sign classification in trade time scale proposed in Ref.
 \cite{my_paper_response_financial,Wang_2017,Wang_2018_copulas,Wang_2016_avg}
 that reads
 \begin{equation}\label{eq:trade_signs_trade}
-    \varepsilon^{\left(t\right)}\left(t,n\right)=\left\{
+    \varepsilon^{\left(\textrm{t}\right)}\left(t,n\right)=\left\{
     \begin{array}{cc}
     \text{sgn}\left(S\left(t,n\right)-S\left(t,n-1\right)\right),
     & \text{if }\\ S\left(t,n\right) \ne S\left(t,n-1\right)\\
-    \varepsilon^{\left(t\right)}\left(t,n-1\right),
+    \varepsilon^{\left(\textrm{t}\right)}\left(t,n-1\right),
     & \text{otherwise}
     \end{array}\right..
 \end{equation}
-Here, $\varepsilon^{\left(t\right)}\left( t,n \right) = +1$ implies a trade
-triggered by a market order to buy, and a value
+Here, $\varepsilon^{\left(\textrm{t}\right)}\left( t,n \right) = +1$ implies a
+trade triggered by a market order to buy, and a value
 $\varepsilon^{\left(t\right)}\left( t,n \right) = -1$ indicates a trade
 triggered by a market order to sell.
 
@@ -71,23 +71,23 @@ We use the trade sign definition in physical time scale proposed in Ref.
 \cite{Wang_2017,Wang_2016_avg}, that depends on the classification in
 Eq. (\ref{eq:trade_signs_trade}) and reads
 \begin{equation}\label{eq:trade_signs_physical}
-    \varepsilon^{\left(p\right)}\left(t\right)=\left\{
+    \varepsilon^{\left(\textrm{p}\right)}\left(t\right)=\left\{
     \begin{array}{cc}
-    \text{sgn}\left(\sum_{n=1}^{N\left(t\right)}\varepsilon^{\left(t\right)}
-    \left(t,n\right)\right),
+    \text{sgn}\left(\sum_{n=1}^{N\left(t\right)}
+    \varepsilon^{\left(\textrm{t}\right)} \left(t,n\right)\right),
     & \text{If }N \left(t\right)>0\\
     0, & \text{If }N\left(t\right)=0
     \end{array}\right. ,
 \end{equation}
 where $N \left(t \right)$ is the number of trades in an interval of one second.
-Here, $\varepsilon^{\left(p\right)}\left( t \right) = +1$ implies that the
-majority of trades in second $t$ are triggered by a market order to buy, and a
-value $\varepsilon^{\left(p\right)}\left( t \right) = -1$ indicates a majority
-of sell market orders. In this definition, they are two ways to obtain
-$\varepsilon^{\left(p\right)}\left( t \right) = 0$. First, there are not trades
-in a particular second and thus no trade sign. Second, the sum of the trade
-signs in a given second amounts to zero, indicating an exact balance of buy and
-sell market orders.
+Here, $\varepsilon^{\left(\textrm{p}\right)}\left( t \right) = +1$ implies that
+the majority of trades in second $t$ are triggered by a market order to buy,
+and a value $\varepsilon^{\left(\textrm{p}\right)}\left( t \right) = -1$
+indicates a majority of sell market orders. In this definition, they are two
+ways to obtain $\varepsilon^{\left(\textrm{p}\right)}\left( t \right) = 0$.
+First, there are not trades in a particular second and thus no trade sign.
+Second, the sum of the trade signs in a given second amounts to zero,
+indicating an exact balance of buy and sell market orders.
 
 Market orders show opposite trade directions as compared to limit orders
 executed simultaneously. An executed sell limit order corresponds to a
