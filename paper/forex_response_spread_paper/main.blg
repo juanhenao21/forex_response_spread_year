@@ -1,55 +1,54 @@
 This is BibTeX, Version 0.99d (TeX Live 2016/Debian)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: main.aux
-The style file: plain.bst
+The style file: unsrt.bst
 Database file #1: bib.bib
-Warning--empty journal in my_paper_response_financial
-Warning--empty year in my_paper_response_financial
+Warning--I didn't find a database entry for "my_paper_response_financial"
+Warning--can't use both author and editor fields in forex_market_micro
 Warning--empty chapter and pages in forex_structure
 Warning--empty publisher in forex_structure
-Warning--empty publisher in intro_market_micro
-Warning--can't use both author and editor fields in forex_market_micro
-Warning--empty booktitle in prop_order_book
 Warning--can't use both author and editor fields in market_making
-You've used 59 entries,
-            2118 wiz_defined-function locations,
-            840 strings with 13968 characters,
-and the built_in function-call counts, 19795 in all, are:
-= -- 1878
-> -- 983
+Warning--empty publisher in intro_market_micro
+Warning--empty booktitle in prop_order_book
+You've used 58 entries,
+            1791 wiz_defined-function locations,
+            789 strings with 13494 characters,
+and the built_in function-call counts, 13363 in all, are:
+= -- 1142
+> -- 591
 < -- 7
-+ -- 394
-- -- 325
-* -- 1527
-:= -- 3342
-add.period$ -- 173
-call.type$ -- 59
-change.case$ -- 334
++ -- 219
+- -- 161
+* -- 1017
+:= -- 2124
+add.period$ -- 171
+call.type$ -- 58
+change.case$ -- 54
 chr.to.int$ -- 0
-cite$ -- 67
-duplicate$ -- 677
-empty$ -- 1536
-format.name$ -- 325
-if$ -- 4090
+cite$ -- 64
+duplicate$ -- 551
+empty$ -- 1340
+format.name$ -- 161
+if$ -- 2984
 int.to.chr$ -- 0
-int.to.str$ -- 59
-missing$ -- 57
-newline$ -- 292
-num.names$ -- 122
-pop$ -- 311
+int.to.str$ -- 58
+missing$ -- 56
+newline$ -- 288
+num.names$ -- 62
+pop$ -- 134
 preamble$ -- 1
-purify$ -- 279
+purify$ -- 0
 quote$ -- 0
-skip$ -- 474
+skip$ -- 240
 stack$ -- 0
-substring$ -- 1275
+substring$ -- 970
 swap$ -- 101
 text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 228
-warning$ -- 8
-while$ -- 173
-width$ -- 61
-write$ -- 630
-(There were 8 warnings)
+type$ -- 0
+warning$ -- 6
+while$ -- 113
+width$ -- 60
+write$ -- 623
+(There were 7 warnings)
