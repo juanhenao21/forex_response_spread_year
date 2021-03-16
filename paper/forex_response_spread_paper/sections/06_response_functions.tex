@@ -21,7 +21,7 @@ exotics, who can be much more volatile.
 In foreign exchange markets, orders are execute at the best available buy or
 sell price. Orders often fail to result in an immediate transaction, and are
 stored in a queue called the limit order book
-\cite{stat_prop,predictive_pow,forex_structure,intro_market_micro,forex_market_micro,prop_order_book}.
+\cite{forex_market_micro,forex_structure,stat_prop,predictive_pow,intro_market_micro,prop_order_book}.
 The order book is visible for all traders and its main purpose is to ensure
 that all traders have the same information on what is offered on the market.
 For a detailed description of the operation of the markets, we suggest to see
@@ -29,14 +29,14 @@ Ref. \cite{my_paper_response_financial}.
 
 At any given time there is a best (lowest) offer to sell with price
 $a\left(t\right)$, and a best (highest) bid to buy with price $b\left(t\right)$
-\cite{subtle_nature,account_spread,limit_ord_spread,prop_order_book,stat_theory}.
+\cite{subtle_nature,prop_order_book,account_spread,limit_ord_spread,stat_theory}.
 The price gap between them is called the spread
 $s\left(t\right) = a\left(t\right)-b\left(t\right)$
-\cite{subtle_nature,market_digest,Bouchaud_2004,account_spread,teach_spread,large_prices_changes,em_stylized_facts,stat_theory}.
+\cite{teach_spread,subtle_nature,Bouchaud_2004,large_prices_changes,market_digest,account_spread,stat_theory,em_stylized_facts}.
 Spreads are significantly positively related to price and significantly
 negatively related to trading volume. Companies with more liquidity tend to
 have lower spreads
-\cite{components_spread_tokyo,effects_spread,account_spread,components_spread}.
+\cite{components_spread_tokyo,account_spread,effects_spread,components_spread}.
 Despite the foreign exchange market is often cited as the world's largest
 financial market, this description fail to consider the considerable differences
 in trading volume and liquidity across different currency pairs
@@ -45,10 +45,10 @@ spread. Furthermore, the bid-ask spread is directly related with the
 transaction costs to the dealer \cite{teach_spread,spread_futures}.
 
 As there is no price information in the data, we consider a basic definition of
-the price given by \cite{patterns_forex,political_forex,forex_liquidity}. The
+the price given by \cite{forex_liquidity,patterns_forex,political_forex}. The
 average of the best ask and the best bid is the midpoint price, which is
 defined as
-\cite{subtle_nature,Bouchaud_2004,teach_spread,large_prices_changes,my_paper_response_financial,em_stylized_facts,prop_order_book,stat_theory}
+\cite{teach_spread,subtle_nature,Bouchaud_2004,large_prices_changes,my_paper_response_financial,prop_order_book,stat_theory,em_stylized_facts}
 \begin{equation}
     m \left(t\right) = \frac{a\left(t\right) + b\left(t\right)}{2}.
 \end{equation}
