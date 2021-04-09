@@ -1,7 +1,8 @@
 \begin{thebibliography}{10}
 
 \bibitem{physicists_contribution}
-H.E Stanley, L.A.N Amaral, D~Canning, P~Gopikrishnan, Y~Lee, and Y~Liu.
+H.~E. Stanley, L.~A.~N. Amaral, D.~Canning, P.~Gopikrishnan, Y.~Lee, and
+  Y.~Liu.
 \newblock Econophysics: Can physicists contribute to the science of economics?
 \newblock {\em Physica A: Statistical Mechanics and its Applications},
   269(1):156--169, 1999.
@@ -264,9 +265,10 @@ Fabrizio Lillo.
 \newblock 2019.
 
 \bibitem{prop_order_book}
-Marc Potters and Jean-Philippe Bouchaud.
-\newblock More statistical properties of order books and price impact.
-\newblock 2002.
+More statistical properties of order books and price impact.
+\newblock {\em Physica A: Statistical Mechanics and its Applications},
+  324(1):133 -- 140, 2003.
+\newblock Proceedings of the International Econophysics Conference.
 
 \bibitem{account_spread}
 Carolyn Callahan, Charles Lee, and Teri Yohn.
@@ -295,7 +297,7 @@ Yakov Amihud and Haim Mendelson.
 \newblock {\em The Journal of Finance}, 44(2):479--486, 1989.
 
 \bibitem{components_spread}
-Lawrence~R Glosten and Lawrence~E Harris.
+Lawrence~R. Glosten and Lawrence~E. Harris.
 \newblock Estimating the components of the bid/ask spread.
 \newblock {\em Journal of Financial Economics}, 21(1):123 -- 142, 1988.
 
