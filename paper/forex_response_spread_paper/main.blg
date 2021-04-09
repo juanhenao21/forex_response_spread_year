@@ -1,9 +1,8 @@
-This is BibTeX, Version 0.99d (TeX Live 2016/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: main.aux
 The style file: unsrt.bst
 Database file #1: bib.bib
-Warning--I didn't find a database entry for "my_paper_response_financial"
 Warning--can't use both author and editor fields in forex_market_micro
 Warning--empty chapter and pages in forex_structure
 Warning--empty publisher in forex_structure
@@ -12,30 +11,30 @@ Warning--empty publisher in intro_market_micro
 Warning--empty booktitle in prop_order_book
 You've used 58 entries,
             1791 wiz_defined-function locations,
-            789 strings with 13494 characters,
-and the built_in function-call counts, 13363 in all, are:
-= -- 1142
+            788 strings with 13459 characters,
+and the built_in function-call counts, 13385 in all, are:
+= -- 1146
 > -- 591
 < -- 7
 + -- 219
 - -- 161
-* -- 1017
-:= -- 2124
-add.period$ -- 171
+* -- 1025
+:= -- 2132
+add.period$ -- 172
 call.type$ -- 58
 change.case$ -- 54
 chr.to.int$ -- 0
 cite$ -- 64
-duplicate$ -- 551
-empty$ -- 1340
+duplicate$ -- 554
+empty$ -- 1337
 format.name$ -- 161
-if$ -- 2984
+if$ -- 2986
 int.to.chr$ -- 0
 int.to.str$ -- 58
-missing$ -- 56
-newline$ -- 288
+missing$ -- 57
+newline$ -- 289
 num.names$ -- 62
-pop$ -- 134
+pop$ -- 128
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
@@ -50,5 +49,5 @@ type$ -- 0
 warning$ -- 6
 while$ -- 113
 width$ -- 60
-write$ -- 623
-(There were 7 warnings)
+write$ -- 626
+(There were 6 warnings)
