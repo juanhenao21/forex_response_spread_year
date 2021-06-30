@@ -5,10 +5,18 @@ identification of generic or universal statistical behavior. The tremendous
 success of thermodynamics and statistical mechanics serves as an inspiration
 when continuing this quest in complex systems beyond traditional physics.
 Particularly interesting are large complex systems which consists of similar,
-yet clearly distinguishable complex subsystems. The degree of universality
-found in one particular subsystem can then be assessed if this type of
-universality is also seen in another subsystem. Useful information on the impact
-of specific system features on this universality may then be inferred.
+yet clearly distinguishable complex subsystems. Financial markets, for example,
+have well defined subsystems as foreign exchange markets, stock markets, bond
+markets, among others. The degree of universality found in one particular
+subsystem can then be assessed if this type of universality is also seen in
+another subsystem. Useful information on the impact of specific system features
+on this universality may then be inferred. However, it is true that differences
+might arise for fundamental reasons.
+
+In spite of the considerable interest, a thorough statistical analysis of
+the microstructure of foreign exchange markets was hampered by limited access
+to data. This changed, and nowadays such data analyses are possible down to the
+level of ticks and over long time scales.
 
 Here, we carry out such a study for finance, because a tremendous amount of
 data is available \cite{physicists_contribution}. Markets may be viewed as
@@ -22,22 +30,6 @@ investigation in the literature. Hence, we believe that this study is a
 rewarding effort. It helps to examine the behavior of the functions applied to
 the foreign exchange market and it is suitable to compare the similarities and
 differences to other markets.
-
-The foreign exchange market is the most volatile, liquid and largest of all
-financial markets
-\cite{forex_liquidity,info_forex,forex_market_micro,intraday_forex}, and it has
-a paramount importance for the world economy. It affects employment, inflation,
-international capital flows, among others \cite{forex_structure}. The foreign
-exchange market is a decentralized market without a common trading floor
-\cite{info_forex,forex_market_micro,forex_structure,teach_spread}
-
-The term pip (Price Increment Point) is commonly used in the foreign exchange
-market instead of tick. The precise definition of a pip is a matter of
-convention. Usually, it refers to the incremental value in the fifth non-zero
-digit position from the left. It is not related to the position of the decimal
-point. For example, one pip in the exchange rate USD/JPY of 124.21 would be
-0.01, while one pip for EUR/USD of 1.1021 would be 0.0001
-\cite{forex_market_micro,forex_structure,order_flow_forex,micro_eff}.
 
 The foreign exchange market has attracted a lot of attention in the last 20
 years. Electronic trading has changed an opaque market to a fairly transparent
@@ -70,10 +62,10 @@ rouble/US dollar rate. They analyzed the price impact in different regions of
 Russia, and found that regions that are centers of political and financial
 decision making have high permanent price impact.
 
-The price response functions measure price changes resulting from execution of
-market orders. Specifically, they measure how a buy or sell order at time $t$
-influences on average the price at a later time $t + \tau$. It was shown in
-different works
+Price response functions are important because they measure price changes
+resulting from execution of market orders. Specifically, they measure how a buy
+or sell order at time $t$ influences on average the price at a later time
+$t + \tau$. It was shown in different works
 \cite{components_spread_tokyo,dissecting_cross,r_walks_liquidity,subtle_nature,Bouchaud_2004,theory_market_impact,my_paper_response_financial,Wang_2016_avg,Wang_2016_cross}
 that the price response functions increase to a maximum and then slowly
 decrease as the time lag grows.
@@ -103,10 +95,11 @@ foreign exchange pairs and show that large pip spreads have stronger impact
 on the response.To facilitate the reproduction of our results, the source code
 for the data analysis is available in Ref. \cite{code}.
 
-The paper is organized as follows: in Sect. \ref{sec:data_set} we present our
-data set of foreign exchange pairs and briefly describe the physical and trade
-time scale. We define the time scale to be used in Sect. \ref{sec:time_scale},
-and compute the price response functions for the majors pairs in Sect.
-\ref{sec:response_functions}. In Sect. \ref{sec:spread_impact} we show how
-the spread impact the values of the response functions. Our conclusions follow
-in Sect. \ref{sec:conclusion}.
+The paper is organized as follows: in Sect. \ref{sec:forex_overview} we
+introduce the foreign exchange market. In Sect. \ref{sec:data_set} we present
+our data set of foreign exchange pairs and briefly describe the physical and
+trade time scale. We define the time scale to be used in Sect.
+\ref{sec:time_scale}, and compute the price response functions for foreign
+exchange pairs in Sect.  \ref{sec:response_functions}. In Sect.
+\ref{sec:spread_impact} we show how the spread impact the values of the
+response functions. Our conclusions follow in Sect. \ref{sec:conclusion}.
