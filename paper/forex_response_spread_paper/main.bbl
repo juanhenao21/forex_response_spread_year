@@ -26,11 +26,6 @@ Lukas Menkhoff, Lucio Sarno, Maik Schmeling, and Andreas Schrimpf.
   currency trades.
 \newblock {\em The Journal of Finance}, 71(2):601--634, 2016.
 
-\bibitem{forex_market_micro}
-Carol Osler.
-\newblock {\em Market Microstructure, Foreign Exchange}, pages 580--614.
-\newblock Springer New York, New York, NY, 2011.
-
 \bibitem{intraday_forex}
 Anna Serbinenko and Svetlozar Rachev.
 \newblock Intraday spot foreign exchange market. analysis of efficiency,
@@ -49,18 +44,6 @@ Jeng-Hong Chen.
   exchange market.
 \newblock {\em American Journal of Business Education (AJBE)}, 11:55--62, 10
   2018.
-
-\bibitem{order_flow_forex}
-Shikuan Chen, Chih-Chung Chien, and Ming-Jen Chang.
-\newblock Order flow, bid-ask spread and trading density in foreign exchange
-  markets.
-\newblock {\em Journal of Banking \& Finance}, 36(2):597--612, 2012.
-
-\bibitem{micro_eff}
-Frank McGroarty, Owain {ap Gwilym}, and Stephen Thomas.
-\newblock Microstructure effects, bid–ask spreads and volatility in the spot
-  foreign exchange market pre and post-emu.
-\newblock {\em Global Finance Journal}, 17(1):23 -- 49, 2006.
 
 \bibitem{forex_microstructure}
 Martin~D.D. Evans and Dagfinn Rime.
@@ -125,6 +108,12 @@ Syed Jawad~Hussain Shahzad, Jose~Areola Hernandez, Waqas Hanif, and
   forex markets and the role of trading volume.
 \newblock {\em Physica A: Statistical Mechanics and its Applications}, 506:433
   -- 450, 2018.
+
+\bibitem{micro_eff}
+Frank McGroarty, Owain {ap Gwilym}, and Stephen Thomas.
+\newblock Microstructure effects, bid–ask spreads and volatility in the spot
+  foreign exchange market pre and post-emu.
+\newblock {\em Global Finance Journal}, 17(1):23 -- 49, 2006.
 
 \bibitem{eur_int_curr}
 Harald Hau, William Killeen, and Michael Moore.
@@ -199,6 +188,17 @@ Richard Payne.
 Juan Camilo~Henao Londono.
 \newblock First release - price response functions and spread impact in foreign
   exchange markets code, 2021.
+
+\bibitem{forex_market_micro}
+Carol Osler.
+\newblock {\em Market Microstructure, Foreign Exchange}, pages 580--614.
+\newblock Springer New York, New York, NY, 2011.
+
+\bibitem{order_flow_forex}
+Shikuan Chen, Chih-Chung Chien, and Ming-Jen Chang.
+\newblock Order flow, bid-ask spread and trading density in foreign exchange
+  markets.
+\newblock {\em Journal of Banking \& Finance}, 36(2):597--612, 2012.
 
 \bibitem{large_prices_changes}
 J.~Doyne Farmer, László Gillemot, Fabrizio Lillo, Szabolcs Mike, and Anindya
