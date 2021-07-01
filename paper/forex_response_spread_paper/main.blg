@@ -6,9 +6,9 @@ Database file #1: bib.bib
 Warning--empty chapter and pages in forex_structure
 Warning--empty publisher in forex_structure
 Warning--can't use both author and editor fields in forex_market_micro
-Warning--can't use both author and editor fields in market_making
 Warning--empty publisher in intro_market_micro
 Warning--empty author in prop_order_book
+Warning--can't use both author and editor fields in market_making
 You've used 58 entries,
             1791 wiz_defined-function locations,
             789 strings with 13377 characters,

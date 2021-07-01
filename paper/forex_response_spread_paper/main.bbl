@@ -194,60 +194,6 @@ Carol Osler.
 \newblock {\em Market Microstructure, Foreign Exchange}, pages 580--614.
 \newblock Springer New York, New York, NY, 2011.
 
-\bibitem{order_flow_forex}
-Shikuan Chen, Chih-Chung Chien, and Ming-Jen Chang.
-\newblock Order flow, bid-ask spread and trading density in foreign exchange
-  markets.
-\newblock {\em Journal of Banking \& Finance}, 36(2):597--612, 2012.
-
-\bibitem{large_prices_changes}
-J.~Doyne Farmer, László Gillemot, Fabrizio Lillo, Szabolcs Mike, and Anindya
-  Sen.
-\newblock What really causes large price changes?
-\newblock {\em Quantitative Finance}, 4(4):383--397, 2004.
-
-\bibitem{spread_changes_affect}
-Stephan Grimm and Thomas Guhr.
-\newblock How spread changes affect the order book: comparing the price
-  responses of order deletions and placements to trades.
-\newblock {\em The European Physical Journal B}, 92:1--11, 2018.
-
-\bibitem{market_digest}
-Jean-Philippe Bouchaud, J.~Doyne Farmer, and Fabrizio Lillo.
-\newblock Chapter 2 - how markets slowly digest changes in supply and demand.
-\newblock In Thorsten Hens and Klaus~Reiner Schenk-Hoppé, editors, {\em
-  Handbook of Financial Markets: Dynamics and Evolution}, Handbooks in Finance,
-  pages 57--160. North-Holland, San Diego, 2009.
-
-\bibitem{empirical_facts}
-Anirban Chakraborti, Ioane Toke, Marco Patriarca, and Frédéric Abergel.
-\newblock Econophysics: Empirical facts and agent-based models.
-\newblock {\em arXiv.org, Quantitative Finance Papers}, 09 2009.
-
-\bibitem{sampling_returns}
-Jim~E. Griffin and Roel C.~A. Oomen.
-\newblock Sampling returns for realized variance calculations: Tick time or
-  transaction time?
-\newblock {\em Econometric Reviews}, 27(1-3):230--253, 2008.
-
-\bibitem{market_making}
-Ioane~Muni Toke.
-\newblock {\em ``Market Making'' in an Order Book Model and Its Impact on the
-  Spread}, pages 49--64.
-\newblock Springer Milan, Milano, 2011.
-
-\bibitem{Wang_2017}
-Shanshan Wang.
-\newblock Trading strategies for stock pairs regarding to the cross-impact
-  cost, 2017.
-
-\bibitem{Wang_2018_copulas}
-Shanshan Wang and Thomas Guhr.
-\newblock Local fluctuations of the signed traded volumes and the dependencies
-  of demands: a copula analysis.
-\newblock {\em Journal of Statistical Mechanics: Theory and Experiment},
-  2018(3):033407, mar 2018.
-
 \bibitem{stat_prop}
 Jean-Philippe Bouchaud, Marc Mézard, and Marc Potters.
 \newblock Statistical properties of stock order books: empirical results and
@@ -285,6 +231,19 @@ Eric Smith, J~Doyne Farmer, L\'aszl\'o Gillemot, and Supriya Krishnamurthy.
 \newblock Statistical theory of the continuous double auction.
 \newblock {\em Quantitative Finance}, 3(6):481--514, 2003.
 
+\bibitem{large_prices_changes}
+J.~Doyne Farmer, László Gillemot, Fabrizio Lillo, Szabolcs Mike, and Anindya
+  Sen.
+\newblock What really causes large price changes?
+\newblock {\em Quantitative Finance}, 4(4):383--397, 2004.
+
+\bibitem{market_digest}
+Jean-Philippe Bouchaud, J.~Doyne Farmer, and Fabrizio Lillo.
+\newblock Chapter 2 - how markets slowly digest changes in supply and demand.
+\newblock In Thorsten Hens and Klaus~Reiner Schenk-Hoppé, editors, {\em
+  Handbook of Financial Markets: Dynamics and Evolution}, Handbooks in Finance,
+  pages 57--160. North-Holland, San Diego, 2009.
+
 \bibitem{em_stylized_facts}
 Sebastian Krause, Jonas Fiegen, and Thomas Guhr.
 \newblock Emergence of stylized facts during the opening of stock markets.
@@ -300,6 +259,11 @@ Yakov Amihud and Haim Mendelson.
 Lawrence~R. Glosten and Lawrence~E. Harris.
 \newblock Estimating the components of the bid/ask spread.
 \newblock {\em Journal of Financial Economics}, 21(1):123 -- 142, 1988.
+
+\bibitem{empirical_facts}
+Anirban Chakraborti, Ioane Toke, Marco Patriarca, and Frédéric Abergel.
+\newblock Econophysics: Empirical facts and agent-based models.
+\newblock {\em arXiv.org, Quantitative Finance Papers}, 09 2009.
 
 \bibitem{asynchrony_effects_corr}
 Michael~C. Münnix, Rudi Schäfer, and Thomas Guhr.
@@ -326,6 +290,12 @@ Thilo~A. Schmitt, Desislava Chetalova, Rudi Schäfer, and Thomas Guhr.
   behavior.
 \newblock {\em {EPL} (Europhysics Letters)}, 103(5):58003, sep 2013.
 
+\bibitem{spread_changes_affect}
+Stephan Grimm and Thomas Guhr.
+\newblock How spread changes affect the order book: comparing the price
+  responses of order deletions and placements to trades.
+\newblock {\em The European Physical Journal B}, 92:1--11, 2018.
+
 \bibitem{quant_stock_price_response}
 Vasiliki Plerou, Parameswaran Gopikrishnan, Xavier Gabaix, and H.~Eugene
   Stanley.
@@ -336,5 +306,35 @@ Vasiliki Plerou, Parameswaran Gopikrishnan, Xavier Gabaix, and H.~Eugene
 Bence Tóth, Imon Palit, Fabrizio Lillo, and J.~Doyne Farmer.
 \newblock {Why is equity order flow so persistent?}
 \newblock {\em Journal of Economic Dynamics and Control}, 51(C):218--239, 2015.
+
+\bibitem{order_flow_forex}
+Shikuan Chen, Chih-Chung Chien, and Ming-Jen Chang.
+\newblock Order flow, bid-ask spread and trading density in foreign exchange
+  markets.
+\newblock {\em Journal of Banking \& Finance}, 36(2):597--612, 2012.
+
+\bibitem{sampling_returns}
+Jim~E. Griffin and Roel C.~A. Oomen.
+\newblock Sampling returns for realized variance calculations: Tick time or
+  transaction time?
+\newblock {\em Econometric Reviews}, 27(1-3):230--253, 2008.
+
+\bibitem{market_making}
+Ioane~Muni Toke.
+\newblock {\em ``Market Making'' in an Order Book Model and Its Impact on the
+  Spread}, pages 49--64.
+\newblock Springer Milan, Milano, 2011.
+
+\bibitem{Wang_2017}
+Shanshan Wang.
+\newblock Trading strategies for stock pairs regarding to the cross-impact
+  cost, 2017.
+
+\bibitem{Wang_2018_copulas}
+Shanshan Wang and Thomas Guhr.
+\newblock Local fluctuations of the signed traded volumes and the dependencies
+  of demands: a copula analysis.
+\newblock {\em Journal of Statistical Mechanics: Theory and Experiment},
+  2018(3):033407, mar 2018.
 
 \end{thebibliography}
