@@ -307,6 +307,20 @@ Bence Tóth, Imon Palit, Fabrizio Lillo, and J.~Doyne Farmer.
 \newblock {Why is equity order flow so persistent?}
 \newblock {\em Journal of Economic Dynamics and Control}, 51(C):218--239, 2015.
 
+\bibitem{book_forex}
+Rajesh Kumar.
+\newblock Chapter 5 - stock markets, derivatives markets, and foreign exchange
+  markets.
+\newblock In Rajesh Kumar, editor, {\em Strategies of Banks and Other Financial
+  Institutions}, pages 125--164. Academic Press, San Diego, 2014.
+
+\bibitem{book_forex_2}
+Michael Melvin and Stefan~C. Norrbin.
+\newblock Chapter 1 - the foreign exchange market.
+\newblock In Michael Melvin and Stefan~C. Norrbin, editors, {\em International
+  Money and Finance (Eighth Edition)}, pages 3--24. Academic Press, eighth
+  edition edition, 2013.
+
 \bibitem{order_flow_forex}
 Shikuan Chen, Chih-Chung Chien, and Ming-Jen Chang.
 \newblock Order flow, bid-ask spread and trading density in foreign exchange

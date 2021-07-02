@@ -1,11 +1,6 @@
 \section{Data set}\label{sec:data_set}
 
-In the foreign exchange market, the trading day begins in Australia and Asia.
-Then the markets in Europe open and finally the markets in America
-\cite{forex_market_micro,forex_structure}. As the market close time in New York
-overlaps the market open time in Australia and Asia, the markets do not
-formally close during the week. Thus, using the New York time as reference, the
-market opens on Sunday at 19h00 and closes on Friday at 17h00.
+
 
 The foreign exchange financial data was obtained from
 \href{www.histdata.com}{HistData.com}. We use a tick-by-tick database in
@@ -14,6 +9,19 @@ the date time stamp (YYYYMMDD HHMMSSNNN), the best bid and best ask quotes
 prices in the Eastern Standard Time (EST) time zone. No information about the
 size of each transaction is provided. Also, the identity of the participants is
 not given.
+
+***
+Trading Volumes, in forex, are not aggregated and the only volume that you can
+find is the Broker Specific Volumes. So, therefore, we decided to remove the
+volume information from the delivered data.
+
+The Ask price is only included in the Tick data of the Generic ASCII format.
+With both Bid and Ask you’ll have the spread value for each specific tick.
+
+For tick data files, here are the fields order of the supplied data:
+
+DateTime,Bid,Ask,Volume
+***
 
 On the physical time scale, for each exchange rate, we process the irregularly
 spaced raw data to construct second-by-second price and volume series, each
