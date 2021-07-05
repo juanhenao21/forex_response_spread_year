@@ -1,5 +1,5 @@
-This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
-Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: main.aux
 The style file: unsrt.bst
 Database file #1: bib.bib
@@ -9,45 +9,45 @@ Warning--can't use both author and editor fields in forex_market_micro
 Warning--empty publisher in intro_market_micro
 Warning--empty author in prop_order_book
 Warning--can't use both author and editor fields in market_making
-You've used 60 entries,
+You've used 62 entries,
             1791 wiz_defined-function locations,
-            801 strings with 13701 characters,
-and the built_in function-call counts, 14152 in all, are:
-= -- 1227
-> -- 608
-< -- 9
-+ -- 225
-- -- 165
-* -- 1081
-:= -- 2236
-add.period$ -- 180
-call.type$ -- 60
-change.case$ -- 57
+            812 strings with 14105 characters,
+and the built_in function-call counts, 15030 in all, are:
+= -- 1306
+> -- 654
+< -- 11
++ -- 240
+- -- 178
+* -- 1138
+:= -- 2365
+add.period$ -- 188
+call.type$ -- 62
+change.case$ -- 59
 chr.to.int$ -- 0
-cite$ -- 66
-duplicate$ -- 592
-empty$ -- 1413
-format.name$ -- 165
-if$ -- 3178
+cite$ -- 68
+duplicate$ -- 636
+empty$ -- 1491
+format.name$ -- 178
+if$ -- 3392
 int.to.chr$ -- 0
-int.to.str$ -- 60
-missing$ -- 59
-newline$ -- 299
-num.names$ -- 67
-pop$ -- 131
+int.to.str$ -- 62
+missing$ -- 61
+newline$ -- 309
+num.names$ -- 73
+pop$ -- 141
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 264
+skip$ -- 294
 stack$ -- 0
-substring$ -- 1040
-swap$ -- 117
-text.length$ -- 9
+substring$ -- 1096
+swap$ -- 137
+text.length$ -- 11
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 6
-while$ -- 121
-width$ -- 62
-write$ -- 654
+while$ -- 129
+width$ -- 64
+write$ -- 680
 (There were 6 warnings)
