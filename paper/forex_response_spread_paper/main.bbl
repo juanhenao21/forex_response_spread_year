@@ -194,6 +194,40 @@ Carol Osler.
 \newblock {\em Market Microstructure, Foreign Exchange}, pages 580--614.
 \newblock Springer New York, New York, NY, 2011.
 
+\bibitem{book_forex}
+Rajesh Kumar.
+\newblock Chapter 5 - stock markets, derivatives markets, and foreign exchange
+  markets.
+\newblock In Rajesh Kumar, editor, {\em Strategies of Banks and Other Financial
+  Institutions}, pages 125--164. Academic Press, San Diego, 2014.
+
+\bibitem{book_forex_2}
+Michael Melvin and Stefan~C. Norrbin.
+\newblock Chapter 1 - the foreign exchange market.
+\newblock In Michael Melvin and Stefan~C. Norrbin, editors, {\em International
+  Money and Finance (Eighth Edition)}, pages 3--24. Academic Press, eighth
+  edition edition, 2013.
+
+\bibitem{book_forex_3}
+Morton Glantz and Robert Kissell.
+\newblock Chapter 7 - foreign exchange market and interest rates.
+\newblock In Morton Glantz and Robert Kissell, editors, {\em Multi-Asset Risk
+  Modeling}, pages 217--246. Academic Press, San Diego, 2014.
+
+\bibitem{book_forex_4}
+M.D.D. Evans.
+\newblock Chapter 11 - microstructure of currency markets.
+\newblock In Gerard Caprio, Philippe Bacchetta, James~R. Barth, Takeo Hoshi,
+  Philip~R. Lane, David~G. Mayes, Atif~R. Mian, and Michael Taylor, editors,
+  {\em Handbook of Safeguarding Global Financial Stability}, pages 107--119.
+  Academic Press, San Diego, 2013.
+
+\bibitem{order_flow_forex}
+Shikuan Chen, Chih-Chung Chien, and Ming-Jen Chang.
+\newblock Order flow, bid-ask spread and trading density in foreign exchange
+  markets.
+\newblock {\em Journal of Banking \& Finance}, 36(2):597--612, 2012.
+
 \bibitem{stat_prop}
 Jean-Philippe Bouchaud, Marc Mézard, and Marc Potters.
 \newblock Statistical properties of stock order books: empirical results and
@@ -306,40 +340,6 @@ Vasiliki Plerou, Parameswaran Gopikrishnan, Xavier Gabaix, and H.~Eugene
 Bence Tóth, Imon Palit, Fabrizio Lillo, and J.~Doyne Farmer.
 \newblock {Why is equity order flow so persistent?}
 \newblock {\em Journal of Economic Dynamics and Control}, 51(C):218--239, 2015.
-
-\bibitem{book_forex}
-Rajesh Kumar.
-\newblock Chapter 5 - stock markets, derivatives markets, and foreign exchange
-  markets.
-\newblock In Rajesh Kumar, editor, {\em Strategies of Banks and Other Financial
-  Institutions}, pages 125--164. Academic Press, San Diego, 2014.
-
-\bibitem{book_forex_2}
-Michael Melvin and Stefan~C. Norrbin.
-\newblock Chapter 1 - the foreign exchange market.
-\newblock In Michael Melvin and Stefan~C. Norrbin, editors, {\em International
-  Money and Finance (Eighth Edition)}, pages 3--24. Academic Press, eighth
-  edition edition, 2013.
-
-\bibitem{book_forex_3}
-Morton Glantz and Robert Kissell.
-\newblock Chapter 7 - foreign exchange market and interest rates.
-\newblock In Morton Glantz and Robert Kissell, editors, {\em Multi-Asset Risk
-  Modeling}, pages 217--246. Academic Press, San Diego, 2014.
-
-\bibitem{book_forex_4}
-M.D.D. Evans.
-\newblock Chapter 11 - microstructure of currency markets.
-\newblock In Gerard Caprio, Philippe Bacchetta, James~R. Barth, Takeo Hoshi,
-  Philip~R. Lane, David~G. Mayes, Atif~R. Mian, and Michael Taylor, editors,
-  {\em Handbook of Safeguarding Global Financial Stability}, pages 107--119.
-  Academic Press, San Diego, 2013.
-
-\bibitem{order_flow_forex}
-Shikuan Chen, Chih-Chung Chien, and Ming-Jen Chang.
-\newblock Order flow, bid-ask spread and trading density in foreign exchange
-  markets.
-\newblock {\em Journal of Banking \& Finance}, 36(2):597--612, 2012.
 
 \bibitem{sampling_returns}
 Jim~E. Griffin and Roel C.~A. Oomen.
