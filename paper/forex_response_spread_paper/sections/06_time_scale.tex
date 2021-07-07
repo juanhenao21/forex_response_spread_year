@@ -16,10 +16,10 @@ but the order of magnitude of the guaranteed precision is much larger, usually
 one second or a few hundreds of milliseconds
 \cite{market_digest,empirical_facts}. In several papers are used different time
 definitions (calendar time, physical time, event time, trade time, tick time)
-\cite{empirical_facts,sampling_returns,market_making}. The foreign exchange
-market data used in the analysis only has the quotes. In consequence, we have
-to infer the trades during the market time. As we have tick-by-tick resolution,
-we can use either trade time scale or physical time scale.
+\cite{empirical_facts,sampling_returns,market_making}. The spot foreign
+exchange market data used in the analysis only has the quotes. In consequence,
+we have to infer the trades during the market time. As we have tick-by-tick
+resolution, we can use either trade time scale or physical time scale.
 
 The trade time scale increases by one unit each time a transaction happens,
 which in our case is every time the quotes change. The advantage of this count
@@ -33,18 +33,24 @@ This means that computing the responses in this scale involves sampling
 dealing for example with several stocks with different liquidity. This sampling
 is made in the trade signs and in the midpoint prices.
 
+We use these two definitions of time scale to compute the price response
+function. Between these two scales, there is not a judgment which is better or
+worse. Their use directly depend on the application. Thus, our aim is to
+present how the price response function behaves under these two different time
+scales.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Trade time scale}\label{subsec:trade_time}
 
-We use the trade sign classification in trade time scale proposed in Ref.
-\cite{Wang_2016_cross} and used in Refs.
+As a first approximation, we use the trade sign classification in trade time
+scale proposed in Ref. \cite{Wang_2016_cross} and used in Refs.
 \cite{my_paper_response_financial,Wang_2016_avg,Wang_2017,Wang_2018_copulas}
 that reads
 \begin{equation}\label{eq:trade_signs_trade}
     \varepsilon^{\left(\textrm{t}\right)}\left(t,n\right)=\left\{
     \begin{array}{cc}
-    \text{sgn}\left(S\left(t,n\right)-S\left(t,n-1\right)\right),
-    & \text{if }\\ S\left(t,n\right) \ne S\left(t,n-1\right)\\
+    \text{sgn}\left(m\left(t,n\right)-m\left(t,n-1\right)\right),
+    & \text{if }\\ m\left(t,n\right) \ne m\left(t,n-1\right)\\
     \varepsilon^{\left(\textrm{t}\right)}\left(t,n-1\right),
     & \text{otherwise}
     \end{array}\right..
