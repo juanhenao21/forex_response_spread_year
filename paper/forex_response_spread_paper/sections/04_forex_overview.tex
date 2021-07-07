@@ -103,7 +103,7 @@ The investors will not have to pay fees or commissions as on another markets.
 It is possible to trade at any time of day and regarding the risk and reward,
 it is possible to get in and out whenever the investor want. In the foreign
 exchange market, the bid-ask spread is the only transaction cost
-\cite{book_forex_2}
+\cite{book_forex_2}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Key concepts}\label{subsec:key_concepts}
@@ -138,24 +138,18 @@ that not generate a large volume of trading \cite{book_forex_2}. Furthermore,
 the bid-ask spread is directly related with the transaction costs to the dealer
 \cite{teach_spread,spread_futures,book_forex_2}.
 
-As there is no price information in the data, we consider a basic definition of
-the price given by \cite{forex_liquidity,patterns_forex,political_forex}. The
-average of the best ask and the best bid is the midpoint price, which is
-defined as
+As we have the quotes prices in the data, we need to infer the trade price. We
+consider a basic definition of the price given by
+\cite{forex_liquidity,patterns_forex,political_forex}. The average of the best
+ask and the best bid is the midpoint price, which is defined as
 \cite{teach_spread,subtle_nature,Bouchaud_2004,my_paper_response_financial,prop_order_book,stat_theory,large_prices_changes,em_stylized_facts}
 \begin{equation}
     m \left(t\right) = \frac{a\left(t\right) + b\left(t\right)}{2}.
 \end{equation}
-Price changes are typically characterized as returns. If one denotes
-$S\left( t\right)$ the price of an asset at time $t$, the return
-$r^{\left(g\right)}\left(t, \tau\right)$, at time $t$ and time lag $\tau$ is
+Price changes are typically characterized as returns. Using the midpoint price
+$m\left( t\right)$ of an asset at time $t$, the return $r\left(t, \tau\right)$, at time $t$ and time lag $\tau$ is
 simply the relative variation of the price from $t$ to $t + \tau$
 \cite{subtle_nature,empirical_facts,asynchrony_effects_corr,tick_size_impact,causes_epps_effect,non_stationarity},
-\begin{equation}\label{eq:return_general}
-    r^{\left(g\right)} \left(t, \tau \right) = \frac{S\left(t + \tau\right)
-    - S\left(t\right)}{S\left(t\right)}.
-\end{equation}
-We define the returns via the midpoint price as
 \begin{equation}\label{eq:midpoint_price_return}
     r\left(t,\tau\right) = \frac{m\left(t+\tau\right)-m\left(t\right)}
     {m\left(t\right)}.
@@ -182,11 +176,14 @@ Here, $\varepsilon(t) = +1$ indicates that the trade was triggered by a market
 order to buy and a trade triggered by a market order to sell yields
 $\varepsilon(t) = -1$
 \cite{subtle_nature,Bouchaud_2004,spread_changes_affect,quant_stock_price_response,order_flow_persistent}.
+In our implementation of the price response functions we need a more specific
+definition of trade signs. We give a deeper explanation of trade signs
+depending on the time scale in Sect. \ref{sec:time_scale}.
 
 The main objective of this work is to analyze the price response functions. In
 general we define the price response functions in a foreign exchange market as
 \begin{equation}\label{eq:response_general}
-    R^{\left(\textrm{scale}\right)}_{ii}\left(\tau\right)=\left\langle
+    R^{\left(\textrm{scale}\right)}_{i}\left(\tau\right)=\left\langle
     r^{\left(\textrm{scale}\right)}_{i}\left(t-1, \tau\right)
     \varepsilon^{\left(\textrm{scale}\right)}_{i} \left(t\right)\right\rangle
     _{\textrm{average}},
