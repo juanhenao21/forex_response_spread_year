@@ -1,42 +1,42 @@
 \section{Data set}\label{sec:data_set}
 
-
-
-The foreign exchange financial data was obtained from
+The spot foreign exchange financial data was obtained from
 \href{www.histdata.com}{HistData.com}. We use a tick-by-tick database in
-generic ASCII format for different years and currency pairs. The data comprises
-the date time stamp (YYYYMMDD HHMMSSNNN), the best bid and best ask quotes
-prices in the Eastern Standard Time (EST) time zone. No information about the
+generic ASCII format for different years and currency pairs. This tick-by-tick
+data is sampled for each transaction. The data comprises the date time stamp
+(YYYYMMDD HHMMSSNNN), the best bid and best ask quotes prices in the Eastern
+Standard Time (EST) time zone. With both best bid and best ask quotes it is
+easy to compute the pip bid-ask spread of the data. No information about the
 size of each transaction is provided. Also, the identity of the participants is
-not given.
+not given. Furthermore, trading volumes in spot foreign exchange market are not
+aggregated and the only volumes that are possible to find are the Broker
+Specific Volumes. Therefore, the data provider decided to remove the volume
+information from the delivered data.
 
-***
-Trading Volumes, in forex, are not aggregated and the only volume that you can
-find is the Broker Specific Volumes. So, therefore, we decided to remove the
-volume information from the delivered data.
-
-The Ask price is only included in the Tick data of the Generic ASCII format.
-With both Bid and Ask you’ll have the spread value for each specific tick.
-
-For tick data files, here are the fields order of the supplied data:
-
-DateTime,Bid,Ask,Volume
-***
-
-On the physical time scale, for each exchange rate, we process the irregularly
-spaced raw data to construct second-by-second price and volume series, each
+One aim of this paper is to compute the price response functions in two
+different time scales: trade time scale and physical time scale. We give a
+complete description on how the scales are defined in Sect.
+\ref{sec:time_scale}. Regarding the data for this definitions, for the trade
+time scale we use the data as it is, considering that it is sampled for each
+transaction. On the physical time scale, for each exchange rate, we process the
+irregularly spaced raw data to construct second-by-second price series, each
 containing 86,400 observations per day. For every second, the midpoint of best
-bid and ask quotes or the transaction price of deals is used to construct
-one-second log-returns.
+bid and ask quotes are used to construct one-second log-returns.
 
+Another goal in this paper is to compare the price response functions in
+different calendar years to see the differences and similarities along time.
 To analyze the price response functions in Sect. \ref{sec:response_functions},
-we select the seven major currency pairs in three different years (2008, 2014
-and 2019). Table \ref{tab:majors}
+we select the seven major currency pairs (see Table \ref{tab:majors}) in three
+different years: 2008, 2014 and 2019.
 
-To analyze the spread impact in price response functions (Sect.
-\ref{sec:spread_impact}), we select 46 currency pairs, in three different years
-(2011, 2015 and 2019). The selected pairs are listed in Appendix
-\ref{app:fx_pairs_spread}.
+Additionally, we analyze the pip bid-ask spread impact in price response
+functions (Sect. \ref{sec:spread_impact}). We select 46 currency pairs in three
+different years (2011, 2015 and 2019). The selected pairs are listed in
+Appendix \ref{app:fx_pairs_spread}.
+
+The selection of the calendar years to be analyzed was made considering the
+availability of the data, the completeness of the time series and the option to
+have a constant gap between the years.
 
 In order to avoid overnight effects and any artifact due to the opening and
 closing of the foreign exchange market, we systematically discard the first
