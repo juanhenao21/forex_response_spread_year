@@ -19,7 +19,8 @@ The price response function in trade time scale is defined as
     \left(t, n\right)\right\rangle _{T}.
 \end{equation}
 To compute the response functions on trade time scale, we use both, the trade
-signs and the returns during a week in market time.
+signs and the returns from the tick-by-tick original data during a week in
+market time. Then, the response is averaged by the number of trades.
 
 \begin{figure}[htbp]
     \centering
@@ -34,24 +35,30 @@ signs and the returns during a week in market time.
 
 The results of Fig. \ref{fig:response_function_trade_scale} show the
 price response functions of the seven foreign exchange major pairs used in the
-analysis (see Table \ref{tab:majors}) for three different years. For all the
-years it can be seen the same behavior observed in financial correlated
-markets. The response functions increase to a maximum and then slowly decrease.
-For our selected pairs, a time lag of $\tau = 10^{3}s$ is enough to see an
-increase to a maximum followed by a decrease. Thus, the trend in the price
-response functions is eventually reversed. The response signal is much more
-noisier in the year 2008 for the first seconds in the time lag. This behavior
-is because of the smaller amount of data of the corresponding year. In general,
-more data was recorded in recent years than in past years. In the three years
-analyzed, the more liquid currency pairs have a smaller response in comparison
-with the non-liquid pairs. The strength of the response function vary from one
-year to the other. In 2008 the strength of the signal is one order of magnitude
-stronger than the response in 2014, but the signals in 2014 have approximately
-twice the strength the signals of 2019. This behavior can be explained by the
-fact that in recent times algorithm trading has been used intensively. Thus,
-many more trades were carried out in the last years, which means, the impact of
-each trade is reduced, and then the response functions tend to decrease
-compared with previous years.
+analysis (see Table \ref{tab:majors}) for three different years. The results
+found for all the years are entirely in line with price responses seen in other
+financial markets, particularly with correlated financial markets. The response
+functions have an initial increasing trend to a maximum, that flattens out and
+saturates at some level, to then slowly decrease. The shape of the price
+response function can be qualitatively explain considering that there is an
+initial increase of the response function caused by the autocorrelated
+transaction flow, while the flattening out is due to market liquidity adapting
+to this flow and thus assuring diffusive prices. For our selected pairs, a time
+lag of $\tau = 10^{3} $ trades is enough to see an increase to a maximum
+followed by a decrease. Thus, the trend in the price response functions is
+eventually reversed. The response signal is much more noisier in the year 2008
+for the first seconds in the time lag. This behavior is because of the smaller
+amount of data of the corresponding year. In general, more data was recorded in
+recent years than in past years. In the three years analyzed, the more liquid
+currency pairs have a smaller response in comparison with the non-liquid pairs.
+The strength of the response function vary from one year to the other. In 2008
+the strength of the signal is one order of magnitude stronger than the response
+in 2014, but the signals in 2014 have approximately twice the strength the
+signals of 2019. This behavior can be explained by the fact that in recent
+times algorithm trading has been used intensively. Thus, many more trades were
+carried out in the last years, which means, the impact of each trade is
+reduced, and then the response functions tend to decrease compared with
+previous years.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Response functions on physical time scale}
@@ -75,9 +82,9 @@ will only take into account the price response functions excluding
 $\varepsilon^{\textrm{p}}_j \left( t\right) = 0$.
 
 We define the price response functions on physical time scale, using
-the trade signs and the returns in physical time scale. The price response
-function on physical time scale is defined as
-\cite{my_paper_response_financial}
+the trade signs and the returns sampled in seconds from the original data in
+physical time scale. The price response function on physical time scale is
+defined as \cite{my_paper_response_financial}
 \begin{equation}\label{eq:response_functions_time_scale_general}
     R^{\left(\textrm{p}\right)}_{i}\left(\tau\right)=\left\langle
     r^{\left(\textrm{p}\right)}_{i}\left(t-1, \tau\right)
