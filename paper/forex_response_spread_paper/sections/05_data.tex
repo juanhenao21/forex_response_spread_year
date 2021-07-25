@@ -13,15 +13,15 @@ aggregated and the only volumes that are possible to find are the Broker
 Specific Volumes. Therefore, the data provider decided to remove the volume
 information from the delivered data.
 
-One aim of this paper is to compute the price response functions in two
-different time scales: trade time scale and physical time scale. We give a
-complete description on how the scales are defined in Sect.
-\ref{sec:time_scale}. Regarding the data for this definitions, for the trade
-time scale we use the data as it is, considering that it is sampled for each
-transaction. On the physical time scale, for each exchange rate, we process the
-irregularly spaced raw data to construct second-by-second price series, each
-containing 86,400 observations per day. For every second, the midpoint of best
-bid and ask quotes are used to construct one-second log-returns.
+Our aims is to compute the price response functions in two different
+time scales: trade time scale and physical time scale. We give a complete
+description on how the scales are defined in Sect.  \ref{sec:time_scale}.
+Regarding the data for this definitions, for the trade time scale we use the
+data as it is, considering that it is sampled for each transaction. On the
+physical time scale, for each exchange rate, we process the irregularly spaced
+raw data to construct second-by-second price series, each containing 86,400
+observations per day. For every second, the midpoint of best bid and ask quotes
+are used to construct one-second log-returns.
 
 Another goal in this paper is to compare the price response functions in
 different calendar years to see the differences and similarities along time.
