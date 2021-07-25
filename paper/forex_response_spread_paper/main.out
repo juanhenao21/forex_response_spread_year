@@ -1,9 +1,16 @@
 \BOOKMARK [1][-]{section.1}{1 Introduction}{}% 1
 \BOOKMARK [1][-]{section.2}{2 Foreign exchange market overview}{}% 2
-\BOOKMARK [1][-]{section.3}{3 Data set}{}% 3
-\BOOKMARK [1][-]{section.4}{4 Time scale}{}% 4
-\BOOKMARK [1][-]{section.5}{5 Price response functions}{}% 5
-\BOOKMARK [1][-]{section.6}{6 Spread impact in price response functions}{}% 6
-\BOOKMARK [1][-]{section.7}{7 Conclusion}{}% 7
-\BOOKMARK [1][-]{section.8}{8 Author contribution statement}{}% 8
-\BOOKMARK [1][-]{appendix.1.A}{A Foreign exchange pairs used to analyze the spread impact}{}% 9
+\BOOKMARK [2][-]{subsection.2.1}{2.1 Foreign exchange market}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{2.2 Key concepts}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{3 Data set}{}% 5
+\BOOKMARK [1][-]{section.4}{4 Time scale}{}% 6
+\BOOKMARK [2][-]{subsection.4.1}{4.1 Time definition}{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.2}{4.2 Trade time scale}{section.4}% 8
+\BOOKMARK [2][-]{subsection.4.3}{4.3 Physical time scale}{section.4}% 9
+\BOOKMARK [1][-]{section.5}{5 Price response functions}{}% 10
+\BOOKMARK [2][-]{subsection.5.1}{5.1 Response functions on trade time scale}{section.5}% 11
+\BOOKMARK [2][-]{subsection.5.2}{5.2 Response functions on physical time scale}{section.5}% 12
+\BOOKMARK [1][-]{section.6}{6 Spread impact in price response functions}{}% 13
+\BOOKMARK [1][-]{section.7}{7 Conclusion}{}% 14
+\BOOKMARK [1][-]{section.8}{8 Author contribution statement}{}% 15
+\BOOKMARK [1][-]{appendix.A}{Appendix A Foreign exchange pairs used to analyze the spread impact}{}% 16
