@@ -97,13 +97,14 @@ point. For example, one pip in the exchange rate USD/JPY of 124.21 would be
 \cite{forex_structure,micro_eff,forex_market_micro,book_forex_3,order_flow_forex}.
 
 Compared with other markets like the stock market, there are some key
-characteristics that differentiate the foreign exchange market. There are fewer
-rules, there are no clearing houses and central bodies that oversee the market.
-The investors will not have to pay fees or commissions as on another markets.
+characteristics that differentiate the foreign spot exchange market.
+\textcolor{red}{There are
+fewer rules, there are no clearing houses and central bodies that oversee the
+market. Some investors do not have to pay fees or commissions as on another markets.
 It is possible to trade at any time of day and regarding the risk and reward,
 it is possible to get in and out whenever the investor want. In the foreign
-exchange market, the bid-ask spread is the only transaction cost
-\cite{book_forex_2}.
+exchange market, the bid-ask spread is the most used transaction cost
+\cite{book_forex_2}}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Key concepts}\label{subsec:key_concepts}
@@ -162,7 +163,8 @@ cases as
     \varepsilon\left(t\right)=\text{sign}\left(S\left(t\right)
     -m\left(t-\delta\right)\right),
 \end{equation}
-where $\delta$ is a positive time increment. Hence we have
+\textcolor{red}{where $\delta$ is a positive time increment and $S\left(t\right)$ is the price.}
+Hence we have
 \begin{equation}\label{eq:trade_sign_results}
     \varepsilon\left(t\right)=\left\{
     \begin{array}{cc}
@@ -180,8 +182,8 @@ In our implementation of the price response functions we need a more specific
 definition of trade signs. We give a deeper explanation of trade signs
 depending on the time scale in Sect. \ref{sec:time_scale}.
 
-The main objective of this work is to analyze the price response functions. In
-general we define the price response functions in a foreign exchange market as
+\textcolor{red}{Generally, price response functions measure price changes implied by execution
+of market orders and are defined as follows:
 \begin{equation}\label{eq:response_general}
     R^{\left(\textrm{scale}\right)}_{i}\left(\tau\right)=\left\langle
     r^{\left(\textrm{scale}\right)}_{i}\left(t-1, \tau\right)
@@ -194,12 +196,13 @@ lag $\tau$ in the corresponding scale and
 $\varepsilon^{\left(\textrm{scale}\right)}_{i}$ is the trade sign of the pair
 $i$ in the corresponding scale. The superscript scale refers to the time scale
 used, whether physical time scale ($\textrm{scale} = \textrm{p}$) or trade time
-scale ($\textrm{scale} = \textrm{t}$). Finally, The subscript average refers to
+scale ($\textrm{scale} = \textrm{t}$). \textcolor{green}{Finally, the subscript} average refers to
 the way to average the price response, whether relative to the physical time
 scale ($\textrm{average} = P$) or relative to the trade time scale
-($\textrm{average} = T$).
+($\textrm{average} = T$). The main objective of this work is to analyze the
+price response functions for the spot foreign exchange markets.}
 
-For correlated financial markets, the price response function increases to a
-maximum and then slowly decreases. This result is observed empirically in trade
+For correlated financial markets, \textcolor{red}{the price response function increases to a
+maximum and then slowly decreases with increasing $\tau$}. This result is observed empirically in trade
 time scale and in physical time scale
 \cite{my_paper_response_financial,Wang_2016_avg}.
