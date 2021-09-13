@@ -72,7 +72,7 @@ def hist_trade_scale_response_year_avg_plot(
 
         ax1.set_title(f'{years[0]}', fontsize=15)
         ax1.set_xlabel(r'$\tau \, [trades]$', fontsize=15)
-        ax1.set_ylabel(r'$R^{\left(t\right)}_{ii}(\tau)$', fontsize=15)
+        ax1.set_ylabel(r'$R^{\left(t\right)}_{i}(\tau)$', fontsize=15)
         ax1.tick_params(axis='x', labelsize=10)
         ax1.tick_params(axis='y', labelsize=10)
         ax1.set_xlim(1, __tau__)
@@ -83,7 +83,7 @@ def hist_trade_scale_response_year_avg_plot(
 
         ax2.set_title(f'{years[1]}', fontsize=15)
         ax2.set_xlabel(r'$\tau \, [trades]$', fontsize=15)
-        ax2.set_ylabel(r'$R^{\left(t\right)}_{ii}(\tau)$', fontsize=15)
+        ax2.set_ylabel(r'$R^{\left(t\right)}_{i}(\tau)$', fontsize=15)
         ax2.tick_params(axis='x', labelsize=10)
         ax2.tick_params(axis='y', labelsize=10)
         ax2.set_xlim(1, __tau__)
@@ -96,7 +96,7 @@ def hist_trade_scale_response_year_avg_plot(
         ax3.legend(loc='upper center', bbox_to_anchor=(0.5, -0.2), ncol=3,
                    fontsize=13)
         ax3.set_xlabel(r'$\tau \, [trades]$', fontsize=15)
-        ax3.set_ylabel(r'$R^{\left(t\right)}_{ii}(\tau)$', fontsize=15)
+        ax3.set_ylabel(r'$R^{\left(t\right)}_{i}(\tau)$', fontsize=15)
         ax3.tick_params(axis='x', labelsize=10)
         ax3.tick_params(axis='y', labelsize=10)
         ax3.set_xlim(1, __tau__)
@@ -160,7 +160,7 @@ def hist_physical_scale_response_year_avg_plot(
 
         ax1.set_title(f'{years[0]}', fontsize=15)
         ax1.set_xlabel(r'$\tau \, [s]$', fontsize=15)
-        ax1.set_ylabel(r'$R^{\left(p\right)}_{ii}(\tau)$', fontsize=15)
+        ax1.set_ylabel(r'$R^{\left(p\right)}_{i}(\tau)$', fontsize=15)
         ax1.tick_params(axis='x', labelsize=10)
         ax1.tick_params(axis='y', labelsize=10)
         ax1.set_xlim(1, __tau__)
@@ -171,7 +171,7 @@ def hist_physical_scale_response_year_avg_plot(
 
         ax2.set_title(f'{years[1]}', fontsize=15)
         ax2.set_xlabel(r'$\tau \, [s]$', fontsize=15)
-        ax2.set_ylabel(r'$R^{\left(p\right)}_{ii}(\tau)$', fontsize=15)
+        ax2.set_ylabel(r'$R^{\left(p\right)}_{i}(\tau)$', fontsize=15)
         ax2.tick_params(axis='x', labelsize=10)
         ax2.tick_params(axis='y', labelsize=10)
         ax2.set_xlim(1, __tau__)
@@ -184,7 +184,7 @@ def hist_physical_scale_response_year_avg_plot(
         ax3.legend(loc='upper center', bbox_to_anchor=(0.5, -0.2), ncol=3,
                    fontsize=13)
         ax3.set_xlabel(r'$\tau \, [s]$', fontsize=15)
-        ax3.set_ylabel(r'$R^{\left(p\right)}_{ii}(\tau)$', fontsize=15)
+        ax3.set_ylabel(r'$R^{\left(p\right)}_{i}(\tau)$', fontsize=15)
         ax3.tick_params(axis='x', labelsize=10)
         ax3.tick_params(axis='y', labelsize=10)
         ax3.set_xlim(1, __tau__)
