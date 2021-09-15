@@ -1,7 +1,8 @@
-\section{Spread impact in price response functions}\label{sec:spread_impact}
+\section{Bid-ask spread impact in price response functions}
+\label{sec:spread_impact}
 
-To analyze the spread impact in price response functions, we use 47 foreign
-exchange pairs from three different years (\ref{app:fx_pairs_spread}).
+To analyze the bid-ask spread impact in price response functions, we use 46
+foreign exchange pairs from three different years (\ref{app:fx_pairs_spread}).
 As we showed in Sect. \ref{sec:forex_overview}, due to the difference in the
 position of the decimal points in the price between foreign exchange pairs, to
 compare them we need to introduce a ``scaling factor'' with the purpose of
@@ -15,10 +16,12 @@ The pip bid-ask spread is defined as \cite{micro_eff}
 \end{equation}
 With the $s_{\textrm{pip}}$ we can group the foreign exchange pairs and check
 how the average strength of the price response functions on trade time scale
-and physical time scale behave. For each pair we compute the pip bid-ask spread
-in every trade along the market time. Then we average the spread during the
-trade weeks in the different years. With this value we group the foreign
-exchange pairs.
+and physical time scale behave. \textcolor{red}{For each pair we compute the pip bid-ask spread
+of the order book at each time a trade accrued.} Then we average the bid-ask spread during
+the trade weeks in the different years. \textcolor{red}{With this value we group the foreign
+exchange pairs in several groups considering different interval values. We start to reduce
+the number of groups and find out that for the years 2011 and 2015 two clusters and for 2019
+three clusters are clearly distinguishable.}
 
 \begin{figure*}[htbp]
     \centering
@@ -29,27 +32,29 @@ exchange pairs.
              $R^{\left(p\right)}_{ii}\left(\tau\right)$ excluding
              $\varepsilon^{\left(p\right)}_{i}\left(t\right) = 0$ versus time
              lag $\tau$ on a logarithmic scale in physical time scale (Bottom)
-             for 47 foreign exchange pairs divided in representative groups in
+             for 46 foreign exchange pairs divided in representative groups in
              three different years (2011, 2015 and 2019).}
     \label{fig:spread_impact}
 \end{figure*}
 
-Depending on the year, we identify different numbers of groups according to the pip spread $s_{\textrm{pip}}$. For the years 2011 and 2015, we use two
+Depending on the year, we identify different numbers of groups according to the
+pip bid-ask spread $s_{\textrm{pip}}$. For the years 2011 and 2015, we use two
 intervals to select the foreign exchange pairs groups ($s_{\textrm{pip}}<10$
 and $10 \le s_{\textrm{pip}}$). In the year 2019 we use three intervals to
 select the foreign exchange pairs groups ($s_{\textrm{pip}}<4$,
 $4 \le s_{\textrm{pip}} < 10$ and $10 \le s_{\textrm{pip}}$). The detailed
-information of the foreign exchange pairs, spread and the groups can be seen in
-\ref{app:fx_pairs_spread}. With the groups of the stocks defined, we
+information of the foreign exchange pairs, bid-ask spread and the groups can be
+seen in \ref{app:fx_pairs_spread}. With the groups of currency pairs defined, we
 average the price response functions of each group.
 
 In Fig. \ref{fig:spread_impact} we show the average response functions for
 the corresponding groups in three different years. From year to year the groups
-can vary depending on the pip spread. The average price response function for
-the pairs with smaller pip spreads (more liquid) have on average the weakest
-signal in the figure for all the years and both time scales. On the other hand,
-the average price responses for the pairs with larger pip spread (less liquid)
-have on average the strongest signal for all the years in both time scales.
+can vary depending on the pip bid-ask spread. The average price response
+function for the pairs with smaller pip bid-ask spreads (more liquid) have on
+average the weakest signal in the figure for all the years and both time
+scales. On the other hand, the average price responses for the pairs with
+larger pip bid-ask spread (less liquid) have on average the strongest signal
+for all the years in both time scales.
 
 From Sect. \ref{sec:response_functions} we expect the increase-maximum-decrease
 behavior. This behavior can be seen in the figures of the year 2015 for both
