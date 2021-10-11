@@ -8,13 +8,13 @@ respectively.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Time definition}\label{subsec:time_definition}
 
-\textcolor{red}{Due to the nature of the data, there are several} options to define time for
+Due to the nature of the data, there are several options to define time for
 analyzing data. In general, the time series are labeled in calendar time
-(hours, minutes, seconds, milliseconds). \textcolor{red}{Moreover, tick-by-tick data available
-on financial markets all over the world are time stamped up to the nanosecond \cite{xetra},
-but the order of magnitude of the guaranteed precision is much larger, usually
-one second or a few hundreds of milliseconds
-\cite{market_digest,empirical_facts}.} In several papers are used different time
+(hours, minutes, seconds, milliseconds).Moreover, tick-by-tick data available
+on financial markets all over the world are time stamped up to the nanosecond
+\cite{xetra}, but the order of magnitude of the guaranteed precision is much
+larger, usually one second or a few hundreds of milliseconds
+\cite{market_digest,empirical_facts}. In several papers are used different time
 definitions (calendar time, physical time, event time, trade time, tick time)
 \cite{empirical_facts,sampling_returns,market_making}. The spot foreign
 exchange market data used in the analysis only has the quotes. In consequence,
@@ -35,7 +35,7 @@ is made in the trade signs and in the midpoint prices.
 
 We use these two definitions of time scale to compute the price response
 function. Between these two scales, there is not a judgment which is better or
-worse. \textcolor{red}{Their use directly depends on the application.} Thus, our aim is to
+worse.Their use directly depends on the application. Thus, our aim is to
 present how the price response function behaves under these two different time
 scales.
 
@@ -55,11 +55,11 @@ that reads
     & \text{otherwise}
     \end{array}\right..
 \end{equation}
-\textcolor{red}{Here, $t$ distinguish each second where one or more trades can happen.
+Here, $t$ distinguish each second where one or more trades can happen.
 $\varepsilon^{\left(\textrm{t}\right)}\left( t,n \right) = +1$ implies a
 trade triggered by a market order to buy, and a value
-$\varepsilon^{\left(\textrm{t}\right)}\left( t,n \right) = -1$ indicates a trade
-triggered by a market order to sell.}
+$\varepsilon^{\left(\textrm{t}\right)}\left( t,n \right) = -1$ indicates a
+trade triggered by a market order to sell.
 
 In the second case of Eq. (\ref{eq:trade_signs_trade}), if two consecutive
 trades with the same trading direction do not exhaust all the available volume
@@ -86,15 +86,16 @@ Eq. (\ref{eq:trade_signs_trade}) and reads
     0, & \text{If }N\left(t\right)=0
     \end{array}\right. ,
 \end{equation}
-\textcolor{red}{where $N \left(t \right)$ is the number of trades in an interval of one second following t.}
-\textcolor{red}{Here, $\varepsilon^{\left(\textrm{p}\right)}\left( t \right) = +1$ implies that
-the imbalance of trades in the second $t$ are triggered by a market order to buy,
-and a value $\varepsilon^{\left(\textrm{p}\right)}\left( t \right) = -1$
-indicates an imbalance of sell market orders.} In this definition, there are two
-ways to obtain $\varepsilon^{\left(\textrm{p}\right)}\left( t \right) = 0$.
-First, there are no trades in a particular second and thus no trade sign.
-Second, the sum of the trade signs in a given second amounts to zero,
-indicating an exact balance of buy and sell market orders.
+where $N \left(t \right)$ is the number of trades in an interval of one second
+following t. Here, $\varepsilon^{\left(\textrm{p}\right)}\left( t \right) = +1$
+implies that the imbalance of trades in the second $t$ are triggered by a
+market order to buy, and a value
+$\varepsilon^{\left(\textrm{p}\right)}\left( t \right) = -1$ indicates an
+imbalance of sell market orders. In this definition, there are two ways to
+obtain $\varepsilon^{\left(\textrm{p}\right)}\left( t \right) = 0$.  First,
+there are no trades in a particular second and thus no trade sign. Second, the
+sum of the trade signs in a given second amounts to zero, indicating an exact
+balance of buy and sell market orders.
 
 Market orders show opposite trade directions as compared to limit orders
 executed simultaneously. An executed sell limit order corresponds to a

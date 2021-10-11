@@ -44,17 +44,18 @@ York time as reference, the market opens on Sunday at 19h00 and closes on
 Friday at 17h00. London, New York and Tokyo are the largest trading centers of
 foreign exchange trading \cite{book_forex_4}
 
-\textcolor{red}{Currency markets are divided into spot market, forward, future, currency swaps
-and currency options \cite{book_forex_2,book_forex_3,book_forex_4}. The spot and forward
-exchange markets are OTC markets \cite{book_forex}. In our work
-we particularly focus on the spot market, where as his name suggest, the trades
-are settled on the spot \cite{book_forex,book_forex_3}. In a spot market, as
-the currency transactions are carried in the OTC markets, information
-concerning open interest and volume is unavailable. The transactions in this
-market represent up to the 40\% of the total market transactions in the foreign
-exchange market. This estimations are made by the Bank for International Settlements (BIS)
-based on a central bank survey of foreign exchange and derivatives market activities
-in major financial centers \cite{bis}.} The most traded currencies in the spot market are the U.S.
+\textcolor{red}{Currency markets are divided into spot market, forward market,
+future market, currency swaps market and currency options
+\cite{book_forex_2,book_forex_3,book_forex_4}.} The spot and forward exchange
+markets are OTC markets \cite{book_forex}. In our work we particularly focus on
+the spot market, where as his name suggest, the trades are settled on the spot
+\cite{book_forex,book_forex_3}. In a spot market, as the currency transactions
+are carried in the OTC markets, information concerning open interest and volume
+is unavailable. The transactions in this market represent up to the 40\% of the
+total market transactions in the foreign exchange market. This estimations are
+made by the Bank for International Settlements (BIS) based on a central bank
+survey of foreign exchange and derivatives market activities in major financial
+centers \cite{bis}. The most traded currencies in the spot market are the U.S.
 dollar, euro, Japanese yen, British pound and Swiss franc \cite{book_forex}.
 
 In general, three categories of currency pairs are defined: majors, crosses,
@@ -101,13 +102,12 @@ point. For example, one pip in the exchange rate USD/JPY of 124.21 would be
 
 Compared with other markets like the stock market, there are some key
 characteristics that differentiate the foreign spot exchange market.
-\textcolor{red}{There are
-fewer rules, there are no clearing houses and central bodies that oversee the
-market. Some investors do not have to pay fees or commissions as on other markets.
-It is possible to trade at any time of day and regarding the risk and reward,
-it is possible to get in and out whenever the investor wants. In the foreign
-exchange market, the bid-ask spread is the most used transaction cost
-\cite{book_forex_2}}.
+There are fewer rules, there are no clearing houses and central
+bodies that oversee the market. Some investors do not have to pay fees or
+commissions as on other markets. It is possible to trade at any time of day and
+regarding the risk and reward, \textcolor{red}{it is possible to get in, and out whenever the
+investor wants. In the foreign exchange market, the providers use a bid-ask
+spread as a measure for the transaction cost \cite{book_forex_2}}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Key concepts}\label{subsec:key_concepts}
@@ -167,7 +167,7 @@ cases as
     \varepsilon\left(t\right)=\text{sign}\left(S\left(t\right)
     -m\left(t-\delta\right)\right),
 \end{equation}
-\textcolor{red}{where $\delta$ is a positive time increment and $S\left(t\right)$ is the price.}
+where $\delta$ is a positive time increment and $S\left(t\right)$ is the price.
 Hence we have
 \begin{equation}\label{eq:trade_sign_results}
     \varepsilon\left(t\right)=\left\{
@@ -187,7 +187,11 @@ definition of trade signs. We give a deeper explanation of trade signs
 depending on the time scale in Sect. \ref{sec:time_scale}.
 
 \textcolor{red}{Generally, price response functions measure price changes implied by execution
-of market orders and are defined as follows:
+of market orders. Here, different time scales have to be distinguished. The
+superscript scale refers to the time scale used, whether physical time scale
+($\textrm{scale} = \textrm{p}$) or trade time scale
+($\textrm{scale} = \textrm{t}$). The price response functions are defined as
+follows
 \begin{equation}\label{eq:response_general}
     R^{\left(\textrm{scale}\right)}_{i}\left(\tau\right)=\left\langle
     r^{\left(\textrm{scale}\right)}_{i}\left(t-1, \tau\right)
@@ -198,15 +202,13 @@ where the index $i$ corresponds to currency pairs in the market,
 $r^{\left(\textrm{scale}\right)}_{i}$ is the return of the pair $i$ in a time
 lag $\tau$ in the corresponding scale and
 $\varepsilon^{\left(\textrm{scale}\right)}_{i}$ is the trade sign of the pair
-$i$ in the corresponding scale. The superscript scale refers to the time scale
-used, whether physical time scale ($\textrm{scale} = \textrm{p}$) or trade time
-scale ($\textrm{scale} = \textrm{t}$). \textcolor{green}{Finally, the subscript} average refers to
-the way to average the price response, whether relative to the physical time
-scale ($\textrm{average} = P$) or relative to the trade time scale
+$i$ in the corresponding scale.  Finally, the subscript average refers to how
+the price response function is averaged, either to the physical time scale
+($\textrm{average} = P$) or relative to the trade time scale
 ($\textrm{average} = T$). The main objective of this work is to analyze the
 price response functions for the spot foreign exchange markets.}
 
-For correlated financial markets, \textcolor{red}{the price response function increases to a
-maximum and then slowly decreases with increasing $\tau$}. This result is observed empirically in trade
-time scale and in physical time scale
+For correlated financial markets, the price response function increases to a
+maximum and then slowly decreases with increasing $\tau$. This result is
+observed empirically in trade time scale and in physical time scale
 \cite{my_paper_response_financial,Wang_2016_avg}.
