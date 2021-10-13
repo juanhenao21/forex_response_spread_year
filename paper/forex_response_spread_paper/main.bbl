@@ -7,6 +7,49 @@ H.~E. Stanley, L.~A.~N. Amaral, D.~Canning, P.~Gopikrishnan, Y.~Lee, and
 \newblock {\em Physica A: Statistical Mechanics and its Applications},
   269(1):156--169, 1999.
 
+\bibitem{data_01}
+Rongjun Yang, Lin Yu, Yuanjun Zhao, Hongxin Yu, Guiping Xu, Yiting Wu, and
+  Zhengkai Liu.
+\newblock Big data analytics for financial market volatility forecast based on
+  support vector machine.
+\newblock {\em International Journal of Information Management}, 50:452--462,
+  2020.
+
+\bibitem{data_02}
+Jillian Grennan and Roni Michaely.
+\newblock Fintechs and the market for financial analysis.
+\newblock {\em Journal of Financial and Quantitative Analysis},
+  56(6):1877–1907, 2021.
+
+\bibitem{data_03}
+Gang-Jin Wang, Chi Xie, and H.~Eugene Stanley.
+\newblock Correlation structure and evolution of world stock markets: Evidence
+  from pearson and partial correlation-based networks.
+\newblock {\em Computational Economics}, 51:607–635, 2018.
+
+\bibitem{data_04}
+Dayong Zhang, Min Hu, and Qiang Ji.
+\newblock Financial markets under the global pandemic of covid-19.
+\newblock {\em Finance Research Letters}, 36:101528, 2020.
+
+\bibitem{data_05}
+Alexis Stenfors.
+\newblock Bid-ask spread determination in the fx swap market: Competition,
+  collusion or a convention?
+\newblock {\em Journal of International Financial Markets, Institutions and
+  Money}, 54:78--97, 2018.
+
+\bibitem{forex_microstructure}
+Martin~D.D. Evans and Dagfinn Rime.
+\newblock Microstructure of foreign exchange markets.
+\newblock {\em Available at SSRN 3345289}, 2019.
+
+\bibitem{data_06}
+Marcos Escobar and Christoph Gschnaidtner.
+\newblock A multivariate stochastic volatility model with applications in the
+  foreign exchange market.
+\newblock {\em Review of Derivatives Research}, 21:1--43, 2018.
+
 \bibitem{complex_markets}
 Dean Rickles.
 \newblock Econophysics and the complexity of financial markets.
@@ -44,11 +87,6 @@ Jeng-Hong Chen.
   exchange market.
 \newblock {\em American Journal of Business Education (AJBE)}, 11:55--62, 10
   2018.
-
-\bibitem{forex_microstructure}
-Martin~D.D. Evans and Dagfinn Rime.
-\newblock Microstructure of foreign exchange markets.
-\newblock {\em Available at SSRN 3345289}, 2019.
 
 \bibitem{electronic_forex}
 Liang Ding and Jonas Hiltrop.
